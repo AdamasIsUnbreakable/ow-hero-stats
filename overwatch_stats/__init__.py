@@ -7,4 +7,5 @@ __all__ = [
     "normalize",
     "parse_stats",
     "export_json",
+    "web_export",
 ]

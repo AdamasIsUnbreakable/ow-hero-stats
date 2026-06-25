@@ -67,6 +67,13 @@ Print the all-heroes audit as stable JSON:
 .\.venv\Scripts\python.exe -m overwatch_stats.cli audit all --json
 ```
 
+Generate static website-ready data:
+
+```powershell
+.\.venv\Scripts\python.exe -m overwatch_stats.cli web-data
+.\.venv\Scripts\python.exe -m overwatch_stats.cli web-data --refresh
+```
+
 ## Output Model
 
 Each normalized hero export includes:
@@ -109,6 +116,35 @@ Overwatch Fandom is community-maintained. Refresh cached data after patches or w
 
 ```powershell
 .\.venv\Scripts\python.exe -m overwatch_stats.cli --refresh all
+```
+
+## Static Website Data
+
+The `web-data` command creates a stable, versioned JSON contract for a future website. It does not build a frontend. Generated files are written under:
+
+```text
+site\public\data\v1\
+  manifest.json
+  heroes.index.json
+  audit-summary.json
+  heroes\
+    ashe.json
+    ana.json
+    ...
+```
+
+`manifest.json` includes the schema version, generation timestamp, source API endpoint, hero count, and paths to the other files.
+
+`heroes.index.json` is lightweight for hero selector/search views. It includes hero identity, role, health, ability count, warning count, confidence counts, and each hero detail path. It does not include full raw ability rows.
+
+Each `heroes\{slug}.json` detail file includes raw and parsed stats for that hero, so a future website can support raw/parsed toggles and warning-aware displays.
+
+`audit-summary.json` mirrors the `audit all --json` summary shape with totals, confidence counts, source validation, zero-ability heroes, and common parse warnings.
+
+Generated site data should be regenerated after Overwatch patches or wiki updates:
+
+```powershell
+.\.venv\Scripts\python.exe -m overwatch_stats.cli web-data --refresh
 ```
 
 ## Tests

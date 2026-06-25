@@ -10,6 +10,7 @@ dist/
 data/cache/
 data/cache-test/
 data/output/
+site/public/data/
 
 .agents/
 .codex/

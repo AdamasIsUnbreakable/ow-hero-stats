@@ -9,6 +9,7 @@ from .audit import all_audit_summary, build_all_audit, hero_audit_summary, rende
 from .export_json import hero_to_json, write_all, write_hero
 from .fandom_client import FandomApiError, FandomClient
 from .normalize import normalize_selected, normalize_hero
+from .web_export import DEFAULT_WEB_DATA_DIR, build_audit_summary, write_web_data
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -33,6 +34,10 @@ def build_parser() -> argparse.ArgumentParser:
     audit.add_argument("target", help="Hero name or all.")
     audit.add_argument("--json", action="store_true", help="Print a stable JSON audit summary instead of text.")
 
+    web_data = subparsers.add_parser("web-data", help="Generate static website-ready JSON data files.")
+    web_data.add_argument("--refresh", action="store_true", dest="command_refresh", help="Bypass local cache and refetch API data.")
+    web_data.add_argument("--output-dir", default=str(DEFAULT_WEB_DATA_DIR), help="Directory for generated website data.")
+
     subparsers.add_parser("all", help="Fetch and export all heroes.")
     return parser
 
@@ -40,7 +45,7 @@ def build_parser() -> argparse.ArgumentParser:
 def main(argv: list[str] | None = None) -> int:
     _configure_output()
     args = build_parser().parse_args(argv)
-    refresh = args.refresh or args.command == "refresh"
+    refresh = args.refresh or args.command == "refresh" or getattr(args, "command_refresh", False)
     client = FandomClient(
         cache_dir=args.cache_dir,
         refresh=refresh,
@@ -56,6 +61,8 @@ def main(argv: list[str] | None = None) -> int:
             return _all(client, args.output_dir)
         if args.command == "audit":
             return _audit(client, args.target, json_output=args.json)
+        if args.command == "web-data":
+            return _web_data(client, args.output_dir)
     except FandomApiError as exc:
         print(f"Fandom API error: {exc}", file=sys.stderr)
         return 2
@@ -128,6 +135,17 @@ def _audit(client: FandomClient, target: str, json_output: bool = False) -> int:
         print(json.dumps(hero_audit_summary(hero, len(ability_rows)), ensure_ascii=False, indent=2))
     else:
         print(render_hero_audit(hero, len(ability_rows)))
+    return 0
+
+
+def _web_data(client: FandomClient, output_dir: str) -> int:
+    hero_names = client.get_hero_page_names()
+    hero_rows = client.get_all_heroes()
+    ability_rows = client.get_all_abilities()
+    heroes, validation = build_all_audit(hero_names, hero_rows, ability_rows)
+    audit_summary = build_audit_summary(hero_names, hero_rows, heroes, ability_rows, validation)
+    paths = write_web_data(heroes, audit_summary, output_dir=output_dir)
+    print(f"Generated web data for {len(heroes)} heroes in {paths['manifest'].parent}")
     return 0
 
 
