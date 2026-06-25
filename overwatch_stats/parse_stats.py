@@ -8,6 +8,9 @@ from .models import StatValue
 
 
 EMPTY_VALUES = {"", "-", "n/a", "na", "none", "unknown", "varies"}
+COMPLEX_DAMAGE_WARNING = (
+    "Partial parse only: this stat has multiple components and value is not the full damage model."
+)
 
 
 def clean_text(value: object) -> str | None:
@@ -123,9 +126,10 @@ def parse_damage(raw: object) -> StatValue:
     number_range = _range(text)
     warnings: list[str] = []
     confidence = "high"
-    if re.search(r"splash|direct|impact|explosion|\+", text, re.IGNORECASE):
-        warnings.append("Damage appears to contain components; raw value should be checked.")
-        confidence = "medium"
+    is_complex = _is_complex_damage(text)
+    if is_complex:
+        warnings.append(COMPLEX_DAMAGE_WARNING)
+        confidence = "low"
     if number_range:
         return StatValue(
             raw=str(raw),
@@ -139,13 +143,13 @@ def parse_damage(raw: object) -> StatValue:
     if value is None:
         return unparsed(raw, "Could not parse damage.")
     number_count = len(re.findall(r"-?\d+(?:\.\d+)?", text))
-    if "+" in text or number_count > 1:
+    if is_complex or number_count > 1:
         return StatValue(
             raw=str(raw),
-            value=value,
+            value=None,
             unit="damage",
             confidence="low",
-            warnings=["Damage has multiple components and only the first number was parsed."],
+            warnings=warnings or [COMPLEX_DAMAGE_WARNING],
         )
     return StatValue(raw=str(raw), value=value, unit="damage", confidence=confidence, warnings=warnings)
 
@@ -223,6 +227,16 @@ def parse_dps_hps(raw: object) -> StatValue:
     if value is None:
         return unparsed(raw, "Could not parse per-second stat.")
     return StatValue(raw=str(raw), value=value, unit="per_second", confidence="high")
+
+
+def _is_complex_damage(text: str) -> bool:
+    if re.search(r"\b(direct|splash|impact|explosion)\b|\+", text, re.IGNORECASE):
+        return True
+    if re.search(r"\d+(?:\.\d+)?\s*/\s*\d+(?:\.\d+)?", text):
+        return True
+    if re.search(r"\d+(?:\.\d+)?\s*,\s*\d+(?:\.\d+)?", text):
+        return True
+    return False
 
 
 PARSERS: dict[str, Callable[[object], StatValue]] = {

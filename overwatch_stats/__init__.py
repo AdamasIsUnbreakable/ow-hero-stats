@@ -2,6 +2,7 @@
 
 __all__ = [
     "fandom_client",
+    "audit",
     "models",
     "normalize",
     "parse_stats",

@@ -5,6 +5,7 @@ import difflib
 import json
 import sys
 
+from .audit import build_all_audit, render_all_audit, render_hero_audit
 from .export_json import hero_to_json, write_all, write_hero
 from .fandom_client import FandomApiError, FandomClient
 from .normalize import normalize_selected, normalize_hero
@@ -28,6 +29,9 @@ def build_parser() -> argparse.ArgumentParser:
     refresh = subparsers.add_parser("refresh", help="Refresh and export one hero.")
     refresh.add_argument("name")
 
+    audit = subparsers.add_parser("audit", help="Print parser/source quality audit without exporting JSON.")
+    audit.add_argument("target", help="Hero name or all.")
+
     subparsers.add_parser("all", help="Fetch and export all heroes.")
     return parser
 
@@ -49,6 +53,8 @@ def main(argv: list[str] | None = None) -> int:
             return _raw(client, args.name)
         if args.command == "all":
             return _all(client, args.output_dir)
+        if args.command == "audit":
+            return _audit(client, args.target)
     except FandomApiError as exc:
         print(f"Fandom API error: {exc}", file=sys.stderr)
         return 2
@@ -95,6 +101,26 @@ def _all(client: FandomClient, output_dir: str) -> int:
     heroes = normalize_selected(hero_rows, ability_rows, hero_names)
     path = write_all(heroes, output_dir=output_dir)
     print(f"Exported {len(heroes)} heroes to {path}")
+    return 0
+
+
+def _audit(client: FandomClient, target: str) -> int:
+    if target.casefold() == "all":
+        hero_names = client.get_hero_page_names()
+        hero_rows = client.get_all_heroes()
+        ability_rows = client.get_all_abilities()
+        heroes, validation = build_all_audit(hero_names, hero_rows, ability_rows)
+        print(render_all_audit(heroes, ability_rows, validation))
+        return 0
+
+    hero_row = client.get_hero_metadata(target)
+    if not hero_row:
+        _print_not_found(client, target)
+        return 3
+    hero_name = hero_row.get("Name", target)
+    ability_rows = client.get_hero_abilities(hero_name)
+    hero = normalize_hero(hero_row, ability_rows)
+    print(render_hero_audit(hero, len(ability_rows)))
     return 0
 
 

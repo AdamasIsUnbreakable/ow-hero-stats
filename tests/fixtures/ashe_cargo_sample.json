@@ -1,0 +1,51 @@
+{
+  "hero": {
+    "Name": "Ashe",
+    "Role": "Damage",
+    "SubRole": "Sharpshooter",
+    "Health": "250",
+    "Armor": "",
+    "Shield": "",
+    "Abilities": ""
+  },
+  "abilities": [
+    {
+      "hero name": "Ashe",
+      "ability name": "The Viper",
+      "ability key": "primary fire",
+      "ability type": "Weapon",
+      "shot type": "Hitscan",
+      "official description": "Semi-automatic rifle.",
+      "damage": "35 - 10.5",
+      "damage falloff range": "20 - 40 meters",
+      "cooldown": "",
+      "fire rate": "4 shots/s",
+      "ammo": "12",
+      "reload time": "0.5 seconds (initial animation) <br/>+0.25 seconds per bullet",
+      "duration": "",
+      "pspeed": "",
+      "pradius": "0.07 meters",
+      "spread": "1.85 degrees (max)",
+      "dps": "136.5 while firing"
+    },
+    {
+      "hero name": "Ashe",
+      "ability name": "Dynamite",
+      "ability key": "ability 2",
+      "ability type": "Ability",
+      "shot type": "Projectile",
+      "official description": "Throw an explosive that detonates after a delay or immediately when shot.",
+      "damage": "50 direct + 25 splash",
+      "damage falloff range": "",
+      "cooldown": "12 seconds",
+      "fire rate": "",
+      "ammo": "",
+      "reload time": "",
+      "duration": "5 seconds",
+      "pspeed": "25 m/s",
+      "pradius": "",
+      "spread": "",
+      "dps": ""
+    }
+  ]
+}

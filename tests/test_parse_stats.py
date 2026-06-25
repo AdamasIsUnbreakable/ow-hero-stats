@@ -1,6 +1,7 @@
 import unittest
 
 from overwatch_stats.parse_stats import (
+    COMPLEX_DAMAGE_WARNING,
     clean_text,
     parse_ammo,
     parse_cooldown,
@@ -49,14 +50,26 @@ class ParseStatsTests(unittest.TestCase):
         stat = parse_damage("110 â€“ 55 splash")
         self.assertEqual(stat.min_value, 55)
         self.assertEqual(stat.max_value, 110)
-        self.assertEqual(stat.confidence, "medium")
-        self.assertTrue(stat.warnings)
-
-    def test_direct_plus_splash_is_low_confidence(self):
-        stat = parse_damage("50 direct + 25 splash")
-        self.assertEqual(stat.value, 50)
         self.assertEqual(stat.confidence, "low")
-        self.assertTrue(stat.warnings)
+        self.assertIn(COMPLEX_DAMAGE_WARNING, stat.warnings)
+
+    def test_direct_plus_splash_keeps_value_empty(self):
+        stat = parse_damage("50 direct + 25 splash")
+        self.assertIsNone(stat.value)
+        self.assertEqual(stat.confidence, "low")
+        self.assertIn(COMPLEX_DAMAGE_WARNING, stat.warnings)
+
+    def test_slash_separated_damage_keeps_value_empty(self):
+        stat = parse_damage("10/20/30")
+        self.assertIsNone(stat.value)
+        self.assertEqual(stat.confidence, "low")
+        self.assertIn(COMPLEX_DAMAGE_WARNING, stat.warnings)
+
+    def test_comma_separated_damage_keeps_value_empty(self):
+        stat = parse_damage("30, 15")
+        self.assertIsNone(stat.value)
+        self.assertEqual(stat.confidence, "low")
+        self.assertIn(COMPLEX_DAMAGE_WARNING, stat.warnings)
 
     def test_blank_value(self):
         stat = parse_ammo("")
