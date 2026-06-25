@@ -55,10 +55,26 @@ class WebExportTests(unittest.TestCase):
         self.assertEqual(detail["slug"], "ashe")
         self.assertEqual(dynamite["raw"]["damage"], "50 direct + 25 splash")
         self.assertEqual(dynamite["stats"]["cooldown"]["value"], 12)
+        self.assertEqual(dynamite["stats"]["pspeed"]["field"], "pspeed")
+        self.assertEqual(dynamite["stats"]["pspeed"]["label"], "Projectile Speed")
         self.assertEqual(dynamite["stats"]["pspeed"]["unit"], "meters_per_second")
         self.assertIsNone(dynamite["stats"]["damage"]["value"])
         self.assertEqual(dynamite["stats"]["damage"]["confidence"], "low")
         self.assertIn(COMPLEX_DAMAGE_WARNING, dynamite["stats"]["damage"]["warnings"])
+
+        viper = abilities["The Viper"]
+        self.assertEqual(viper["stats"]["damage_falloff_range"]["field"], "damage_falloff_range")
+        self.assertEqual(viper["stats"]["damage_falloff_range"]["label"], "Damage Falloff Range")
+
+    def test_hero_detail_audit_includes_warnings_by_ability(self):
+        detail = build_hero_detail(self.hero)
+
+        self.assertIn("warnings_by_ability", detail["audit"])
+        self.assertIn("Dynamite", detail["audit"]["warnings_by_ability"])
+        self.assertIn(
+            f"damage: {COMPLEX_DAMAGE_WARNING}",
+            detail["audit"]["warnings_by_ability"]["Dynamite"],
+        )
 
     def test_manifest_contains_schema_version_and_paths(self):
         manifest = build_manifest(hero_count=1, generated_at="2026-06-25T23:00:00Z")

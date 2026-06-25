@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Any
 
 from .audit import SourceValidation, all_audit_summary, count_confidences
+from .audit import warnings_by_ability
 from .export_json import hero_slug
 from .fandom_client import API_ENDPOINT
 from .models import AbilityStats, HeroStats, StatValue
@@ -13,6 +14,27 @@ from .models import AbilityStats, HeroStats, StatValue
 
 SCHEMA_VERSION = "1.0.0"
 DEFAULT_WEB_DATA_DIR = Path("site/public/data/v1")
+STAT_LABELS = {
+    "damage": "Damage",
+    "damage_falloff_range": "Damage Falloff Range",
+    "headshot": "Headshot",
+    "headshot_mod": "Headshot Multiplier",
+    "heal": "Healing",
+    "cooldown": "Cooldown",
+    "charges": "Charges",
+    "fire_rate": "Fire Rate",
+    "ammo": "Ammo",
+    "reload_time": "Reload Time",
+    "cast_time": "Cast Time",
+    "duration": "Duration",
+    "pspeed": "Projectile Speed",
+    "pradius": "Projectile Radius",
+    "spread": "Spread",
+    "radius": "Radius",
+    "range_distance": "Range",
+    "dps": "DPS",
+    "hps": "HPS",
+}
 
 
 def build_manifest(hero_count: int, generated_at: str | None = None) -> dict[str, Any]:
@@ -62,6 +84,7 @@ def build_hero_detail(hero: HeroStats) -> dict[str, Any]:
         "audit": {
             "warning_count": sum(len(ability.parse_warnings) for ability in hero.abilities),
             "confidence_counts": build_hero_index_entry(hero)["confidence_counts"],
+            "warnings_by_ability": warnings_by_ability(hero.abilities),
         },
     }
 
@@ -83,7 +106,8 @@ def build_ability_detail(ability: AbilityStats) -> dict[str, Any]:
 
 def build_stat_detail(label: str, stat: StatValue) -> dict[str, Any]:
     return {
-        "label": label,
+        "field": label,
+        "label": STAT_LABELS.get(label, label.replace("_", " ").title()),
         "raw": stat.raw,
         "value": stat.value,
         "min_value": stat.min_value,

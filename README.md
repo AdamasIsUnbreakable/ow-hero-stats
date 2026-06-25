@@ -139,6 +139,8 @@ site\public\data\v1\
 
 Each `heroes\{slug}.json` detail file includes raw and parsed stats for that hero, so a future website can support raw/parsed toggles and warning-aware displays.
 
+Stat objects in hero detail files include both `field` and `label`. `field` is the stable machine-readable stat key, such as `pspeed`; `label` is the human-readable display label, such as `Projectile Speed`.
+
 `audit-summary.json` mirrors the `audit all --json` summary shape with totals, confidence counts, source validation, zero-ability heroes, and common parse warnings.
 
 Generated site data should be regenerated after Overwatch patches or wiki updates:
