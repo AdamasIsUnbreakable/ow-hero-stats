@@ -149,6 +149,26 @@ Generated site data should be regenerated after Overwatch patches or wiki update
 .\.venv\Scripts\python.exe -m overwatch_stats.cli web-data --refresh
 ```
 
+## Static Viewer
+
+The repository includes a minimal plain HTML/CSS/JavaScript viewer that reads the generated JSON data contract. It has no React, Vite, TypeScript, Tailwind, or build step.
+
+Generate data, serve the `site` folder, then open the local URL:
+
+```powershell
+.\.venv\Scripts\python.exe -m overwatch_stats.cli web-data
+cd site
+python -m http.server 8000
+```
+
+Open:
+
+```text
+http://localhost:8000
+```
+
+The browser loads data from `site\public\data\v1`. Use the raw value toggle to inspect original wiki strings alongside parsed values, confidence, and parser warnings.
+
 ## Tests
 
 Normal tests do not require live network access. Representative Cargo payloads live under `tests\fixtures`, including `tests\fixtures\ashe_cargo_sample.json`, so parser and normalizer behavior can be checked against realistic Cargo-style strings without calling the Fandom API.

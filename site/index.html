@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OW Hero Stats</title>
+    <link rel="stylesheet" href="./src/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div>
+        <h1>OW Hero Stats</h1>
+        <p>
+          Overwatch Fandom stat data with raw wiki values, parser confidence, and warnings kept visible.
+        </p>
+      </div>
+      <button id="raw-toggle" class="secondary-button" type="button" aria-pressed="false">
+        Show raw values
+      </button>
+    </header>
+
+    <main class="app-shell">
+      <aside class="sidebar" aria-label="Hero browser">
+        <section class="controls" aria-label="Search and filters">
+          <label for="hero-search">Search heroes</label>
+          <input id="hero-search" type="search" placeholder="Search by name">
+
+          <label for="role-filter">Role</label>
+          <select id="role-filter">
+            <option value="All">All</option>
+            <option value="Tank">Tank</option>
+            <option value="Damage">Damage</option>
+            <option value="Support">Support</option>
+          </select>
+        </section>
+
+        <section>
+          <div class="section-heading">
+            <h2>Heroes</h2>
+            <span id="hero-count" class="muted"></span>
+          </div>
+          <div id="hero-list" class="hero-list" aria-live="polite"></div>
+        </section>
+      </aside>
+
+      <section class="detail-pane" aria-label="Selected hero details">
+        <section id="audit-status" class="status-panel"></section>
+        <section id="hero-detail" class="hero-detail">
+          <div class="empty-state">
+            <h2>Select a hero</h2>
+            <p>Choose a hero from the list to inspect parsed stats, raw values, confidence, and warnings.</p>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="./src/main.js"></script>
+  </body>
+</html>
