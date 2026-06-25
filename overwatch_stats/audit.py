@@ -68,6 +68,8 @@ def render_hero_audit(hero: HeroStats, ability_row_count: int) -> str:
 
 
 def render_all_audit(
+    playable_hero_names: list[str],
+    character_rows: list[dict[str, Any]],
     heroes: list[HeroStats],
     ability_rows: list[dict[str, Any]],
     validation: SourceValidation,
@@ -81,23 +83,26 @@ def render_all_audit(
     )
     parsed_count = sum(confidence_counts.values())
     zero_ability_heroes = [hero.name for hero in heroes if not hero.abilities]
+    ability_group_count = len(_name_map(_row_name(row, "hero_name") for row in ability_rows))
 
     lines = [
         "All-heroes audit",
-        f"Total heroes: {len(heroes)}",
+        f"Playable heroes: {len(playable_hero_names)}",
+        f"Characters rows: {len(character_rows)}",
+        f"Abilities hero groups: {ability_group_count}",
         f"Total ability rows: {len(ability_rows)}",
         f"Total parsed stat fields: {parsed_count}",
         "Confidence counts: " + _format_confidences(confidence_counts),
         "",
-        f"Heroes with zero abilities ({len(zero_ability_heroes)}):",
+        f"Heroes missing metadata ({len(validation.playable_missing_from_characters)}):",
     ]
+    lines.extend(_format_list(validation.playable_missing_from_characters, limit=50, empty="  None"))
+    lines.extend(["", f"Heroes missing abilities ({len(validation.playable_missing_from_abilities)}):"])
+    lines.extend(_format_list(validation.playable_missing_from_abilities, limit=50, empty="  None"))
+    lines.extend(["", f"Normalized heroes with zero abilities ({len(zero_ability_heroes)}):"])
     lines.extend(_format_list(zero_ability_heroes, limit=50, empty="  None"))
     lines.extend(["", f"Ability hero names not in playable hero list ({len(validation.extra_ability_hero_names)}):"])
     lines.extend(_format_list(validation.extra_ability_hero_names, limit=50, empty="  None"))
-    lines.extend(["", f"Playable heroes missing from Characters ({len(validation.playable_missing_from_characters)}):"])
-    lines.extend(_format_list(validation.playable_missing_from_characters, limit=50, empty="  None"))
-    lines.extend(["", f"Playable heroes missing from Abilities ({len(validation.playable_missing_from_abilities)}):"])
-    lines.extend(_format_list(validation.playable_missing_from_abilities, limit=50, empty="  None"))
     lines.extend(["", f"Extra Characters rows not in playable hero list ({len(validation.extra_character_rows)}):"])
     lines.extend(_format_list(validation.extra_character_rows, limit=50, empty="  None"))
     lines.extend(["", "Most common parse warnings:"])

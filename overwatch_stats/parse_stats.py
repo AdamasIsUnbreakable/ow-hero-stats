@@ -8,9 +8,7 @@ from .models import StatValue
 
 
 EMPTY_VALUES = {"", "-", "n/a", "na", "none", "unknown", "varies"}
-COMPLEX_DAMAGE_WARNING = (
-    "Partial parse only: this stat has multiple components and value is not the full damage model."
-)
+COMPLEX_DAMAGE_WARNING = "Complex damage model: raw value contains multiple components; no single damage value was parsed."
 
 
 def clean_text(value: object) -> str | None:

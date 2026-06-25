@@ -110,7 +110,7 @@ def _audit(client: FandomClient, target: str) -> int:
         hero_rows = client.get_all_heroes()
         ability_rows = client.get_all_abilities()
         heroes, validation = build_all_audit(hero_names, hero_rows, ability_rows)
-        print(render_all_audit(heroes, ability_rows, validation))
+        print(render_all_audit(hero_names, hero_rows, heroes, ability_rows, validation))
         return 0
 
     hero_row = client.get_hero_metadata(target)
