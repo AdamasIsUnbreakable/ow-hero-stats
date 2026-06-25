@@ -1,0 +1,2012 @@
+{
+  "name": "Widowmaker",
+  "role": "Damage",
+  "sub_role": "Sharpshooter",
+  "health": {
+    "health": 225,
+    "armor": null,
+    "shield": null
+  },
+  "abilities": [
+    {
+      "name": "Deadly Deux",
+      "slot": "",
+      "type": "Major Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Widowmaker",
+        "ability name": "Deadly Deux",
+        "ability key": "",
+        "ability type": "Major Perk",
+        "shot type": "",
+        "official description": "Venom Mine gains 100% increased damage and a second charge, enabling 2 active mines at a time.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* ''Removed in Season 18.''"
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Escape Plan",
+      "slot": "",
+      "type": "Major Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Widowmaker",
+        "ability name": "Escape Plan",
+        "ability key": "",
+        "ability type": "Major Perk",
+        "shot type": "",
+        "official description": "Scoped shot hits reduce Grappling Hook's cooldown by up to 4 seconds.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* ''Removed in Reign of Talon Season 1''\n* Cooldown reduction depends on the charge."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Focused Aim",
+      "slot": "",
+      "type": "Minor Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Widowmaker",
+        "ability name": "Focused Aim",
+        "ability key": "",
+        "ability type": "Minor Perk",
+        "shot type": "",
+        "official description": "Scoped shots charge 50% faster during Infra-Sight.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* ''Removed in Season 18.''"
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Scoped Efficiency",
+      "slot": "",
+      "type": "Minor Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Widowmaker",
+        "ability name": "Scoped Efficiency",
+        "ability key": "",
+        "ability type": "Minor Perk",
+        "shot type": "",
+        "official description": "Scoped shots cost 3 ammo instead of 5.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": ""
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Seeker Mine",
+      "slot": "",
+      "type": "Major Perk",
+      "shot_type": [
+        "[[File:Abilities-sigma4.png|40x40px|sub|class=inline-icon invert-image|link=Arcing projectile|Arcing projectile ]] Arcing projectile (mine) [[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] Projectile (dart)"
+      ],
+      "raw": {
+        "hero name": "Widowmaker",
+        "ability name": "Seeker Mine",
+        "ability key": "",
+        "ability type": "Major Perk",
+        "shot type": "[[File:Abilities-sigma4.png|40x40px|sub|class=inline-icon invert-image|link=Arcing projectile|Arcing projectile ]] <span class=\"tooltip\" title=\"Has travel time. Also is affected by gravity.\">Arcing projectile</span> (mine) <br>[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] <span class=\"tooltip\" title=\"Has travel time.\">Projectile</span> (dart)",
+        "official description": "Venom Mine now fires poison darts at enemies within 10 meters and remains active after triggered.",
+        "damage": "<span class=\"tooltip\" title=\"1.92 every 0.192 seconds\">10 per second</span><br>75 total",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "5 seconds (poison)<br>8.2 seconds (rearming time)",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "10 meters",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* One dart is shot towards each enemy hero in radius.\n* Shots ignore heroes that are not their intended target.\n* Cannot target through [[barrier]]s.\n* Poisoned targets are revealed, similar to regular Venom Mine."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "5 seconds (poison)<br>8.2 seconds (rearming time)",
+          "value": 5,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "low",
+          "warnings": [
+            "duration has multiple values; only the first number was parsed."
+          ]
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "<span class=\"tooltip\" title=\"1.92 every 0.192 seconds\">10 per second</span><br>75 total",
+          "value": 10,
+          "min_value": null,
+          "max_value": null,
+          "unit": "damage",
+          "confidence": "low",
+          "warnings": [
+            "Damage has multiple components and only the first number was parsed."
+          ]
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "duration: duration has multiple values; only the first number was parsed.",
+        "damage: Damage has multiple components and only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Sniper's Instinct",
+      "slot": "",
+      "type": "Minor Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Widowmaker",
+        "ability name": "Sniper's Instinct",
+        "ability key": "",
+        "ability type": "Minor Perk",
+        "shot type": "",
+        "official description": "Scoped shots charge 100% faster for 2 seconds after using Grappling Hook.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "2 seconds",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": ""
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "2 seconds",
+          "value": 2,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Widow’s Bite",
+      "slot": "",
+      "type": "Major Perk",
+      "shot_type": [
+        "[[File:Icon-ability.tacticalvisor.png|40x40px|sub|class=inline-icon invert-image|link=Hitscan|Hitscan ]] Hitscan"
+      ],
+      "raw": {
+        "hero name": "Widowmaker",
+        "ability name": "Widow’s Bite",
+        "ability key": "",
+        "ability type": "Major Perk",
+        "shot type": "[[File:Icon-ability.tacticalvisor.png|40x40px|sub|class=inline-icon invert-image|link=Hitscan|Hitscan ]] <span class=\"tooltip\" title=\"Hits are registered without delay.\">Hitscan</span>",
+        "official description": "Scoped shots can charge up to 125%, piercing enemies when fully charged.",
+        "damage": "150 - 75 (at 125% power)",
+        "damage falloff range": "",
+        "headshot": "yes",
+        "headshot mod": "2.5",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "0.9 → 1.125 seconds charging",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": ""
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "0.9 → 1.125 seconds charging",
+          "value": 0.9,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "low",
+          "warnings": [
+            "duration has multiple values; only the first number was parsed."
+          ]
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "150 - 75 (at 125% power)",
+          "value": null,
+          "min_value": 75,
+          "max_value": 150,
+          "unit": "damage",
+          "confidence": "high",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "duration: duration has multiple values; only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Grappling Hook",
+      "slot": "ability 1",
+      "type": "Ability",
+      "shot_type": [
+        "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] Projectile [[File:Swift_Step_Icon.png|40x40px|sub|class=inline-icon invert-image|link=Movement ability|Movement ]] Movement"
+      ],
+      "raw": {
+        "hero name": "Widowmaker",
+        "ability name": "Grappling Hook",
+        "ability key": "ability 1",
+        "ability type": "Ability",
+        "shot type": "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] <span class=\"tooltip\" title=\"Has travel time.\">Projectile</span><br>[[File:Swift_Step_Icon.png|40x40px|sub|class=inline-icon invert-image|link=Movement ability|Movement ]] <span class=\"tooltip\" title=\"Grants a burst of movement. Disabled by abilities that apply mobility lock status.\">Movement</span>",
+        "official description": "Launch a hook that pulls you towards a ledge.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "10 seconds",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "20 meters",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "movement::jump cancel",
+        "ability details": "* Grappling Hook can be cancelled by pressing the jump key.\n* Grappling Hook can attach to Lifeweaver's <span class=\"ability-tooltip\" data-ability=\"Petal Platform\"><span class=\"ability-link\">[[File:Petal_Platform_Icon.png|sub|link=Lifeweaver#Petal Platform|40x40px |class=inline-icon invert-image]]</span>&#32;[[Lifeweaver#Petal Platform|Petal Platform]]</span> and <span class=\"ability-tooltip\" data-ability=\"Tree of Life\"><span class=\"ability-link\">[[File:Tree_of_Life_Icon.png|sub|link=Lifeweaver#Tree of Life|40x40px |class=inline-icon invert-image]]</span>&#32;[[Lifeweaver#Tree of Life|Tree of Life]]</span>.\n* Will attempt to go around fences and other breakables when grappling through them, but can break them if they are in the way."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "10 seconds",
+          "value": 10,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Venom Mine",
+      "slot": "ability 2",
+      "type": "Ability",
+      "shot_type": [
+        "[[File:Abilities-sigma4.png|40x40px|sub|class=inline-icon invert-image|link=Arcing projectile|Arcing projectile ]] Arcing projectile"
+      ],
+      "raw": {
+        "hero name": "Widowmaker",
+        "ability name": "Venom Mine",
+        "ability key": "ability 2",
+        "ability type": "Ability",
+        "shot type": "[[File:Abilities-sigma4.png|40x40px|sub|class=inline-icon invert-image|link=Arcing projectile|Arcing projectile ]] <span class=\"tooltip\" title=\"Has travel time. Also is affected by gravity.\">Arcing projectile</span>",
+        "official description": "Launch a poison trap.",
+        "damage": "<span class=\"tooltip\" title=\"Deals 4.8 damage per 0.192 seconds\">25 per second</span><br>125 total",
+        "damage falloff range": "",
+        "headshot": "no",
+        "headshot mod": "2",
+        "heal": "",
+        "cooldown": "15 seconds",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "<span class=\"tooltip\" title=\"0s startup + 0.992s recovery\">0 + 0.9 seconds</span>",
+        "duration": "Until replaced or destroyed (mine)<br>1.4 seconds (arming time)<br>5 seconds (poison)",
+        "pspeed": "20 m/s",
+        "pradius": "0.2 meters",
+        "spread": "",
+        "radius": "3 meters (trigger)<br>4 meters (explosion)",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "area of effect;;spherical::armor piercing;;deployable effect::cleansable;;deployable::deployable;;strong projectile::fixed;;deployable",
+        "ability details": "* Enemies who trigger the mine can be seen by Widowmaker through walls for a short time.\n* The venom effect is removed immediately upon taking a [[Health Pack]].\n* If the ability is interrupted before cast time ends, the ability's cooldown will not trigger.\n* Does not stick to players, barriers or other [[deployables]].\n* The projectile can be destroyed by <span class=\"ability-tooltip\" data-ability=\"Defense Matrix\"><span class=\"ability-link\">[[File:Ability-dva3.png|sub|link=D.Va#Defense Matrix|40x40px |class=inline-icon invert-image]]</span>&#32;[[D.Va#Defense Matrix|Defense Matrix]]</span>, <span class=\"ability-tooltip\" data-ability=\"Kinetic Grasp\"><span class=\"ability-link\">[[File:Abilities-sigma3.png|sub|link=Sigma#Kinetic Grasp|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sigma#Kinetic Grasp|Kinetic Grasp]]</span>, <span class=\"ability-tooltip\" data-ability=\"Javelin Spin\"><span class=\"ability-link\">[[File:Ability_JavelinSpin.png|sub|link=Orisa#Javelin Spin|40x40px |class=inline-icon invert-image]]</span>&#32;[[Orisa#Javelin Spin|Javelin Spin]]</span>, <span class=\"ability-tooltip\" data-ability=\"Power Matrix\"><span class=\"ability-link\">[[File:Perk_PowerMatrix.png|sub|link=Doomfist#Power Matrix|40x40px |class=inline-icon invert-image]]</span>&#32;[[Doomfist#Power Matrix|Power Matrix]]</span> and <span class=\"ability-tooltip\" data-ability=\"Kekkai Sanctuary\"><span class=\"ability-link\">[[File:ULT Kekkai Sancturary.png|sub|link=Mizuki#Kekkai Sanctuary|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mizuki#Kekkai Sanctuary|Kekkai Sanctuary]]</span> and reflected by <span class=\"ability-tooltip\" data-ability=\"Deflect\"><span class=\"ability-link\">[[File:Ability-genji2.png|sub|link=Genji#Deflect|40x40px |class=inline-icon invert-image]]</span>&#32;[[Genji#Deflect|Deflect]]</span> before it attaches to a surface.\n** The reflected mine is non-functional; it explodes only if someone from Widowmaker's team walks directly on it, and it deals no damage.\n* Projectile is stopped by fences and other breakables, but it will not attach to them unless it has a walkable surface."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "15 seconds",
+          "value": 15,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "Until replaced or destroyed (mine)<br>1.4 seconds (arming time)<br>5 seconds (poison)",
+          "value": 1.4,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "low",
+          "warnings": [
+            "duration has multiple values; only the first number was parsed."
+          ]
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "<span class=\"tooltip\" title=\"Deals 4.8 damage per 0.192 seconds\">25 per second</span><br>125 total",
+          "value": 25,
+          "min_value": null,
+          "max_value": null,
+          "unit": "damage",
+          "confidence": "low",
+          "warnings": [
+            "Damage has multiple components and only the first number was parsed."
+          ]
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "20 m/s",
+          "value": 20,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "0.2 meters",
+          "value": 0.2,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "duration: duration has multiple values; only the first number was parsed.",
+        "damage: Damage has multiple components and only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Widow's Kiss",
+      "slot": "primary fire",
+      "type": "Weapon;;Hip Fire",
+      "shot_type": [
+        "[[File:Icon-ability.tacticalvisor.png|40x40px|sub|class=inline-icon invert-image|link=Hitscan|Hitscan ]] Hitscan"
+      ],
+      "raw": {
+        "hero name": "Widowmaker",
+        "ability name": "Widow's Kiss",
+        "ability key": "primary fire",
+        "ability type": "Weapon;;Hip Fire",
+        "shot type": "[[File:Icon-ability.tacticalvisor.png|40x40px|sub|class=inline-icon invert-image|link=Hitscan|Hitscan ]] <span class=\"tooltip\" title=\"Hits are registered without delay.\">Hitscan</span>",
+        "official description": "Automatic assault weapon.",
+        "damage": "14 - 4.2",
+        "damage falloff range": "20 - 40 meters",
+        "headshot": "yes",
+        "headshot mod": "2",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "10 shots/s",
+        "ammo": "35",
+        "reload time": "<span class=\"tooltip\" title=\"restores ammo after 0.816 seconds\">1.5 seconds animation</span>",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "0.07 meters",
+        "spread": "3 degrees (max)",
+        "radius": "",
+        "range distance": "",
+        "dps": "140 while firing (98 overall w/ reload)",
+        "hps": "",
+        "ability keywords": "critical::hitscan",
+        "ability details": "* Damage per second: 140 while firing (98 overall w/ reload)\n* Maximum spread is reached after 11 shots."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "<span class=\"tooltip\" title=\"restores ammo after 0.816 seconds\">1.5 seconds animation</span>",
+          "value": 1.5,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "35",
+          "value": 35,
+          "min_value": null,
+          "max_value": null,
+          "unit": "rounds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "14 - 4.2",
+          "value": null,
+          "min_value": 4.2,
+          "max_value": 14,
+          "unit": "damage",
+          "confidence": "high",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "20 - 40 meters",
+          "value": null,
+          "min_value": 20,
+          "max_value": 40,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "10 shots/s",
+          "value": 10,
+          "min_value": null,
+          "max_value": null,
+          "unit": "shots_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "0.07 meters",
+          "value": 0.07,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "3 degrees (max)",
+          "value": 3,
+          "min_value": null,
+          "max_value": null,
+          "unit": "degrees",
+          "confidence": "high",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "140 while firing (98 overall w/ reload)",
+          "value": 140,
+          "min_value": null,
+          "max_value": null,
+          "unit": "per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Widow's Kiss (ADS)",
+      "slot": "secondary fire",
+      "type": "Weapon;;ADS",
+      "shot_type": [
+        "[[File:Icon-ability.tacticalvisor.png|40x40px|sub|class=inline-icon invert-image|link=Hitscan|Hitscan ]] Hitscan"
+      ],
+      "raw": {
+        "hero name": "Widowmaker",
+        "ability name": "Widow's Kiss (ADS)",
+        "ability key": "secondary fire",
+        "ability type": "Weapon;;ADS",
+        "shot type": "[[File:Icon-ability.tacticalvisor.png|40x40px|sub|class=inline-icon invert-image|link=Hitscan|Hitscan ]] <span class=\"tooltip\" title=\"Hits are registered without delay.\">Hitscan</span>",
+        "official description": "Hold for long-ranged sniper weapon.",
+        "damage": "12 - 6 (at 0% power)<br>120 - 60 (at 100% power)",
+        "damage falloff range": "50 - 70 meters",
+        "headshot": "yes",
+        "headshot mod": "2.5",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "0.5 second recovery",
+        "ammo": "35",
+        "reload time": "<span class=\"tooltip\" title=\"restores ammo after 0.816 seconds\">1.5 seconds animation</span>",
+        "cast time": "0.9 seconds charging<br>0.32 seconds zoom in/out",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "None",
+        "spread": "None",
+        "radius": "",
+        "range distance": "",
+        "dps": "80 while firing (full charge) (70 overall w/reload)",
+        "hps": "",
+        "ability keywords": "greater critical::hitscan",
+        "ability details": "* Damage per second: 80 while firing (full charge) (70 overall w/reload)\n* The base damage is 12 and scales linearly to 120. Each percent of power increases the damage by 1.08.\n* The minimum power required to kill a full [[health]] target less than 50 meters away (without [[armor]]) with a single [[headshot]]:\n** 175 HP: 54%\n** 200 HP: 63%\n** 225 HP: 73%\n** 250 HP: 82%\n** 275 HP: 91%\n** 300 HP: 100%\n* If fired with less than 50% power, the shots make a softer sound and leave a smaller trail.\n* Jumping or using an ability interrupts ADS (\"Aiming Down Sights\" i.e. scoping) and charging, however it can be restarted right after even if still in air."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "<span class=\"tooltip\" title=\"restores ammo after 0.816 seconds\">1.5 seconds animation</span>",
+          "value": 1.5,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "35",
+          "value": 35,
+          "min_value": null,
+          "max_value": null,
+          "unit": "rounds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "12 - 6 (at 0% power)<br>120 - 60 (at 100% power)",
+          "value": null,
+          "min_value": 6,
+          "max_value": 12,
+          "unit": "damage",
+          "confidence": "high",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "50 - 70 meters",
+          "value": null,
+          "min_value": 50,
+          "max_value": 70,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "0.5 second recovery",
+          "value": 0.5,
+          "min_value": null,
+          "max_value": null,
+          "unit": "shots_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "None",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "None",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "80 while firing (full charge) (70 overall w/reload)",
+          "value": 80,
+          "min_value": null,
+          "max_value": null,
+          "unit": "per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Infra-Sight",
+      "slot": "ultimate",
+      "type": "Ultimate Ability",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Widowmaker",
+        "ability name": "Infra-Sight",
+        "ability key": "ultimate",
+        "ability type": "Ultimate Ability",
+        "shot type": "",
+        "official description": "Provide your team with a view of the enemy's location.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "0.64 seconds",
+        "duration": "15 seconds",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "Global",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "health reveal::transformation",
+        "ability details": "* Allows Widowmaker's entire team to see enemies through walls and their health bars.\n* Infra-Sight only ends if Widowmaker is eliminated or once the duration runs out."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "15 seconds",
+          "value": 15,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    }
+  ],
+  "source": "https://overwatch.fandom.com/api.php",
+  "fetched_at": "2026-06-25T07:13:01.712768+00:00"
+}

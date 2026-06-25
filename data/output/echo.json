@@ -1,0 +1,2021 @@
+{
+  "name": "Echo",
+  "role": "Damage",
+  "sub_role": "Recon",
+  "health": {
+    "health": 150,
+    "armor": null,
+    "shield": 75
+  },
+  "abilities": [
+    {
+      "name": "Enhanced Duplication",
+      "slot": "",
+      "type": "Minor Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Echo",
+        "ability name": "Enhanced Duplication",
+        "ability key": "",
+        "ability type": "Minor Perk",
+        "shot type": "",
+        "official description": "During Duplicate, your clone's first ultimate extends Duplicate's duration by 3 seconds.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* ''Removed in season 18.''"
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Focused Rush",
+      "slot": "",
+      "type": "Minor Perk",
+      "shot_type": [
+        "[[File:Ability_Moira_Coalescence.png|sub|40x40px|class=inline-icon invert-image|link=Beam|Beam ]] Beam"
+      ],
+      "raw": {
+        "hero name": "Echo",
+        "ability name": "Focused Rush",
+        "ability key": "",
+        "ability type": "Minor Perk",
+        "shot type": "[[File:Ability_Moira_Coalescence.png|sub|40x40px|class=inline-icon invert-image|link=Beam|Beam ]] <span class=\"tooltip\" title=\"High tickrate weapon. Ignores Deflect, Javelin Spin, Defense Matrix and Kinetic Grasp. Damage reduced by 30% against armor.\">Beam</span>",
+        "official description": "Focused Beam's range is increase by 6 meters and movement speed is increase by 20% when active.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "16 → 22 meters",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": ""
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Friendly Imaging",
+      "slot": "",
+      "type": "Minor Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Echo",
+        "ability name": "Friendly Imaging",
+        "ability key": "",
+        "ability type": "Minor Perk",
+        "shot type": "",
+        "official description": "Duplicate can also target allies.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* ''Removed in season 18, integrated into base kit in Reign of Talon Season 2.\n''"
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Full Salvo",
+      "slot": "",
+      "type": "Major Perk",
+      "shot_type": [
+        "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] Projectile [[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] Area of effect"
+      ],
+      "raw": {
+        "hero name": "Echo",
+        "ability name": "Full Salvo",
+        "ability key": "",
+        "ability type": "Major Perk",
+        "shot type": "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] <span class=\"tooltip\" title=\"Has travel time.\">Projectile</span><br>[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] <span class=\"tooltip\" title=\"Affects all enemies within an area. Usually requires unobstructed line of sight to the origin.\">Area of effect</span>",
+        "official description": "Sticky Bombs fires 2 additional projectiles.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* A full salvo can now do up to 240 damage (up from 180)."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "High Beams",
+      "slot": "",
+      "type": "Major Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Echo",
+        "ability name": "High Beams",
+        "ability key": "",
+        "ability type": "Major Perk",
+        "shot type": "",
+        "official description": "Focusing Beam eliminations reset Flight's cooldown.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": ""
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Partial Scan",
+      "slot": "",
+      "type": "Minor Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Echo",
+        "ability name": "Partial Scan",
+        "ability key": "",
+        "ability type": "Minor Perk",
+        "shot type": "",
+        "official description": "Duplicate starts with 30% of its ultimate charge.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": ""
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Flight",
+      "slot": "ability 1",
+      "type": "Ability",
+      "shot_type": [
+        "[[File:Swift_Step_Icon.png|40x40px|sub|class=inline-icon invert-image|link=Movement ability|Movement ]] Movement"
+      ],
+      "raw": {
+        "hero name": "Echo",
+        "ability name": "Flight",
+        "ability key": "ability 1",
+        "ability type": "Ability",
+        "shot type": "[[File:Swift_Step_Icon.png|40x40px|sub|class=inline-icon invert-image|link=Movement ability|Movement ]] <span class=\"tooltip\" title=\"Grants a burst of movement. Disabled by abilities that apply mobility lock status.\">Movement</span>",
+        "official description": "Fly forward quickly and then free-fly briefly.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "6 seconds",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "None",
+        "duration": "0.2 seconds (min)<br>3 seconds (max)",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "flight::health reveal::strong movement::transformation",
+        "ability details": "* Reveals enemy health bars without having dealt damage to them.\n* Being [[stunned]], [[knocked down]] or [[mobility lock]]ed prevent the ability from being activated and make Echo temporarily unable to fly, but do not completely end the ability. Only being [[hacked]] completely interrupts the ability.\n* Can be manually cancelled by pressing the ability key (default: <span class=keybind>LSHIFT</span>) again.\n* Holding jump causes Echo to rise, while holding crouch causes her to descend.\n* When used, grants a speed burst of 28 m/s, which is sharply reduced to 8 m/s over ~0.5 seconds.\n* Vertical and horizontal speed are related. You can't have 8 meters per second of horizontal and vertical speed in same time.\n** If the vertical speed is <0.25, then the horizontal maximum can be no more than 8 and vice versa.\n** If your crosshair is exactly centered and you pinch forward/back and jump/crouch then your vertical and horizontal speed will be 5.66 meters per second.\n** If your crosshair is exactly centered and you pinch forward/back and jump/crouch and right/left then your vertical speed = 4 and horizontal = 6.93.\n* The ability's maximum horizontal speed is 0.25 meters per second slower than the speed from the passive ability.\n* Movement acceleration in air increased by 100% when changing directions."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "6 seconds",
+          "value": 6,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "0.2 seconds (min)<br>3 seconds (max)",
+          "value": 0.2,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "low",
+          "warnings": [
+            "duration has multiple values; only the first number was parsed."
+          ]
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "duration: duration has multiple values; only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Focusing Beam",
+      "slot": "ability 2",
+      "type": "Ability",
+      "shot_type": [
+        "[[File:Ability_Moira_Coalescence.png|sub|40x40px|class=inline-icon invert-image|link=Beam|Beam ]] Beam"
+      ],
+      "raw": {
+        "hero name": "Echo",
+        "ability name": "Focusing Beam",
+        "ability key": "ability 2",
+        "ability type": "Ability",
+        "shot type": "[[File:Ability_Moira_Coalescence.png|sub|40x40px|class=inline-icon invert-image|link=Beam|Beam ]] <span class=\"tooltip\" title=\"High tickrate weapon. Ignores Deflect, Javelin Spin, Defense Matrix and Kinetic Grasp. Damage reduced by 30% against armor.\">Beam</span>",
+        "official description": "Channel a beam for a few seconds. Deals very high damage to targets under half health.",
+        "damage": "<span class=\"tooltip\" title=\"Deals 7.20 damage per 0.096 s.\">75 per second</span><br><span class=\"tooltip\" title=\"Deals 16.80 damage per 0.096 s.\">175 per second (target <50% hp)</span>",
+        "damage falloff range": "",
+        "headshot": "no",
+        "headshot mod": "2",
+        "heal": "",
+        "cooldown": "8 seconds",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "<span class=\"tooltip\" title=\"0.144s startup + 0.256s recovery\">0.14 + 0.26 seconds</span>",
+        "duration": "0.24 seconds (min)<br>2 seconds (max)",
+        "pspeed": "",
+        "pradius": "0.25 meters",
+        "spread": "",
+        "radius": "",
+        "range distance": "16 meters",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "beam::channeled",
+        "ability details": "* Deals 3.5 times more damage if she is targeting an enemy whose [[HP]] is 50% of their maximum or lower.\n** Also triggers against [[objects]].\n** [[Overhealth]] on the target counts as current HP but not as maximum HP. As such, gaining overhealth can put the hero above the threshold if their base HP was just below, preventing the damage bonus from applying.\n* Can be manually cancelled by pressing the ability key again.\n* Focusing Beam is a [[channeled]] ability; Echo cannot fire or use other abilities while it's active, and it is interrupted if Echo is [[stunned]], [[knocked down]] or [[hacked]].\n** <span class=\"ability-tooltip\" data-ability=\"Flight\" ><span class=\"ability-link\">[[File:FLIGHT.png|sub|link=Echo#Flight|40x40px |class=inline-icon invert-image]]</span>&#32;[[Echo#Flight|Flight]]</span> and <span class=\"ability-tooltip\" data-ability=\"Glide\" ><span class=\"ability-link\">[[File:GLIDE.png|sub|link=Echo#Glide|40x40px |class=inline-icon invert-image]]</span>&#32;[[Echo#Glide|Glide]]</span> can be used without interrupting Focusing Beam and vice versa.\n** <span class=\"ability-tooltip\" data-ability=\"Duplicate\" ><span class=\"error\">''Could not find 'Duplicate' in 'Abilities'. Check spelling and see [[Help:Cargo]] if the issue persists.''</span></span> can be activated, but it will interrupt Focusing Beam.\n** If the ability is interrupted before the end of the casting time, the cooldown will not start."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "8 seconds",
+          "value": 8,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "0.24 seconds (min)<br>2 seconds (max)",
+          "value": 0.24,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "low",
+          "warnings": [
+            "duration has multiple values; only the first number was parsed."
+          ]
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "<span class=\"tooltip\" title=\"Deals 7.20 damage per 0.096 s.\">75 per second</span><br><span class=\"tooltip\" title=\"Deals 16.80 damage per 0.096 s.\">175 per second (target <50% hp)</span>",
+          "value": 75,
+          "min_value": null,
+          "max_value": null,
+          "unit": "damage",
+          "confidence": "low",
+          "warnings": [
+            "Damage has multiple components and only the first number was parsed."
+          ]
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "0.25 meters",
+          "value": 0.25,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "duration: duration has multiple values; only the first number was parsed.",
+        "damage: Damage has multiple components and only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Glide",
+      "slot": "jump",
+      "type": "Passive Ability",
+      "shot_type": [
+        "[[File:Swift_Step_Icon.png|40x40px|sub|class=inline-icon invert-image|link=Movement ability|Movement ]] Movement"
+      ],
+      "raw": {
+        "hero name": "Echo",
+        "ability name": "Glide",
+        "ability key": "jump",
+        "ability type": "Passive Ability",
+        "shot type": "[[File:Swift_Step_Icon.png|40x40px|sub|class=inline-icon invert-image|link=Movement ability|Movement ]] <span class=\"tooltip\" title=\"Grants a burst of movement. Disabled by abilities that apply mobility lock status.\">Movement</span>",
+        "official description": "Hold jump to glide while falling.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "movement",
+        "ability details": "* Used by holding the Jump button.\n* Glide's [[movement speed]] buff does not count towards global movement speed buff cap."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Tri-Shot",
+      "slot": "primary fire",
+      "type": "Weapon",
+      "shot_type": [
+        "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] Projectile"
+      ],
+      "raw": {
+        "hero name": "Echo",
+        "ability name": "Tri-Shot",
+        "ability key": "primary fire",
+        "ability type": "Weapon",
+        "shot type": "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] <span class=\"tooltip\" title=\"Has travel time.\">Projectile</span>",
+        "official description": "Fires 3 shots at once, in a triangle pattern.",
+        "damage": "17 (per pellet)<br>51 (per shot)",
+        "damage falloff range": "",
+        "headshot": "yes",
+        "headshot mod": "2",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "<span class=\"tooltip\" title=\"0.336s recovery\">2.97 shots/s</span>",
+        "ammo": "12",
+        "reload time": "<span class=\"tooltip\" title=\"restores ammo after 1.040 seconds\">1.5 seconds</span>",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "75 m/s",
+        "pradius": "0.175 meters",
+        "spread": "1.1 degrees",
+        "radius": "",
+        "range distance": "",
+        "dps": "151.79 while firing (110.63 overall w/reload)",
+        "hps": "",
+        "ability keywords": "critical::travel time",
+        "ability details": "* Damage per second: 151.79 while firing (110.63 overall w/reload)"
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "<span class=\"tooltip\" title=\"restores ammo after 1.040 seconds\">1.5 seconds</span>",
+          "value": 1.5,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "12",
+          "value": 12,
+          "min_value": null,
+          "max_value": null,
+          "unit": "rounds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "17 (per pellet)<br>51 (per shot)",
+          "value": 17,
+          "min_value": null,
+          "max_value": null,
+          "unit": "damage",
+          "confidence": "low",
+          "warnings": [
+            "Damage has multiple components and only the first number was parsed."
+          ]
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "<span class=\"tooltip\" title=\"0.336s recovery\">2.97 shots/s</span>",
+          "value": 2.97,
+          "min_value": null,
+          "max_value": null,
+          "unit": "shots_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "75 m/s",
+          "value": 75,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "0.175 meters",
+          "value": 0.175,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "1.1 degrees",
+          "value": 1.1,
+          "min_value": null,
+          "max_value": null,
+          "unit": "degrees",
+          "confidence": "high",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "151.79 while firing (110.63 overall w/reload)",
+          "value": 151.79,
+          "min_value": null,
+          "max_value": null,
+          "unit": "per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "damage: Damage has multiple components and only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Sticky Bombs",
+      "slot": "secondary fire",
+      "type": "Ability",
+      "shot_type": [
+        "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] Projectile [[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] Area of effect"
+      ],
+      "raw": {
+        "hero name": "Echo",
+        "ability name": "Sticky Bombs",
+        "ability key": "secondary fire",
+        "ability type": "Ability",
+        "shot type": "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] <span class=\"tooltip\" title=\"Has travel time.\">Projectile</span><br>[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] <span class=\"tooltip\" title=\"Affects all enemies within an area. Usually requires unobstructed line of sight to the origin.\">Area of effect</span>",
+        "official description": "Fire a volley of sticky bombs that detonate after a delay.",
+        "damage": "5 (direct hit)<br>25 (explosion, enemy)<br>12.5 (explosion, self)",
+        "damage falloff range": "",
+        "headshot": "no",
+        "headshot mod": "2",
+        "heal": "",
+        "cooldown": "6 seconds",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "<span class=\"tooltip\" title=\"0.048s startup + 0.304s recovery\">0.05 + 0.3 seconds</span>",
+        "duration": "1 second (explosion delay)",
+        "pspeed": "50 m/s",
+        "pradius": "0.27 meters",
+        "spread": "",
+        "radius": "2 meters (explosion)",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "area of effect;;spherical::self-damage::sticky::travel time",
+        "ability details": "* Deals up to 180 single target damage if all bombs are stuck.\n* The projectile can be destroyed while in air by <span class=\"ability-tooltip\" data-ability=\"Defense Matrix\" ><span class=\"ability-link\">[[File:Ability-dva3.png|sub|link=D.Va#Defense Matrix|40x40px |class=inline-icon invert-image]]</span>&#32;[[D.Va#Defense Matrix|Defense Matrix]]</span>, <span class=\"ability-tooltip\" data-ability=\"Kinetic Grasp\" ><span class=\"ability-link\">[[File:Abilities-sigma3.png|sub|link=Sigma#Kinetic Grasp|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sigma#Kinetic Grasp|Kinetic Grasp]]</span>, <span class=\"ability-tooltip\" data-ability=\"Javelin Spin\" ><span class=\"ability-link\">[[File:Ability_JavelinSpin.png|sub|link=Orisa#Javelin Spin|40x40px |class=inline-icon invert-image]]</span>&#32;[[Orisa#Javelin Spin|Javelin Spin]]</span>, <span class=\"ability-tooltip\" data-ability=\"Power Matrix\" ><span class=\"ability-link\">[[File:Perk_PowerMatrix.png|sub|link=Doomfist#Power Matrix|40x40px |class=inline-icon invert-image]]</span>&#32;[[Doomfist#Power Matrix|Power Matrix]]</span> and <span class=\"ability-tooltip\" data-ability=\"Kekkai Sanctuary\" ><span class=\"ability-link\">[[File:ULT Kekkai Sancturary.png|sub|link=Mizuki#Kekkai Sanctuary|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mizuki#Kekkai Sanctuary|Kekkai Sanctuary]]</span> and reflected by <span class=\"ability-tooltip\" data-ability=\"Deflect\" ><span class=\"ability-link\">[[File:Ability-genji2.png|sub|link=Genji#Deflect|40x40px |class=inline-icon invert-image]]</span>&#32;[[Genji#Deflect|Deflect]]</span>, but a stuck bomb and the explosion are unaffected.\n* <span class=\"ability-tooltip\" data-ability=\"Amplification Matrix\" ><span class=\"ability-link\">[[File:Baptiste-ability4.png|sub|link=Baptiste#Amplification Matrix|40x40px |class=inline-icon invert-image]]</span>&#32;[[Baptiste#Amplification Matrix|Amplification Matrix]]</span> affects all damage dealt, if the projectile passes through it. Splash damage alone going through is not amplified."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "6 seconds",
+          "value": 6,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "1 second (explosion delay)",
+          "value": 1,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "5 (direct hit)<br>25 (explosion, enemy)<br>12.5 (explosion, self)",
+          "value": 5,
+          "min_value": null,
+          "max_value": null,
+          "unit": "damage",
+          "confidence": "low",
+          "warnings": [
+            "Damage has multiple components and only the first number was parsed."
+          ]
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "50 m/s",
+          "value": 50,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "0.27 meters",
+          "value": 0.27,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "damage: Damage has multiple components and only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Duplicate",
+      "slot": "ultimate",
+      "type": "Ultimate Ability",
+      "shot_type": [
+        "[[File:Ability target ui.png|40x40px|sub|class=inline-icon invert-image|link=Targeted ability|Targeted ]] Targeted"
+      ],
+      "raw": {
+        "hero name": "Echo",
+        "ability name": "Duplicate",
+        "ability key": "ultimate",
+        "ability type": "Ultimate Ability",
+        "shot type": "[[File:Ability target ui.png|40x40px|sub|class=inline-icon invert-image|link=Targeted ability|Targeted ]] <span class=\"tooltip\" title=\"Applies to selected target. Cannot miss.\">Targeted</span>",
+        "official description": "Become a copy of the targeted hero. They cannot swap heroes for the duration.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "<span class=\"tooltip\" title=\"0.336s startup + 0.896s recovery\">0.34 + 0.9 seconds</span>",
+        "duration": "15 seconds (transformation)<br>1.3 seconds (invulnerability, casting)<br>1 second (invulnerability, ending)",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "40 meters",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "lesser cleanse;;stunnable::invulnerable::phased::reloads::transformation",
+        "ability details": "* Cannot target another Echo (even if that Echo is duplicating another hero) or non-playable characters, like <span class=\"ability-tooltip\" data-ability=\"B.O.B.\" ><span class=\"ability-link\">[[File:Ability-ashe4.png|sub|link=Ashe#B.O.B.|40x40px |class=inline-icon invert-image]]</span>&#32;[[Ashe#B.O.B.|B.O.B.]]</span> or [[Training Bots]].\n* If Echo targets a D.Va pilot, Echo will still duplicate the mech.\n* Echo's HP instantly becomes the full base HP of her target, however this caps at 350 combined health.\n* Echo's target cannot switch heroes for the duration of the ability.\n* Echo gains access to her target's hero-specific [[Ping|Pings]] for the duration, such as those for a [[Sleep Dart|slept enemy]] or deployables such as <span class=\"ability-tooltip\" data-ability=\"Teleporter\" ><span class=\"ability-link\">[[File:Ability-symmetra4.png|sub|link=Symmetra#Teleporter|40x40px |class=inline-icon invert-image]]</span>&#32;[[Symmetra#Teleporter|Teleporter]]</span>. Most of these will not trigger a voice line.\n** Echo cannot use these pings after Duplicate ends, even if the debuff or deployable is still active.\n* Duplicate does not gain any of the target's Perks.\n* Echo is [[phased out]] while transforming (cast recovery and reverting), becoming immune to damage and most negative [[status effect]]s.\n** Sierra's <span class=\"ability-tooltip\" data-ability=\"Tracking Shot\" ><span class=\"ability-link\">[[File:Tracking Shot.png|sub|link=Sierra#Tracking Shot|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sierra#Tracking Shot|Tracking Shot]]</span> will not be removed when transforming, and will continue to lock onto Echo after she finishes.\n* While Duplicate is active, Echo generates 5.5x ultimate charge from all sources.\n** The patch notes are poorly worded with regard to the charge generated. Echo's ultimate generation is increased by an additional 450%, not multiplied by 4.5 times, for a total of 550%.\n* When the duration ends, or if Echo's HP is reduced to 0, Echo reverts back to normal. Her HP returns back to what it was before, or 50% of her max HP if it was lower than that.\n** If Echo falls off the map while Duplicated, she will be instantly eliminated.\n* Reverting back to Echo interrupts whatever ability she was using. Most deployed abilities, buffs, and debuffs disappear after 3 seconds.\n** Projectiles, turrets and damage or healing over time effects usually continue dealing damage or healing during this time, and in some cases will generate ultimate charge for Echo.\n** [[Overhealth]] from Wrecking Ball's <span class=\"ability-tooltip\" data-ability=\"Adaptive Shield\" ><span class=\"ability-link\">[[File:Adaptive_shield.png|sub|link=Wrecking Ball#Adaptive Shield|40x40px |class=inline-icon invert-image]]</span>&#32;[[Wrecking Ball#Adaptive Shield|Adaptive Shield]]</span> and Lifeweaver's <span class=\"ability-tooltip\" data-ability=\"Tree of Life\" ><span class=\"ability-link\">[[File:Tree_of_Life_Icon.png|sub|link=Lifeweaver#Tree of Life|40x40px |class=inline-icon invert-image]]</span>&#32;[[Lifeweaver#Tree of Life|Tree of Life]]</span> persists even after 3 seconds have passed since Duplicate ended, and is instead removed as the ability normally would.\n** Some projectiles, turrets, or damage over time effects fail to attribute their damage or kill credit to Echo after Duplicate has finished. This is also reflected on the kill feed, as while the ability and eliminated player will generally be correctly displayed, no player will be shown as responsible for the elimination.\n*** Affected abilities include: Junker Queen's <span class=\"ability-tooltip\" data-ability=\"Rampage\" ><span class=\"ability-link\">[[File:Rampage_Icon.png|sub|link=Junker Queen#Rampage|40x40px |class=inline-icon invert-image]]</span>&#32;[[Junker Queen#Rampage|Rampage]]</span>, Hazard's <span class=\"ability-tooltip\" data-ability=\"Jagged Wall\" ><span class=\"ability-link\">[[File:Jagged_Wall.png|sub|link=Hazard#Jagged Wall|40x40px |class=inline-icon invert-image]]</span>&#32;[[Hazard#Jagged Wall|Jagged Wall]]</span>, Mauga's <span class=\"ability-tooltip\" data-ability=\"Incendiary Chaingun\" ><span class=\"ability-link\">[[File:Incendiary_Chaingun_icon.png|middle|link=Mauga#Incendiary Chaingun|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mauga#Incendiary Chaingun|Incendiary Chaingun]]</span>, Sigma's <span class=\"ability-tooltip\" data-ability=\"Hyperspheres\" ><span class=\"ability-link\">[[File:Abilities-sigma1.png|middle|link=Sigma#Hyperspheres|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sigma#Hyperspheres|Hyperspheres]]</span> and <span class=\"ability-tooltip\" data-ability=\"Accretion\" ><span class=\"ability-link\">[[File:Abilities-sigma4.png|sub|link=Sigma#Accretion|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sigma#Accretion|Accretion]]</span>, Sierra's <span class=\"ability-tooltip\" data-ability=\"Helix Rifle\" ><span class=\"ability-link\">[[File:Helix Rifle.png|sub|link=Sierra#Helix Rifle|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sierra#Helix Rifle|Helix Rifle]]</span> and <span class=\"ability-tooltip\" data-ability=\"Tremor Charge\" ><span class=\"ability-link\">[[File:Tremor Charge.png|sub|link=Sierra#Tremor Charge|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sierra#Tremor Charge|Tremor Charge]]</span>, Sojourn's <span class=\"ability-tooltip\" data-ability=\"Disruptor Shot\" ><span class=\"ability-link\">[[File:Disruptor_Shot_Icon.png|sub|link=Sojourn#Disruptor Shot|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sojourn#Disruptor Shot|Disruptor Shot]]</span>, Soldier: 76's <span class=\"ability-tooltip\" data-ability=\"Helix Rockets\" ><span class=\"ability-link\">[[File:icon-ability.helixrockets.png|sub|link=Soldier: 76#Helix Rockets|40x40px |class=inline-icon invert-image]]</span>&#32;[[Soldier: 76#Helix Rockets|Helix Rockets]]</span>, Ana's <span class=\"ability-tooltip\" data-ability=\"Biotic Rifle\" ><span class=\"ability-link\">[[File:Ability-ana1.png|middle|link=Ana#Biotic Rifle|40x40px |class=inline-icon invert-image]]</span>&#32;[[Ana#Biotic Rifle|Biotic Rifle]]</span>, and Moira's <span class=\"ability-tooltip\" data-ability=\"Biotic Orb\" ><span class=\"ability-link\">[[File:Ability Moira Biotic Orb.png|sub|link=Moira#Biotic Orb|40x40px |class=inline-icon invert-image]]</span>&#32;[[Moira#Biotic Orb|Biotic Orb]]</span> and <span class=\"ability-tooltip\" data-ability=\"Coalescence\" ><span class=\"ability-link\">[[File:Ability Moira Coalescence.png|sub|link=Moira#Coalescence|40x40px |class=inline-icon invert-image]]</span>&#32;[[Moira#Coalescence|Coalescence]]</span>, among others.\n**** <span class=\"ability-tooltip\" data-ability=\"Biotic Orb\" ><span class=\"ability-link\">[[File:Ability Moira Biotic Orb.png|sub|link=Moira#Biotic Orb|40x40px |class=inline-icon invert-image]]</span>&#32;[[Moira#Biotic Orb|Biotic Orb]]</span> eliminations will instead be displayed as being caused by <span class=\"ability-tooltip\" data-ability=\"Deflect\" ><span class=\"ability-link\">[[File:Ability-genji2.png|sub|link=Genji#Deflect|40x40px |class=inline-icon invert-image]]</span>&#32;[[Genji#Deflect|Deflect]]</span>, except on Practice Range bots.\n** Mauga's <span class=\"ability-tooltip\" data-ability=\"Cage Fight\" ><span class=\"ability-link\">[[File:Cage_Fight_icon.png|sub|link=Mauga#Cage Fight|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mauga#Cage Fight|Cage Fight]]</span>, Sigma's <span class=\"ability-tooltip\" data-ability=\"Experimental Barrier\" ><span class=\"ability-link\">[[File:Abilities-sigma2.png|sub|link=Sigma#Experimental Barrier|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sigma#Experimental Barrier|Experimental Barrier]]</span>, Cassidy's <span class=\"ability-tooltip\" data-ability=\"Flashbang\" ><span class=\"ability-link\">[[File:Magnetic_Grenade.png|sub|link=Cassidy#Flashbang|40x40px |class=inline-icon invert-image]]</span>&#32;[[Cassidy#Flashbang|Flashbang]]</span> hinder, Ana's <span class=\"ability-tooltip\" data-ability=\"Nano Boost\" ><span class=\"ability-link\">[[File:Ability-ana4.png|sub|link=Ana#Nano Boost|40x40px |class=inline-icon invert-image]]</span>&#32;[[Ana#Nano Boost|Nano Boost]]</span>, Brigitte's <span class=\"ability-tooltip\" data-ability=\"Rally\" ><span class=\"ability-link\">[[File:Rally.png|sub|link=Brigitte#Rally|40x40px |class=inline-icon invert-image]]</span>&#32;[[Brigitte#Rally|Rally]]</span> overhealth, Lifeweaver's <span class=\"ability-tooltip\" data-ability=\"Life Grip\" ><span class=\"ability-link\">[[File:Life_Grip_Icon.png|sub|link=Lifeweaver#Life Grip|40x40px |class=inline-icon invert-image]]</span>&#32;[[Lifeweaver#Life Grip|Life Grip]]</span>, Lúcio's <span class=\"ability-tooltip\" data-ability=\"Sound Barrier\" ><span class=\"ability-link\">[[File:Ability-Lucio4.png|sub|link=Lúcio#Sound Barrier|40x40px |class=inline-icon invert-image]]</span>&#32;[[Lúcio#Sound Barrier|Sound Barrier]]</span>, and Mizuki's <span class=\"ability-tooltip\" data-ability=\"Binding Chain\" ><span class=\"ability-link\">[[File:Ability Binding Chain.png|sub|link=Mizuki#Binding Chain|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mizuki#Binding Chain|Binding Chain]]</span> end immediately. Junkrat's <span class=\"ability-tooltip\" data-ability=\"Concussion Mine\" ><span class=\"ability-link\">[[File:Ability-Junkrat2.png|sub|link=Junkrat#Concussion Mine|40x40px |class=inline-icon invert-image]]</span>&#32;[[Junkrat#Concussion Mine|Concussion Mine]]</span> and <span class=\"ability-tooltip\" data-ability=\"RIP-Tire\" ><span class=\"ability-link\">[[File:Ability-Junkrat5.png|sub|link=Junkrat#RIP-Tire|40x40px |class=inline-icon invert-image]]</span>&#32;[[Junkrat#RIP-Tire|RIP-Tire]]</span> detonate immediately. Projectiles deflected with Genji's <span class=\"ability-tooltip\" data-ability=\"Deflect\" ><span class=\"ability-link\">[[File:Ability-genji2.png|sub|link=Genji#Deflect|40x40px |class=inline-icon invert-image]]</span>&#32;[[Genji#Deflect|Deflect]]</span> disappear immediately.\n** Ramattra's <span class=\"ability-tooltip\" data-ability=\"Ravenous Vortex\" ><span class=\"ability-link\">[[File:Ravenous_Vortex_Icon.png|sub|link=Ramattra#Ravenous Vortex|40x40px |class=inline-icon invert-image]]</span>&#32;[[Ramattra#Ravenous Vortex|Ravenous Vortex]]</span>, Freja's <span class=\"ability-tooltip\" data-ability=\"Bola Shot\" ><span class=\"ability-link\">[[File:Bola Shot.png|sub|link=Freja#Bola Shot|40x40px |class=inline-icon invert-image]]</span>&#32;[[Freja#Bola Shot|Bola Shot]]</span>, and Hanzo's [[Dragonstrike]] remain present but cease dealing damage. If <span class=\"ability-tooltip\" data-ability=\"Ravenous Vortex\" ><span class=\"ability-link\">[[File:Ravenous_Vortex_Icon.png|sub|link=Ramattra#Ravenous Vortex|40x40px |class=inline-icon invert-image]]</span>&#32;[[Ramattra#Ravenous Vortex|Ravenous Vortex]]</span> is in flight, it will not detonate or create its damaging zone upon landing. Kiriko's <span class=\"ability-tooltip\" data-ability=\"Kitsune Rush\" ><span class=\"ability-link\">[[File:Kitsune_Rush_Icon.png|sub|link=Kiriko#Kitsune Rush|40x40px |class=inline-icon invert-image]]</span>&#32;[[Kiriko#Kitsune Rush|Kitsune Rush]]</span> remains present but ceases buffing players.\n** Baptiste's <span class=\"ability-tooltip\" data-ability=\"Amplification Matrix\" ><span class=\"ability-link\">[[File:Baptiste-ability4.png|sub|link=Baptiste#Amplification Matrix|40x40px |class=inline-icon invert-image]]</span>&#32;[[Baptiste#Amplification Matrix|Amplification Matrix]]</span> and Mizuki's <span class=\"ability-tooltip\" data-ability=\"Kekkai Sanctuary\" ><span class=\"ability-link\">[[File:ULT Kekkai Sancturary.png|sub|link=Mizuki#Kekkai Sanctuary|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mizuki#Kekkai Sanctuary|Kekkai Sanctuary]]</span> remain present and functional, but will play their outro sound effects at the time they would have disappeared normally, even if they disappear early due to Duplicate ending.\n** Anran's <span class=\"ability-tooltip\" data-ability=\"Ignition\" ><span class=\"ability-link\">[[File:Passive Ignition.png|sub|link=Anran#Ignition|40x40px |class=inline-icon invert-image]]</span>&#32;[[Anran#Ignition|Ignition]]</span> and Torbjörn's <span class=\"ability-tooltip\" data-ability=\"Molten Core\" ><span class=\"ability-link\">[[File:Ability-torbjorn5.png|sub|link=Torbjörn#Molten Core|40x40px |class=inline-icon invert-image]]</span>&#32;[[Torbjörn#Molten Core|Molten Core]]</span> continue burning enemies, but do not deal any damage.\n** Moira's <span class=\"ability-tooltip\" data-ability=\"Biotic Orb\" ><span class=\"ability-link\">[[File:Ability Moira Biotic Orb.png|sub|link=Moira#Biotic Orb|40x40px |class=inline-icon invert-image]]</span>&#32;[[Moira#Biotic Orb|Biotic Orb]]</span> ceases moving.\n** Junkrat's <span class=\"ability-tooltip\" data-ability=\"Total Mayhem\" ><span class=\"ability-link\">[[File:Ability-Junkrat4.png|sub|link=Junkrat#Total Mayhem|40x40px |class=inline-icon invert-image]]</span>&#32;[[Junkrat#Total Mayhem|Total Mayhem]]</span> will trigger if Duplicate ends due to HP being reduced to 0, but not if it ends due to maximum duration or falling off the map.\n* Echo can still use her own equipped voicelines and sprays while transformed, but not her or her target's emotes.\n* Echo will use the user's key bindings, options and crosshair for the targeted hero while transformed.\n* Echo copies the target's currently equipped skin.\n* In [[Overwatch Uprising]], Echo can target a [[Null Sector]] [[OR14]] or a [[Bastion Siege Automaton B73]], duplicating a standard [[Orisa]] or [[Bastion]] respectively."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "15 seconds (transformation)<br>1.3 seconds (invulnerability, casting)<br>1 second (invulnerability, ending)",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": [
+            "duration has multiple components and was left unparsed."
+          ]
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "duration: duration has multiple components and was left unparsed."
+      ]
+    }
+  ],
+  "source": "https://overwatch.fandom.com/api.php",
+  "fetched_at": "2026-06-25T07:13:01.672645+00:00"
+}

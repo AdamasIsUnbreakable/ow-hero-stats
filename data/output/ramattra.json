@@ -1,0 +1,2008 @@
+{
+  "name": "Ramattra",
+  "role": "Tank",
+  "sub_role": "Stalwart",
+  "health": {
+    "health": 275,
+    "armor": 100,
+    "shield": null
+  },
+  "abilities": [
+    {
+      "name": "Nanite Repair",
+      "slot": "",
+      "type": "Major Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Ramattra",
+        "ability name": "Nanite Repair",
+        "ability key": "",
+        "ability type": "Major Perk",
+        "shot type": "",
+        "official description": "Ramattra is healed for 75 health per second while within Ravenous Vortex.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "<span class=\"tooltip\" title=\"19.2 every 0.192 seconds\">100 per second</span>",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": ""
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "<span class=\"tooltip\" title=\"19.2 every 0.192 seconds\">100 per second</span>",
+          "value": 100,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "high",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Prolonged Barrier",
+      "slot": "",
+      "type": "Minor Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Ramattra",
+        "ability name": "Prolonged Barrier",
+        "ability key": "",
+        "ability type": "Minor Perk",
+        "shot type": "",
+        "official description": "Void Barrier's duration and size is increased by 25%.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "5 seconds",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* ''Removed in Season 18, re-added in Reign of Ralon Season 2: Summit''"
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "5 seconds",
+          "value": 5,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Relentless Form",
+      "slot": "",
+      "type": "Minor Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Ramattra",
+        "ability name": "Relentless Form",
+        "ability key": "",
+        "ability type": "Minor Perk",
+        "shot type": "",
+        "official description": "While Nemesis Form is active, eliminations extend the duration by 2 seconds. Half duration gained during Annihilation.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": ""
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Vengeful Vortex",
+      "slot": "",
+      "type": "Major Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Ramattra",
+        "ability name": "Vengeful Vortex",
+        "ability key": "",
+        "ability type": "Major Perk",
+        "shot type": "",
+        "official description": "While Ravenous Vortex is airborne, use E again to detonate it, dealing 50 damage and pulling enemies downward.",
+        "damage": "50",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "6 meters",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* ''Integrated into base kit in Reign of Talon Season 2''\n* Once detonated, the projectile falls straight down and creates a vortex at the location where it landed.\n* Automatically detonates upon hitting the ground if the projectile has travelled at least 4 meters."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "50",
+          "value": 50,
+          "min_value": null,
+          "max_value": null,
+          "unit": "damage",
+          "confidence": "high",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Void Surge",
+      "slot": "",
+      "type": "Major Perk",
+      "shot_type": [
+        "[[File:Ability-reaper1.png|40x40px|middle|class=inline-icon invert-image|link=Shotgun|Shotgun ]] Shotgun (projectile)"
+      ],
+      "raw": {
+        "hero name": "Ramattra",
+        "ability name": "Void Surge",
+        "ability key": "",
+        "ability type": "Major Perk",
+        "shot type": "[[File:Ability-reaper1.png|40x40px|middle|class=inline-icon invert-image|link=Shotgun|Shotgun ]] <span class=\"tooltip\" title=\"Shoots many pellets at once.\">Shotgun</span> (projectile)",
+        "official description": "Void Accelerator periodically releases a burst of 6 additional projectiles during continuous fire.",
+        "damage": "5 (per pellet)<br>30 (per burst)",
+        "damage falloff range": "",
+        "headshot": "yes",
+        "headshot mod": "2",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "2.2 degrees",
+        "radius": "",
+        "range distance": "",
+        "dps": "175 while firing",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* Damage per second: 175 (140 overall w/ reload)\n* Activates every 15 shots.\n* Increases damage from a full clip of ammo from 500 to 700. '\"`UNIQ--ref-0000006D-QINU`\"'"
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "5 (per pellet)<br>30 (per burst)",
+          "value": 5,
+          "min_value": null,
+          "max_value": null,
+          "unit": "damage",
+          "confidence": "low",
+          "warnings": [
+            "Damage has multiple components and only the first number was parsed."
+          ]
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "2.2 degrees",
+          "value": 2.2,
+          "min_value": null,
+          "max_value": null,
+          "unit": "degrees",
+          "confidence": "high",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "175 while firing",
+          "value": 175,
+          "min_value": null,
+          "max_value": null,
+          "unit": "per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "damage: Damage has multiple components and only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Nemesis Form",
+      "slot": "ability 1",
+      "type": "Ability",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Ramattra",
+        "ability name": "Nemesis Form",
+        "ability key": "ability 1",
+        "ability type": "Ability",
+        "shot type": "",
+        "official description": "Transform into Nemesis Form, changing your attacks and gaining bonus armor.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "8 seconds",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "<span class=\"tooltip\" title=\"0s startup + 0.496s recovery\">0 + 0.5 seconds</span>",
+        "duration": "8 seconds",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "transformation::reloads::armor::speed cap",
+        "ability details": "* Grants Ramattra [[armor]] and [[movement speed]] and replaces <span class=\"ability-tooltip\" data-ability=\"Void Accelerator\" ><span class=\"ability-link\">[[File:Void_Accelerator_Icon.png|middle|link=Ramattra#Void Accelerator|40x40px |class=inline-icon invert-image]]</span>&#32;[[Ramattra#Void Accelerator|Void Accelerator]]</span> and <span class=\"ability-tooltip\" data-ability=\"Void Barrier\" ><span class=\"ability-link\">[[File:Void_Barrier_Icon.png|sub|link=Ramattra#Void Barrier|40x40px |class=inline-icon invert-image]]</span>&#32;[[Ramattra#Void Barrier|Void Barrier]]</span> with <span class=\"ability-tooltip\" data-ability=\"Pummel\" ><span class=\"error\">''Could not find 'Pummel' in 'Abilities'. Check spelling and see [[Help:Cargo]] if the issue persists.''</span></span> and <span class=\"ability-tooltip\" data-ability=\"Block\" ><span class=\"error\">''Could not find 'Block' in 'Abilities'. Check spelling and see [[Help:Cargo]] if the issue persists.''</span></span>.\n* Cooldown starts when the transformation ends.\n* Nemesis Form is not interrupted by crowd control.\n* Ramattra can still use regular [[Quick Melee]] while in Nemesis Form.\n* Nemesis Form's [[movement speed]] buff does not count towards global movement speed buff cap."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "8 seconds",
+          "value": 8,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "8 seconds",
+          "value": 8,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Ravenous Vortex",
+      "slot": "ability 2",
+      "type": "Ability;;both forms",
+      "shot_type": [
+        "[[File:Abilities-sigma4.png|40x40px|sub|class=inline-icon invert-image|link=Arcing projectile|Arcing projectile ]] Arcing projectile [[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] Area of effect"
+      ],
+      "raw": {
+        "hero name": "Ramattra",
+        "ability name": "Ravenous Vortex",
+        "ability key": "ability 2",
+        "ability type": "Ability;;both forms",
+        "shot type": "[[File:Abilities-sigma4.png|40x40px|sub|class=inline-icon invert-image|link=Arcing projectile|Arcing projectile ]] <span class=\"tooltip\" title=\"Has travel time. Also is affected by gravity.\">Arcing projectile</span><br>[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] <span class=\"tooltip\" title=\"Affects all enemies within an area. Usually requires unobstructed line of sight to the origin.\">Area of effect</span>",
+        "official description": "Fire a sphere of energy that creates a slowing vortex on the ground, slowing and pulling down enemies. Re-activate to detonate early.",
+        "damage": "<span class=\"tooltip\" title=\"85 total\">15</span> (explosion damage)<br><span class=\"tooltip\" title=\"4.48 every 0.064 seconds\">70 over time</span>",
+        "damage falloff range": "",
+        "headshot": "no",
+        "headshot mod": "2",
+        "heal": "",
+        "cooldown": "11 seconds",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "<span class=\"tooltip\" title=\"0.496s startup + 0.400s recovery\">0.5 + 0.4 seconds</span>",
+        "duration": "3 seconds",
+        "pspeed": "30 m/s",
+        "pradius": "None",
+        "spread": "",
+        "radius": "4 meters",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "area of effect;;cylindrical::armor piercing::barrier collide::travel time",
+        "ability details": "* Available to both forms.\n* The projectile must hit the ground to activate.\n* The projectile is blocked by [[barriers]], but the AoE is not.\n* The projectile bounces off of [[objects]] and walls, but passes through [[heroes]].\n* The projectile can be negated by <span class=\"ability-tooltip\" data-ability=\"Defense Matrix\" ><span class=\"ability-link\">[[File:Ability-dva3.png|sub|link=D.Va#Defense Matrix|40x40px |class=inline-icon invert-image]]</span>&#32;[[D.Va#Defense Matrix|Defense Matrix]]</span>, <span class=\"ability-tooltip\" data-ability=\"Javelin Spin\" ><span class=\"ability-link\">[[File:Ability_JavelinSpin.png|sub|link=Orisa#Javelin Spin|40x40px |class=inline-icon invert-image]]</span>&#32;[[Orisa#Javelin Spin|Javelin Spin]]</span>, <span class=\"ability-tooltip\" data-ability=\"Kinetic Grasp\" ><span class=\"ability-link\">[[File:Abilities-sigma3.png|sub|link=Sigma#Kinetic Grasp|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sigma#Kinetic Grasp|Kinetic Grasp]]</span>, <span class=\"ability-tooltip\" data-ability=\"Power Matrix\" ><span class=\"ability-link\">[[File:Perk_PowerMatrix.png|sub|link=Doomfist#Power Matrix|40x40px |class=inline-icon invert-image]]</span>&#32;[[Doomfist#Power Matrix|Power Matrix]]</span> and <span class=\"ability-tooltip\" data-ability=\"Kekkai Sanctuary\" ><span class=\"ability-link\">[[File:ULT Kekkai Sancturary.png|sub|link=Mizuki#Kekkai Sanctuary|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mizuki#Kekkai Sanctuary|Kekkai Sanctuary]]</span> and reflected by <span class=\"ability-tooltip\" data-ability=\"Deflect\" ><span class=\"ability-link\">[[File:Ability-genji2.png|sub|link=Genji#Deflect|40x40px |class=inline-icon invert-image]]</span>&#32;[[Genji#Deflect|Deflect]]</span> before it lands.\n* Pulls down enemies lifted by Sigma's <span class=\"ability-tooltip\" data-ability=\"Gravitic Flux\" ><span class=\"ability-link\">[[File:Abilities-sigma5.png|sub|link=Sigma#Gravitic Flux|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sigma#Gravitic Flux|Gravitic Flux]]</span> and [[Wrecking Ball]] during <span class=\"ability-tooltip\" data-ability=\"Piledriver\" ><span class=\"ability-link\">[[File:Piledriver.png|sub|link=Wrecking Ball#Piledriver|40x40px |class=inline-icon invert-image]]</span>&#32;[[Wrecking Ball#Piledriver|Piledriver]]</span>, but does not prevent their effects.\n* Strangely, it appears that [[Doomfist]]'s [[Rocket Punch]] is not affected by the speed reduction.\n* Ravenous Vortex does not affect <span class=\"ability-tooltip\" data-ability=\"Petal Platform\" ><span class=\"ability-link\">[[File:Petal_Platform_Icon.png|sub|link=Lifeweaver#Petal Platform|40x40px |class=inline-icon invert-image]]</span>&#32;[[Lifeweaver#Petal Platform|Petal Platform]]</span>."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "11 seconds",
+          "value": 11,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "3 seconds",
+          "value": 3,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "<span class=\"tooltip\" title=\"85 total\">15</span> (explosion damage)<br><span class=\"tooltip\" title=\"4.48 every 0.064 seconds\">70 over time</span>",
+          "value": 15,
+          "min_value": null,
+          "max_value": null,
+          "unit": "damage",
+          "confidence": "low",
+          "warnings": [
+            "Damage has multiple components and only the first number was parsed."
+          ]
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "30 m/s",
+          "value": 30,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "None",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "damage: Damage has multiple components and only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Annihilation",
+      "slot": "ability 3",
+      "type": "Ultimate Ability",
+      "shot_type": [
+        "[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] Area of effect [[File:Ability_Moira_Coalescence.png|sub|40x40px|class=inline-icon invert-image|link=Beam|Beam ]] Beam"
+      ],
+      "raw": {
+        "hero name": "Ramattra",
+        "ability name": "Annihilation",
+        "ability key": "ability 3",
+        "ability type": "Ultimate Ability",
+        "shot type": "[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] <span class=\"tooltip\" title=\"Affects all enemies within an area. Usually requires unobstructed line of sight to the origin.\">Area of effect</span><br>[[File:Ability_Moira_Coalescence.png|sub|40x40px|class=inline-icon invert-image|link=Beam|Beam ]] <span class=\"tooltip\" title=\"High tickrate weapon. Ignores Deflect, Javelin Spin, Defense Matrix and Kinetic Grasp. Damage reduced by 30% against armor.\">Beam</span>",
+        "official description": "Enter Nemesis Form and create a deadly swarm that lashes out at nearby enemies, persisting longer when damaging enemies.",
+        "damage": "<span class=\"tooltip\" title=\"6.72 every 0.192 seconds\">35 per second</span>",
+        "damage falloff range": "",
+        "headshot": "no",
+        "headshot mod": "2",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "<span class=\"tooltip\" title=\"0s startup + 0.496s recovery\">0 + 0.5 seconds</span> (Omnic form)<br>None (Nemesis form)",
+        "duration": "3 - 20 seconds",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "13 meters",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "area of effect;;spherical::beam::reloads::transformation",
+        "ability details": "* Transforms into Nemesis form until the Ultimate ends.\n** If Annihilation is activated from Nemesis Form, it has no recovery time and Ramattra regains the armor bonus from entering Nemesis Form.\n** The cooldown of Nemesis Form is not affected by Annihilation. If Annihilation is activated from Nemesis Form, Nemesis Form's cooldown immediately begins as Annihilation is activated. Making it possible to chain Nemesis Form into Annihilation into another Nemesis Form if Annihilation lasts longer than the cooldown of Nemesis Form.\n* Annihilation's tether damage by energy swarm is not interrupted by crowd control.\n* Timer ticks down at 85% reduced rate when any enemy Heroes are affected by Annihilation, resulting in a maximum duration of 20 seconds.\n** Enemies must be within line of sight to be affected by Annihilation. \n** Does not affect enemies through [[Barrier|barriers]], including [[Zarya]]'s <span class=\"ability-tooltip\" data-ability=\"Particle Barrier\" ><span class=\"ability-link\">[[File:Ability-zarya2.png|sub|link=Zarya#Particle Barrier|40x40px |class=inline-icon invert-image]]</span>&#32;[[Zarya#Particle Barrier|Particle Barrier]]</span> and <span class=\"ability-tooltip\" data-ability=\"Projected Barrier\" ><span class=\"ability-link\">[[File:Ability-zarya3.png|sub|link=Zarya#Projected Barrier|40x40px |class=inline-icon invert-image]]</span>&#32;[[Zarya#Projected Barrier|Projected Barrier]]</span>, or terrain-like [[object]]s, like [[Mei]]'s <span class=\"ability-tooltip\" data-ability=\"Ice Wall\" ><span class=\"ability-link\">[[File:Ability-mei3.png|sub|link=Mei#Ice Wall|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mei#Ice Wall|Ice Wall]]</span>.\n** Does not affect invulnerable enemies, like [[Zenyatta]] during <span class=\"ability-tooltip\" data-ability=\"Transcendence\" ><span class=\"ability-link\">[[File:Ability-zenyatta4.png|sub|link=Zenyatta#Transcendence|40x40px |class=inline-icon invert-image]]</span>&#32;[[Zenyatta#Transcendence|Transcendence]]</span>.\n** <span class=\"ability-tooltip\" data-ability=\"B.O.B.\" ><span class=\"ability-link\">[[File:Ability-ashe4.png|sub|link=Ashe#B.O.B.|40x40px |class=inline-icon invert-image]]</span>&#32;[[Ashe#B.O.B.|B.O.B.]]</span> counts as a valid target. Constructs, such as [[Symmetra]]'s <span class=\"ability-tooltip\" data-ability=\"Sentry Turret\" ><span class=\"ability-link\">[[File:Ability-symmetra2.png|sub|link=Symmetra#Sentry Turret|40x40px |class=inline-icon invert-image]]</span>&#32;[[Symmetra#Sentry Turret|Sentry Turrets]]</span> and [[Torbjorn]]'s <span class=\"ability-tooltip\" data-ability=\"Deploy Turret\" ><span class=\"ability-link\">[[File:Ability-torbjorn3.png|sub|link=Torbjörn#Deploy Turret|40x40px |class=inline-icon invert-image]]</span>&#32;[[Torbjörn#Deploy Turret|Deploy Turret]]</span>, do not take damage.\n** Does not affect [[Sombra]] while she is [[Stealth|invisible]], unless Ramattra enters her detection radius.\n* Can be canceled, by (re)activating Nemesis Form ability. This can be changed in settings."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "3 - 20 seconds",
+          "value": 3,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "low",
+          "warnings": [
+            "duration has multiple values; only the first number was parsed."
+          ]
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "<span class=\"tooltip\" title=\"6.72 every 0.192 seconds\">35 per second</span>",
+          "value": 35,
+          "min_value": null,
+          "max_value": null,
+          "unit": "damage",
+          "confidence": "high",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "duration: duration has multiple values; only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Pummel",
+      "slot": "primary fire",
+      "type": "Weapon;;Nemesis Form",
+      "shot_type": [
+        "[[File:Quick_melee.png|40x40px|sub|class=inline-icon invert-image|link=Melee|Melee ]] Melee [[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] Projectile"
+      ],
+      "raw": {
+        "hero name": "Ramattra",
+        "ability name": "Pummel",
+        "ability key": "primary fire",
+        "ability type": "Weapon;;Nemesis Form",
+        "shot type": "[[File:Quick_melee.png|40x40px|sub|class=inline-icon invert-image|link=Melee|Melee ]] <span class=\"tooltip\" title=\"Physical attack. Limited range. Usually ignores barriers.\">Melee</span><br>[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] <span class=\"tooltip\" title=\"Has travel time.\">Projectile</span>",
+        "official description": "Punch, creating a wave of piercing energy with every swing.",
+        "damage": "65",
+        "damage falloff range": "",
+        "headshot": "no",
+        "headshot mod": "2",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "<span class=\"tooltip\" title=\"1 attack every 0.6 seconds\">1.67 shots/s</span>",
+        "ammo": "∞",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "105 m/s",
+        "pradius": "0.575 meters",
+        "spread": "None",
+        "radius": "",
+        "range distance": "10 meters",
+        "dps": "108.33 while firing",
+        "hps": "",
+        "ability keywords": "melee::piercing::strong projectile",
+        "ability details": "* Damage per second: 108.33\n* Exclusive to Nemesis form.\n* Punches pierce enemies and barriers.\n** Also damages the barriers when passing through them.\n** Damages enemies behind [[Zarya]]'s <span class=\"ability-tooltip\" data-ability=\"Particle Barrier\" ><span class=\"ability-link\">[[File:Ability-zarya2.png|sub|link=Zarya#Particle Barrier|40x40px |class=inline-icon invert-image]]</span>&#32;[[Zarya#Particle Barrier|Particle Barrier]]</span> and <span class=\"ability-tooltip\" data-ability=\"Projected Barrier\" ><span class=\"ability-link\">[[File:Ability-zarya3.png|sub|link=Zarya#Projected Barrier|40x40px |class=inline-icon invert-image]]</span>&#32;[[Zarya#Projected Barrier|Projected Barrier]]</span>, but not the enemy affected by it.\n* Pummel is not reflected when blocked by <span class=\"ability-tooltip\" data-ability=\"Deflect\" ><span class=\"ability-link\">[[File:Ability-genji2.png|sub|link=Genji#Deflect|40x40px |class=inline-icon invert-image]]</span>&#32;[[Genji#Deflect|Deflect]]</span>.\n* Does not damage enemies through terrain or terrain-like [[objects]], like [[Mei]]'s <span class=\"ability-tooltip\" data-ability=\"Ice Wall\" ><span class=\"ability-link\">[[File:Ability-mei3.png|sub|link=Mei#Ice Wall|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mei#Ice Wall|Ice Wall]]</span> or <span class=\"ability-tooltip\" data-ability=\"Tree of Life\" ><span class=\"ability-link\">[[File:Tree_of_Life_Icon.png|sub|link=Lifeweaver#Tree of Life|40x40px |class=inline-icon invert-image]]</span>&#32;[[Lifeweaver#Tree of Life|Tree of Life]]</span>.\n* Quick Melee cancels the recovery animation of Pummel."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "∞",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": [
+            "Could not parse ammo."
+          ]
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "65",
+          "value": 65,
+          "min_value": null,
+          "max_value": null,
+          "unit": "damage",
+          "confidence": "high",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "<span class=\"tooltip\" title=\"1 attack every 0.6 seconds\">1.67 shots/s</span>",
+          "value": 1.67,
+          "min_value": null,
+          "max_value": null,
+          "unit": "shots_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "105 m/s",
+          "value": 105,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "0.575 meters",
+          "value": 0.575,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "None",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "108.33 while firing",
+          "value": 108.33,
+          "min_value": null,
+          "max_value": null,
+          "unit": "per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "ammo: Could not parse ammo."
+      ]
+    },
+    {
+      "name": "Void Accelerator",
+      "slot": "primary fire",
+      "type": "Weapon;;Omnic Form",
+      "shot_type": [
+        "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] Projectile"
+      ],
+      "raw": {
+        "hero name": "Ramattra",
+        "ability name": "Void Accelerator",
+        "ability key": "primary fire",
+        "ability type": "Weapon;;Omnic Form",
+        "shot type": "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] <span class=\"tooltip\" title=\"Has travel time.\">Projectile</span>",
+        "official description": "Fire a stream of projectiles.",
+        "damage": "5",
+        "damage falloff range": "",
+        "headshot": "yes",
+        "headshot mod": "2",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "<span class=\"tooltip\" title=\"0.04 seconds per shot\">25 shots/s</span>",
+        "ammo": "100",
+        "reload time": "1 second",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "80 m/s",
+        "pradius": "0.15 meters",
+        "spread": "None",
+        "radius": "",
+        "range distance": "",
+        "dps": "125 (100 overall w/ reload)",
+        "hps": "",
+        "ability keywords": "critical::travel time",
+        "ability details": "* Damage per second: 125 (100 overall w/ reload)\n* Exclusive to Omnic form.\n* No damage fall-off"
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "1 second",
+          "value": 1,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "100",
+          "value": 100,
+          "min_value": null,
+          "max_value": null,
+          "unit": "rounds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "5",
+          "value": 5,
+          "min_value": null,
+          "max_value": null,
+          "unit": "damage",
+          "confidence": "high",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "<span class=\"tooltip\" title=\"0.04 seconds per shot\">25 shots/s</span>",
+          "value": 25,
+          "min_value": null,
+          "max_value": null,
+          "unit": "shots_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "80 m/s",
+          "value": 80,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "0.15 meters",
+          "value": 0.15,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "None",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "125 (100 overall w/ reload)",
+          "value": 125,
+          "min_value": null,
+          "max_value": null,
+          "unit": "per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Block",
+      "slot": "secondary fire",
+      "type": "Ability;;Nemesis Form",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Ramattra",
+        "ability name": "Block",
+        "ability key": "secondary fire",
+        "ability type": "Ability;;Nemesis Form",
+        "shot type": "",
+        "official description": "Significantly reduces damage taken from the front and reduces movement speed.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "1 second",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "<span class=\"tooltip\" title=\"0s startup + 0.272s recovery\">0 + 0.3 seconds</span>",
+        "duration": "<span class=\"tooltip\" title=\"0.208\">0.2</span> seconds (min)",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "channeled",
+        "ability details": "* Exclusive to Nemesis form.\n* Cooldown starts when blocking is stopped.\n* No maximum duration; only limited by the duration of Nemesis Form.\n* Block is a [[channeled]] ability; the ability is interrupted when Ramattra is affected by [[stunned]], [[knocked down]] or [[hacked]], including subsidiary effects.\n** The impact damage from the instance that applied the effect will still be blocked.\n* Damage is blocked if the horizontal angle between the direction Ramattra is facing and the direction from the impact location to its source is less than 53.15 degrees.\n** Ramattra's vertical view angle does not affect blocking.\n* Effectiveness extends to area abilities and splash damage from projectiles. Damage is generally blocked when facing the center of the AoE.\n** Damage from <span class=\"ability-tooltip\" data-ability=\"Graviton Surge\" ><span class=\"ability-link\">[[File:Ability-zarya4.png|sub|link=Zarya#Graviton Surge|40x40px |class=inline-icon invert-image]]</span>&#32;[[Zarya#Graviton Surge|Graviton Surge]]</span> and <span class=\"ability-tooltip\" data-ability=\"Ravenous Vortex\" ><span class=\"ability-link\">[[File:Ravenous_Vortex_Icon.png|sub|link=Ramattra#Ravenous Vortex|40x40px |class=inline-icon invert-image]]</span>&#32;[[Ramattra#Ravenous Vortex|Ravenous Vortex]]</span> is blocked by facing the hero that used it instead of the AoE center.\n** Damage from <span class=\"ability-tooltip\" data-ability=\"Dragonstrike\" ><span class=\"ability-link\">[[File:Ability-hanzo4.png|sub|link=Hanzo#Dragonstrike|40x40px |class=inline-icon invert-image]]</span>&#32;[[Hanzo#Dragonstrike|Dragonstrike]]</span> and <span class=\"ability-tooltip\" data-ability=\"Molten Core\" ><span class=\"ability-link\">[[File:Ability-torbjorn5.png|sub|link=Torbjörn#Molten Core|40x40px |class=inline-icon invert-image]]</span>&#32;[[Torbjörn#Molten Core|Molten Core]]</span> is blocked regardless of facing direction.\n** Does not reduce damage from [[Sombra]]'s <span class=\"ability-tooltip\" data-ability=\"EMP\" ><span class=\"ability-link\">[[File:Ability Sombra EMP.png|sub|link=Sombra#EMP|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sombra#EMP|EMP]]</span> or Sigma's <span class=\"ability-tooltip\" data-ability=\"Gravitic Flux\" ><span class=\"ability-link\">[[File:Abilities-sigma5.png|sub|link=Sigma#Gravitic Flux|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sigma#Gravitic Flux|Gravitic Flux]]</span> (incl. both lift and slam).\n* Block mitigates delayed or triggered detonation damage from stuck projectiles and debuffs, regardless of the direction Ramattra is facing.\n** Following abilities are affected: <span class=\"ability-tooltip\" data-ability=\"A-36 Tactical Grenade\" ><span class=\"ability-link\">[[File:A-36_Icon.png|sub|link=Bastion#A-36 Tactical Grenade|40x40px |class=inline-icon invert-image]]</span>&#32;[[Bastion#A-36 Tactical Grenade|A-36 Tactical Grenade]]</span>, <span class=\"ability-tooltip\" data-ability=\"Sticky Bombs\" ><span class=\"ability-link\">[[File:STICKY BOMBS.png|sub|link=Echo#Sticky Bombs|40x40px |class=inline-icon invert-image]]</span>&#32;[[Echo#Sticky Bombs|Sticky Bombs]]</span>, <span class=\"ability-tooltip\" data-ability=\"Pulse Bomb\" ><span class=\"ability-link\">[[File:Ability-tracer4.png|sub|link=Tracer#Pulse Bomb|40x40px |class=inline-icon invert-image]]</span>&#32;[[Tracer#Pulse Bomb|Pulse Bomb]]</span> and <span class=\"ability-tooltip\" data-ability=\"Captive Sun\" ><span class=\"ability-link\">[[File:Captive_sun_icon.png|sub|link=Illari#Captive Sun|40x40px |class=inline-icon invert-image]]</span>&#32;[[Illari#Captive Sun|Captive Sun]]</span>.\n* Does not affect [[damage over time]] effects from abilities.\n* Hides head hitbox from the front.\n* Block overrides the global 50% damage reduction buff cap."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "1 second",
+          "value": 1,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "<span class=\"tooltip\" title=\"0.208\">0.2</span> seconds (min)",
+          "value": 0.2,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Void Barrier",
+      "slot": "secondary fire",
+      "type": "Ability;;Omnic Form",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Ramattra",
+        "ability name": "Void Barrier",
+        "ability key": "secondary fire",
+        "ability type": "Ability;;Omnic Form",
+        "shot type": "",
+        "official description": "Create a barrier at the targeted location.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "12 seconds",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "<span class=\"tooltip\" title=\"0.032s startup + 0.496s recovery\">0.03 + 0.5 seconds</span>",
+        "duration": "4 seconds",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "35 meters",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "barrier::deployable",
+        "ability details": "* Exclusive to Omnic form.\n* Hold to target. While targeting, a line on the floor is generated that shows the player where the barrier will be drawn when the button is released.\n** Targeting can be canceled by pressing Primary Fire or Escape.\n** Only one barrier can be active at a time. Creating a new one replaces the previous.\n*** A new barrier cannot be created near the location of an active Void Barrier.\n* Ability is stationed wherever it's placed. So, if placed on top of a temporary or moving surface, like <span class=\"ability-tooltip\" data-ability=\"Ice Wall\" ><span class=\"ability-link\">[[File:Ability-mei3.png|sub|link=Mei#Ice Wall|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mei#Ice Wall|Ice Wall]]</span> or the [[Payload]], it will remain in midair, even after the surface expires or moves.\n* Ability cooldown begins the moment the barrier is placed, similar to <span class=\"ability-tooltip\" data-ability=\"Barrier Projector\" ><span class=\"ability-link\">[[File:Ability-winston3.png|sub|link=Winston#Barrier Projector|40x40px |class=inline-icon invert-image]]</span>&#32;[[Winston#Barrier Projector|Barrier Projector]]</span>."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "12 seconds",
+          "value": 12,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "4 seconds",
+          "value": 4,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    }
+  ],
+  "source": "https://overwatch.fandom.com/api.php",
+  "fetched_at": "2026-06-25T07:13:01.696819+00:00"
+}

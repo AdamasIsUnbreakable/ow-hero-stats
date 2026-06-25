@@ -1,0 +1,1857 @@
+{
+  "name": "Anran",
+  "role": "Damage",
+  "sub_role": "Flanker",
+  "health": {
+    "health": 250,
+    "armor": null,
+    "shield": null
+  },
+  "abilities": [
+    {
+      "name": "Heat Shield",
+      "slot": "",
+      "type": "Minor Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Anran",
+        "ability name": "Heat Shield",
+        "ability key": "",
+        "ability type": "Minor Perk",
+        "shot type": "",
+        "official description": "Gain 50 overhealth when you use your Ultimate and for each enemy ignited by it.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* Overhealth decays 4 seconds after hitting the ground/becoming actionable.\n* Works with either Ultimate."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Hungering Blaze",
+      "slot": "",
+      "type": "Major Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Anran",
+        "ability name": "Hungering Blaze",
+        "ability key": "",
+        "ability type": "Major Perk",
+        "shot type": "",
+        "official description": "Increase the healing of Dancing Blaze's subsequent strikes by 25.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "25 → 50 per subsequent enemy hit",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* Can fully heal back to 250 HP if 5 targets are hit.\n* Healing is not reduced by the global healing reduction passive."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "25 → 50 per subsequent enemy hit",
+          "value": 25,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "low",
+          "warnings": [
+            "Damage has multiple components and only the first number was parsed."
+          ]
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "heal: Damage has multiple components and only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Ignition",
+      "slot": "",
+      "type": "Passive Ability",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Anran",
+        "ability name": "Ignition",
+        "ability key": "",
+        "ability type": "Passive Ability",
+        "shot type": "",
+        "official description": "Hit enemies with fire attacks to burn them.",
+        "damage": "<span class=\"tooltip\" title=\"1.92 every 0.192 seconds\">10 per second (base)</span><br><span class=\"tooltip\" title=\"\">20 per second (fan the flames)</span>",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "3 seconds",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* Upon accumulating 100% ignition on a target, they will be ignited.\n** Ignition less than 100% resets to 0% after 4 seconds if not increased by igniting attacks..\n* Affects [[Deployables]], such as turrets or <span class=\"ability-tooltip\" data-ability=\"Tree of Life\" ><span class=\"ability-link\">[[File:Tree_of_Life_Icon.png|sub|link=Lifeweaver#Tree of Life|40x40px |class=inline-icon invert-image]]</span>&#32;[[Lifeweaver#Tree of Life|Tree of Life]]</span>, but not [[Barrier]]s."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "3 seconds",
+          "value": 3,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "<span class=\"tooltip\" title=\"1.92 every 0.192 seconds\">10 per second (base)</span><br><span class=\"tooltip\" title=\"\">20 per second (fan the flames)</span>",
+          "value": 10,
+          "min_value": null,
+          "max_value": null,
+          "unit": "damage",
+          "confidence": "low",
+          "warnings": [
+            "Damage has multiple components and only the first number was parsed."
+          ]
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "damage: Damage has multiple components and only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Short Fuse",
+      "slot": "",
+      "type": "Major Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Anran",
+        "ability name": "Short Fuse",
+        "ability key": "",
+        "ability type": "Major Perk",
+        "shot type": "",
+        "official description": "Impacting an enemy with Inferno Rush reduces its cooldown by 1.5 seconds.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* Impacting multiple enemies will reduce the cooldown by 1.5 per each hit.\n* If all 5 enemies are hit, it will be reduced by 7.5 seconds (for a 1 second cooldown)."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Smoulder",
+      "slot": "",
+      "type": "Minor Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Anran",
+        "ability name": "Smoulder",
+        "ability key": "",
+        "ability type": "Minor Perk",
+        "shot type": "",
+        "official description": "Ignited enemies burn 1.5 seconds longer.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* Increases duration of [[Status effect#Burning|burning]] triggered by Ignition to 4.5 seconds.\n* Does not increase the duration of critical burning from Fan the Flames."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Inferno Rush",
+      "slot": "ability 1",
+      "type": "Ability",
+      "shot_type": [
+        "[[File:Swift_Step_Icon.png|40x40px|sub|class=inline-icon invert-image|link=Movement ability|Movement ]] Movement"
+      ],
+      "raw": {
+        "hero name": "Anran",
+        "ability name": "Inferno Rush",
+        "ability key": "ability 1",
+        "ability type": "Ability",
+        "shot type": "[[File:Swift_Step_Icon.png|40x40px|sub|class=inline-icon invert-image|link=Movement ability|Movement ]] <span class=\"tooltip\" title=\"Grants a burst of movement. Disabled by abilities that apply mobility lock status.\">Movement</span>",
+        "official description": "Propel yourself forward and damage enemies you impact.",
+        "damage": "30",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "8 seconds",
+        "charges": "2",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "<span class=\"tooltip\" title=\"0.348s startup + 0.096s recovery\">0.3 + 0.1 seconds</span>",
+        "duration": "1.3 seconds",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "Burning::Evasive::Movement::partial speed cap",
+        "ability details": "* Anran can automatically climb over small ledges.\n* Anran has 20% increased Jump height.\n* 50% ignition on enemies hit, 33% on tanks.\n* Can provide an initial vertical boost if the ability is activated while looking up.\n* The ability makes the player to go in the direction they are facing.\n** Using the ability locks them out of moving left or right, forcing them to go forward.\n* Can be canceled early by pressing Quick Melee."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "8 seconds",
+          "value": 8,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "1.3 seconds",
+          "value": 1.3,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "2",
+          "value": 2,
+          "min_value": null,
+          "max_value": null,
+          "unit": "charges",
+          "confidence": "high",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "30",
+          "value": 30,
+          "min_value": null,
+          "max_value": null,
+          "unit": "damage",
+          "confidence": "high",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Dancing Blaze",
+      "slot": "ability 2",
+      "type": "Ability",
+      "shot_type": [
+        "[[File:Quick_melee.png|40x40px|sub|class=inline-icon invert-image|link=Melee|Melee ]] Melee"
+      ],
+      "raw": {
+        "hero name": "Anran",
+        "ability name": "Dancing Blaze",
+        "ability key": "ability 2",
+        "ability type": "Ability",
+        "shot type": "[[File:Quick_melee.png|40x40px|sub|class=inline-icon invert-image|link=Melee|Melee ]] <span class=\"tooltip\" title=\"Physical attack. Limited range. Usually ignores barriers.\">Melee</span>",
+        "official description": "Dodge all damage while striking nearby enemies, healing yourself for each enemy hit.",
+        "damage": "50",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "50 (initial target)<br>25 (subsequent targets)",
+        "cooldown": "8 seconds",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "<span class=\"tooltip\" title=\"0.28s startup + 0.144s recovery\">0.2 + 0.1 seconds</span>",
+        "duration": "0.8 seconds (base) + 0.16s (bonus per target if base ends)",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "8 meters",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "Area of Effect;;spherical::Burning::Invulnerable::Melee::Phased::Strong Movement",
+        "ability details": "* Healing is not reduced by the global healing reduction passive.\n* Movement range of 2.25 meters.\n* 50% ignition on enemies hit, 33% on tanks."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "8 seconds",
+          "value": 8,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "0.8 seconds (base) + 0.16s (bonus per target if base ends)",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": [
+            "duration has multiple components and was left unparsed."
+          ]
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "50",
+          "value": 50,
+          "min_value": null,
+          "max_value": null,
+          "unit": "damage",
+          "confidence": "high",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "50 (initial target)<br>25 (subsequent targets)",
+          "value": 50,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "low",
+          "warnings": [
+            "Damage has multiple components and only the first number was parsed."
+          ]
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "duration: duration has multiple components and was left unparsed.",
+        "heal: Damage has multiple components and only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Zhuque Fans",
+      "slot": "primary fire",
+      "type": "Weapon;;Primary Fire",
+      "shot_type": [
+        "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] Projectile"
+      ],
+      "raw": {
+        "hero name": "Anran",
+        "ability name": "Zhuque Fans",
+        "ability key": "primary fire",
+        "ability type": "Weapon;;Primary Fire",
+        "shot type": "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] <span class=\"tooltip\" title=\"Has travel time.\">Projectile</span>",
+        "official description": "Hand fans that shoot fiery projectiles.",
+        "damage": "22 (per shot)<br>44 (per volley)",
+        "damage falloff range": "",
+        "headshot": "yes",
+        "headshot mod": "2",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "<span class=\"tooltip\" title=\"1 volley every 0.667 seconds\">1.5 volleys/s</span>",
+        "ammo": "20",
+        "reload time": "1.5 seconds",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "90 m/s",
+        "pradius": "0.225 meters",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "66 while firing (53.88 w/ reload)",
+        "hps": "",
+        "ability keywords": "Burning::Critical::Travel Time",
+        "ability details": "* Damage per second: 66 while firing (53.88 w/ reload) (while not burning)\n*Damage per second: 76 while firing (63.88 w/ reload) (while burning)\n* 25% ignition per shot hit, 17% on tanks.\n** Takes 4 hits (2 volleys) to trigger ignition, 6 hits (3 volleys) for tanks.\n** Ignition % gained is affected by headshots."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "1.5 seconds",
+          "value": 1.5,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "20",
+          "value": 20,
+          "min_value": null,
+          "max_value": null,
+          "unit": "rounds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "22 (per shot)<br>44 (per volley)",
+          "value": 22,
+          "min_value": null,
+          "max_value": null,
+          "unit": "damage",
+          "confidence": "low",
+          "warnings": [
+            "Damage has multiple components and only the first number was parsed."
+          ]
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "<span class=\"tooltip\" title=\"1 volley every 0.667 seconds\">1.5 volleys/s</span>",
+          "value": 1.5,
+          "min_value": null,
+          "max_value": null,
+          "unit": "shots_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "90 m/s",
+          "value": 90,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "0.225 meters",
+          "value": 0.225,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "66 while firing (53.88 w/ reload)",
+          "value": 66,
+          "min_value": null,
+          "max_value": null,
+          "unit": "per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "damage: Damage has multiple components and only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Fan the Flames",
+      "slot": "secondary fire",
+      "type": "Weapon;;Secondary Fire",
+      "shot_type": [
+        "[[File:Ability_Moira_Coalescence.png|sub|40x40px|class=inline-icon invert-image|link=Beam|Beam ]] Beam (projectile)"
+      ],
+      "raw": {
+        "hero name": "Anran",
+        "ability name": "Fan the Flames",
+        "ability key": "secondary fire",
+        "ability type": "Weapon;;Secondary Fire",
+        "shot type": "[[File:Ability_Moira_Coalescence.png|sub|40x40px|class=inline-icon invert-image|link=Beam|Beam ]] <span class=\"tooltip\" title=\"High tickrate weapon. Ignores Deflect, Javelin Spin, Defense Matrix and Kinetic Grasp. Damage reduced by 30% against armor.\">Beam</span> (projectile)",
+        "official description": "Hot wind blasts that amplifies burning damage.",
+        "damage": "6 (per pellet)<br>36 (base)<br>72 (burning)",
+        "damage falloff range": "",
+        "headshot": "no",
+        "headshot mod": "2",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "<span class=\"tooltip\" title=\"1 shot every 0.667 seconds\">1.5 shots/s</span>",
+        "ammo": "10",
+        "reload time": "1.5 seconds",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "90 m/s",
+        "pradius": "0.4 meters",
+        "spread": "",
+        "radius": "",
+        "range distance": "10 meters",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "Ability Critical::Beam::Burning::Piercing::Strong Projectile",
+        "ability details": "*Damage per second: 54 while firing (44.06 w/ reload) (while not burning)\n*Damage per second: 128 while firing (108.13 w/ reload) (while burning)\n* 25% ignition per shot hit, 17% on tanks.\n** Takes 4 hits (4 volleys) to trigger ignition, 6 hits (6 volleys) for tanks.\n* Amplifies [[Status effect#Burning|burning]] damage from 10 to 20 damage per second, for 2 seconds.\n** The burning duration is refreshed each time the target is hit (while burning).\n** Does not refresh the duration of burns applied by allies (such as from [[Ashe]]'s <span class=\"ability-tooltip\" data-ability=\"Dynamite\" ><span class=\"ability-link\">[[File:Ability-ashe2.png|sub|link=Ashe#Dynamite|40x40px |class=inline-icon invert-image]]</span>&#32;[[Ashe#Dynamite|Dynamite]]</span> or [[Torbjörn]]'s <span class=\"ability-tooltip\" data-ability=\"Molten Core\" ><span class=\"ability-link\">[[File:Ability-torbjorn5.png|sub|link=Torbjörn#Molten Core|40x40px |class=inline-icon invert-image]]</span>&#32;[[Torbjörn#Molten Core|Molten Core]]</span>)\n** The burning damage can be amplified, regardless of the source (such as from [[Ashe]]'s <span class=\"ability-tooltip\" data-ability=\"Dynamite\" ><span class=\"ability-link\">[[File:Ability-ashe2.png|sub|link=Ashe#Dynamite|40x40px |class=inline-icon invert-image]]</span>&#32;[[Ashe#Dynamite|Dynamite]]</span>).\n* If Ignition is triggered by Fan the Flames, the critical burning affect is still applied.\n*Unlike other beam weapons, this weapon can be amplified by <span class=\"ability-tooltip\" data-ability=\"Amplification Matrix\" ><span class=\"ability-link\">[[File:Baptiste-ability4.png|sub|link=Baptiste#Amplification Matrix|40x40px |class=inline-icon invert-image]]</span>&#32;[[Baptiste#Amplification Matrix|Amplification Matrix]]</span>."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "1.5 seconds",
+          "value": 1.5,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "10",
+          "value": 10,
+          "min_value": null,
+          "max_value": null,
+          "unit": "rounds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "6 (per pellet)<br>36 (base)<br>72 (burning)",
+          "value": 6,
+          "min_value": null,
+          "max_value": null,
+          "unit": "damage",
+          "confidence": "low",
+          "warnings": [
+            "Damage has multiple components and only the first number was parsed."
+          ]
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "<span class=\"tooltip\" title=\"1 shot every 0.667 seconds\">1.5 shots/s</span>",
+          "value": 1.5,
+          "min_value": null,
+          "max_value": null,
+          "unit": "shots_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "90 m/s",
+          "value": 90,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "0.4 meters",
+          "value": 0.4,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "damage: Damage has multiple components and only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Vermillion Ascent",
+      "slot": "ultimate",
+      "type": "Ultimate Ability",
+      "shot_type": [
+        "[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] Area of effect [[File:Swift_Step_Icon.png|40x40px|sub|class=inline-icon invert-image|link=Movement ability|Movement ]] Movement"
+      ],
+      "raw": {
+        "hero name": "Anran",
+        "ability name": "Vermillion Ascent",
+        "ability key": "ultimate",
+        "ability type": "Ultimate Ability",
+        "shot type": "[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] <span class=\"tooltip\" title=\"Affects all enemies within an area. Usually requires unobstructed line of sight to the origin.\">Area of effect</span><br>[[File:Swift_Step_Icon.png|40x40px|sub|class=inline-icon invert-image|link=Movement ability|Movement ]] <span class=\"tooltip\" title=\"Grants a burst of movement. Disabled by abilities that apply mobility lock status.\">Movement</span>",
+        "official description": "Charge forward, exploding on impact and instantly igniting enemies.",
+        "damage": "165 - 90",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "<span class=\"tooltip\" title=\"~1.2s startup + 0.064s recovery\">~1.2 + 0 seconds</span>",
+        "duration": "3 seconds (targetting)",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "2.5 - 10 meters",
+        "range distance": "40 meters",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "Area of Effect;;spherical::Barrier Piercing::Burning::Evasive::Movement::Reloads",
+        "ability details": "* Targets hit receive 100% ignition.\n* Targets hit are knocked towards the point of impact.\n* The radius is spherical from the point of impact.\n* If targeted at a player, the landing zone will automatically be set below the player (when launched).\n* If targeting an area out of range, Anran will travel the furthest distance possible, then explode."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "3 seconds (targetting)",
+          "value": 3,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "165 - 90",
+          "value": null,
+          "min_value": 90,
+          "max_value": 165,
+          "unit": "damage",
+          "confidence": "high",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Vermillion Revival",
+      "slot": "ultimate",
+      "type": "Ultimate Ability",
+      "shot_type": [
+        "[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] Area of effect"
+      ],
+      "raw": {
+        "hero name": "Anran",
+        "ability name": "Vermillion Revival",
+        "ability key": "ultimate",
+        "ability type": "Ultimate Ability",
+        "shot type": "[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] <span class=\"tooltip\" title=\"Affects all enemies within an area. Usually requires unobstructed line of sight to the origin.\">Area of effect</span>",
+        "official description": "When dead, revive yourself in a fiery explosion.",
+        "damage": "<span class=\"tooltip\" title=\"\">10 damage over time</span><br>55 - 30 (area of effect)",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "3 seconds<br>2.3 seconds (explosion)<br>0.7 seconds (explosion animation)",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "2.5 - 7 meters",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "Area of Effect;;spherical::Armor Piercing::Burning::Invulnerable::Phased::Reloads",
+        "ability details": "* There is a 0.048 second delay before Anran can start shooting again.\n* Targets hit receive 100% ignition.\n* Can be cast up to 5 seconds after death.\n* Unlike Vermillion Ascent, this ultimate does not pierce [[barriers]] but does ignore [[Armor]]'s damage reduction.\n* Can be targeted by <span class=\"ability-tooltip\" data-ability=\"Nano Boost\" ><span class=\"ability-link\">[[File:Ability-ana4.png|sub|link=Ana#Nano Boost|40x40px |class=inline-icon invert-image]]</span>&#32;[[Ana#Nano Boost|Nano Boost]]</span>, <span class=\"ability-tooltip\" data-ability=\"Caduceus Staff\" ><span class=\"ability-link\">[[File:Ability-mercy1.png|sub|link=Mercy#Caduceus Staff|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mercy#Caduceus Staff|Caduceus Staff]]</span>, <span class=\"ability-tooltip\" data-ability=\"Tidal Blast\" ><span class=\"ability-link\">[[File:Tidalblast.png|sub|link=Wuyang#Tidal Blast|40x40px |class=inline-icon invert-image]]</span>&#32;[[Wuyang#Tidal Blast|Tidal Blast]]</span> and <span class=\"ability-tooltip\" data-ability=\"Orb of Harmony\" ><span class=\"ability-link\">[[File:Ability-zenyatta2.png|sub|link=Zenyatta#Orb of Harmony|40x40px |class=inline-icon invert-image]]</span>&#32;[[Zenyatta#Orb of Harmony|Orb of Harmony]]</span>.\n* Benefits from <span class=\"ability-tooltip\" data-ability=\"Sound Barrier\" ><span class=\"ability-link\">[[File:Ability-Lucio4.png|sub|link=Lúcio#Sound Barrier|40x40px |class=inline-icon invert-image]]</span>&#32;[[Lúcio#Sound Barrier|Sound Barrier]]</span> during revival.\n* If Anran dies with Vermillion Revival available, both allies and enemies will see a flame above her corpse, indicating that Anran can use it.\n* <span class=\"ability-tooltip\" data-ability=\"Resurrect\" ><span class=\"ability-link\">[[File:Ability-mercy5.png|sub|link=Mercy#Resurrect|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mercy#Resurrect|Resurrect]]</span> cannot be used on Anran while reviving with Vermillion Revival and vice versa. Whichever was activated first will have priority."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "3 seconds<br>2.3 seconds (explosion)<br>0.7 seconds (explosion animation)",
+          "value": 3,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "low",
+          "warnings": [
+            "duration has multiple values; only the first number was parsed."
+          ]
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "<span class=\"tooltip\" title=\"\">10 damage over time</span><br>55 - 30 (area of effect)",
+          "value": null,
+          "min_value": 30,
+          "max_value": 55,
+          "unit": "damage",
+          "confidence": "high",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "duration: duration has multiple values; only the first number was parsed."
+      ]
+    }
+  ],
+  "source": "https://overwatch.fandom.com/api.php",
+  "fetched_at": "2026-06-25T07:13:01.660996+00:00"
+}

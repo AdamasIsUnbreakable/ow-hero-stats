@@ -1,0 +1,1842 @@
+{
+  "name": "Sojourn",
+  "role": "Damage",
+  "sub_role": "Sharpshooter",
+  "health": {
+    "health": 225,
+    "armor": null,
+    "shield": null
+  },
+  "abilities": [
+    {
+      "name": "Adhesive Siphon",
+      "slot": "",
+      "type": "Major Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Sojourn",
+        "ability name": "Adhesive Siphon",
+        "ability key": "",
+        "ability type": "Major Perk",
+        "shot type": "",
+        "official description": "Disruptor Shot can stick to enemies and generates Railgun energy when dealing damage.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* '' Removed in Season 18.''\n* The stuck target takes 50% reduced damage from Disruptor Shot.\n** The final tick still deals full damage (potential bug), causing this to reduce the total damage from 280 to 148 instead of 140.\n* 25% of the damage dealt is converted to Railgun energy. This is based on final damage after [[damage modification|modifications]].\n** As a result, up to 70 energy can be generated from an enemy standing in the area for the full duration or 36 energy from a stuck target."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Deceleration Field",
+      "slot": "",
+      "type": "Minor Perk",
+      "shot_type": [
+        "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] Projectile"
+      ],
+      "raw": {
+        "hero name": "Sojourn",
+        "ability name": "Deceleration Field",
+        "ability key": "",
+        "ability type": "Minor Perk",
+        "shot type": "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] <span class=\"tooltip\" title=\"Has travel time.\">Projectile</span>",
+        "official description": "Enemies hit by Disruptor Shot are slowed by 25%.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* Slow ends as soon as the target leaves the area."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Dual Thrusters",
+      "slot": "",
+      "type": "Major Perk",
+      "shot_type": [
+        "[[File:Swift_Step_Icon.png|40x40px|sub|class=inline-icon invert-image|link=Movement ability|Movement ]] Movement"
+      ],
+      "raw": {
+        "hero name": "Sojourn",
+        "ability name": "Dual Thrusters",
+        "ability key": "",
+        "ability type": "Major Perk",
+        "shot type": "[[File:Swift_Step_Icon.png|40x40px|sub|class=inline-icon invert-image|link=Movement ability|Movement ]] <span class=\"tooltip\" title=\"Grants a burst of movement. Disabled by abilities that apply mobility lock status.\">Movement</span>",
+        "official description": "Power Slide gains an additional charge and its jump height shifts to lateral movement.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": ""
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Extended Mag",
+      "slot": "",
+      "type": "Minor Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Sojourn",
+        "ability name": "Extended Mag",
+        "ability key": "",
+        "ability type": "Minor Perk",
+        "shot type": "",
+        "official description": "Maximum ammo increased by 15.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* '' Removed in Season 18.''"
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Friction Generators",
+      "slot": "",
+      "type": "Major Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Sojourn",
+        "ability name": "Friction Generators",
+        "ability key": "",
+        "ability type": "Major Perk",
+        "shot type": "",
+        "official description": "While sliding, Power Slide generates up to 75 Energy.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": ""
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Overcharged",
+      "slot": "",
+      "type": "Minor Perk",
+      "shot_type": [
+        "[[File:Icon-ability.tacticalvisor.png|40x40px|sub|class=inline-icon invert-image|link=Hitscan|Hitscan ]] Hitscan"
+      ],
+      "raw": {
+        "hero name": "Sojourn",
+        "ability name": "Overcharged",
+        "ability key": "",
+        "ability type": "Minor Perk",
+        "shot type": "[[File:Icon-ability.tacticalvisor.png|40x40px|sub|class=inline-icon invert-image|link=Hitscan|Hitscan ]] <span class=\"tooltip\" title=\"Hits are registered without delay.\">Hitscan</span>",
+        "official description": "Railgun’s maximum energy is increased by 50 while Overclock is active.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* Charging to 150% increases Railgun's alt fire max damage from 120 to 170 (255 for headshots)."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Power Slide",
+      "slot": "ability 1",
+      "type": "Ability",
+      "shot_type": [
+        "[[File:Swift_Step_Icon.png|40x40px|sub|class=inline-icon invert-image|link=Movement ability|Movement ]] Movement"
+      ],
+      "raw": {
+        "hero name": "Sojourn",
+        "ability name": "Power Slide",
+        "ability key": "ability 1",
+        "ability type": "Ability",
+        "shot type": "[[File:Swift_Step_Icon.png|40x40px|sub|class=inline-icon invert-image|link=Movement ability|Movement ]] <span class=\"tooltip\" title=\"Grants a burst of movement. Disabled by abilities that apply mobility lock status.\">Movement</span>",
+        "official description": "Ground slide that can cancel into a high jump.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "7 seconds",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "1 second",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "13 meters (slide)<br>11.7 meters (jump)",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "evasive::movement",
+        "ability details": "* Sojourn can fire and use abilities while sliding and leaping.\n* The initial slide part can be activated mid-air, but the jump cancel may only be used when Sojourn is on a walkable surface.\n* Power Slide's [[movement speed]] buff does not count towards global movement speed buff cap.\n* Destroys fences and other breakables in the way when sliding along ground, but not while leaping."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "7 seconds",
+          "value": 7,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "1 second",
+          "value": 1,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Disruptor Shot",
+      "slot": "ability 2",
+      "type": "Ability",
+      "shot_type": [
+        "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] Projectile [[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] Area of effect"
+      ],
+      "raw": {
+        "hero name": "Sojourn",
+        "ability name": "Disruptor Shot",
+        "ability key": "ability 2",
+        "ability type": "Ability",
+        "shot type": "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] <span class=\"tooltip\" title=\"Has travel time.\">Projectile</span><br>[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] <span class=\"tooltip\" title=\"Affects all enemies within an area. Usually requires unobstructed line of sight to the origin.\">Area of effect</span>",
+        "official description": "Launch an energy burst that deals damage to enemies within it.",
+        "damage": "<span class=\"tooltip\" title=\"17.28 every 0.192 seconds\">90 per second</span><br>315 total",
+        "damage falloff range": "",
+        "headshot": "no",
+        "headshot mod": "2",
+        "heal": "",
+        "cooldown": "15 seconds",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "3.5 seconds",
+        "pspeed": "40 m/s",
+        "pradius": "0.2 meters",
+        "spread": "",
+        "radius": "4 meters",
+        "range distance": "30 meters",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "area of effect;;spherical::armor piercing::barrier collide::fixed::travel time",
+        "ability details": "* The projectile turns into a stationary AoE that deals periodic damage, upon colliding with an enemy [[hero]] or [[object]].\n* The projectile is blocked by [[barrier]]s, turning into an AoE upon contact, but the AoE pierces barriers.\n* Periodic damage ignores damage reduction from [[armor]].\n* The projectile can be destroyed by <span class=\"ability-tooltip\" data-ability=\"Defense Matrix\" ><span class=\"ability-link\">[[File:Ability-dva3.png|sub|link=D.Va#Defense Matrix|40x40px |class=inline-icon invert-image]]</span>&#32;[[D.Va#Defense Matrix|Defense Matrix]]</span>, <span class=\"ability-tooltip\" data-ability=\"Kinetic Grasp\" ><span class=\"ability-link\">[[File:Abilities-sigma3.png|sub|link=Sigma#Kinetic Grasp|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sigma#Kinetic Grasp|Kinetic Grasp]]</span>, <span class=\"ability-tooltip\" data-ability=\"Javelin Spin\" ><span class=\"ability-link\">[[File:Ability_JavelinSpin.png|sub|link=Orisa#Javelin Spin|40x40px |class=inline-icon invert-image]]</span>&#32;[[Orisa#Javelin Spin|Javelin Spin]]</span>, <span class=\"ability-tooltip\" data-ability=\"Power Matrix\" ><span class=\"ability-link\">[[File:Perk_PowerMatrix.png|sub|link=Doomfist#Power Matrix|40x40px |class=inline-icon invert-image]]</span>&#32;[[Doomfist#Power Matrix|Power Matrix]]</span> and <span class=\"ability-tooltip\" data-ability=\"Kekkai Sanctuary\" ><span class=\"ability-link\">[[File:ULT Kekkai Sancturary.png|sub|link=Mizuki#Kekkai Sanctuary|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mizuki#Kekkai Sanctuary|Kekkai Sanctuary]]</span> and reflected by <span class=\"ability-tooltip\" data-ability=\"Deflect\" ><span class=\"ability-link\">[[File:Ability-genji2.png|sub|link=Genji#Deflect|40x40px |class=inline-icon invert-image]]</span>&#32;[[Genji#Deflect|Deflect]]</span> before it lands and turns into an AoE."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "15 seconds",
+          "value": 15,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "3.5 seconds",
+          "value": 3.5,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "<span class=\"tooltip\" title=\"17.28 every 0.192 seconds\">90 per second</span><br>315 total",
+          "value": 90,
+          "min_value": null,
+          "max_value": null,
+          "unit": "damage",
+          "confidence": "low",
+          "warnings": [
+            "Damage has multiple components and only the first number was parsed."
+          ]
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "40 m/s",
+          "value": 40,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "0.2 meters",
+          "value": 0.2,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "damage: Damage has multiple components and only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Railgun",
+      "slot": "primary fire",
+      "type": "Weapon;;Primary Fire",
+      "shot_type": [
+        "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] Projectile"
+      ],
+      "raw": {
+        "hero name": "Sojourn",
+        "ability name": "Railgun",
+        "ability key": "primary fire",
+        "ability type": "Weapon;;Primary Fire",
+        "shot type": "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] <span class=\"tooltip\" title=\"Has travel time.\">Projectile</span>",
+        "official description": "Rapid firing projectiles that generate energy on hit.",
+        "damage": "9",
+        "damage falloff range": "",
+        "headshot": "yes",
+        "headshot mod": "2",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "16 shots/s",
+        "ammo": "45",
+        "reload time": "1.2 seconds",
+        "cast time": "",
+        "duration": "9 seconds (energy decay delay)",
+        "pspeed": "150 m/s",
+        "pradius": "0.175 meters",
+        "spread": "1.6 degrees (vertical, max)<br>0.64 degrees (horizontal, max)",
+        "radius": "",
+        "range distance": "",
+        "dps": "144 while firing (~100.93 overall w/reload)",
+        "hps": "",
+        "ability keywords": "critical::energy::travel time",
+        "ability details": "* Damage per second: 144 while firing (~100.93 overall w/reload)\n* Each projectile hit generates 5 energy against [[heroes]] and 1 energy against [[objects]], such as [[barrier]]s and turrets.\n** Critical hits against [[heroes]] grant 10 energy instead of 5.\n** The amount of energy gained is unaffected by damage modifiers (amplifications, reductions).\n* Maximum spread is reached after 12 shots.\n* Spread is 2.5x more vertical than it is horizontal."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "9 seconds (energy decay delay)",
+          "value": 9,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "1.2 seconds",
+          "value": 1.2,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "45",
+          "value": 45,
+          "min_value": null,
+          "max_value": null,
+          "unit": "rounds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "9",
+          "value": 9,
+          "min_value": null,
+          "max_value": null,
+          "unit": "damage",
+          "confidence": "high",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "16 shots/s",
+          "value": 16,
+          "min_value": null,
+          "max_value": null,
+          "unit": "shots_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "150 m/s",
+          "value": 150,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "0.175 meters",
+          "value": 0.175,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "1.6 degrees (vertical, max)<br>0.64 degrees (horizontal, max)",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": [
+            "spread has multiple components and was left unparsed."
+          ]
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "144 while firing (~100.93 overall w/reload)",
+          "value": 144,
+          "min_value": null,
+          "max_value": null,
+          "unit": "per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "spread: spread has multiple components and was left unparsed."
+      ]
+    },
+    {
+      "name": "Charged Shot",
+      "slot": "secondary fire",
+      "type": "Weapon;;Secondary Fire",
+      "shot_type": [
+        "[[File:Icon-ability.tacticalvisor.png|40x40px|sub|class=inline-icon invert-image|link=Hitscan|Hitscan ]] Hitscan"
+      ],
+      "raw": {
+        "hero name": "Sojourn",
+        "ability name": "Charged Shot",
+        "ability key": "secondary fire",
+        "ability type": "Weapon;;Secondary Fire",
+        "shot type": "[[File:Icon-ability.tacticalvisor.png|40x40px|sub|class=inline-icon invert-image|link=Hitscan|Hitscan ]] <span class=\"tooltip\" title=\"Hits are registered without delay.\">Hitscan</span>",
+        "official description": "High impact shot that consumes stored energy and pierces enemies.",
+        "damage": "120 - 60 (max charge)<br>21 - 10.5 (min charge)",
+        "damage falloff range": "40 – 60 meters",
+        "headshot": "yes",
+        "headshot mod": "1.5",
+        "heal": "",
+        "cooldown": "None",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "<span class=\"tooltip\" title=\"0 second startup + 0.64 seconds recovery\">0 + 0.64 seconds</span>",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "0.14 meters",
+        "spread": "None",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "lesser critical::hitscan::piercing",
+        "ability details": "* Can be charged up to a maximum of 100 energy but can be fired with at least 1 energy charge.\n* Damage scales with the amount of stored energy.\n* Damage increase is linear, with each point of energy increasing damage by 1.\n* After 9 seconds without gaining energy, Sojourn's secondary fire energy will begin decaying at a rate of 15 per second."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "None",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "120 - 60 (max charge)<br>21 - 10.5 (min charge)",
+          "value": null,
+          "min_value": 60,
+          "max_value": 120,
+          "unit": "damage",
+          "confidence": "high",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "40 – 60 meters",
+          "value": null,
+          "min_value": 40,
+          "max_value": 60,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "0.14 meters",
+          "value": 0.14,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "None",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Overclock",
+      "slot": "ultimate",
+      "type": "Ultimate Ability",
+      "shot_type": [
+        "[[File:Icon-ability.tacticalvisor.png|40x40px|sub|class=inline-icon invert-image|link=Hitscan|Hitscan ]] Hitscan"
+      ],
+      "raw": {
+        "hero name": "Sojourn",
+        "ability name": "Overclock",
+        "ability key": "ultimate",
+        "ability type": "Ultimate Ability",
+        "shot type": "[[File:Icon-ability.tacticalvisor.png|40x40px|sub|class=inline-icon invert-image|link=Hitscan|Hitscan ]] <span class=\"tooltip\" title=\"Hits are registered without delay.\">Hitscan</span>",
+        "official description": "Railgun energy auto-charges for a short duration.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "<span class=\"tooltip\" title=\"0 s startup + 0.736 s recovery\">0 + 0.74 seconds</span>",
+        "duration": "8 seconds",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "reloads::transformation",
+        "ability details": "* Damage per second: 120 (fired at max charge), 130.49 (fired immediately on recovery)\n* Railgun starts charging immediately as Overclock is activated, but there is a short delay before it can be first fired."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "8 seconds",
+          "value": 8,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    }
+  ],
+  "source": "https://overwatch.fandom.com/api.php",
+  "fetched_at": "2026-06-25T07:13:01.703897+00:00"
+}

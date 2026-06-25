@@ -1,0 +1,2357 @@
+{
+  "name": "Bastion",
+  "role": "Damage",
+  "sub_role": "Specialist",
+  "health": {
+    "health": 250,
+    "armor": 100,
+    "shield": null
+  },
+  "abilities": [
+    {
+      "name": "Armored Artillery",
+      "slot": "",
+      "type": "Minor Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Bastion",
+        "ability name": "Armored Artillery",
+        "ability key": "",
+        "ability type": "Minor Perk",
+        "shot type": "",
+        "official description": "Configuration: Artillery grants 300 temporary overhealth.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* [[Overhealth]] is granted immediately upon button press.\n* Overhealth starts to decay 3 seconds after the ultimate ends at a rate of 50 per second.\n* Removed in ''Reign of Talon Season 3: Into the Tiger's Den''"
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Configuration Reload",
+      "slot": "",
+      "type": "Minor Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Bastion",
+        "ability name": "Configuration Reload",
+        "ability key": "",
+        "ability type": "Minor Perk",
+        "shot type": "",
+        "official description": "Reduce the cooldown of A-36 Tactical Grenade by 4 seconds when changing configurations.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* Configuration: Assault refreshes the cooldown on both entering the form and leaving it. Comfiguration: Artillery only refreshes the cooldown upon leaving it."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Ironclad",
+      "slot": "",
+      "type": "Passive Ability",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Bastion",
+        "ability name": "Ironclad",
+        "ability key": "",
+        "ability type": "Passive Ability",
+        "shot type": "",
+        "official description": "Reduces damage taken while transformed.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* Applies to configurations Assault and Artillery upon their complete transformation.\n* Damage reduction is applied before [[armor]]."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Lindholm Explosives",
+      "slot": "",
+      "type": "Major Perk",
+      "shot_type": [
+        "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] Projectile [[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] Area of effect"
+      ],
+      "raw": {
+        "hero name": "Bastion",
+        "ability name": "Lindholm Explosives",
+        "ability key": "",
+        "ability type": "Major Perk",
+        "shot type": "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] <span class=\"tooltip\" title=\"Has travel time.\">Projectile</span><br>[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] <span class=\"tooltip\" title=\"Affects all enemies within an area. Usually requires unobstructed line of sight to the origin.\">Area of effect</span>",
+        "official description": "Configuration: Assault’s Weapon slowly fires explosive shells instead of a rotary cannon.",
+        "damage": "<span class=\"tooltip\" title=\"140 total\">50</span> (direct hit bonus)<br>90 - 27 (splash, enemy)<br>36 - 10.8 (splash, self)",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "<span class=\"tooltip\" title=\"0.75 second recovery\">1.33 shots/s</span>",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "100 m/s",
+        "pradius": "0.275 meters",
+        "spread": "",
+        "radius": "3.5 meters (splash)",
+        "range distance": "",
+        "dps": "186.2 while firing",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* Damage per second: 186.2\n* Has a weak [[knockback]] effect."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "<span class=\"tooltip\" title=\"140 total\">50</span> (direct hit bonus)<br>90 - 27 (splash, enemy)<br>36 - 10.8 (splash, self)",
+          "value": null,
+          "min_value": 27,
+          "max_value": 90,
+          "unit": "damage",
+          "confidence": "medium",
+          "warnings": [
+            "Damage appears to contain components; raw value should be checked."
+          ]
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "<span class=\"tooltip\" title=\"0.75 second recovery\">1.33 shots/s</span>",
+          "value": 1.33,
+          "min_value": null,
+          "max_value": null,
+          "unit": "shots_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "100 m/s",
+          "value": 100,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "0.275 meters",
+          "value": 0.275,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "186.2 while firing",
+          "value": 186.2,
+          "min_value": null,
+          "max_value": null,
+          "unit": "per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "damage: Damage appears to contain components; raw value should be checked."
+      ]
+    },
+    {
+      "name": "Smart Bomb",
+      "slot": "",
+      "type": "Minor Perk",
+      "shot_type": [
+        "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] Projectile [[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] Area of effect"
+      ],
+      "raw": {
+        "hero name": "Bastion",
+        "ability name": "Smart Bomb",
+        "ability key": "",
+        "ability type": "Minor Perk",
+        "shot type": "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] <span class=\"tooltip\" title=\"Has travel time.\">Projectile</span><br>[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] <span class=\"tooltip\" title=\"Affects all enemies within an area. Usually requires unobstructed line of sight to the origin.\">Area of effect</span>",
+        "official description": "A-36 Tactical Grenade's self-knockback is increased by 25% and no longer damages you.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* ''Removed in Season 18, re-added in Reign of Talon Season 3: Into the Tiger's Den''"
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Reconfigure",
+      "slot": "ability 1",
+      "type": "Ability",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Bastion",
+        "ability name": "Reconfigure",
+        "ability key": "ability 1",
+        "ability type": "Ability",
+        "shot type": "",
+        "official description": "Switch between weapon configurations.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "12 seconds",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "<span class=\"tooltip\" title=\"0.992s startup + 0.496s recovery\">1 + 0.5 seconds</span>",
+        "duration": "6 seconds",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "reloads::transformation",
+        "ability details": "* Can be done in the air.\n* After 1.5 seconds, the ammo of Configuration: Recon is automatically replenished."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "12 seconds",
+          "value": 12,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "6 seconds",
+          "value": 6,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Self-Repair",
+      "slot": "ability 2",
+      "type": "Major Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Bastion",
+        "ability name": "Self-Repair",
+        "ability key": "ability 2",
+        "ability type": "Major Perk",
+        "shot type": "",
+        "official description": "Press E to rapidly heal yourself.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "<span class=\"tooltip\" title=\"17.28 every 0.192 seconds\">90 per second</span>",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "<span class=\"tooltip\" title=\"0.240s startup + 0.240s recovery\">0.24 + 0.24 seconds</span>",
+        "duration": "0.5 seconds (min) <br>3.3 seconds (max)",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* Self-Repair uses a resource meter. It takes 3.3 seconds of continuous healing from full to completely deplete.\n** Resource meter starts recharging 1 second after the ability is deactivated.\n** It takes 6.7 seconds to recharge 100% meter (7.7s including delay).\n** At least ~20% meter must be available to activate. If the meter is completely empty this takes 2.5 seconds to reach.\n** If Bastion is at full health, the meter will not deplete, but regeneration is still paused if the ability is still active.\n* Can be activated even while not damaged, automatically healing Bastion if he takes damage. No resource will be consumed while Bastion is full HP.\n* Can be used in <span class=\"ability-tooltip\" data-ability=\"Configuration: Assault\" ><span class=\"ability-link\">[[File:Ability-bastion2.png|middle|link=Bastion#Configuration: Assault|40x40px |class=inline-icon invert-image]]</span>&#32;[[Bastion#Configuration: Assault|Configuration: Assault]]</span> but not during <span class=\"ability-tooltip\" data-ability=\"Configuration: Artillery\" ><span class=\"ability-link\">[[File:Artillery_Icon.png|sub|link=Bastion#Configuration: Artillery|40x40px |class=inline-icon invert-image]]</span>&#32;[[Bastion#Configuration: Artillery|Configuration: Artillery]]</span>.\n* Self-Repair is a [[channeled]] ability; it is interrupted if Bastion uses other abilities or fires or he receives [[stunned]], [[knocked down]] or [[hacked]] [[status effect|status]]."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "0.5 seconds (min) <br>3.3 seconds (max)",
+          "value": 0.5,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "low",
+          "warnings": [
+            "duration has multiple values; only the first number was parsed."
+          ]
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "<span class=\"tooltip\" title=\"17.28 every 0.192 seconds\">90 per second</span>",
+          "value": 90,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "high",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "duration: duration has multiple values; only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Configuration: Assault",
+      "slot": "primary fire",
+      "type": "Weapon;;Assault Form",
+      "shot_type": [
+        "[[File:Icon-ability.tacticalvisor.png|40x40px|sub|class=inline-icon invert-image|link=Hitscan|Hitscan ]] Hitscan"
+      ],
+      "raw": {
+        "hero name": "Bastion",
+        "ability name": "Configuration: Assault",
+        "ability key": "primary fire",
+        "ability type": "Weapon;;Assault Form",
+        "shot type": "[[File:Icon-ability.tacticalvisor.png|40x40px|sub|class=inline-icon invert-image|link=Hitscan|Hitscan ]] <span class=\"tooltip\" title=\"Hits are registered without delay.\">Hitscan</span>",
+        "official description": "A slow moving tank with a powerful rotary cannon.",
+        "damage": "12 - 3.6",
+        "damage falloff range": "30 - 50 meters",
+        "headshot": "no",
+        "headshot mod": "2",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "30 shots/s",
+        "ammo": "∞",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "0.04 meters",
+        "spread": "2 degrees",
+        "radius": "",
+        "range distance": "",
+        "dps": "360 while firing",
+        "hps": "",
+        "ability keywords": "hitscan",
+        "ability details": "* Damage per second: 360 while firing\n* Bastion cannot crouch while in Configuration: Assault."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "∞",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": [
+            "Could not parse ammo."
+          ]
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "12 - 3.6",
+          "value": null,
+          "min_value": 3.6,
+          "max_value": 12,
+          "unit": "damage",
+          "confidence": "high",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "30 - 50 meters",
+          "value": null,
+          "min_value": 30,
+          "max_value": 50,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "30 shots/s",
+          "value": 30,
+          "min_value": null,
+          "max_value": null,
+          "unit": "shots_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "0.04 meters",
+          "value": 0.04,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "2 degrees",
+          "value": 2,
+          "min_value": null,
+          "max_value": null,
+          "unit": "degrees",
+          "confidence": "high",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "360 while firing",
+          "value": 360,
+          "min_value": null,
+          "max_value": null,
+          "unit": "per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "ammo: Could not parse ammo."
+      ]
+    },
+    {
+      "name": "Configuration: Recon",
+      "slot": "primary fire",
+      "type": "Weapon;;Recon Form",
+      "shot_type": [
+        "[[File:Icon-ability.tacticalvisor.png|40x40px|sub|class=inline-icon invert-image|link=Hitscan|Hitscan ]] Hitscan"
+      ],
+      "raw": {
+        "hero name": "Bastion",
+        "ability name": "Configuration: Recon",
+        "ability key": "primary fire",
+        "ability type": "Weapon;;Recon Form",
+        "shot type": "[[File:Icon-ability.tacticalvisor.png|40x40px|sub|class=inline-icon invert-image|link=Hitscan|Hitscan ]] <span class=\"tooltip\" title=\"Hits are registered without delay.\">Hitscan</span>",
+        "official description": "Mobile, with a lightweight and highly accurate weapon.",
+        "damage": "23 - 7.5",
+        "damage falloff range": "30 - 50 meters",
+        "headshot": "yes",
+        "headshot mod": "2",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "6 shots/s",
+        "ammo": "25",
+        "reload time": "<span class=\"tooltip\" title=\"restores ammo after 1.040 seconds\">1.2 seconds</span>",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "0.07 meters",
+        "spread": "None",
+        "radius": "",
+        "range distance": "",
+        "dps": "150 while firing (115.38 overall w/reload)",
+        "hps": "",
+        "ability keywords": "critical::hitscan",
+        "ability details": "* Damage per second: 138 while firing (103.38 overall w/reload)"
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "<span class=\"tooltip\" title=\"restores ammo after 1.040 seconds\">1.2 seconds</span>",
+          "value": 1.2,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "25",
+          "value": 25,
+          "min_value": null,
+          "max_value": null,
+          "unit": "rounds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "23 - 7.5",
+          "value": null,
+          "min_value": 7.5,
+          "max_value": 23,
+          "unit": "damage",
+          "confidence": "high",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "30 - 50 meters",
+          "value": null,
+          "min_value": 30,
+          "max_value": 50,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "6 shots/s",
+          "value": 6,
+          "min_value": null,
+          "max_value": null,
+          "unit": "shots_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "0.07 meters",
+          "value": 0.07,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "None",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "150 while firing (115.38 overall w/reload)",
+          "value": 150,
+          "min_value": null,
+          "max_value": null,
+          "unit": "per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Configuration: Sentry",
+      "slot": "primary fire",
+      "type": "Weapon;;Sentry Form",
+      "shot_type": [
+        "[[File:Icon-ability.tacticalvisor.png|40x40px|sub|class=inline-icon invert-image|link=Hitscan|Hitscan ]] Hitscan"
+      ],
+      "raw": {
+        "hero name": "Bastion",
+        "ability name": "Configuration: Sentry",
+        "ability key": "primary fire",
+        "ability type": "Weapon;;Sentry Form",
+        "shot type": "[[File:Icon-ability.tacticalvisor.png|40x40px|sub|class=inline-icon invert-image|link=Hitscan|Hitscan ]] <span class=\"tooltip\" title=\"Hits are registered without delay.\">Hitscan</span>",
+        "official description": "Immobile with a powerful rotary cannon.",
+        "damage": "4.5 - 15",
+        "damage falloff range": "30 to 50 meters",
+        "headshot": "no",
+        "headshot mod": "2",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "<span class=\"tooltip\" title=\"1 round per 0.032\">31 rounds per second</span>",
+        "ammo": "300",
+        "reload time": "<span class=\"tooltip\" title=\"restores ammo after ? seconds\">1.984 seconds animation</span>",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "1.8 - 2.7 degrees",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* Replaced by <span class=\"ability-tooltip\" data-ability=\"Configuration: Assault\" ><span class=\"ability-link\">[[File:Ability-bastion2.png|middle|link=Bastion#Configuration: Assault|40x40px |class=inline-icon invert-image]]</span>&#32;[[Bastion#Configuration: Assault|Configuration: Assault]]</span> in ''Overwatch 2''.\n* Makes Bastion immune to knock-back effects and Orisa's <span class=\"ability-tooltip\" data-ability=\"Halt!\" ><span class=\"ability-link\">[[File:Ability Orisa Halt!.png|sub|link=Orisa#Halt!|40x40px |class=inline-icon invert-image]]</span>&#32;[[Orisa#Halt!|Halt!]]</span>.\n* Bastion has a glowing blue box on its back that can be hit for [[headshot]] damage.\n* Bastion's spread decreases continuously while firing, up to 33% after firing 40 rounds (in 1.33 seconds).\n* Bastion comes out of Configuration: Sentry if it is <span class=\"ability-tooltip\" data-ability=\"Hack\" ><span class=\"ability-link\">[[File:Ability Sombra Hack.png|sub|link=Sombra#Hack|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sombra#Hack|Hack]]</span>ed, <span class=\"ability-tooltip\" data-ability=\"Sleep Dart\" ><span class=\"ability-link\">[[File:Ability-ana2.png|sub|link=Ana#Sleep Dart|40x40px |class=inline-icon invert-image]]</span>&#32;[[Ana#Sleep Dart|slept]]</span>, <span class=\"ability-tooltip\" data-ability=\"Charge\" ><span class=\"ability-link\">[[File:Ability-reinhardt3.png|sub|link=Reinhardt#Charge|40x40px |class=inline-icon invert-image]]</span>&#32;[[Reinhardt#Charge|pinned]]</span>, <span class=\"ability-tooltip\" data-ability=\"Chain Hook\" ><span class=\"ability-link\">[[File:Ability-Roadhog3.png|sub|link=Roadhog#Chain Hook|40x40px |class=inline-icon invert-image]]</span>&#32;[[Roadhog#Chain Hook|hooked]]</span>, or [[Crowd Control#Knock Down|knocked down]]."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "<span class=\"tooltip\" title=\"restores ammo after ? seconds\">1.984 seconds animation</span>",
+          "value": 1.984,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "300",
+          "value": 300,
+          "min_value": null,
+          "max_value": null,
+          "unit": "rounds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "4.5 - 15",
+          "value": null,
+          "min_value": 4.5,
+          "max_value": 15,
+          "unit": "damage",
+          "confidence": "high",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "30 to 50 meters",
+          "value": null,
+          "min_value": 30,
+          "max_value": 50,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "<span class=\"tooltip\" title=\"1 round per 0.032\">31 rounds per second</span>",
+          "value": 31,
+          "min_value": null,
+          "max_value": null,
+          "unit": "shots_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "1.8 - 2.7 degrees",
+          "value": 1.8,
+          "min_value": null,
+          "max_value": null,
+          "unit": "degrees",
+          "confidence": "low",
+          "warnings": [
+            "spread has multiple values; only the first number was parsed."
+          ]
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "spread: spread has multiple values; only the first number was parsed."
+      ]
+    },
+    {
+      "name": "A-36 Tactical Grenade",
+      "slot": "secondary fire",
+      "type": "Ability",
+      "shot_type": [
+        "[[File:Abilities-sigma4.png|40x40px|sub|class=inline-icon invert-image|link=Arcing projectile|Arcing projectile ]] Arcing projectile [[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] Area of effect"
+      ],
+      "raw": {
+        "hero name": "Bastion",
+        "ability name": "A-36 Tactical Grenade",
+        "ability key": "secondary fire",
+        "ability type": "Ability",
+        "shot type": "[[File:Abilities-sigma4.png|40x40px|sub|class=inline-icon invert-image|link=Arcing projectile|Arcing projectile ]] <span class=\"tooltip\" title=\"Has travel time. Also is affected by gravity.\">Arcing projectile</span><br>[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] <span class=\"tooltip\" title=\"Affects all enemies within an area. Usually requires unobstructed line of sight to the origin.\">Area of effect</span>",
+        "official description": "Fire a bomb that bounces off walls and explodes when it hits enemies or the ground.",
+        "damage": "<span class=\"tooltip\" title=\"115 total\">15</span> (direct hit bonus)<br>100 - 50 (splash, enemy)<br>50 - 25 (splash, self)",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "8 seconds",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "<span class=\"tooltip\" title=\"0s startup + 0.496s recovery\">0 + 0.5 seconds</span>",
+        "duration": "0.37 seconds (explosion delay)",
+        "pspeed": "40 m/s",
+        "pradius": "0.37 meters",
+        "spread": "",
+        "radius": "2 - 4 meters (falloff start - max)",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "area of effect;;spherical::self-damage::sticky::travel time",
+        "ability details": "* Can bounce one time off the wall but cannot bounce off the ground.\n* The projectile can be destroyed while in air by <span class=\"ability-tooltip\" data-ability=\"Defense Matrix\" ><span class=\"ability-link\">[[File:Ability-dva3.png|sub|link=D.Va#Defense Matrix|40x40px |class=inline-icon invert-image]]</span>&#32;[[D.Va#Defense Matrix|Defense Matrix]]</span>, <span class=\"ability-tooltip\" data-ability=\"Kinetic Grasp\" ><span class=\"ability-link\">[[File:Abilities-sigma3.png|sub|link=Sigma#Kinetic Grasp|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sigma#Kinetic Grasp|Kinetic Grasp]]</span>, <span class=\"ability-tooltip\" data-ability=\"Power Matrix\" ><span class=\"ability-link\">[[File:Perk_PowerMatrix.png|sub|link=Doomfist#Power Matrix|40x40px |class=inline-icon invert-image]]</span>&#32;[[Doomfist#Power Matrix|Power Matrix]]</span>, <span class=\"ability-tooltip\" data-ability=\"Javelin Spin\" ><span class=\"ability-link\">[[File:Ability_JavelinSpin.png|sub|link=Orisa#Javelin Spin|40x40px |class=inline-icon invert-image]]</span>&#32;[[Orisa#Javelin Spin|Javelin Spin]]</span> and <span class=\"ability-tooltip\" data-ability=\"Kekkai Sanctuary\" ><span class=\"ability-link\">[[File:ULT Kekkai Sancturary.png|sub|link=Mizuki#Kekkai Sanctuary|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mizuki#Kekkai Sanctuary|Kekkai Sanctuary]]</span> and reflected by <span class=\"ability-tooltip\" data-ability=\"Deflect\" ><span class=\"ability-link\">[[File:Ability-genji2.png|sub|link=Genji#Deflect|40x40px |class=inline-icon invert-image]]</span>&#32;[[Genji#Deflect|Deflect]]</span>, but the explosion is unaffected.\n* <span class=\"ability-tooltip\" data-ability=\"Amplification Matrix\" ><span class=\"ability-link\">[[File:Baptiste-ability4.png|sub|link=Baptiste#Amplification Matrix|40x40px |class=inline-icon invert-image]]</span>&#32;[[Baptiste#Amplification Matrix|Amplification Matrix]]</span> affects all damage dealt, if the projectile passes through it. Splash damage alone going through is not amplified."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "8 seconds",
+          "value": 8,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "0.37 seconds (explosion delay)",
+          "value": 0.37,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "<span class=\"tooltip\" title=\"115 total\">15</span> (direct hit bonus)<br>100 - 50 (splash, enemy)<br>50 - 25 (splash, self)",
+          "value": null,
+          "min_value": 50,
+          "max_value": 100,
+          "unit": "damage",
+          "confidence": "medium",
+          "warnings": [
+            "Damage appears to contain components; raw value should be checked."
+          ]
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "40 m/s",
+          "value": 40,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "0.37 meters",
+          "value": 0.37,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "damage: Damage appears to contain components; raw value should be checked."
+      ]
+    },
+    {
+      "name": "Self-Repair (old)",
+      "slot": "secondary fire",
+      "type": "Ability",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Bastion",
+        "ability name": "Self-Repair (old)",
+        "ability key": "secondary fire",
+        "ability type": "Ability",
+        "shot type": "",
+        "official description": "Hold to heal yourself.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "90 per second",
+        "cooldown": "1 second",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "0.5 second delay",
+        "duration": "Up to 3.33 seconds",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* Replaced by <span class=\"ability-tooltip\" data-ability=\"A-36 Tactical Grenade\" ><span class=\"ability-link\">[[File:A-36_Icon.png|sub|link=Bastion#A-36 Tactical Grenade|40x40px |class=inline-icon invert-image]]</span>&#32;[[Bastion#A-36 Tactical Grenade|A-36 Tactical Grenade]]</span> in ''Overwatch 2''.\n* Bastion cannot activate Self-Repair when the resource meter is below 20%.\n* There is a 0.25 second recovery time between repairs.\n* Does not consume resources if Bastion is at full health.\n* Takes 7 seconds to fully recharge."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "1 second",
+          "value": 1,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "Up to 3.33 seconds",
+          "value": 3.33,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "90 per second",
+          "value": 90,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "high",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Configuration: Artillery",
+      "slot": "ultimate",
+      "type": "Ultimate Ability",
+      "shot_type": [
+        "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] Projectile [[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] Area of effect"
+      ],
+      "raw": {
+        "hero name": "Bastion",
+        "ability name": "Configuration: Artillery",
+        "ability key": "ultimate",
+        "ability type": "Ultimate Ability",
+        "shot type": "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] <span class=\"tooltip\" title=\"Has travel time.\">Projectile</span><br>[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] <span class=\"tooltip\" title=\"Affects all enemies within an area. Usually requires unobstructed line of sight to the origin.\">Area of effect</span>",
+        "official description": "Become immobile and fire up to three powerful artillery shells.",
+        "damage": "550 (center)<br>250 – 50 (area of effect)",
+        "damage falloff range": "",
+        "headshot": "no",
+        "headshot mod": "2",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "3",
+        "reload time": "",
+        "cast time": "<span class=\"tooltip\" title=\"1.206s startup + 1.488s recovery\">1.2 + 1.5 seconds</span>",
+        "duration": "8 seconds (max targeting)<br>1.25 seconds (impact delay)<br>0.18 seconds (min between shots)",
+        "pspeed": "",
+        "pradius": "0.015 meters",
+        "spread": "",
+        "radius": "1 - 6 meters (falloff start - max)",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "area of effect;;spherical::reloads::travel time::strong channel",
+        "ability details": "* The artillery shells are projectiles that can be blocked by [[barrier]]s, destroyed by D.Va's <span class=\"ability-tooltip\" data-ability=\"Defense Matrix\" ><span class=\"ability-link\">[[File:Ability-dva3.png|sub|link=D.Va#Defense Matrix|40x40px |class=inline-icon invert-image]]</span>&#32;[[D.Va#Defense Matrix|Defense Matrix]]</span>, Orisa's <span class=\"ability-tooltip\" data-ability=\"Javelin Spin\" ><span class=\"ability-link\">[[File:Ability_JavelinSpin.png|sub|link=Orisa#Javelin Spin|40x40px |class=inline-icon invert-image]]</span>&#32;[[Orisa#Javelin Spin|Javelin Spin]]</span>, Sigma's <span class=\"ability-tooltip\" data-ability=\"Kinetic Grasp\" ><span class=\"ability-link\">[[File:Abilities-sigma3.png|sub|link=Sigma#Kinetic Grasp|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sigma#Kinetic Grasp|Kinetic Grasp]]</span>, Doomfist's <span class=\"ability-tooltip\" data-ability=\"Power Matrix\" ><span class=\"ability-link\">[[File:Perk_PowerMatrix.png|sub|link=Doomfist#Power Matrix|40x40px |class=inline-icon invert-image]]</span>&#32;[[Doomfist#Power Matrix|Power Matrix]]</span> and Mizuki's <span class=\"ability-tooltip\" data-ability=\"Kekkai Sanctuary\" ><span class=\"ability-link\">[[File:ULT Kekkai Sancturary.png|sub|link=Mizuki#Kekkai Sanctuary|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mizuki#Kekkai Sanctuary|Kekkai Sanctuary]]</span> and deflected with Genji's <span class=\"ability-tooltip\" data-ability=\"Deflect\" ><span class=\"ability-link\">[[File:Ability-genji2.png|sub|link=Genji#Deflect|40x40px |class=inline-icon invert-image]]</span>&#32;[[Genji#Deflect|Deflect]]</span> on the way down. \n** The initial animation, where Bastion fires the shots upwards, is only a visual effect and does not produce projectiles that can be interacted with in any way.\n* Bastion can use secondary fire (right click) to switch to a top-down view.'\"`UNIQ--ref-0000005F-QINU`\"'\n* Target location becomes visible to enemy 0.6 seconds before the shell lands.\n* The first line represents the start of damage falloff. The thicker line at the middle is drawn approximately at 2.5 meter radius, representing ~190 damage.\n* Bastion cannot crouch while in Configuration: Artillery."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "8 seconds (max targeting)<br>1.25 seconds (impact delay)<br>0.18 seconds (min between shots)",
+          "value": 8,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "low",
+          "warnings": [
+            "duration has multiple values; only the first number was parsed."
+          ]
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "3",
+          "value": 3,
+          "min_value": null,
+          "max_value": null,
+          "unit": "rounds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "550 (center)<br>250 – 50 (area of effect)",
+          "value": null,
+          "min_value": 50,
+          "max_value": 250,
+          "unit": "damage",
+          "confidence": "high",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "0.015 meters",
+          "value": 0.015,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "duration: duration has multiple values; only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Configuration: Tank",
+      "slot": "ultimate",
+      "type": "Ultimate Ability",
+      "shot_type": [
+        "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] Projectile"
+      ],
+      "raw": {
+        "hero name": "Bastion",
+        "ability name": "Configuration: Tank",
+        "ability key": "ultimate",
+        "ability type": "Ultimate Ability",
+        "shot type": "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] <span class=\"tooltip\" title=\"Has travel time.\">Projectile</span>",
+        "official description": "Mobile with a powerful cannon.",
+        "damage": "Direct hit: 205<br>Splash: 42 - 140<br>Self: 10.5 - 35 (becomes 8.4 - 28 due to [[#Ironclad|Ironclad]])",
+        "damage falloff range": "",
+        "headshot": "no",
+        "headshot mod": "2",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "1 shot per second",
+        "ammo": "∞",
+        "reload time": "",
+        "cast time": "1.5 seconds",
+        "duration": "8 seconds",
+        "pspeed": "60 meters per second",
+        "pradius": "",
+        "spread": "",
+        "radius": "4 meter radius",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* Replaced by <span class=\"ability-tooltip\" data-ability=\"Configuration: Artillery\" ><span class=\"ability-link\">[[File:Artillery_Icon.png|sub|link=Bastion#Configuration: Artillery|40x40px |class=inline-icon invert-image]]</span>&#32;[[Bastion#Configuration: Artillery|Configuration: Artillery]]</span> in ''Overwatch 2''.\n* Bastion cannot receive headshots as both its head and its blue box are covered.\n* Regardless of which configuration Bastion was in when entering Configuration: Tank, Bastion goes into Configuration: Recon upon exiting.\n* Ammunition of Configuration: Recon is immediately restored upon activation."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "8 seconds",
+          "value": 8,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "∞",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": [
+            "Could not parse ammo."
+          ]
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "Direct hit: 205<br>Splash: 42 - 140<br>Self: 10.5 - 35 (becomes 8.4 - 28 due to [[#Ironclad|Ironclad]])",
+          "value": null,
+          "min_value": 42,
+          "max_value": 140,
+          "unit": "damage",
+          "confidence": "medium",
+          "warnings": [
+            "Damage appears to contain components; raw value should be checked."
+          ]
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "1 shot per second",
+          "value": 1,
+          "min_value": null,
+          "max_value": null,
+          "unit": "shots_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "60 meters per second",
+          "value": 60,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "ammo: Could not parse ammo.",
+        "damage: Damage appears to contain components; raw value should be checked."
+      ]
+    }
+  ],
+  "source": "https://overwatch.fandom.com/api.php",
+  "fetched_at": "2026-06-25T07:13:01.664872+00:00"
+}

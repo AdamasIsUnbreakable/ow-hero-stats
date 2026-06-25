@@ -1,0 +1,2690 @@
+{
+  "name": "Sombra",
+  "role": "Damage",
+  "sub_role": "Recon",
+  "health": {
+    "health": 225,
+    "armor": null,
+    "shield": null
+  },
+  "abilities": [
+    {
+      "name": "CTRL ALT ESC",
+      "slot": "",
+      "type": "Minor Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Sombra",
+        "ability name": "CTRL ALT ESC",
+        "ability key": "",
+        "ability type": "Minor Perk",
+        "shot type": "",
+        "official description": "Teleporting with Translocator while below half health initiates passive health regeneration.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": ""
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Encrypted Upload",
+      "slot": "",
+      "type": "Minor Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Sombra",
+        "ability name": "Encrypted Upload",
+        "ability key": "",
+        "ability type": "Minor Perk",
+        "shot type": "",
+        "official description": "Hack can be used while invisible, successful hacks increase the duration of stealth by 3 seconds.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* Sombra becomes revealed when hacking enemy players, but no longer exits stealth.\n* Stealth's duration increases when hacking enemies, healthpacks, and deployables.\n* Allows Sombra to remain in stealth indefinitely if used in conjunction with Translocator."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Healthy Hacker",
+      "slot": "",
+      "type": "Major Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Sombra",
+        "ability name": "Healthy Hacker",
+        "ability key": "",
+        "ability type": "Major Perk",
+        "shot type": "",
+        "official description": "Hacked health packs provide up to 75 overhealth to Sombra.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "10 seconds",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* ''Removed in Reign of Talon Season 1''\n* Starts to decay at a rate of 10 overhealth per second once the duration ends.\n* Health packs can be picked up while full health \n* Picking up a Health Pack while Sombra is at maximum overhealth resets the degeneration timer.\n* Picking up a health pack to gain overhealth only consumes it.\n* The perk was originally called \"Hacky Packy\", but it was renamed to \"Adept Hacker\" before its release in Season 18. Then at around Season 18 Mid Season, it was renamed to Healthy Hacker, its current name"
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "10 seconds",
+          "value": 10,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "High-Speed Bandwidth",
+      "slot": "",
+      "type": "Major Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Sombra",
+        "ability name": "High-Speed Bandwidth",
+        "ability key": "",
+        "ability type": "Major Perk",
+        "shot type": "",
+        "official description": "Hacked health packs grant allies 25% movement speed and 50 overhealth for 4 seconds.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "4 seconds",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": ""
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "4 seconds",
+          "value": 4,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Opportunist",
+      "slot": "",
+      "type": "Passive Ability",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Sombra",
+        "ability name": "Opportunist",
+        "ability key": "",
+        "ability type": "Passive Ability",
+        "shot type": "",
+        "official description": "You detect enemy ultimate abilities on nameplates, and deal more damage to hacked enemies.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* Deal 20% more damage to hacked targets.\n* Can benefit from Hack effect applied by another friendly Sombra.\n* When an enemy has their ultimate, this icon [[File:Ultimate Ready.png|24x24px]] shows up above them."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Stack Overflow",
+      "slot": "",
+      "type": "Major Perk",
+      "shot_type": [
+        "[[File:Ability target ui.png|40x40px|sub|class=inline-icon invert-image|link=Targeted ability|Targeted ]] Targeted"
+      ],
+      "raw": {
+        "hero name": "Sombra",
+        "ability name": "Stack Overflow",
+        "ability key": "",
+        "ability type": "Major Perk",
+        "shot type": "[[File:Ability target ui.png|40x40px|sub|class=inline-icon invert-image|link=Targeted ability|Targeted ]] <span class=\"tooltip\" title=\"Applies to selected target. Cannot miss.\">Targeted</span>",
+        "official description": "Hack's silence duration is increased by 100%, but its range is decreased by 15%.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "12.75 meters",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* Replaced by <span class=\"ability-tooltip\" data-ability=\"Viral Replication\"><span class=\"ability-link\">[[File:Viral_Replication.png|sub|link=Sombra#Viral Replication|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sombra#Viral Replication|Viral Replication]]</span> in Season 16."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Stealth",
+      "slot": "",
+      "type": "Passive Ability",
+      "shot_type": [
+        "[[File:Swift_Step_Icon.png|40x40px|sub|class=inline-icon invert-image|link=Movement ability|Movement ]] Movement"
+      ],
+      "raw": {
+        "hero name": "Sombra",
+        "ability name": "Stealth",
+        "ability key": "",
+        "ability type": "Passive Ability",
+        "shot type": "[[File:Swift_Step_Icon.png|40x40px|sub|class=inline-icon invert-image|link=Movement ability|Movement ]] <span class=\"tooltip\" title=\"Grants a burst of movement. Disabled by abilities that apply mobility lock status.\">Movement</span>",
+        "official description": "When out of combat, become invisible and move faster.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "3.5 seconds",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "0.25 (fade out)<br>0.375 seconds (fade in)",
+        "duration": "∞",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "4 meters (detection)",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* Stealth starts on a shorter 1 second cooldown upon respawning.\n* Sombra automatically turns [[invisible]] 3.5 seconds after not taking an offensive action, receiving damage or being affected by crowd control.\n** Entering stealth has a fade out period, during which Sombra is still partially visible.\n** Following actions count as \"offensive\": activating primary fire, [[quick melee]], <span class=\"ability-tooltip\" data-ability=\"Virus\"><span class=\"ability-link\">[[File:Ability Sombra Virus.png|sub|link=Sombra#Virus|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sombra#Virus|Virus]]</span> or <span class=\"ability-tooltip\" data-ability=\"EMP\"><span class=\"ability-link\">[[File:Ability Sombra EMP.png|sub|link=Sombra#EMP|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sombra#EMP|EMP]]</span> or using <span class=\"ability-tooltip\" data-ability=\"Hack\"><span class=\"ability-link\">[[File:Ability Sombra Hack.png|sub|link=Sombra#Hack|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sombra#Hack|Hack]]</span> on an enemy Hero.\n*** Excluding Hack, these actions will immediately take Sombra out of stealth upon the key press, but they will not be initiated, unless the key is held or pressed again once Sombra has completely faded in.\n**** There is no fade in delay if stealth is broken within 0.75 seconds of entering stealth.\n**** Pressing the Hack button does not interrupt stealth. Only when Hack targets an enemy hero it will immediately take Sombra out of stealth. Additionally, Hack's cast time starts immediately and does not have to wait for Sombra to fade in.\n** Using <span class=\"ability-tooltip\" data-ability=\"Translocator\"><span class=\"ability-link\">[[File:Ability Sombra Translocator.png|sub|link=Sombra#Translocator|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sombra#Translocator|Translocator]]</span> or hacking a [[health pack]] or [[object]] do not interrupt stealth.\n* If an enemy [[hero]] comes within 4 meters of Sombra, they can \"detect\" Sombra. When detected, Sombra will remain stealthed, but is visible to that specific enemy hero. This is indicated by a \"DETECTED!\" message, shown at the top of Sombra's screen.\n** <span class=\"ability-tooltip\" data-ability=\"B.O.B.\"><span class=\"ability-link\">[[File:Ability-ashe4.png|sub|link=Ashe#B.O.B.|40x40px |class=inline-icon invert-image]]</span>&#32;[[Ashe#B.O.B.|B.O.B.]]</span> cannot detect Sombra.\n* Sombra becomes \"revealed\" if she uses <span class=\"ability-tooltip\" data-ability=\"Hack\"><span class=\"ability-link\">[[File:Ability Sombra Hack.png|sub|link=Sombra#Hack|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sombra#Hack|Hack]]</span> on an [[object]] or [[health pack]] or can be seen through abilities, such as <span class=\"ability-tooltip\" data-ability=\"Sonic Arrow\"><span class=\"ability-link\">[[File:Ability-hanzo2.png|sub|link=Hanzo#Sonic Arrow|40x40px |class=inline-icon invert-image]]</span>&#32;[[Hanzo#Sonic Arrow|Sonic Arrow]]</span> or <span class=\"ability-tooltip\" data-ability=\"Infra-Sight\"><span class=\"ability-link\">[[File:Ability-widowmaker4.png|sub|link=Widowmaker#Infra-Sight|40x40px |class=inline-icon invert-image]]</span>&#32;[[Widowmaker#Infra-Sight|Infra-Sight]]</span>. When revealed, Sombra will remain in stealth, but Sombra is visible to the entire enemy team. This is indicated by a \"REVEALED\" message shown at the top of Sombra's screen.\n* [[File:Ability target ui.png|40x40px|sub|class=inline-icon invert-image|link=Targeted ability|Targeted ]] <span class=\"tooltip\" title=\"Applies to selected target. Cannot miss.\">Targeted</span> enemy abilities and following auto-targeting attacks cannot target Sombra, unless she is detected by the player or revealed: <span class=\"ability-tooltip\" data-ability=\"Deadeye\"><span class=\"ability-link\">[[File:Ability-mccree4.png|sub|link=Cassidy#Deadeye|40x40px |class=inline-icon invert-image]]</span>&#32;[[Cassidy#Deadeye|Deadeye]]</span>, <span class=\"ability-tooltip\" data-ability=\"Tactical Visor\"><span class=\"ability-link\">[[File:icon-ability.tacticalvisor.png|sub|link=Soldier: 76#Tactical Visor|40x40px |class=inline-icon invert-image]]</span>&#32;[[Soldier: 76#Tactical Visor|Tactical Visor]]</span>, <span class=\"ability-tooltip\" data-ability=\"Biotic Grasp Alt Fire\"><span class=\"ability-link\">[[File:Ability Moira Biotic Grasp_Alt fire.png|middle|link=Moira#Biotic Grasp Alt Fire|40x40px |class=inline-icon invert-image]]</span>&#32;[[Moira#Biotic Grasp Alt Fire|Biotic Grasp Alt Fire]]</span> and <span class=\"ability-tooltip\" data-ability=\"Biotic Orb\"><span class=\"ability-link\">[[File:Ability Moira Biotic Orb.png|sub|link=Moira#Biotic Orb|40x40px |class=inline-icon invert-image]]</span>&#32;[[Moira#Biotic Orb|Biotic Orb]]</span> (damage).\n** Zenyatta's Orb of Discord will remain attached to Sombra while she is stealthed, as long as there are no obstacles between them, but it will not indicate her location.\n* Following enemy [[object]]s cannot auto-target Sombra, unless she has been revealed: <span class=\"ability-tooltip\" data-ability=\"Sentry Turret\"><span class=\"ability-link\">[[File:Ability-symmetra2.png|sub|link=Symmetra#Sentry Turret|40x40px |class=inline-icon invert-image]]</span>&#32;[[Symmetra#Sentry Turret|Sentry Turret]]</span> or <span class=\"ability-tooltip\" data-ability=\"B.O.B.\"><span class=\"ability-link\">[[File:Ability-ashe4.png|sub|link=Ashe#B.O.B.|40x40px |class=inline-icon invert-image]]</span>&#32;[[Ashe#B.O.B.|B.O.B.]]</span>.\n* [[Torbjörn]]'s <span class=\"ability-tooltip\" data-ability=\"Deploy Turret\"><span class=\"ability-link\">[[File:Ability-torbjorn3.png|sub|link=Torbjörn#Deploy Turret|40x40px |class=inline-icon invert-image]]</span>&#32;[[Torbjörn#Deploy Turret|Turret]]</span> can only attack Sombra when she is out of stealth.\n* Sombra can activate <span class=\"ability-tooltip\" data-ability=\"Petal Platform\"><span class=\"ability-link\">[[File:Petal_Platform_Icon.png|sub|link=Lifeweaver#Petal Platform|40x40px |class=inline-icon invert-image]]</span>&#32;[[Lifeweaver#Petal Platform|Petal Platform]]</span> while stealthed.\n* Sombra cannot contest map [[objective]]s while stealthed.\n** If Sombra enters the objective area stealthed, she will remain in stealth.\n** If Sombra enters the objective area unstealthed, the cooldown of stealth will be paused until she leaves the objective area.\n*** The remaining cooldown will be set to 1 second if it was less than that.\n* Sound effect and voiceover distance is 15 meters.\n* Stealth's [[movement speed]] buff does not count towards global movement speed buff cap."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "3.5 seconds",
+          "value": 3.5,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "∞",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": [
+            "Could not parse duration."
+          ]
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "duration: Could not parse duration."
+      ]
+    },
+    {
+      "name": "Viral Efficacy",
+      "slot": "",
+      "type": "Minor Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Sombra",
+        "ability name": "Viral Efficacy",
+        "ability key": "",
+        "ability type": "Minor Perk",
+        "shot type": "",
+        "official description": "Virus' cooldown is reduced by 3 seconds when an enemy affected by Virus is eliminated.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* Replaced by <span class=\"ability-tooltip\" data-ability=\"Encrypted Upload\"><span class=\"ability-link\">[[File:Encrypted_Upload.png|sub|link=Sombra#Encrypted Upload|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sombra#Encrypted Upload|Encrypted Upload]]</span> in Season 16."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Viral Replication",
+      "slot": "",
+      "type": "Major Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Sombra",
+        "ability name": "Viral Replication",
+        "ability key": "",
+        "ability type": "Major Perk",
+        "shot type": "",
+        "official description": "Hitting a hacked enemy with Virus spreads Virus to enemies within 8 meters.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "8 meters",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* The spreading Virus only deals the over time portion of the damage.\n* If the Virus spreads to another hero that is hacked, it will not trigger another spread."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "White Hat",
+      "slot": "",
+      "type": "Major Perk",
+      "shot_type": [
+        "[[File:Ability target ui.png|40x40px|sub|class=inline-icon invert-image|link=Targeted ability|Targeted ]] Targeted"
+      ],
+      "raw": {
+        "hero name": "Sombra",
+        "ability name": "White Hat",
+        "ability key": "",
+        "ability type": "Major Perk",
+        "shot type": "[[File:Ability target ui.png|40x40px|sub|class=inline-icon invert-image|link=Targeted ability|Targeted ]] <span class=\"tooltip\" title=\"Applies to selected target. Cannot miss.\">Targeted</span>",
+        "official description": "Hack can be used on allies to restore 100 health over 2 seconds.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "<span class=\"tooltip\" title=\"50 healing per second.\">100 over 2 seconds</span>",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* ''Removed in Season 18.''\n* Hack cannot be interrupted by getting damaged when used on allies.\n* Hacking allies does increase Stealth's duration if <span class=\"ability-tooltip\" data-ability=\"Encrypted Upload\"><span class=\"ability-link\">[[File:Encrypted_Upload.png|sub|link=Sombra#Encrypted Upload|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sombra#Encrypted Upload|Encrypted Upload]]</span> is picked as a minor perk."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "<span class=\"tooltip\" title=\"50 healing per second.\">100 over 2 seconds</span>",
+          "value": 100,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "low",
+          "warnings": [
+            "Damage has multiple components and only the first number was parsed."
+          ]
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "heal: Damage has multiple components and only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Virus",
+      "slot": "ability 1",
+      "type": "Ability",
+      "shot_type": [
+        "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] Projectile"
+      ],
+      "raw": {
+        "hero name": "Sombra",
+        "ability name": "Virus",
+        "ability key": "ability 1",
+        "ability type": "Ability",
+        "shot type": "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] <span class=\"tooltip\" title=\"Has travel time.\">Projectile</span>",
+        "official description": "Infect enemies with a projectile that deals damage over time. Virus damages hacked targets at a faster rate.",
+        "damage": "35 (impact, normal)<br>70 (impact, hacked)<br><span class=\"tooltip\" title=\"1.8 every 0.024 seconds\">75</span> (DoT)",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "6 seconds",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "<span class=\"tooltip\" title=\"0.064s startup + 0.384s recovery\">0.06 + 0.38 seconds</span>",
+        "duration": "4 seconds (normal)<br>2 seconds (hacked)",
+        "pspeed": "51 m/s",
+        "pradius": "0.5 meters",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "armor piercing;;effect::cleansable::ability critical::travel time",
+        "ability details": "* Virus's impact damage on hacked targets is doubled and the damage over time is dealt at double rate if the target is hacked.\n** The total DoT amount remains the same whether the target is hacked or not or if they become hacked or lose the debuff after the ability has impacted, but the rate and duration of the effect are adjusted accordingly.\n** The hacked effect does not have to be from the same Sombra that applied the Virus. For example, hitting Virus on a target hacked by Echo that has copied Sombra also triggers the benefits.\n* [[Objects]] can also be damaged, and if they are hackable, they can also be damaged faster.\n* Virus cannot [[headshot]]. However, eliminating a hacked hero with the impact damage shows in the kill feed as a critical hit. \n* Impact damage is affected by <span class=\"ability-tooltip\" data-ability=\"Amplification Matrix\"><span class=\"ability-link\">[[File:Baptiste-ability4.png|sub|link=Baptiste#Amplification Matrix|40x40px |class=inline-icon invert-image]]</span>&#32;[[Baptiste#Amplification Matrix|Amplification Matrix]]</span> but damage over time is not.\n* Virus does not benefit from Opportunist, but does from Hack."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "6 seconds",
+          "value": 6,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "4 seconds (normal)<br>2 seconds (hacked)",
+          "value": 4,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "low",
+          "warnings": [
+            "duration has multiple values; only the first number was parsed."
+          ]
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "35 (impact, normal)<br>70 (impact, hacked)<br><span class=\"tooltip\" title=\"1.8 every 0.024 seconds\">75</span> (DoT)",
+          "value": 35,
+          "min_value": null,
+          "max_value": null,
+          "unit": "damage",
+          "confidence": "low",
+          "warnings": [
+            "Damage has multiple components and only the first number was parsed."
+          ]
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "51 m/s",
+          "value": 51,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "0.5 meters",
+          "value": 0.5,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "duration: duration has multiple values; only the first number was parsed.",
+        "damage: Damage has multiple components and only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Translocator",
+      "slot": "ability 2",
+      "type": "Ability",
+      "shot_type": [
+        "[[File:Abilities-sigma4.png|40x40px|sub|class=inline-icon invert-image|link=Arcing projectile|Arcing projectile ]] Arcing projectile [[File:Swift_Step_Icon.png|40x40px|sub|class=inline-icon invert-image|link=Movement ability|Movement ]] Movement"
+      ],
+      "raw": {
+        "hero name": "Sombra",
+        "ability name": "Translocator",
+        "ability key": "ability 2",
+        "ability type": "Ability",
+        "shot type": "[[File:Abilities-sigma4.png|40x40px|sub|class=inline-icon invert-image|link=Arcing projectile|Arcing projectile ]] <span class=\"tooltip\" title=\"Has travel time. Also is affected by gravity.\">Arcing projectile</span><br>[[File:Swift_Step_Icon.png|40x40px|sub|class=inline-icon invert-image|link=Movement ability|Movement ]] <span class=\"tooltip\" title=\"Grants a burst of movement. Disabled by abilities that apply mobility lock status.\">Movement</span>",
+        "official description": "Throw a beacon and teleport to it. Become stealthed for a short duration after teleporting.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "6 seconds",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "<span class=\"tooltip\" title=\"0s startup + 0.432s recovery\">0 + 0.4 seconds</span>",
+        "duration": "0.25 seconds (teleport delay)<br>0.4 seconds (invulnerability)<br>5 seconds (invisibility)",
+        "pspeed": "72 m/s",
+        "pradius": "",
+        "spread": "",
+        "radius": "4 meters (detection)",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "absent::perfect cleanse::ignore barrier::invulnerable::strong projectile::phased::strong movement",
+        "ability details": "* Cooldown for Translocator begins upon teleporting to it.\n* Once thrown, the translocator activates immediately upon colliding with terrain or a terrain-like object, such as <span class=\"ability-tooltip\" data-ability=\"Ice Wall\"><span class=\"ability-link\">[[File:Ability-mei3.png|sub|link=Mei#Ice Wall|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mei#Ice Wall|Ice Wall]]</span>, or after 0.25 seconds have passed.\n** This results in effective range of 18 meters along the trajectory.\n** Translocator destroys breakables, such as fences, while in flight and does not activate upon hitting them.\n* The translocator cannot be damaged, and it does not collide with heroes or objects.\n* Being [[stunned]], [[knocked down]], [[hacked]], [[rooted]] or [[hindered]] prevents Translocator from being used.\n** If Sombra becomes is affected by aforementioned effects (including <span class=\"ability-tooltip\" data-ability=\"Chain Hook\"><span class=\"ability-link\">[[File:Ability-Roadhog3.png|sub|link=Roadhog#Chain Hook|40x40px |class=inline-icon invert-image]]</span>&#32;[[Roadhog#Chain Hook|Chain Hook]]</span> and <span class=\"ability-tooltip\" data-ability=\"Charge\"><span class=\"ability-link\">[[File:Ability-reinhardt3.png|sub|link=Reinhardt#Charge|40x40px |class=inline-icon invert-image]]</span>&#32;[[Reinhardt#Charge|Charge]]</span>) or caught in <span class=\"ability-tooltip\" data-ability=\"Graviton Surge\"><span class=\"ability-link\">[[File:Ability-zarya4.png|sub|link=Zarya#Graviton Surge|40x40px |class=inline-icon invert-image]]</span>&#32;[[Zarya#Graviton Surge|Graviton Surge]]</span> while the Translocator is in air, the teleport will go through and the negative effects will be removed.\n** If Sombra becomes affected by Sigma's <span class=\"ability-tooltip\" data-ability=\"Gravitic Flux\"><span class=\"ability-link\">[[File:Abilities-sigma5.png|sub|link=Sigma#Gravitic Flux|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sigma#Gravitic Flux|Gravitic Flux]]</span>, the teleport goes through but its effects will not be removed.\n* Translocator cannot be used while pulled by <span class=\"ability-tooltip\" data-ability=\"Life Grip\"><span class=\"ability-link\">[[File:Life_Grip_Icon.png|sub|link=Lifeweaver#Life Grip|40x40px |class=inline-icon invert-image]]</span>&#32;[[Lifeweaver#Life Grip|Life Grip]]</span>.\n** If Sombra was pulled while Translocator is in air, she will still teleport to it, interrupting the pull.\n* Sombra becomes [[phased out]] for 0.4 seconds after teleporting, making her immune to damage as well as removing and preventing most negative effects.\n* After teleporting, Sombra gains stealth after a 0.25 second fade out period. Once the duration ends or stealth is interrupted it has a 0.3 second fade in period. Sombra is partially visible while fading in/out.\n* Stealth is interrupted if Sombra uses primary fire, [[quick melee]], <span class=\"ability-tooltip\" data-ability=\"Virus\"><span class=\"ability-link\">[[File:Ability Sombra Virus.png|sub|link=Sombra#Virus|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sombra#Virus|Virus]]</span>, <span class=\"ability-tooltip\" data-ability=\"EMP\"><span class=\"ability-link\">[[File:Ability Sombra EMP.png|sub|link=Sombra#EMP|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sombra#EMP|EMP]]</span>, or tries to <span class=\"ability-tooltip\" data-ability=\"Hack\"><span class=\"ability-link\">[[File:Ability Sombra Hack.png|sub|link=Sombra#Hack|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sombra#Hack|hack]]</span> an enemy hero.\n** These actions will immediately cause Sombra to start to fade in upon the key press, but they will not be initiated, unless the key is held or pressed again once Sombra has completely faded in.\n*** There is no fade in delay if stealth is broken within 0.75 seconds of entering stealth.\n* Sombra becomes \"revealed\" if she uses <span class=\"ability-tooltip\" data-ability=\"Hack\"><span class=\"ability-link\">[[File:Ability Sombra Hack.png|sub|link=Sombra#Hack|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sombra#Hack|Hack]]</span>, takes damage or can be seen through abilities, such as <span class=\"ability-tooltip\" data-ability=\"Sonic Arrow\"><span class=\"ability-link\">[[File:Ability-hanzo2.png|sub|link=Hanzo#Sonic Arrow|40x40px |class=inline-icon invert-image]]</span>&#32;[[Hanzo#Sonic Arrow|Sonic Arrow]]</span> or <span class=\"ability-tooltip\" data-ability=\"Infra-Sight\"><span class=\"ability-link\">[[File:Ability-widowmaker4.png|sub|link=Widowmaker#Infra-Sight|40x40px |class=inline-icon invert-image]]</span>&#32;[[Widowmaker#Infra-Sight|Infra-Sight]]</span>. When revealed, Sombra will remain in stealth, but Sombra is visible to the entire enemy team. This is indicated by a \"REVEALED\" message shown at the top of Sombra's screen.\n** Taking damage reveals Sombra for 1.3 seconds.\n* If an enemy [[hero]] comes within 4 meters of Sombra, they can \"detect\" Sombra. When detected, Sombra will remain stealthed, but is visible to that specific enemy hero. This is indicated by a \"DETECTED!\" message, shown at the top of Sombra's screen.\n** <span class=\"ability-tooltip\" data-ability=\"B.O.B.\"><span class=\"ability-link\">[[File:Ability-ashe4.png|sub|link=Ashe#B.O.B.|40x40px |class=inline-icon invert-image]]</span>&#32;[[Ashe#B.O.B.|B.O.B.]]</span> cannot detect Sombra.\n* [[File:Ability target ui.png|40x40px|sub|class=inline-icon invert-image|link=Targeted ability|Targeted ]] <span class=\"tooltip\" title=\"Applies to selected target. Cannot miss.\">Targeted</span> enemy abilities and following auto-targeting attacks cannot target Sombra, unless she is detected by the player or revealed: <span class=\"ability-tooltip\" data-ability=\"Deadeye\"><span class=\"ability-link\">[[File:Ability-mccree4.png|sub|link=Cassidy#Deadeye|40x40px |class=inline-icon invert-image]]</span>&#32;[[Cassidy#Deadeye|Deadeye]]</span>, <span class=\"ability-tooltip\" data-ability=\"Tactical Visor\"><span class=\"ability-link\">[[File:icon-ability.tacticalvisor.png|sub|link=Soldier: 76#Tactical Visor|40x40px |class=inline-icon invert-image]]</span>&#32;[[Soldier: 76#Tactical Visor|Tactical Visor]]</span>, <span class=\"ability-tooltip\" data-ability=\"Biotic Grasp Alt Fire\"><span class=\"ability-link\">[[File:Ability Moira Biotic Grasp_Alt fire.png|middle|link=Moira#Biotic Grasp Alt Fire|40x40px |class=inline-icon invert-image]]</span>&#32;[[Moira#Biotic Grasp Alt Fire|Biotic Grasp Alt Fire]]</span> and <span class=\"ability-tooltip\" data-ability=\"Biotic Orb\"><span class=\"ability-link\">[[File:Ability Moira Biotic Orb.png|sub|link=Moira#Biotic Orb|40x40px |class=inline-icon invert-image]]</span>&#32;[[Moira#Biotic Orb|Biotic Orb]]</span> (damage).\n** Zenyatta's Orb of Discord will remain attached to Sombra while she is stealthed, as long as there are no obstacles between them, but it will not indicate her location. However, Translocator's teleportation will remove the effect if it was applied before it.\n* Following enemy [[object]]s cannot auto-target Sombra, unless she has been revealed: <span class=\"ability-tooltip\" data-ability=\"Sentry Turret\"><span class=\"ability-link\">[[File:Ability-symmetra2.png|sub|link=Symmetra#Sentry Turret|40x40px |class=inline-icon invert-image]]</span>&#32;[[Symmetra#Sentry Turret|Sentry Turret]]</span> or <span class=\"ability-tooltip\" data-ability=\"B.O.B.\"><span class=\"ability-link\">[[File:Ability-ashe4.png|sub|link=Ashe#B.O.B.|40x40px |class=inline-icon invert-image]]</span>&#32;[[Ashe#B.O.B.|B.O.B.]]</span>.\n* [[Torbjörn]]'s <span class=\"ability-tooltip\" data-ability=\"Deploy Turret\"><span class=\"ability-link\">[[File:Ability-torbjorn3.png|sub|link=Torbjörn#Deploy Turret|40x40px |class=inline-icon invert-image]]</span>&#32;[[Torbjörn#Deploy Turret|Turret]]</span> can only attack Sombra when she is out of stealth.\n* Sombra can activate <span class=\"ability-tooltip\" data-ability=\"Petal Platform\"><span class=\"ability-link\">[[File:Petal_Platform_Icon.png|sub|link=Lifeweaver#Petal Platform|40x40px |class=inline-icon invert-image]]</span>&#32;[[Lifeweaver#Petal Platform|Petal Platform]]</span> while stealthed.\n* Sombra cannot contest map [[objective]]s while stealthed.\n** If Sombra enters the objective area stealthed, she will remain in stealth.\n* Stealth's [[movement speed]] buff does not count towards global movement speed buff cap.\n* Movement speed buff is tied to the stealth effect. The buff is retained while detected or revealed, but ends if stealth is interrupted."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "6 seconds",
+          "value": 6,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "0.25 seconds (teleport delay)<br>0.4 seconds (invulnerability)<br>5 seconds (invisibility)",
+          "value": 0.25,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "low",
+          "warnings": [
+            "duration has multiple values; only the first number was parsed."
+          ]
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "72 m/s",
+          "value": 72,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "duration: duration has multiple values; only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Translocator (old)",
+      "slot": "ability 2",
+      "type": "Ability",
+      "shot_type": [
+        "[[File:Abilities-sigma4.png|40x40px|sub|class=inline-icon invert-image|link=Arcing projectile|Arcing projectile ]] Arcing projectile [[File:Swift_Step_Icon.png|40x40px|sub|class=inline-icon invert-image|link=Movement ability|Movement ]] Movement"
+      ],
+      "raw": {
+        "hero name": "Sombra",
+        "ability name": "Translocator (old)",
+        "ability key": "ability 2",
+        "ability type": "Ability",
+        "shot type": "[[File:Abilities-sigma4.png|40x40px|sub|class=inline-icon invert-image|link=Arcing projectile|Arcing projectile ]] <span class=\"tooltip\" title=\"Has travel time. Also is affected by gravity.\">Arcing projectile</span><br>[[File:Swift_Step_Icon.png|40x40px|sub|class=inline-icon invert-image|link=Movement ability|Movement ]] <span class=\"tooltip\" title=\"Grants a burst of movement. Disabled by abilities that apply mobility lock status.\">Movement</span>",
+        "official description": "Throw a beacon, then press <span class=keybind>E</span> again to teleport to it. Press <span class=keybind>F</span> to remove it.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "6 seconds",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "instantly for throw + 0.5 s. recovery <br>0.4 s. invulnerability (translocating)",
+        "duration": "∞",
+        "pspeed": "25 meters per second",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* Reworked in Season 7 of ''[[Overwatch 2]]''.\n* Cooldown for Translocator begins immediately upon throwing it, or when it is destroyed.\n* Can be manually destroyed using the Interact key. Destroying it this way does not reset the cooldown.\n* The translocator can neither be thrown or activated while [[rooted]] or [[hindered]].\n* The Translocator bounces off walls but not slopes.\n* Translocator can be placed on and lifted by <span class=\"ability-tooltip\" data-ability=\"Petal Platform\"><span class=\"ability-link\">[[File:Petal_Platform_Icon.png|sub|link=Lifeweaver#Petal Platform|40x40px |class=inline-icon invert-image]]</span>&#32;[[Lifeweaver#Petal Platform|Petal Platform]]</span> if the latter was deployed first.\n** If a translocator is placed on Petal Platform and the platform is destroyed, the translocator is destroyed as well.\n* Sombra has a very brief moment of invincibility upon translocating, removing most negative effects from Sombra.\n** Removes damage over time effects, such as <span class=\"ability-tooltip\" data-ability=\"Dynamite\"><span class=\"ability-link\">[[File:Ability-ashe2.png|sub|link=Ashe#Dynamite|40x40px |class=inline-icon invert-image]]</span>&#32;[[Ashe#Dynamite|Dynamite]]</span>.\n** Removes attached objects, such as <span class=\"ability-tooltip\" data-ability=\"Magnetic Grenade\"><span class=\"ability-link\">[[File:Magnetic_Grenade.png|sub|link=Cassidy#Magnetic Grenade|40x40px |class=inline-icon invert-image]]</span>&#32;[[Cassidy#Magnetic Grenade|Magnetic Grenade]]</span> and <span class=\"ability-tooltip\" data-ability=\"Sonic Arrow\"><span class=\"ability-link\">[[File:Ability-hanzo2.png|sub|link=Hanzo#Sonic Arrow|40x40px |class=inline-icon invert-image]]</span>&#32;[[Hanzo#Sonic Arrow|Sonic Arrow]]</span>."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "6 seconds",
+          "value": 6,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "∞",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": [
+            "Could not parse duration."
+          ]
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "25 meters per second",
+          "value": 25,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "duration: Could not parse duration."
+      ]
+    },
+    {
+      "name": "Machine Pistol",
+      "slot": "primary fire",
+      "type": "Weapon",
+      "shot_type": [
+        "[[File:Icon-ability.tacticalvisor.png|40x40px|sub|class=inline-icon invert-image|link=Hitscan|Hitscan ]] Hitscan"
+      ],
+      "raw": {
+        "hero name": "Sombra",
+        "ability name": "Machine Pistol",
+        "ability key": "primary fire",
+        "ability type": "Weapon",
+        "shot type": "[[File:Icon-ability.tacticalvisor.png|40x40px|sub|class=inline-icon invert-image|link=Hitscan|Hitscan ]] <span class=\"tooltip\" title=\"Hits are registered without delay.\">Hitscan</span>",
+        "official description": "Short-range automatic weapon.",
+        "damage": "8 - 2.4",
+        "damage falloff range": "15 - 35 meters",
+        "headshot": "yes",
+        "headshot mod": "2",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "<span class=\"tooltip\" title=\"1 round per 0.048 seconds\">20 shots/s</span>",
+        "ammo": "60",
+        "reload time": "<span class=\"tooltip\" title=\"restores ammo after 0.544 seconds\">1.2 seconds animation</span>",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "0.04 meters",
+        "spread": "2.3 degrees (max)",
+        "radius": "",
+        "range distance": "",
+        "dps": "Damage per second:\n160 while firing (114.3 overall w/reload)\n192 while firing w/ opportunist",
+        "hps": "",
+        "ability keywords": "critical::hitscan",
+        "ability details": "* Damage per second:\n**160 while firing (114.3 overall w/reload)\n**192 while firing w/ opportunist\n* Maximum spread is reached after 6 shots.\n* If primary fire is released there is a 0.16 seconds recovery period before it can be used again."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "<span class=\"tooltip\" title=\"restores ammo after 0.544 seconds\">1.2 seconds animation</span>",
+          "value": 1.2,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "60",
+          "value": 60,
+          "min_value": null,
+          "max_value": null,
+          "unit": "rounds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "8 - 2.4",
+          "value": null,
+          "min_value": 2.4,
+          "max_value": 8,
+          "unit": "damage",
+          "confidence": "high",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "15 - 35 meters",
+          "value": null,
+          "min_value": 15,
+          "max_value": 35,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "<span class=\"tooltip\" title=\"1 round per 0.048 seconds\">20 shots/s</span>",
+          "value": 20,
+          "min_value": null,
+          "max_value": null,
+          "unit": "shots_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "0.04 meters",
+          "value": 0.04,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "2.3 degrees (max)",
+          "value": 2.3,
+          "min_value": null,
+          "max_value": null,
+          "unit": "degrees",
+          "confidence": "high",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "Damage per second:\n160 while firing (114.3 overall w/reload)\n192 while firing w/ opportunist",
+          "value": 160,
+          "min_value": null,
+          "max_value": null,
+          "unit": "per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Hack",
+      "slot": "secondary fire",
+      "type": "Ability",
+      "shot_type": [
+        "[[File:Ability target ui.png|40x40px|sub|class=inline-icon invert-image|link=Targeted ability|Targeted ]] Targeted"
+      ],
+      "raw": {
+        "hero name": "Sombra",
+        "ability name": "Hack",
+        "ability key": "secondary fire",
+        "ability type": "Ability",
+        "shot type": "[[File:Ability target ui.png|40x40px|sub|class=inline-icon invert-image|link=Targeted ability|Targeted ]] <span class=\"tooltip\" title=\"Applies to selected target. Cannot miss.\">Targeted</span>",
+        "official description": "Hold to hack. Hacked enemies cannot use abilities and can be seen through walls. Hacked health packs spawn faster and can't be used by enemies. Taking damage interrupts the hack attempt.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "6 seconds;;heroes::3 seconds;;non-heroes",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "<span class=\"tooltip\" title=\"0.65s startup + 0.39s recovery\">0.65 + 0.4 seconds</span>",
+        "duration": "8 seconds (reveal, heroes)<br>1.0 seconds (ability disable, heroes)<br>45 seconds (health packs)<br>10 seconds (disable, objects)<br>3 seconds (disable, B.O.B.)",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "15 meters",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "cleansable::hacked",
+        "ability details": "* Hack can target [[heroes]], [[health pack]]s and most enemy [[objects]].\n* Sombra can see the ult status of hacked enemies (above their healthbar).\n* Hack goes on a shorter 3 second cooldown if a non-player unit is hacked or if Hack is interrupted by taking damage.\n** If Hack is interrupted without taking any damage, it does not go on cooldown.\n* Hack cannot be used on an enemy that is already hacked. This refers to the duration of the reveal debuff rather than the ability lock.\n* Using Hack on enemy objects or health packs doesn't end Stealth, but instead reveals Sombra to nearby enemies.\n** Using Hack on enemy heroes will exit Stealth, however.\n* An unobstructed line of sight to the target is required for the entirety of the startup animation. [[Barrier]]s break line of sight instantly. Walls also break line of sight, but there is a brief grace period where Hack can continue.\n* Hacked heroes cannot activate their [[Ability|abilities]] for 1 second and are revealed to Sombra's team for 8 seconds.\n** A \"HACKED\" text will appear to the players while their abilities are locked.\n** Hack disables all hero-specific [[movement]] [[Passive ability|passive abilities]]. Heroes that have a higher base movement speed keep their increased speed.\n** Hack completely turns off [[Lúcio]]'s <span class=\"ability-tooltip\" data-ability=\"Crossfade\"><span class=\"ability-link\">[[File:Ability-Lucio2.png|sub|link=Lúcio#Crossfade|40x40px |class=inline-icon invert-image]]</span>&#32;[[Lúcio#Crossfade|Crossfade]]</span>, retracts [[Sigma]]'s <span class=\"ability-tooltip\" data-ability=\"Experimental Barrier\"><span class=\"ability-link\">[[File:Abilities-sigma2.png|sub|link=Sigma#Experimental Barrier|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sigma#Experimental Barrier|Experimental Barrier]]</span> and [[Wrecking Ball]] exits <span class=\"ability-tooltip\" data-ability=\"Roll\"><span class=\"ability-link\">[[File:Roll.png|sub|link=Wrecking Ball#Roll|40x40px |class=inline-icon invert-image]]</span>&#32;[[Wrecking Ball#Roll|Roll]]</span>.\n** Hack does not affect [[weapon]]s nor passive abilities tied to weapons.\n** Hacked heroes display a check mark above their head if they have their [[ultimate ability]] available. \n* Hacked [[Health Pack]]s respawn four times faster — 2.5 seconds for small Health Packs, 3.75 seconds for mega Health Packs — and can be seen through walls to all allies within 30 meters. Hacked Health Packs cannot be used by the enemy team unless their area effected by <span class=\"ability-tooltip\" data-ability=\"Sonic Disruption\"><span class=\"ability-link\">[[File:Perk_SonicDisruption.png|sub|link=Hanzo#Sonic Disruption|40x40px |class=inline-icon invert-image]]</span>&#32;[[Hanzo#Sonic Disruption|Sonic Disruption]]</span>.\n** Healing from hacked Health Packs is credited to Sombra in the scoreboard, but she does not gain any [[ultimate charge]] from it.\n** Health Packs cannot be hacked before the round starts.\n** Sombra cannot hack Health Packs that have already been hacked by an enemy Sombra or Hanzo with <span class=\"ability-tooltip\" data-ability=\"Sonic Disruption\"><span class=\"ability-link\">[[File:Perk_SonicDisruption.png|sub|link=Hanzo#Sonic Disruption|40x40px |class=inline-icon invert-image]]</span>&#32;[[Hanzo#Sonic Disruption|Sonic Disruption]]</span>.\n* Following [[object]]s can be hacked, either disabling them briefly or completely destroying them.\n** Torbjörn's <span class=\"ability-tooltip\" data-ability=\"Deploy Turret\"><span class=\"ability-link\">[[File:Ability-torbjorn3.png|sub|link=Torbjörn#Deploy Turret|40x40px |class=inline-icon invert-image]]</span>&#32;[[Torbjörn#Deploy Turret|Turret]]</span> and Illari's <span class=\"ability-tooltip\" data-ability=\"Healing Pylon\"><span class=\"ability-link\">[[File:Healing_pylon_icon.png|sub|link=Illari#Healing Pylon|40x40px |class=inline-icon invert-image]]</span>&#32;[[Illari#Healing Pylon|Healing Pylon]]</span> are disabled for 10 seconds when hacked.\n** Ashe's <span class=\"ability-tooltip\" data-ability=\"B.O.B.\"><span class=\"ability-link\">[[File:Ability-ashe4.png|sub|link=Ashe#B.O.B.|40x40px |class=inline-icon invert-image]]</span>&#32;[[Ashe#B.O.B.|B.O.B.]]</span> is disabled for 3 seconds when hacked.\n** Hacking Lifeweaver's <span class=\"ability-tooltip\" data-ability=\"Petal Platform\"><span class=\"ability-link\">[[File:Petal_Platform_Icon.png|sub|link=Lifeweaver#Petal Platform|40x40px |class=inline-icon invert-image]]</span>&#32;[[Lifeweaver#Petal Platform|Petal Platform]]</span> prevents it from activating or causes it to fall on ground, destroying it, if already activated.\n** Hacking Baptiste's <span class=\"ability-tooltip\" data-ability=\"Immortality Field\"><span class=\"ability-link\">[[File:Baptiste-ability3.png|sub|link=Baptiste#Immortality Field|40x40px |class=inline-icon invert-image]]</span>&#32;[[Baptiste#Immortality Field|Immortality Field]]</span> completely destroys it.\n** Some objects, such as [[Symmetra]]'s <span class=\"ability-tooltip\" data-ability=\"Sentry Turret\"><span class=\"ability-link\">[[File:Ability-symmetra2.png|sub|link=Symmetra#Sentry Turret|40x40px |class=inline-icon invert-image]]</span>&#32;[[Symmetra#Sentry Turret|Sentry Turrets]]</span> or <span class=\"ability-tooltip\" data-ability=\"Teleporter\"><span class=\"ability-link\">[[File:Ability-symmetra4.png|sub|link=Symmetra#Teleporter|40x40px |class=inline-icon invert-image]]</span>&#32;[[Symmetra#Teleporter|Teleporter]]</span>, cannot be targeted by Hack, but can still be hacked with <span class=\"ability-tooltip\" data-ability=\"EMP\"><span class=\"ability-link\">[[File:Ability Sombra EMP.png|sub|link=Sombra#EMP|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sombra#EMP|EMP]]</span>, refer to [[Objects#List of objects]] for a complete list.\n* Non-heroes that are hacked have a skull above them that drains over time. This represents the duration of the hack.\n* Hacked can be completely removed by Zarya's <span class=\"ability-tooltip\" data-ability=\"Projected Barrier\"><span class=\"ability-link\">[[File:Ability-zarya3.png|sub|link=Zarya#Projected Barrier|40x40px |class=inline-icon invert-image]]</span>&#32;[[Zarya#Projected Barrier|Particle/Projected Barrier]]</span>, Zenyatta's <span class=\"ability-tooltip\" data-ability=\"Transcendence\"><span class=\"ability-link\">[[File:Ability-zenyatta4.png|sub|link=Zenyatta#Transcendence|40x40px |class=inline-icon invert-image]]</span>&#32;[[Zenyatta#Transcendence|Transcendence]]</span> or abilities that grant [[phased out]] status, such as <span class=\"ability-tooltip\" data-ability=\"Wraith Form\"><span class=\"ability-link\">[[File:Ability-reaper2.png|sub|link=Reaper#Wraith Form|40x40px |class=inline-icon invert-image]]</span>&#32;[[Reaper#Wraith Form|Wraith Form]]</span> and <span class=\"ability-tooltip\" data-ability=\"Protection Suzu\"><span class=\"ability-link\">[[File:Protection_Suzu_Icon.png|sub|link=Kiriko#Protection Suzu|40x40px |class=inline-icon invert-image]]</span>&#32;[[Kiriko#Protection Suzu|Protection Suzu]]</span>. Becoming phased out while casting hack also prevents it from finishing.\n* Becoming [[Unstoppable]], such as through <span class=\"ability-tooltip\" data-ability=\"Overrun\"><span class=\"ability-link\">[[File:Overrun_icon.png|sub|link=Mauga#Overrun|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mauga#Overrun|Overrun]]</span> or <span class=\"ability-tooltip\" data-ability=\"Fortify\"><span class=\"ability-link\">[[File:Ability Orisa Fortify.png|sub|link=Orisa#Fortify|40x40px |class=inline-icon invert-image]]</span>&#32;[[Orisa#Fortify|Fortify]]</span>, prevents Hack's ability lockdown, but not its reveal or <span class=\"ability-tooltip\" data-ability=\"Opportunist\"><span class=\"ability-link\">[[File:Ability Sombra Opportunist.png|sub|link=Sombra#Opportunist|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sombra#Opportunist|Opportunist]]</span> damage boosting."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "6 seconds;;heroes::3 seconds;;non-heroes",
+          "value": 6,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "low",
+          "warnings": [
+            "cooldown has multiple values; only the first number was parsed."
+          ]
+        },
+        "duration": {
+          "raw": "8 seconds (reveal, heroes)<br>1.0 seconds (ability disable, heroes)<br>45 seconds (health packs)<br>10 seconds (disable, objects)<br>3 seconds (disable, B.O.B.)",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": [
+            "duration has multiple components and was left unparsed."
+          ]
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "cooldown: cooldown has multiple values; only the first number was parsed.",
+        "duration: duration has multiple components and was left unparsed."
+      ]
+    },
+    {
+      "name": "EMP",
+      "slot": "ultimate",
+      "type": "Ultimate Ability",
+      "shot_type": [
+        "[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] Area of effect"
+      ],
+      "raw": {
+        "hero name": "Sombra",
+        "ability name": "EMP",
+        "ability key": "ultimate",
+        "ability type": "Ultimate Ability",
+        "shot type": "[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] <span class=\"tooltip\" title=\"Affects all enemies within an area. Usually requires unobstructed line of sight to the origin.\">Area of effect</span>",
+        "official description": "Deal damage to all nearby enemies based on their current health, hacking them and destroying barriers around you.",
+        "damage": "25% of current health",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "<span class=\"tooltip\" title=\"0.304s startup + 0.336s recovery\">0.3 + 0.34 seconds</span>",
+        "duration": "8 seconds (reveal, heroes)<br>3 seconds (ability disable, heroes)<br>45 seconds (health packs)<br>10 seconds (disable, objects)",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "<span class=\"tooltip\" title=\"Same range as Hack.\">15 meters</span>",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "area of effect;;spherical::armor piercing::destroy barrier::cleansable::fixed::hacked",
+        "ability details": "* EMP is line of sight blocked by terrain.\n** Mei's <span class=\"ability-tooltip\" data-ability=\"Ice Wall\"><span class=\"ability-link\">[[File:Ability-mei3.png|sub|link=Mei#Ice Wall|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mei#Ice Wall|Ice Wall]]</span> blocks line of sight to enemies behind it.\n** Lifeweaver's <span class=\"ability-tooltip\" data-ability=\"Tree of Life\"><span class=\"ability-link\">[[File:Tree_of_Life_Icon.png|sub|link=Lifeweaver#Tree of Life|40x40px |class=inline-icon invert-image]]</span>&#32;[[Lifeweaver#Tree of Life|Tree of Life]]</span> and <span class=\"ability-tooltip\" data-ability=\"Petal Platform\"><span class=\"ability-link\">[[File:Petal_Platform_Icon.png|sub|link=Lifeweaver#Petal Platform|40x40px |class=inline-icon invert-image]]</span>&#32;[[Lifeweaver#Petal Platform|Petal Platform]]</span> do not block EMP.\n* EMP completely destroys ''all'' barriers, including <span class=\"ability-tooltip\" data-ability=\"Photon Barrier\"><span class=\"ability-link\">[[File:Photon Barrier.png|sub|link=Symmetra#Photon Barrier|40x40px |class=inline-icon invert-image]]</span>&#32;[[Symmetra#Photon Barrier|Photon Barrier]]</span>, Baptiste's <span class=\"ability-tooltip\" data-ability=\"Amplification Matrix\"><span class=\"ability-link\">[[File:Baptiste-ability4.png|sub|link=Baptiste#Amplification Matrix|40x40px |class=inline-icon invert-image]]</span>&#32;[[Baptiste#Amplification Matrix|Amplification Matrix]]</span>, and Domina's <span class=\"ability-tooltip\" data-ability=\"Panopticon\"><span class=\"ability-link\">[[File:ULT Panopticon.png|sub|link=Domina#Panopticon|40x40px |class=inline-icon invert-image]]</span>&#32;[[Domina#Panopticon|Panopticon]]</span>.\n** If [[Zarya]] projects a barrier on a target with shields (e.g. herself), the barrier protects the health and the player will not be hacked. Zarya will gain the <span class=\"ability-tooltip\" data-ability=\"Energy\"><span class=\"ability-link\">[[File:Passive-Zarya.png|sub|link=Zarya#Energy|40x40px |class=inline-icon invert-image]]</span>&#32;[[Zarya#Energy|Energy]]</span> from the damage absorbed.\n* In addition to the [[objects]] that can be hacked by <span class=\"ability-tooltip\" data-ability=\"Hack\"><span class=\"ability-link\">[[File:Ability Sombra Hack.png|sub|link=Sombra#Hack|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sombra#Hack|Hack]]</span>, EMP also hacks Symmetra's <span class=\"ability-tooltip\" data-ability=\"Sentry Turret\"><span class=\"ability-link\">[[File:Ability-symmetra2.png|sub|link=Symmetra#Sentry Turret|40x40px |class=inline-icon invert-image]]</span>&#32;[[Symmetra#Sentry Turret|Sentry Turrets]]</span> and <span class=\"ability-tooltip\" data-ability=\"Teleporter\"><span class=\"ability-link\">[[File:Ability-symmetra4.png|sub|link=Symmetra#Teleporter|40x40px |class=inline-icon invert-image]]</span>&#32;[[Symmetra#Teleporter|Teleporter]]</span>, Mei's <span class=\"ability-tooltip\" data-ability=\"Blizzard\"><span class=\"ability-link\">[[File:Ability-mei4.png|sub|link=Mei#Blizzard|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mei#Blizzard|Blizzard]]</span> and Wrecking Ball's <span class=\"ability-tooltip\" data-ability=\"Minefield\"><span class=\"ability-link\">[[File:Minefield.png|sub|link=Wrecking Ball#Minefield|40x40px |class=inline-icon invert-image]]</span>&#32;[[Wrecking Ball#Minefield|Proximity Mines]]</span>, disabling them for 10 seconds. They must be within Sombra's line of sight, ignoring barriers. Refer to [[Objects#List of objects]] for a complete list.\n** Some objects, such as <span class=\"ability-tooltip\" data-ability=\"Tree of Life\"><span class=\"ability-link\">[[File:Tree_of_Life_Icon.png|sub|link=Lifeweaver#Tree of Life|40x40px |class=inline-icon invert-image]]</span>&#32;[[Lifeweaver#Tree of Life|Tree of Life]]</span>, cannot be hacked but may still be damaged by EMP.\n** Mei's <span class=\"ability-tooltip\" data-ability=\"Ice Wall\"><span class=\"ability-link\">[[File:Ability-mei3.png|sub|link=Mei#Ice Wall|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mei#Ice Wall|Ice Wall]]</span> is completely unaffected by EMP.\n* Unlike other [[Ultimate ability|ultimate abilities]] Sombra alerts her entire team regardless of distance from her that she had used her EMP. This is done by a radio transmission sounding \"EMP activated.\"\n* Sombra can start gaining ultimate charge after 5 seconds of using EMP.\n* Sombra receives a small vertical boost from activating EMP."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "8 seconds (reveal, heroes)<br>3 seconds (ability disable, heroes)<br>45 seconds (health packs)<br>10 seconds (disable, objects)",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": [
+            "duration has multiple components and was left unparsed."
+          ]
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "25% of current health",
+          "value": 25,
+          "min_value": null,
+          "max_value": null,
+          "unit": "damage",
+          "confidence": "high",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "duration: duration has multiple components and was left unparsed."
+      ]
+    }
+  ],
+  "source": "https://overwatch.fandom.com/api.php",
+  "fetched_at": "2026-06-25T07:13:01.706103+00:00"
+}

@@ -1,0 +1,1846 @@
+{
+  "name": "Kiriko",
+  "role": "Support",
+  "sub_role": "Medic",
+  "health": {
+    "health": 225,
+    "armor": null,
+    "shield": null
+  },
+  "abilities": [
+    {
+      "name": "Fortune Teller",
+      "slot": "",
+      "type": "Minor Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Kiriko",
+        "ability name": "Fortune Teller",
+        "ability key": "",
+        "ability type": "Minor Perk",
+        "shot type": "",
+        "official description": "Kunai hits launch 2 Healing Ofuda to an ally in front of you.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* Does not trigger when hitting [[barrier]]s or other [[deployables]], except <span class=\"ability-tooltip\" data-ability=\"B.O.B.\"><span class=\"ability-link\">[[File:Ability-ashe4.png|sub|link=Ashe#B.O.B.|40x40px |class=inline-icon invert-image]]</span>&#32;[[Ashe#B.O.B.|B.O.B.]]</span>"
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Foxtrot",
+      "slot": "",
+      "type": "Major Perk",
+      "shot_type": [
+        "[[File:Abilities-sigma4.png|40x40px|sub|class=inline-icon invert-image|link=Arcing projectile|Arcing projectile ]] Arcing projectile [[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] Area of effect"
+      ],
+      "raw": {
+        "hero name": "Kiriko",
+        "ability name": "Foxtrot",
+        "ability key": "",
+        "ability type": "Major Perk",
+        "shot type": "[[File:Abilities-sigma4.png|40x40px|sub|class=inline-icon invert-image|link=Arcing projectile|Arcing projectile ]] <span class=\"tooltip\" title=\"Has travel time. Also is affected by gravity.\">Arcing projectile</span><br>[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] <span class=\"tooltip\" title=\"Affects all enemies within an area. Usually requires unobstructed line of sight to the origin.\">Area of effect</span>",
+        "official description": "Protection Suzu grants allies 30% increased movement speed for 4 seconds.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "4 seconds",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": ""
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "4 seconds",
+          "value": 4,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Ready Step",
+      "slot": "",
+      "type": "Major Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Kiriko",
+        "ability name": "Ready Step",
+        "ability key": "",
+        "ability type": "Major Perk",
+        "shot type": "",
+        "official description": "Swift Step grants Kiriko 40% increased attack and reload speed for 3 seconds.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "<strong class=\"error\">Expression error: Unexpected * operator.</strong> while firing (<strong class=\"error\">Expression error: Unexpected * operator.</strong> w/ reload)",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* Damage per second: 168 while firing (135.19 w/ reload)\n* Healing per second: 254.8 while firing (135.39 w/ reload)"
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "<strong class=\"error\">Expression error: Unexpected * operator.</strong> while firing (<strong class=\"error\">Expression error: Unexpected * operator.</strong> w/ reload)",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": [
+            "Could not parse per-second stat."
+          ]
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "dps: Could not parse per-second stat."
+      ]
+    },
+    {
+      "name": "Shuffling",
+      "slot": "",
+      "type": "Major Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Kiriko",
+        "ability name": "Shuffling",
+        "ability key": "",
+        "ability type": "Major Perk",
+        "shot type": "",
+        "official description": "Swift Step can be used again within 4 seconds of its initial cast.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* ''Removed in Season 18.''"
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Urgent Care",
+      "slot": "",
+      "type": "Minor Perk",
+      "shot_type": [
+        "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] Projectile"
+      ],
+      "raw": {
+        "hero name": "Kiriko",
+        "ability name": "Urgent Care",
+        "ability key": "",
+        "ability type": "Minor Perk",
+        "shot type": "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] <span class=\"tooltip\" title=\"Has travel time.\">Projectile</span>",
+        "official description": "Healing Ofuda projectile speed is increased by 50% when seeking critical health allies.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "30 → 42 m/s",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* Increases the speed by 50% of non-homing talismans' speed."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "30 → 42 m/s",
+          "value": 30,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Swift Step",
+      "slot": "ability 1",
+      "type": "Ability",
+      "shot_type": [
+        "[[File:Ability target ui.png|40x40px|sub|class=inline-icon invert-image|link=Targeted ability|Targeted ]] Targeted (ally) [[File:Swift_Step_Icon.png|40x40px|sub|class=inline-icon invert-image|link=Movement ability|Movement ]] Movement"
+      ],
+      "raw": {
+        "hero name": "Kiriko",
+        "ability name": "Swift Step",
+        "ability key": "ability 1",
+        "ability type": "Ability",
+        "shot type": "[[File:Ability target ui.png|40x40px|sub|class=inline-icon invert-image|link=Targeted ability|Targeted ]] <span class=\"tooltip\" title=\"Applies to selected target. Cannot miss.\">Targeted</span> (ally)<br>[[File:Swift_Step_Icon.png|40x40px|sub|class=inline-icon invert-image|link=Movement ability|Movement ]] <span class=\"tooltip\" title=\"Grants a burst of movement. Disabled by abilities that apply mobility lock status.\">Movement</span>",
+        "official description": "Teleport directly to an ally.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "7 seconds",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "0.25 second invulnerability",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "30 meters",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "evasive::invulnerable::strong movement::phased",
+        "ability details": "* Swift Step can target allies through walls.\n* Swift Step has a brief casting animation that can be interrupted.\n* Objects that are attached to Kiriko are dropped at the cast location when she teleports.\n** This includes <span class=\"ability-tooltip\" data-ability=\"Jagged Blade\"><span class=\"ability-link\">[[File:Jagged_Blade_Icon.png|sub|link=Junker Queen#Jagged Blade|40x40px |class=inline-icon invert-image]]</span>&#32;[[Junker Queen#Jagged Blade|Jagged Blade]]</span>, <span class=\"ability-tooltip\" data-ability=\"Sonic Arrow\"><span class=\"ability-link\">[[File:Ability-hanzo2.png|sub|link=Hanzo#Sonic Arrow|40x40px |class=inline-icon invert-image]]</span>&#32;[[Hanzo#Sonic Arrow|Sonic Arrow]]</span>, <span class=\"ability-tooltip\" data-ability=\"Pulse Bomb\"><span class=\"ability-link\">[[File:Ability-tracer4.png|sub|link=Tracer#Pulse Bomb|40x40px |class=inline-icon invert-image]]</span>&#32;[[Tracer#Pulse Bomb|Pulse Bomb]]</span>, <span class=\"ability-tooltip\" data-ability=\"Sticky Bombs\"><span class=\"ability-link\">[[File:STICKY BOMBS.png|sub|link=Echo#Sticky Bombs|40x40px |class=inline-icon invert-image]]</span>&#32;[[Echo#Sticky Bombs|Sticky Bombs]]</span>, <span class=\"ability-tooltip\" data-ability=\"Take Aim\"><span class=\"ability-link\">[[File:Take_Aim.png|middle|link=Freja#Take Aim|40x40px |class=inline-icon invert-image]]</span>&#32;[[Freja#Take Aim|Take Aim]]</span> and <span class=\"ability-tooltip\" data-ability=\"Tracking Shot\"><span class=\"ability-link\">[[File:Tracking Shot.png|sub|link=Sierra#Tracking Shot|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sierra#Tracking Shot|Tracking Shot]]</span>. \n* Kiriko is briefly [[phased out]] after using Swift Step, making her immune to damage.\n* Swift Step can be used on airborne allies, such as Pharah. Kiriko will appear at their side and begin to fall immediately.\n* Swift Step cannot be used while Kiriko is under a movement lock effect such as <span class=\"ability-tooltip\" data-ability=\"Steel Trap\"><span class=\"ability-link\">[[File:Ability-Junkrat3.png|sub|link=Junkrat#Steel Trap|40x40px |class=inline-icon invert-image]]</span>&#32;[[Junkrat#Steel Trap|Steel Trap]]</span>, <span class=\"ability-tooltip\" data-ability=\"Gravitic Flux\"><span class=\"ability-link\">[[File:Abilities-sigma5.png|sub|link=Sigma#Gravitic Flux|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sigma#Gravitic Flux|Gravitic Flux]]</span> or <span class=\"ability-tooltip\" data-ability=\"Graviton Surge\"><span class=\"ability-link\">[[File:Ability-zarya4.png|sub|link=Zarya#Graviton Surge|40x40px |class=inline-icon invert-image]]</span>&#32;[[Zarya#Graviton Surge|Graviton Surge]]</span>"
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "7 seconds",
+          "value": 7,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "0.25 second invulnerability",
+          "value": 0.25,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Protection Suzu",
+      "slot": "ability 2",
+      "type": "Ability",
+      "shot_type": [
+        "[[File:Abilities-sigma4.png|40x40px|sub|class=inline-icon invert-image|link=Arcing projectile|Arcing projectile ]] Arcing projectile [[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] Area of effect"
+      ],
+      "raw": {
+        "hero name": "Kiriko",
+        "ability name": "Protection Suzu",
+        "ability key": "ability 2",
+        "ability type": "Ability",
+        "shot type": "[[File:Abilities-sigma4.png|40x40px|sub|class=inline-icon invert-image|link=Arcing projectile|Arcing projectile ]] <span class=\"tooltip\" title=\"Has travel time. Also is affected by gravity.\">Arcing projectile</span><br>[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] <span class=\"tooltip\" title=\"Affects all enemies within an area. Usually requires unobstructed line of sight to the origin.\">Area of effect</span>",
+        "official description": "Throw a protective charm to make allies become briefly invulnerable and cleansed of most negative effects.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "80",
+        "cooldown": "14 seconds",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "0.65 seconds (invulnerability)",
+        "pspeed": "37 m/s",
+        "pradius": "0.2 meters",
+        "spread": "",
+        "radius": "5 meters",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "area of effect;;spherical::greater cleanse::invulnerable::phased::travel time",
+        "ability details": "* Protection Suzu makes allies [[phased out]], making them immune to most negative effects and damage. They are not targetable by enemies and become non-physical. Abilities, such as <span class=\"ability-tooltip\" data-ability=\"Chain Hook\"><span class=\"ability-link\">[[File:Ability-Roadhog3.png|sub|link=Roadhog#Chain Hook|40x40px |class=inline-icon invert-image]]</span>&#32;[[Roadhog#Chain Hook|Chain Hook]]</span>, will pass through them.\n* Protection Suzu does not work on constructs like Torbjörn's <span class=\"ability-tooltip\" data-ability=\"Deploy Turret\"><span class=\"ability-link\">[[File:Ability-torbjorn3.png|sub|link=Torbjörn#Deploy Turret|40x40px |class=inline-icon invert-image]]</span>&#32;[[Torbjörn#Deploy Turret|Turret]]</span>.\n* The projectile can be destroyed while in air by <span class=\"ability-tooltip\" data-ability=\"Defense Matrix\"><span class=\"ability-link\">[[File:Ability-dva3.png|sub|link=D.Va#Defense Matrix|40x40px |class=inline-icon invert-image]]</span>&#32;[[D.Va#Defense Matrix|Defense Matrix]]</span>, <span class=\"ability-tooltip\" data-ability=\"Kinetic Grasp\"><span class=\"ability-link\">[[File:Abilities-sigma3.png|sub|link=Sigma#Kinetic Grasp|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sigma#Kinetic Grasp|Kinetic Grasp]]</span>, <span class=\"ability-tooltip\" data-ability=\"Javelin Spin\"><span class=\"ability-link\">[[File:Ability_JavelinSpin.png|sub|link=Orisa#Javelin Spin|40x40px |class=inline-icon invert-image]]</span>&#32;[[Orisa#Javelin Spin|Javelin Spin]]</span>, <span class=\"ability-tooltip\" data-ability=\"Power Matrix\"><span class=\"ability-link\">[[File:Perk_PowerMatrix.png|sub|link=Doomfist#Power Matrix|40x40px |class=inline-icon invert-image]]</span>&#32;[[Doomfist#Power Matrix|Power Matrix]]</span> and <span class=\"ability-tooltip\" data-ability=\"Kekkai Sanctuary\"><span class=\"ability-link\">[[File:ULT Kekkai Sancturary.png|sub|link=Mizuki#Kekkai Sanctuary|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mizuki#Kekkai Sanctuary|Kekkai Sanctuary]]</span> and reflected by <span class=\"ability-tooltip\" data-ability=\"Deflect\"><span class=\"ability-link\">[[File:Ability-genji2.png|sub|link=Genji#Deflect|40x40px |class=inline-icon invert-image]]</span>&#32;[[Genji#Deflect|Deflect]]</span>, but the explosion is unaffected.\n* <span class=\"ability-tooltip\" data-ability=\"Amplification Matrix\"><span class=\"ability-link\">[[File:Baptiste-ability4.png|sub|link=Baptiste#Amplification Matrix|40x40px |class=inline-icon invert-image]]</span>&#32;[[Baptiste#Amplification Matrix|Amplification Matrix]]</span> affects all healing dealt, if the projectile passes through it. Area healing alone going through is not amplified.\n* Protection Suzu does not collide with enemies.\n* Protection Suzu, if thrown straight up, takes 7 seconds before it will impact the ground and trigger.\n* Following effects are prevented and removed by Protection Suzu:\n** [[Anti-heal]], such as <span class=\"ability-tooltip\" data-ability=\"Biotic Grenade\"><span class=\"ability-link\">[[File:Ability-ana3.png|sub|link=Ana#Biotic Grenade|40x40px |class=inline-icon invert-image]]</span>&#32;[[Ana#Biotic Grenade|Biotic Grenade]]</span>, <span class=\"ability-tooltip\" data-ability=\"Rampage\"><span class=\"ability-link\">[[File:Rampage_Icon.png|sub|link=Junker Queen#Rampage|40x40px |class=inline-icon invert-image]]</span>&#32;[[Junker Queen#Rampage|Rampage]]</span> and <span class=\"ability-tooltip\" data-ability=\"Healing reduction from damage\"><span class=\"ability-link\">[[File:Placeholder_ability_icon.png|sub|link=Global Passive Abilities#Healing reduction from damage|40x40px |class=inline-icon invert-image]]</span>&#32;[[Global Passive Abilities#Healing reduction from damage|Healing reduction from damage]]</span>\n** [[Damage over time]] effects, such as <span class=\"ability-tooltip\" data-ability=\"Dynamite\"><span class=\"ability-link\">[[File:Ability-ashe2.png|sub|link=Ashe#Dynamite|40x40px |class=inline-icon invert-image]]</span>&#32;[[Ashe#Dynamite|Dynamite]]</span>, <span class=\"ability-tooltip\" data-ability=\"Venom Mine\"><span class=\"ability-link\">[[File:Ability-widowmaker3.png|sub|link=Widowmaker#Venom Mine|40x40px |class=inline-icon invert-image]]</span>&#32;[[Widowmaker#Venom Mine|Venom Mine]]</span> and [[Junker Queen]]'s wounds\n** [[Stun]]s (incl. freeze), such as <span class=\"ability-tooltip\" data-ability=\"Energy Javelin\"><span class=\"ability-link\">[[File:Ability_EnergyJavelin.png|sub|link=Orisa#Energy Javelin|40x40px |class=inline-icon invert-image]]</span>&#32;[[Orisa#Energy Javelin|Energy Javelin]]</span> and <span class=\"ability-tooltip\" data-ability=\"Blizzard\"><span class=\"ability-link\">[[File:Ability-mei4.png|sub|link=Mei#Blizzard|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mei#Blizzard|Blizzard]]</span>\n** Ana's <span class=\"ability-tooltip\" data-ability=\"Sleep Dart\"><span class=\"ability-link\">[[File:Ability-ana2.png|sub|link=Ana#Sleep Dart|40x40px |class=inline-icon invert-image]]</span>&#32;[[Ana#Sleep Dart|Sleep Dart]]</span>\n** Sombra's <span class=\"ability-tooltip\" data-ability=\"Hack\"><span class=\"ability-link\">[[File:Ability Sombra Hack.png|sub|link=Sombra#Hack|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sombra#Hack|Hack]]</span>\n** Zenyatta's <span class=\"ability-tooltip\" data-ability=\"Orb of Discord\"><span class=\"ability-link\">[[File:Ability-zenyatta3.png|sub|link=Zenyatta#Orb of Discord|40x40px |class=inline-icon invert-image]]</span>&#32;[[Zenyatta#Orb of Discord|Orb of Discord]]</span>\n** Illari's <span class=\"ability-tooltip\" data-ability=\"Captive Sun\"><span class=\"ability-link\">[[File:Captive_sun_icon.png|sub|link=Illari#Captive Sun|40x40px |class=inline-icon invert-image]]</span>&#32;[[Illari#Captive Sun|Captive Sun]]</span> sunstruck debuff\n** Attached objects, such as <span class=\"ability-tooltip\" data-ability=\"Jagged Blade\"><span class=\"ability-link\">[[File:Jagged_Blade_Icon.png|sub|link=Junker Queen#Jagged Blade|40x40px |class=inline-icon invert-image]]</span>&#32;[[Junker Queen#Jagged Blade|Jagged Blade]]</span>, <span class=\"ability-tooltip\" data-ability=\"Sonic Arrow\"><span class=\"ability-link\">[[File:Ability-hanzo2.png|sub|link=Hanzo#Sonic Arrow|40x40px |class=inline-icon invert-image]]</span>&#32;[[Hanzo#Sonic Arrow|Sonic Arrow]]</span>, <span class=\"ability-tooltip\" data-ability=\"Pulse Bomb\"><span class=\"ability-link\">[[File:Ability-tracer4.png|sub|link=Tracer#Pulse Bomb|40x40px |class=inline-icon invert-image]]</span>&#32;[[Tracer#Pulse Bomb|Pulse Bomb]]</span>, <span class=\"ability-tooltip\" data-ability=\"Sticky Bombs\"><span class=\"ability-link\">[[File:STICKY BOMBS.png|sub|link=Echo#Sticky Bombs|40x40px |class=inline-icon invert-image]]</span>&#32;[[Echo#Sticky Bombs|Sticky Bombs]]</span>, <span class=\"ability-tooltip\" data-ability=\"Take Aim\"><span class=\"ability-link\">[[File:Take_Aim.png|middle|link=Freja#Take Aim|40x40px |class=inline-icon invert-image]]</span>&#32;[[Freja#Take Aim|Take Aim]]</span> and <span class=\"ability-tooltip\" data-ability=\"Tracking Shot\"><span class=\"ability-link\">[[File:Tracking Shot.png|sub|link=Sierra#Tracking Shot|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sierra#Tracking Shot|Tracking Shot]]</span>. \n** Movement [[slow]]s, such as <span class=\"ability-tooltip\" data-ability=\"Endothermic Blaster\"><span class=\"ability-link\">[[File:Ability-mei1.png|middle|link=Mei#Endothermic Blaster|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mei#Endothermic Blaster|Endothermic Blaster]]</span> and <span class=\"ability-tooltip\" data-ability=\"Meteor Strike\"><span class=\"ability-link\">[[File:Ability Doomfist Meteor Strike.png|sub|link=Doomfist#Meteor Strike|40x40px |class=inline-icon invert-image]]</span>&#32;[[Doomfist#Meteor Strike|Meteor Strike]]</span>\n* Following effects are prevented but not removed by Protection Suzu:\n** [[Knockdown]]s, such as <span class=\"ability-tooltip\" data-ability=\"Earthshatter\"><span class=\"ability-link\">[[File:Ability-reinhardt5.png|sub|link=Reinhardt#Earthshatter|40x40px |class=inline-icon invert-image]]</span>&#32;[[Reinhardt#Earthshatter|Earthshatter]]</span>\n** [[Knockback]]'s and knockups, such as <span class=\"ability-tooltip\" data-ability=\"Soundwave\"><span class=\"ability-link\">[[File:Ability-Lucio5.png|sub|link=Lúcio#Soundwave|40x40px |class=inline-icon invert-image]]</span>&#32;[[Lúcio#Soundwave|Soundwave]]</span>\n** Junkrat's <span class=\"ability-tooltip\" data-ability=\"Steel Trap\"><span class=\"ability-link\">[[File:Ability-Junkrat3.png|sub|link=Junkrat#Steel Trap|40x40px |class=inline-icon invert-image]]</span>&#32;[[Junkrat#Steel Trap|Steel Trap]]</span>\n** Reinhardt's <span class=\"ability-tooltip\" data-ability=\"Charge\"><span class=\"ability-link\">[[File:Ability-reinhardt3.png|sub|link=Reinhardt#Charge|40x40px |class=inline-icon invert-image]]</span>&#32;[[Reinhardt#Charge|Charge]]</span>\n** Roadhog's <span class=\"ability-tooltip\" data-ability=\"Chain Hook\"><span class=\"ability-link\">[[File:Ability-Roadhog3.png|sub|link=Roadhog#Chain Hook|40x40px |class=inline-icon invert-image]]</span>&#32;[[Roadhog#Chain Hook|Chain Hook]]</span>\n* Following effects are completely unaffected by Protection Suzu. Damage portions may still be prevented, but the effect will not end:\n** Sigma's <span class=\"ability-tooltip\" data-ability=\"Gravitic Flux\"><span class=\"ability-link\">[[File:Abilities-sigma5.png|sub|link=Sigma#Gravitic Flux|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sigma#Gravitic Flux|Gravitic Flux]]</span>\n** Zarya's <span class=\"ability-tooltip\" data-ability=\"Graviton Surge\"><span class=\"ability-link\">[[File:Ability-zarya4.png|sub|link=Zarya#Graviton Surge|40x40px |class=inline-icon invert-image]]</span>&#32;[[Zarya#Graviton Surge|Graviton Surge]]</span>\n** Mauga's <span class=\"ability-tooltip\" data-ability=\"Cage Fight\"><span class=\"ability-link\">[[File:Cage_Fight_icon.png|sub|link=Mauga#Cage Fight|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mauga#Cage Fight|Cage Fight]]</span>\n* Protection Suzu can affect allies through walls and floors as long as their bodies are sticking through them.\n* Destroys fences and other breakables in the area of effect."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "14 seconds",
+          "value": 14,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "0.65 seconds (invulnerability)",
+          "value": 0.65,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "37 m/s",
+          "value": 37,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "0.2 meters",
+          "value": 0.2,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "80",
+          "value": 80,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "high",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Wall Climb (Kiriko)",
+      "slot": "jump",
+      "type": "Passive Ability",
+      "shot_type": [
+        "[[File:Swift_Step_Icon.png|40x40px|sub|class=inline-icon invert-image|link=Movement ability|Movement ]] Movement"
+      ],
+      "raw": {
+        "hero name": "Kiriko",
+        "ability name": "Wall Climb (Kiriko)",
+        "ability key": "jump",
+        "ability type": "Passive Ability",
+        "shot type": "[[File:Swift_Step_Icon.png|40x40px|sub|class=inline-icon invert-image|link=Movement ability|Movement ]] <span class=\"tooltip\" title=\"Grants a burst of movement. Disabled by abilities that apply mobility lock status.\">Movement</span>",
+        "official description": "Jump at walls to climb up them.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "Up to 1 second",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "movement",
+        "ability details": "* Wall Climb ends when the player stops holding the button, the wall ends or the duration is up. It cannot then be used again until the player has landed on a walkable surface.\n* Kiriko will grab and mantle ledges if the input is held while facing a ledge of a walkable surface.\n** This does not count as starting Wall Climb, and can be done even if Wall Climb was already used.\n** Destroys fences and other breakables in the way when mantling a ledge.\n* Can reach up to 10.3m height (11m with jump) due to momentum being kept after wall climb ends."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "Up to 1 second",
+          "value": 1,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Healing Ofuda",
+      "slot": "primary fire",
+      "type": "Weapon;;Primary Fire",
+      "shot_type": [
+        "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] Projectile"
+      ],
+      "raw": {
+        "hero name": "Kiriko",
+        "ability name": "Healing Ofuda",
+        "ability key": "primary fire",
+        "ability type": "Weapon;;Primary Fire",
+        "shot type": "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] <span class=\"tooltip\" title=\"Has travel time.\">Projectile</span>",
+        "official description": "Channel a burst of healing talismans that can seek targeted allies.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "13 (per talisman)<br>26 (per burst)",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "0.2 seconds (per burst)<br>1.42 seconds (full clip)",
+        "ammo": "10",
+        "reload time": "0.9 seconds",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "30 m/s (homing)<br>24 m/s (non-homing)",
+        "pradius": "None",
+        "spread": "",
+        "radius": "",
+        "range distance": "35 meters (lock on)",
+        "dps": "",
+        "hps": "182 while firing (80.53 w/ reload)",
+        "ability keywords": "travel time",
+        "ability details": "* Healing per second: 182 while firing (80.53 w/ reload)\n* Default behavior is a toggle, meaning pressing the button will cause Kiriko to hold down the ability. If you don't want to use all 10 Healing Ofuda, you must press again to toggle off. This setting can be changed in the options.\n* After being thrown, the talismans are either yellow or blue. The color indicates whether they are homing in on a target. \n** Yellow means they are seeking the allied player.\n** Blue means they don't have a target. Blue ofuda can still heal an ally if they walk into the missed ofuda's path.\n* Healing Ofuda are destroyed upon impact with terrain (whether they were homing or not).\n* Healing Ofuda automatically reload when they are not in use or the clip is emptied. All 10 Ofuda are restored, regardless of how many Ofuda were left in the clip.\n* The max range for Healing Ofuda is the same as <span class=\"ability-tooltip\" data-ability=\"Swift Step\"><span class=\"ability-link\">[[File:Swift_Step_Icon.png|sub|link=Kiriko#Swift Step|40x40px |class=inline-icon invert-image]]</span>&#32;[[Kiriko#Swift Step|Swift Step]]</span>, so you can use the indicator for that ability to determine if your Healing Ofuda is within range of homing in or not.\n* The maximum view angle for Healing Ofuda lock on is half that of <span class=\"ability-tooltip\" data-ability=\"Swift Step\"><span class=\"ability-link\">[[File:Swift_Step_Icon.png|sub|link=Kiriko#Swift Step|40x40px |class=inline-icon invert-image]]</span>&#32;[[Kiriko#Swift Step|Swift Step]]</span>. If <span class=\"ability-tooltip\" data-ability=\"Swift Step\"><span class=\"ability-link\">[[File:Swift_Step_Icon.png|sub|link=Kiriko#Swift Step|40x40px |class=inline-icon invert-image]]</span>&#32;[[Kiriko#Swift Step|Swift Step]]</span> sensitivity is set to 50%, then the presence of the <span class=\"ability-tooltip\" data-ability=\"Swift Step\"><span class=\"ability-link\">[[File:Swift_Step_Icon.png|sub|link=Kiriko#Swift Step|40x40px |class=inline-icon invert-image]]</span>&#32;[[Kiriko#Swift Step|Swift Step]]</span> reticle will also indicate an adequate viewing angle for Healing Ofuda lock-on.\n* Healing Ofuda will continue to home on targets even when they teleport or become untargetable by enemies, such as a <span class=\"ability-tooltip\" data-ability=\"Shadow Step\"><span class=\"ability-link\">[[File:Ability-reaper3.png|sub|link=Reaper#Shadow Step|40x40px |class=inline-icon invert-image]]</span>&#32;[[Reaper#Shadow Step|Shadow Stepping]]</span> Reaper or a Moira using <span class=\"ability-tooltip\" data-ability=\"Fade\"><span class=\"ability-link\">[[File:Ability Moira Fade.png|sub|link=Moira#Fade|40x40px |class=inline-icon invert-image]]</span>&#32;[[Moira#Fade|Fade]]</span>. They are still limited by their max homing range.\n* Despite <span class=\"ability-tooltip\" data-ability=\"Deflect\"><span class=\"ability-link\">[[File:Ability-genji2.png|sub|link=Genji#Deflect|40x40px |class=inline-icon invert-image]]</span>&#32;[[Genji#Deflect|Deflect]]</span> switching ownership to Genji, yellow ofudas will still try to seek their original target. If Genji's allies stand in their path, they will be healed.\n* Can destroy fences and other breakables when colliding with them."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "0.9 seconds",
+          "value": 0.9,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "10",
+          "value": 10,
+          "min_value": null,
+          "max_value": null,
+          "unit": "rounds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "0.2 seconds (per burst)<br>1.42 seconds (full clip)",
+          "value": 0.2,
+          "min_value": null,
+          "max_value": null,
+          "unit": "shots_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "30 m/s (homing)<br>24 m/s (non-homing)",
+          "value": 30,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "None",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "13 (per talisman)<br>26 (per burst)",
+          "value": 13,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "low",
+          "warnings": [
+            "Damage has multiple components and only the first number was parsed."
+          ]
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "182 while firing (80.53 w/ reload)",
+          "value": 182,
+          "min_value": null,
+          "max_value": null,
+          "unit": "per_second",
+          "confidence": "high",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "heal: Damage has multiple components and only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Kunai",
+      "slot": "secondary fire",
+      "type": "Weapon;;Secondary Fire",
+      "shot_type": [
+        "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] Projectile"
+      ],
+      "raw": {
+        "hero name": "Kiriko",
+        "ability name": "Kunai",
+        "ability key": "secondary fire",
+        "ability type": "Weapon;;Secondary Fire",
+        "shot type": "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] <span class=\"tooltip\" title=\"Has travel time.\">Projectile</span>",
+        "official description": "Thrown long-ranged projectile.",
+        "damage": "60",
+        "damage falloff range": "",
+        "headshot": "yes",
+        "headshot mod": "2",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "<span class=\"tooltip\" title=\"1 shot every 0.5 seconds\">2 shots/s</span>",
+        "ammo": "15",
+        "reload time": "<span class=\"tooltip\" title=\"Restores ammo after 0.65 seconds.\">1.3 seconds</span>",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "90 m/s",
+        "pradius": "0.195 meters",
+        "spread": "None",
+        "radius": "",
+        "range distance": "",
+        "dps": "120 while firing (105.88 overall w/reload)",
+        "hps": "",
+        "ability keywords": "critical::travel time",
+        "ability details": "* Damage per second: 120 while firing (105.88 overall w/reload)"
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "<span class=\"tooltip\" title=\"Restores ammo after 0.65 seconds.\">1.3 seconds</span>",
+          "value": 1.3,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "15",
+          "value": 15,
+          "min_value": null,
+          "max_value": null,
+          "unit": "rounds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "60",
+          "value": 60,
+          "min_value": null,
+          "max_value": null,
+          "unit": "damage",
+          "confidence": "high",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "<span class=\"tooltip\" title=\"1 shot every 0.5 seconds\">2 shots/s</span>",
+          "value": 2,
+          "min_value": null,
+          "max_value": null,
+          "unit": "shots_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "90 m/s",
+          "value": 90,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "0.195 meters",
+          "value": 0.195,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "None",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "120 while firing (105.88 overall w/reload)",
+          "value": 120,
+          "min_value": null,
+          "max_value": null,
+          "unit": "per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Kitsune Rush",
+      "slot": "ultimate",
+      "type": "Ultimate Ability",
+      "shot_type": [
+        "[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] Area of effect"
+      ],
+      "raw": {
+        "hero name": "Kiriko",
+        "ability name": "Kitsune Rush",
+        "ability key": "ultimate",
+        "ability type": "Ultimate Ability",
+        "shot type": "[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] <span class=\"tooltip\" title=\"Affects all enemies within an area. Usually requires unobstructed line of sight to the origin.\">Area of effect</span>",
+        "official description": "Summon a fox spirit that rushes forward, accelerating the movement, attack speed, and cooldowns of allies that follow its path.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "8 seconds (area)<br>1 second (lingering buff)",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "32.2 meters",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "area of effect::ignore barrier::deployable;;invulnerable::speed cap",
+        "ability details": "* Grants +30% move speed, +50% reload and attack speed, and +100% cooldown recharge rate.\n** The bonuses persist for 1 second after leaving the area.\n* Kitsune Rush's deployment is completely stopped if the fox spirit collides with terrain under certain conditions. Whatever path was laid prior to collision with terrain remains in effect.\n** If the fox hits a surface at a low angle, it will slide along it, maintaining its original direction, instead of stopping.\n** The fox can jump walls roughly up to Kiriko's height, but it will not cover gaps. If Kitsune Rush goes down a ledge, it will deploy along the ground beneath regardless of height.\n** Destroys fences and other breakables in its path.\n* Kitsune Rush's deployment is not impacted by barriers and will pass through them.\n** Terrain-like [[objects]], such as Mei's <span class=\"ability-tooltip\" data-ability=\"Ice Wall\"><span class=\"ability-link\">[[File:Ability-mei3.png|sub|link=Mei#Ice Wall|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mei#Ice Wall|Ice Wall]]</span> and <span class=\"ability-tooltip\" data-ability=\"Cryo-Freeze\"><span class=\"ability-link\">[[File:Ability-mei2.png|sub|link=Mei#Cryo-Freeze|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mei#Cryo-Freeze|Cryo-Freeze]]</span> and Lifeweaver's <span class=\"ability-tooltip\" data-ability=\"Tree of Life\"><span class=\"ability-link\">[[File:Tree_of_Life_Icon.png|sub|link=Lifeweaver#Tree of Life|40x40px |class=inline-icon invert-image]]</span>&#32;[[Lifeweaver#Tree of Life|Tree of Life]]</span>, can block the deployment of Kitsune's Rush, regardless of whether the ability is from an ally or an enemy.\n* <span class=\"ability-tooltip\" data-ability=\"B.O.B.\"><span class=\"ability-link\">[[File:Ability-ashe4.png|sub|link=Ashe#B.O.B.|40x40px |class=inline-icon invert-image]]</span>&#32;[[Ashe#B.O.B.|B.O.B]]</span> receives the benefits of Kitsune Rush.\n** Other [[deployables]], like Torbjorn's <span class=\"ability-tooltip\" data-ability=\"Deploy Turret\"><span class=\"ability-link\">[[File:Ability-torbjorn3.png|sub|link=Torbjörn#Deploy Turret|40x40px |class=inline-icon invert-image]]</span>&#32;[[Torbjörn#Deploy Turret|Turret]]</span> and Junkrat's <span class=\"ability-tooltip\" data-ability=\"Rip-Tire\"><span class=\"ability-link\">[[File:Ability-Junkrat5.png|sub|link=Junkrat#RIP-Tire|40x40px |class=inline-icon invert-image]]</span>&#32;[[Junkrat#RIP-Tire|RIP-Tire]]</span> do not receive any benefit.\n* Functions with [[File:Ability_Moira_Coalescence.png|sub|40x40px|class=inline-icon invert-image|link=Beam|Beam ]] <span class=\"tooltip\" title=\"High tickrate weapon. Ignores Deflect, Javelin Spin, Defense Matrix and Kinetic Grasp. Damage reduced by 30% against armor.\">Beam</span>-type weapons, such as <span class=\"ability-tooltip\" data-ability=\"Tesla Cannon\"><span class=\"ability-link\">[[File:Ability-winston1.png|middle|link=Winston#Tesla Cannon|40x40px |class=inline-icon invert-image]]</span>&#32;[[Winston#Tesla Cannon|Tesla Cannon]]</span>, by increasing the tick rate.\n* Works on abilities which have a rate of fire, such as <span class=\"ability-tooltip\" data-ability=\"Storm Arrows\"><span class=\"ability-link\">[[File:Ability-hanzo03.png|sub|link=Hanzo#Storm Arrows|40x40px |class=inline-icon invert-image]]</span>&#32;[[Hanzo#Storm Arrows|Storm Arrows]]</span> and <span class=\"ability-tooltip\" data-ability=\"Whole Hog\"><span class=\"ability-link\">[[File:Ability-Roadhog4.png|sub|link=Roadhog#Whole Hog|40x40px |class=inline-icon invert-image]]</span>&#32;[[Roadhog#Whole Hog|Whole Hog]]</span>.\n* Speeds up the charge time of most weapons, such as <span class=\"ability-tooltip\" data-ability=\"Storm Bow\"><span class=\"ability-link\">[[File:Ability-hanzo1.png|middle|link=Hanzo#Storm Bow|40x40px |class=inline-icon invert-image]]</span>&#32;[[Hanzo#Storm Bow|Storm Bow]]</span> and <span class=\"ability-tooltip\" data-ability=\"Healing Blossom\"><span class=\"ability-link\">[[File:Healing_Blossom_Icon.png|middle|link=Lifeweaver#Healing Blossom|40x40px |class=inline-icon invert-image]]</span>&#32;[[Lifeweaver#Healing Blossom|Healing Blossom]]</span>.\n* Kitsune Rush cannot be cancelled mid-animation by [[Crowd Control|stuns]], but getting killed or hacked mid-animation does.\n* Kitsune Rush's [[movement speed]] buff counts towards global movement speed buff cap."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "8 seconds (area)<br>1 second (lingering buff)",
+          "value": 8,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "low",
+          "warnings": [
+            "duration has multiple values; only the first number was parsed."
+          ]
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "duration: duration has multiple values; only the first number was parsed."
+      ]
+    }
+  ],
+  "source": "https://overwatch.fandom.com/api.php",
+  "fetched_at": "2026-06-25T07:13:01.685820+00:00"
+}

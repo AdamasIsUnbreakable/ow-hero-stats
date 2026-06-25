@@ -1,0 +1,1846 @@
+{
+  "name": "Jetpack Cat",
+  "role": "Support",
+  "sub_role": "Tactician",
+  "health": {
+    "health": 225,
+    "armor": null,
+    "shield": null
+  },
+  "abilities": [
+    {
+      "name": "Headbutt",
+      "slot": "",
+      "type": "Major Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Jetpack Cat",
+        "ability name": "Headbutt",
+        "ability key": "",
+        "ability type": "Major Perk",
+        "shot type": "",
+        "official description": "Frenetic Flight can knockback an enemy on impact when flying fast enough, dealing 50 damage on impact.",
+        "damage": "50",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": ""
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "50",
+          "value": 50,
+          "min_value": null,
+          "max_value": null,
+          "unit": "damage",
+          "confidence": "high",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Jetpack",
+      "slot": "",
+      "type": "Passive Ability",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Jetpack Cat",
+        "ability name": "Jetpack",
+        "ability key": "",
+        "ability type": "Passive Ability",
+        "shot type": "",
+        "official description": "Permanent flight.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "strong flight",
+        "ability details": "* Moving forward goes in the exact direction Jetpack Cat faces, so looking up makes her fly up and looking down makes her fly down. \n** Conversely, moving backwards while looking up makes her fly downwards and looking down while moving backwards makes her fly upwards.\n* Additionally, holding jump makes Jetpack Cat fly upwards and holding crouch makes her fly downwards.\n* Not affected by <span class=\"ability-tooltip\" data-ability=\"EMP\" ><span class=\"ability-link\">[[File:Ability Sombra EMP.png|sub|link=Sombra#EMP|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sombra#EMP|EMP]]</span>.'\"`UNIQ--ref-00000042-QINU`\"'\n* Falls to the ground when hindered, knocked down, or frozen, or abilities that cause falling (e.g. <span class=\"ability-tooltip\" data-ability=\"Downpour\" ><span class=\"ability-link\">[[File:Downpour.png|sub|link=Hazard#Downpour|40x40px |class=inline-icon invert-image]]</span>&#32;[[Hazard#Downpour|Downpour]]</span>, <span class=\"ability-tooltip\" data-ability=\"Binding Chain\" ><span class=\"ability-link\">[[File:Ability Binding Chain.png|sub|link=Mizuki#Binding Chain|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mizuki#Binding Chain|Binding Chain]]</span>, <span class=\"ability-tooltip\" data-ability=\"Palatine Fang\" ><span class=\"ability-link\">[[File:Palantine_fang.png|middle|link=Vendetta#Palatine Fang|40x40px |class=inline-icon invert-image]]</span>&#32;[[Vendetta#Palatine Fang|Palatine Fang]]</span>'s overhead strike).'\"`UNIQ--ref-00000043-QINU`\"'\n* Jetpack Cat cannot use jump pads nor activate elevators.\n** However, anything that causes Jetpack Cat to fall to the ground (such as <span class=\"ability-tooltip\" data-ability=\"Cage Fight\" ><span class=\"ability-link\">[[File:Cage_Fight_icon.png|sub|link=Mauga#Cage Fight|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mauga#Cage Fight|Cage Fight]]</span>) will allow her to activate jump pads and elevators.'\"`UNIQ--ref-00000044-QINU`\"'"
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Territorial",
+      "slot": "",
+      "type": "Major Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Jetpack Cat",
+        "ability name": "Territorial",
+        "ability key": "",
+        "ability type": "Major Perk",
+        "shot type": "",
+        "official description": "Purr now also damages nearby enemies for 33% of the healing amount. Knockback is removed",
+        "damage": "10 per pulse",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* It damages for 33% of the healing it ''would do'', regardless of whether allies or Jetpack Cat is at full health.\n* Removed in Mid-Season 1 (2026)."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "10 per pulse",
+          "value": 10,
+          "min_value": null,
+          "max_value": null,
+          "unit": "damage",
+          "confidence": "high",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Transport Shielding",
+      "slot": "",
+      "type": "Minor Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Jetpack Cat",
+        "ability name": "Transport Shielding",
+        "ability key": "",
+        "ability type": "Minor Perk",
+        "shot type": "",
+        "official description": "Gain up to 50 shield health while carrying another hero.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "3 seconds",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* This activates whether carrying '''allies or enemies'''."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "3 seconds",
+          "value": 3,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Ulterior Motive",
+      "slot": "",
+      "type": "Minor Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Jetpack Cat",
+        "ability name": "Ulterior Motive",
+        "ability key": "",
+        "ability type": "Minor Perk",
+        "shot type": "",
+        "official description": "15% of Biotic Pawjectiles healing is converted into fuel.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "*Fuel per second: 18.15% while firing (15.03% w/ reload)"
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Lifeline",
+      "slot": "ability 1",
+      "type": "Ability",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Jetpack Cat",
+        "ability name": "Lifeline",
+        "ability key": "ability 1",
+        "ability type": "Ability",
+        "shot type": "",
+        "official description": "Toggle into transport mode, allowing an ally to be towed. Increases movement speed and heals your ally.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "25 per second (ally)",
+        "cooldown": "2 seconds",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "4 meters (tether length)",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "area of effect;;cylindrical::channeled::ignore barrier;;tether::movement::tether::requires interaction::swap reloads",
+        "ability details": "* Unlike <span class=\"ability-tooltip\" data-ability=\"Life Grip\" ><span class=\"ability-link\">[[File:Life_Grip_Icon.png|sub|link=Lifeweaver#Life Grip|40x40px |class=inline-icon invert-image]]</span>&#32;[[Lifeweaver#Life Grip|Life Grip]]</span>, allies may choose to interact to be carried by Lifeline.\n** The text \"Grappled\" will appear on the ally's screen while being carried.\n** B.O.B. will automatically be carried if in the selection radius.\n** If D.Va activates <span class=\"ability-tooltip\" data-ability=\"Self-destruct\" ><span class=\"ability-link\">[[File:Ability-dva4.png|sub|link=D.Va#Self-Destruct|40x40px |class=inline-icon invert-image]]</span>&#32;[[D.Va#Self-Destruct|Self-Destruct]]</span> while being lifelined, the self-destructing mech (not the pilot) will continue to be carried.  '\"`UNIQ--ref-0000004E-QINU`\"'\n* For the ally attached to Lifeline, using movement abilities or pressing space will disconnect the tether.\n** When disconnected, momentum is carried, allowing for additional movement after use.\n* For Jetpack Cat, using primary fire, her ultimate, or pressing the key/button again will end Lifeline.\n** However, she can use <span class=\"ability-tooltip\" data-ability=\"Frenetic Flight\" ><span class=\"ability-link\">[[File:Ability Frenetic Flight.png|sub|link=Jetpack Cat#Frenetic Flight|40x40px |class=inline-icon invert-image]]</span>&#32;[[Jetpack Cat#Frenetic Flight|Frenetic Flight]]</span> and <span class=\"ability-tooltip\" data-ability=\"Purr\" ><span class=\"error\">''Could not find 'Purr' in 'Abilities'. Check spelling and see [[Help:Cargo]] if the issue persists.''</span></span> while using Lifeline.\n* Cannot carry connected targets ''through'' terrain, disconnecting them if they get too far from Jetpack Cat.\n* Abilities that require the player to be on the ground to use (Such as <span class=\"ability-tooltip\" data-ability=\"RIP-Tire\" ><span class=\"ability-link\">[[File:Ability-Junkrat5.png|sub|link=Junkrat#RIP-Tire|40x40px |class=inline-icon invert-image]]</span>&#32;[[Junkrat#RIP-Tire|RIP-Tire]]</span> or <span class=\"ability-tooltip\" data-ability=\"Teleporter\" ><span class=\"ability-link\">[[File:Ability-symmetra4.png|sub|link=Symmetra#Teleporter|40x40px |class=inline-icon invert-image]]</span>&#32;[[Symmetra#Teleporter|Teleporter]]</span>) cannot be used while being carried in the air by Lifeline.\n** They can still be used if tethered while on the ground."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "2 seconds",
+          "value": 2,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "25 per second (ally)",
+          "value": 25,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "high",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Purr",
+      "slot": "ability 2",
+      "type": "Ability",
+      "shot_type": [
+        "[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] Area of effect"
+      ],
+      "raw": {
+        "hero name": "Jetpack Cat",
+        "ability name": "Purr",
+        "ability key": "ability 2",
+        "ability type": "Ability",
+        "shot type": "[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] <span class=\"tooltip\" title=\"Affects all enemies within an area. Usually requires unobstructed line of sight to the origin.\">Area of effect</span>",
+        "official description": "Pulsing area heal that increases in frequency over time. Knockback nearby enemies when activated.",
+        "damage": "30",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "30 (per pulse, allies)<br>22.5 (per pulse, self)",
+        "cooldown": "12 seconds",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "4 seconds (total)<br>0.95 seconds (healing pulse rate)",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "10 meters (healing and damage)",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "area of effect;;spherical",
+        "ability details": "* Pulses once, then twice, then 3 times, then 4 times (10 pulses total).\n* The knockback is only applied once when the enemy is within Purr's range."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "12 seconds",
+          "value": 12,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "4 seconds (total)<br>0.95 seconds (healing pulse rate)",
+          "value": 4,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "low",
+          "warnings": [
+            "duration has multiple values; only the first number was parsed."
+          ]
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "30",
+          "value": 30,
+          "min_value": null,
+          "max_value": null,
+          "unit": "damage",
+          "confidence": "high",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "30 (per pulse, allies)<br>22.5 (per pulse, self)",
+          "value": 30,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "low",
+          "warnings": [
+            "Damage has multiple components and only the first number was parsed."
+          ]
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "duration: duration has multiple values; only the first number was parsed.",
+        "heal: Damage has multiple components and only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Biotic Pawjectiles",
+      "slot": "primary fire",
+      "type": "Weapon",
+      "shot_type": [
+        "[[File:Ability-reaper1.png|40x40px|middle|class=inline-icon invert-image|link=Shotgun|Shotgun ]] Shotgun (projectile)"
+      ],
+      "raw": {
+        "hero name": "Jetpack Cat",
+        "ability name": "Biotic Pawjectiles",
+        "ability key": "primary fire",
+        "ability type": "Weapon",
+        "shot type": "[[File:Ability-reaper1.png|40x40px|middle|class=inline-icon invert-image|link=Shotgun|Shotgun ]] <span class=\"tooltip\" title=\"Shoots many pellets at once.\">Shotgun</span> (projectile)",
+        "official description": "Mid-range projectile spread that heals allies and damages enemies.",
+        "damage": "27 (per volley)<br>9 (center pellet)<br>4.5 (per paw pellet)",
+        "damage falloff range": "",
+        "headshot": "yes",
+        "headshot mod": "2 paw shots only",
+        "heal": "27 (per volley)",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "<span class=\"tooltip\" title=\"1 volley every 0.224 seconds\">4.48 volleys/s</span>",
+        "ammo": "24",
+        "reload time": "1.25 seconds",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "60 m/s",
+        "pradius": "0.37 meters",
+        "spread": "0 degrees (center shot)<br>0.3 degrees (close paw shots)<br>0.9 degrees (far paw shows)",
+        "radius": "",
+        "range distance": "40 meters",
+        "dps": "120.96 while firing (264.89 w/ reload)",
+        "hps": "",
+        "ability keywords": "critical::travel time",
+        "ability details": "* Damage/healing per second: 120.96 while firing (98.08 w/ reload)\n* Does 45 damage if all paw pellets are headshots.\n* Each shot is 5 pellets: 1 below the aiming reticle, and 4 above the aiming reticle in an arc. (It makes a paw 🐾 shape.)\n** Though the lower pellet appears larger than the others, it is currently unknown whether it has a larger hitbox.\n* The lower shot does not deal critical damage.\n* At close range, the shots will actually hit completely to the left and right of the aiming reticle (outside the circle)."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "1.25 seconds",
+          "value": 1.25,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "24",
+          "value": 24,
+          "min_value": null,
+          "max_value": null,
+          "unit": "rounds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "27 (per volley)<br>9 (center pellet)<br>4.5 (per paw pellet)",
+          "value": 27,
+          "min_value": null,
+          "max_value": null,
+          "unit": "damage",
+          "confidence": "low",
+          "warnings": [
+            "Damage has multiple components and only the first number was parsed."
+          ]
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "<span class=\"tooltip\" title=\"1 volley every 0.224 seconds\">4.48 volleys/s</span>",
+          "value": 4.48,
+          "min_value": null,
+          "max_value": null,
+          "unit": "shots_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "60 m/s",
+          "value": 60,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "0.37 meters",
+          "value": 0.37,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "0 degrees (center shot)<br>0.3 degrees (close paw shots)<br>0.9 degrees (far paw shows)",
+          "value": 0,
+          "min_value": null,
+          "max_value": null,
+          "unit": "degrees",
+          "confidence": "low",
+          "warnings": [
+            "spread has multiple values; only the first number was parsed."
+          ]
+        },
+        "heal": {
+          "raw": "27 (per volley)",
+          "value": 27,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "high",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "120.96 while firing (264.89 w/ reload)",
+          "value": 120.96,
+          "min_value": null,
+          "max_value": null,
+          "unit": "per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "damage: Damage has multiple components and only the first number was parsed.",
+        "spread: spread has multiple values; only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Claws Out",
+      "slot": "quick melee",
+      "type": "Major Perk",
+      "shot_type": [
+        "[[File:Quick_melee.png|40x40px|sub|class=inline-icon invert-image|link=Melee|Melee ]] Melee"
+      ],
+      "raw": {
+        "hero name": "Jetpack Cat",
+        "ability name": "Claws Out",
+        "ability key": "quick melee",
+        "ability type": "Major Perk",
+        "shot type": "[[File:Quick_melee.png|40x40px|sub|class=inline-icon invert-image|link=Melee|Melee ]] <span class=\"tooltip\" title=\"Physical attack. Limited range. Usually ignores barriers.\">Melee</span>",
+        "official description": "Quick Melee becomes empowered every 6 seconds, wounding enemies for 40 damage and slowing them by 30% for 1 second.",
+        "damage": "<span class=\"tooltip\" title=\"\">40</span> (damage over time)",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "6 seconds.",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "1 second",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* Wound damage counts as a [[damage over time]] effect. It can be cleansed and it ignores [[armor]]."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "6 seconds.",
+          "value": 6,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "1 second",
+          "value": 1,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "<span class=\"tooltip\" title=\"\">40</span> (damage over time)",
+          "value": 40,
+          "min_value": null,
+          "max_value": null,
+          "unit": "damage",
+          "confidence": "high",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Frenetic Flight",
+      "slot": "secondary fire",
+      "type": "Ability",
+      "shot_type": [
+        "[[File:Swift_Step_Icon.png|40x40px|sub|class=inline-icon invert-image|link=Movement ability|Movement ]] Movement"
+      ],
+      "raw": {
+        "hero name": "Jetpack Cat",
+        "ability name": "Frenetic Flight",
+        "ability key": "secondary fire",
+        "ability type": "Ability",
+        "shot type": "[[File:Swift_Step_Icon.png|40x40px|sub|class=inline-icon invert-image|link=Movement ability|Movement ]] <span class=\"tooltip\" title=\"Grants a burst of movement. Disabled by abilities that apply mobility lock status.\">Movement</span>",
+        "official description": "Accelerate in your movement direction. Fuel recovery is slower while carrying another player.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "0.75 seconds (regen delay)",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "channeled::energy::movement",
+        "ability details": "* It takes 4 seconds for Frenetic Flight to fully recharge.\n* The ability can be used omnidirectionally."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "0.75 seconds (regen delay)",
+          "value": 0.75,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Catnapper",
+      "slot": "ultimate",
+      "type": "Ultimate Ability",
+      "shot_type": [
+        "[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] Area of effect"
+      ],
+      "raw": {
+        "hero name": "Jetpack Cat",
+        "ability name": "Catnapper",
+        "ability key": "ultimate",
+        "ability type": "Ultimate Ability",
+        "shot type": "[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] <span class=\"tooltip\" title=\"Affects all enemies within an area. Usually requires unobstructed line of sight to the origin.\">Area of effect</span>",
+        "official description": "Dive towards a ground location, knocking down enemies and tethering the nearest one to you.",
+        "damage": "25",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "30 healing per second (self)",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "1.5 seconds (stun)<br> 4 seconds (max ultimate duration)",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "6 meters",
+        "range distance": "25 meters",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "immobilize::area of effect::break::knockdown::tether",
+        "ability details": "* Fully recharges <span class=\"ability-tooltip\" data-ability=\"Frenetic Flight\" ><span class=\"ability-link\">[[File:Ability Frenetic Flight.png|sub|link=Jetpack Cat#Frenetic Flight|40x40px |class=inline-icon invert-image]]</span>&#32;[[Jetpack Cat#Frenetic Flight|Frenetic Flight]]</span> energy meter on use.\n* The ultimate can only be used if targeting a flat surface or slope.\n** If used on a wall, it will automatically target the floor below the wall, if in sight.\n** Will automatically target the floor at the max range if pointing beyond the range.\n** Cannot be used if targeting areas outside the environment, and will instead target the closest surface from that area.\n* Jetpack Cat automatically activates <span class=\"ability-tooltip\" data-ability=\"Lifeline\" ><span class=\"ability-link\">[[File:Ability Lifeline.png|sub|link=Jetpack Cat#Lifeline|40x40px |class=inline-icon invert-image]]</span>&#32;[[Jetpack Cat#Lifeline|Lifeline]]</span> when the ultimate is used: if no enemies are hit, Lifeline will remain active until disabled.\n* Jetpack Cat can use <span class=\"ability-tooltip\" data-ability=\"Purr\" ><span class=\"ability-link\">[[File:Ability Purr.png|sub|link=Jetpack Cat#Purr|40x40px |class=inline-icon invert-image]]</span>&#32;[[Jetpack Cat#Purr|Purr]]</span>, <span class=\"ability-tooltip\" data-ability=\"Frenetic Flight\" ><span class=\"ability-link\">[[File:Ability Frenetic Flight.png|sub|link=Jetpack Cat#Frenetic Flight|40x40px |class=inline-icon invert-image]]</span>&#32;[[Jetpack Cat#Frenetic Flight|Frenetic Flight]]</span> and [[quick melee]] while carrying an enemy, but not their primary fire.\n* Unlike with <span class=\"ability-tooltip\" data-ability=\"Lifeline\" ><span class=\"ability-link\">[[File:Ability Lifeline.png|sub|link=Jetpack Cat#Lifeline|40x40px |class=inline-icon invert-image]]</span>&#32;[[Jetpack Cat#Lifeline|Lifeline]]</span>, connected enemies cannot exit the tether early with movement abilities or jumping.\n** Only a very few abilities can break the tether. A few examples are: <span class=\"ability-tooltip\" data-ability=\"Life Grip\" ><span class=\"ability-link\">[[File:Life_Grip_Icon.png|sub|link=Lifeweaver#Life Grip|40x40px |class=inline-icon invert-image]]</span>&#32;[[Lifeweaver#Life Grip|Life Grip]]</span>, <span class=\"ability-tooltip\" data-ability=\"Charge\" ><span class=\"ability-link\">[[File:Ability-reinhardt3.png|sub|link=Reinhardt#Charge|40x40px |class=inline-icon invert-image]]</span>&#32;[[Reinhardt#Charge|Charge]]</span>, <span class=\"ability-tooltip\" data-ability=\"Chain Hook\" ><span class=\"ability-link\">[[File:Ability-Roadhog3.png|sub|link=Roadhog#Chain Hook|40x40px |class=inline-icon invert-image]]</span>&#32;[[Roadhog#Chain Hook|Chain Hook]]</span>, <span class=\"ability-tooltip\" data-ability=\"Overrun\" ><span class=\"ability-link\">[[File:Overrun_icon.png|sub|link=Mauga#Overrun|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mauga#Overrun|Overrun]]</span>, and an enemy cat's <span class=\"ability-tooltip\" data-ability=\"Catnapper\" ><span class=\"error\">''Could not find 'Catnapper' in 'Abilities'. Check spelling and see [[Help:Cargo]] if the issue persists.''</span></span>.\n** Abilities that you might intuitively expect to break the tether do not (such as <span class=\"ability-tooltip\" data-ability=\"Cryo-freeze\" ><span class=\"ability-link\">[[File:Ability-mei2.png|sub|link=Mei#Cryo-Freeze|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mei#Cryo-Freeze|Cryo-Freeze]]</span>).\n** However, abilities that dont break tether but do hinder JPC (such as Flashbang) are considered counters.\n* Can be cancelled by Jetpack Cat by pressing Ultimate again or by activating Lifeline.\n** Unlike Lifeline, cannot be cancelled by Jetpack Cat pressing primary fire.\n* Connected targets can get stuck on terrain, disconnecting them if they get too far from Jetpack Cat.\n* If an enemy D.Va has been catnapped, and then activates <span class=\"ability-tooltip\" data-ability=\"Self-destruct\" ><span class=\"ability-link\">[[File:Ability-dva4.png|sub|link=D.Va#Self-Destruct|40x40px |class=inline-icon invert-image]]</span>&#32;[[D.Va#Self-Destruct|Self-Destruct]]</span>, the mech (not the pilot) will remain tethered.\n** However, a mech that is already self-destructing cannot be catnapped.\n* Using Catnapper to drop an enemy off a cliff grants zero ult charge. '\"`UNIQ--ref-00000055-QINU`\"''\"`UNIQ--ref-00000056-QINU`\"'\n** However, hitting them with <span class=\"ability-tooltip\" data-ability=\"Purr\" ><span class=\"ability-link\">[[File:Ability Purr.png|sub|link=Jetpack Cat#Purr|40x40px |class=inline-icon invert-image]]</span>&#32;[[Jetpack Cat#Purr|Purr]]</span> after dropping them will change it to a Purr environmental kill, granting ult charge. '\"`UNIQ--ref-00000057-QINU`\"'"
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "1.5 seconds (stun)<br> 4 seconds (max ultimate duration)",
+          "value": 1.5,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "low",
+          "warnings": [
+            "duration has multiple values; only the first number was parsed."
+          ]
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "25",
+          "value": 25,
+          "min_value": null,
+          "max_value": null,
+          "unit": "damage",
+          "confidence": "high",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "30 healing per second (self)",
+          "value": 30,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "high",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "duration: duration has multiple values; only the first number was parsed."
+      ]
+    }
+  ],
+  "source": "https://overwatch.fandom.com/api.php",
+  "fetched_at": "2026-06-25T07:13:01.681142+00:00"
+}

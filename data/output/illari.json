@@ -1,0 +1,1697 @@
+{
+  "name": "Illari",
+  "role": "Support",
+  "sub_role": "Survivor",
+  "health": {
+    "health": 250,
+    "armor": null,
+    "shield": null
+  },
+  "abilities": [
+    {
+      "name": "Rapid Construction",
+      "slot": "",
+      "type": "Minor Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Illari",
+        "ability name": "Rapid Construction",
+        "ability key": "",
+        "ability type": "Minor Perk",
+        "shot type": "",
+        "official description": "Healing Pylon builds 300% faster and its cooldown is reduced by 2 seconds.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "7 → 5 seconds (default)<br>14 → 12 seconds (under attack)",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "1.3 → 0.33 seconds (build time)",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": ""
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "7 → 5 seconds (default)<br>14 → 12 seconds (under attack)",
+          "value": 7,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "low",
+          "warnings": [
+            "cooldown has multiple values; only the first number was parsed."
+          ]
+        },
+        "duration": {
+          "raw": "1.3 → 0.33 seconds (build time)",
+          "value": 1.3,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "low",
+          "warnings": [
+            "duration has multiple values; only the first number was parsed."
+          ]
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "cooldown: cooldown has multiple values; only the first number was parsed.",
+        "duration: duration has multiple values; only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Solar Power",
+      "slot": "",
+      "type": "Major Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Illari",
+        "ability name": "Solar Power",
+        "ability key": "",
+        "ability type": "Major Perk",
+        "shot type": "",
+        "official description": "Fully charged Solar Rifle hits grant 12.5% of your maximum solar energy, overfilling up to 50%.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* ''Removed in Season 18.''"
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Summer Solstice",
+      "slot": "",
+      "type": "Minor Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Illari",
+        "ability name": "Summer Solstice",
+        "ability key": "",
+        "ability type": "Minor Perk",
+        "shot type": "",
+        "official description": "Activating Captive Sun grants Illari 3 extra seconds of flight, 20% increased flight speed, and 20% increased attack speed.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "*Flight duration lasts 8.2 seconds\n*Mov. speed buff: +65% (flight)\n*Damage per second (max charge): 93.24 while firing (81.6 overall w/ reload)\n*Damage per second (min charge): 48 while firing (38.18 overall w/ reload)"
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Sunburn",
+      "slot": "",
+      "type": "Major Perk",
+      "shot_type": [
+        "[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] Area of effect [[File:Swift_Step_Icon.png|40x40px|sub|class=inline-icon invert-image|link=Movement ability|Movement ]] Movement"
+      ],
+      "raw": {
+        "hero name": "Illari",
+        "ability name": "Sunburn",
+        "ability key": "",
+        "ability type": "Major Perk",
+        "shot type": "[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] <span class=\"tooltip\" title=\"Affects all enemies within an area. Usually requires unobstructed line of sight to the origin.\">Area of effect</span><br>[[File:Swift_Step_Icon.png|40x40px|sub|class=inline-icon invert-image|link=Movement ability|Movement ]] <span class=\"tooltip\" title=\"Grants a burst of movement. Disabled by abilities that apply mobility lock status.\">Movement</span>",
+        "official description": "Outburst ignites enemies, dealing an additional 50 damage over 3 seconds.",
+        "damage": "<span class=\"tooltip\" title=\"3.2 every 0.192s\">16.67 per second</span><br>50 total",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "3 seconds",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* Sunburn counts as a [[damage over time]] effect; it ignores [[armor]] and it can be cleansed."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "3 seconds",
+          "value": 3,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "<span class=\"tooltip\" title=\"3.2 every 0.192s\">16.67 per second</span><br>50 total",
+          "value": 16.67,
+          "min_value": null,
+          "max_value": null,
+          "unit": "damage",
+          "confidence": "low",
+          "warnings": [
+            "Damage has multiple components and only the first number was parsed."
+          ]
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "damage: Damage has multiple components and only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Outburst",
+      "slot": "ability 1",
+      "type": "Ability",
+      "shot_type": [
+        "[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] Area of effect [[File:Swift_Step_Icon.png|40x40px|sub|class=inline-icon invert-image|link=Movement ability|Movement ]] Movement"
+      ],
+      "raw": {
+        "hero name": "Illari",
+        "ability name": "Outburst",
+        "ability key": "ability 1",
+        "ability type": "Ability",
+        "shot type": "[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] <span class=\"tooltip\" title=\"Affects all enemies within an area. Usually requires unobstructed line of sight to the origin.\">Area of effect</span><br>[[File:Swift_Step_Icon.png|40x40px|sub|class=inline-icon invert-image|link=Movement ability|Movement ]] <span class=\"tooltip\" title=\"Grants a burst of movement. Disabled by abilities that apply mobility lock status.\">Movement</span>",
+        "official description": "Launches you in the direction you are moving. Knocking back enemies. Hold jump to go higher.",
+        "damage": "25",
+        "damage falloff range": "",
+        "headshot": "no",
+        "headshot mod": "2",
+        "heal": "",
+        "cooldown": "8 seconds",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "<span class=\"tooltip\" title=\"0.208s startup + 0.880s recovery\">0.2 + 0.9 seconds</span>",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "8 meters",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "area of effect;;spherical::evasive::movement",
+        "ability details": "* Knockback: 8 meters"
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "8 seconds",
+          "value": 8,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "25",
+          "value": 25,
+          "min_value": null,
+          "max_value": null,
+          "unit": "damage",
+          "confidence": "high",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Healing Pylon",
+      "slot": "ability 2",
+      "type": "Ability",
+      "shot_type": [
+        "[[File:Abilities-sigma4.png|40x40px|sub|class=inline-icon invert-image|link=Arcing projectile|Arcing projectile ]] Arcing projectile (deploy) [[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] Projectile (heal)"
+      ],
+      "raw": {
+        "hero name": "Illari",
+        "ability name": "Healing Pylon",
+        "ability key": "ability 2",
+        "ability type": "Ability",
+        "shot type": "[[File:Abilities-sigma4.png|40x40px|sub|class=inline-icon invert-image|link=Arcing projectile|Arcing projectile ]] <span class=\"tooltip\" title=\"Has travel time. Also is affected by gravity.\">Arcing projectile</span> (deploy)<br>[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] <span class=\"tooltip\" title=\"Has travel time.\">Projectile</span> (heal)",
+        "official description": "Deploy a pylon that heals allies.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "40 over 0.45 seconds (allies)<br>20 over 0.45 seconds (self)",
+        "cooldown": "7 seconds;;default::14 seconds;;under attack",
+        "charges": "",
+        "fire rate": "<span class=\"tooltip\" title=\"1 shot every 0.8 seconds\">1.25 shots/s</span>",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "<span class=\"tooltip\" title=\"0.080s startup + 0.816s recovery\">0.08 + 0.8 seconds</span>",
+        "duration": "Until destroyed<br>1.3 seconds (build time)",
+        "pspeed": "25 m/s",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "15 meters",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "ignore barrier;;deployable::deployable;;strong projectile::travel time;;deployable",
+        "ability details": "* Heal per second: 50 (allies), 25 (self)\n* Healing prioritizes the hero with the lowest health percentage within the pylon's range.\n* Cooldown starts immediately upon activation.\n* If a new Pylon is deployed while one is still active, the old one will be destroyed.\n* A deployed Pylon can be destroyed using the Interact key at any time. If it hasn't taken damage within the last 3 seconds, this has no effect on its cooldown.\n* If the pylon is damaged by the enemy, a new pylon cannot be deployed for 3 seconds. If the pylon is destroyed during this time, either by the enemy or manually by the player, Healing Pylon goes on a longer cooldown, starting from the moment it was destroyed.\n* Pylon can attach itself to terrain and terrain-like [[objects]], like <span class=\"ability-tooltip\" data-ability=\"Ice Wall\" ><span class=\"ability-link\">[[File:Ability-mei3.png|sub|link=Mei#Ice Wall|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mei#Ice Wall|Ice Wall]]</span>.\n** Bounces off of [[barrier]]s, other [[deployables]] and fences and other breakables.\n** Pylon can attach to [[payload]], but not to the [[TS-1]] robot or the barricade in [[Push]].\n*** Pylon is destroyed if it is in the way of a moving payload or barricade (but not the robot).\n** Healing Pylon can be placed on <span class=\"ability-tooltip\" data-ability=\"Petal Platform\" ><span class=\"ability-link\">[[File:Petal_Platform_Icon.png|sub|link=Lifeweaver#Petal Platform|40x40px |class=inline-icon invert-image]]</span>&#32;[[Lifeweaver#Petal Platform|Petal Platform]]</span> and lifted by it regardless of which was placed first.\n** Pylon is destroyed if a <span class=\"ability-tooltip\" data-ability=\"Tree of Life\" ><span class=\"ability-link\">[[File:Tree_of_Life_Icon.png|sub|link=Lifeweaver#Tree of Life|40x40px |class=inline-icon invert-image]]</span>&#32;[[Lifeweaver#Tree of Life|Tree of Life]]</span> is deployed on top of it.\n** Deploying an <span class=\"ability-tooltip\" data-ability=\"Ice Wall\" ><span class=\"ability-link\">[[File:Ability-mei3.png|sub|link=Mei#Ice Wall|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mei#Ice Wall|Ice Wall]]</span> or using <span class=\"ability-tooltip\" data-ability=\"Cryo-Freeze\" ><span class=\"ability-link\">[[File:Ability-mei2.png|sub|link=Mei#Cryo-Freeze|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mei#Cryo-Freeze|Cryo-Freeze]]</span> on the pylon covers it, blocking line of sight and preventing it from healing.\n** If the pylon touches <span class=\"ability-tooltip\" data-ability=\"Ice Wall\" ><span class=\"ability-link\">[[File:Ability-mei3.png|sub|link=Mei#Ice Wall|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mei#Ice Wall|Ice Wall]]</span> or stays within <span class=\"ability-tooltip\" data-ability=\"Blizzard\" ><span class=\"ability-link\">[[File:Ability-mei4.png|sub|link=Mei#Blizzard|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mei#Blizzard|Blizzard]]</span>, it will \"freeze\" and stop healing until those abilities end.\n** If the object it was attached to expires or is destroyed the pylon falls on ground.\n* The pylon has collision with heroes and blocks shots, but does not block line of sight for AoE.\n* <span class=\"ability-tooltip\" data-ability=\"B.O.B.\" ><span class=\"ability-link\">[[File:Ability-ashe4.png|sub|link=Ashe#B.O.B.|40x40px |class=inline-icon invert-image]]</span>&#32;[[Ashe#B.O.B.|B.O.B.]]</span> will destroy the pylon if he collides with it. This will stop the charge.\n* Stunning movement abilities, like <span class=\"ability-tooltip\" data-ability=\"Charge\" ><span class=\"ability-link\">[[File:Ability-reinhardt3.png|sub|link=Reinhardt#Charge|40x40px |class=inline-icon invert-image]]</span>&#32;[[Reinhardt#Charge|Charge]]</span> or <span class=\"ability-tooltip\" data-ability=\"Shield Bash\" ><span class=\"ability-link\">[[File:Shield Bash.png|sub|link=Brigitte#Shield Bash|40x40px |class=inline-icon invert-image]]</span>&#32;[[Brigitte#Shield Bash|Shield Bash]]</span> (during <span class=\"ability-tooltip\" data-ability=\"Rally\" ><span class=\"ability-link\">[[File:Rally.png|sub|link=Brigitte#Rally|40x40px |class=inline-icon invert-image]]</span>&#32;[[Brigitte#Rally|Rally]]</span>), can \"stun\" the pylon, briefly stopping its healing.\n* Healing Pylon is unaffected by [[knockback]].\n* Pylon cannot be targeted by <span class=\"ability-tooltip\" data-ability=\"Tactical Visor\" ><span class=\"ability-link\">[[File:icon-ability.tacticalvisor.png|sub|link=Soldier: 76#Tactical Visor|40x40px |class=inline-icon invert-image]]</span>&#32;[[Soldier: 76#Tactical Visor|Tactical Visor]]</span>, <span class=\"ability-tooltip\" data-ability=\"Deadeye\" ><span class=\"ability-link\">[[File:Ability-mccree4.png|sub|link=Cassidy#Deadeye|40x40px |class=inline-icon invert-image]]</span>&#32;[[Cassidy#Deadeye|Deadeye]]</span> or <span class=\"ability-tooltip\" data-ability=\"Biotic Orb\" ><span class=\"ability-link\">[[File:Ability Moira Biotic Orb.png|sub|link=Moira#Biotic Orb|40x40px |class=inline-icon invert-image]]</span>&#32;[[Moira#Biotic Orb|Biotic Orb]]</span>.\n* Pylon can be targeted by <span class=\"ability-tooltip\" data-ability=\"Deploy Turret\" ><span class=\"ability-link\">[[File:Ability-torbjorn3.png|sub|link=Torbjörn#Deploy Turret|40x40px |class=inline-icon invert-image]]</span>&#32;[[Torbjörn#Deploy Turret|Deploy Turret]]</span>, <span class=\"ability-tooltip\" data-ability=\"Sentry Turret\" ><span class=\"ability-link\">[[File:Ability-symmetra2.png|sub|link=Symmetra#Sentry Turret|40x40px |class=inline-icon invert-image]]</span>&#32;[[Symmetra#Sentry Turret|Sentry Turret]]</span> and <span class=\"ability-tooltip\" data-ability=\"B.O.B.\" ><span class=\"ability-link\">[[File:Ability-ashe4.png|sub|link=Ashe#B.O.B.|40x40px |class=inline-icon invert-image]]</span>&#32;[[Ashe#B.O.B.|B.O.B.]]</span>.\n* A deployed pylon can be teleported using Symmetra's <span class=\"ability-tooltip\" data-ability=\"Teleporter\" ><span class=\"ability-link\">[[File:Ability-symmetra4.png|sub|link=Symmetra#Teleporter|40x40px |class=inline-icon invert-image]]</span>&#32;[[Symmetra#Teleporter|Teleporter]]</span>.\n* Sombra can <span class=\"ability-tooltip\" data-ability=\"Hack\" ><span class=\"ability-link\">[[File:Ability Sombra Hack.png|sub|link=Sombra#Hack|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sombra#Hack|Hack]]</span> the pylon, disabling it for 10 seconds.\n* The pylon projectile before deployment cannot be blocked by [[barrier]]s, <span class=\"ability-tooltip\" data-ability=\"Kinetic Grasp\" ><span class=\"ability-link\">[[File:Abilities-sigma3.png|sub|link=Sigma#Kinetic Grasp|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sigma#Kinetic Grasp|Kinetic Grasp]]</span>, <span class=\"ability-tooltip\" data-ability=\"Defense Matrix\" ><span class=\"ability-link\">[[File:Ability-dva3.png|sub|link=D.Va#Defense Matrix|40x40px |class=inline-icon invert-image]]</span>&#32;[[D.Va#Defense Matrix|Defense Matrix]]</span>, <span class=\"ability-tooltip\" data-ability=\"Javelin Spin\" ><span class=\"ability-link\">[[File:Ability_JavelinSpin.png|sub|link=Orisa#Javelin Spin|40x40px |class=inline-icon invert-image]]</span>&#32;[[Orisa#Javelin Spin|Javelin Spin]]</span>, <span class=\"ability-tooltip\" data-ability=\"Power Matrix\" ><span class=\"ability-link\">[[File:Perk_PowerMatrix.png|sub|link=Doomfist#Power Matrix|40x40px |class=inline-icon invert-image]]</span>&#32;[[Doomfist#Power Matrix|Power Matrix]]</span> and <span class=\"ability-tooltip\" data-ability=\"Kekkai Sanctuary\" ><span class=\"ability-link\">[[File:ULT Kekkai Sancturary.png|sub|link=Mizuki#Kekkai Sanctuary|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mizuki#Kekkai Sanctuary|Kekkai Sanctuary]]</span> or reflected by <span class=\"ability-tooltip\" data-ability=\"Deflect\" ><span class=\"ability-link\">[[File:Ability-genji2.png|sub|link=Genji#Deflect|40x40px |class=inline-icon invert-image]]</span>&#32;[[Genji#Deflect|Deflect]]</span>, however the healing projectiles shot by it can.\n* If the pylon breaks, a \"Destroyed\" UI will display for Illari.\n* The interact key is shown to be blocked by a red cross while Illari is dead, but this seems to be a mistake as the key can still be pressed to break the pylon.\n* If the pylon breaks while Illari is dead and is thus put on cooldown, due to an enemy attack or from Illari pressing the interact key within 3 seconds of the pylon taking damage, the otherwise 14-second cooldown of the pylon will immediately reset upon Illari respawning.\n* If Illari is instead revived with <span class=\"ability-tooltip\" data-ability=\"Resurrect\" ><span class=\"ability-link\">[[File:Ability-mercy5.png|sub|link=Mercy#Resurrect|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mercy#Resurrect|Resurrect]]</span> by [[Mercy]], the 14-second cooldown will ''not'' reset."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "7 seconds;;default::14 seconds;;under attack",
+          "value": 7,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "low",
+          "warnings": [
+            "cooldown has multiple values; only the first number was parsed."
+          ]
+        },
+        "duration": {
+          "raw": "Until destroyed<br>1.3 seconds (build time)",
+          "value": 1.3,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "<span class=\"tooltip\" title=\"1 shot every 0.8 seconds\">1.25 shots/s</span>",
+          "value": 1.25,
+          "min_value": null,
+          "max_value": null,
+          "unit": "shots_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "25 m/s",
+          "value": 25,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "40 over 0.45 seconds (allies)<br>20 over 0.45 seconds (self)",
+          "value": 40,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "low",
+          "warnings": [
+            "Damage has multiple components and only the first number was parsed."
+          ]
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "cooldown: cooldown has multiple values; only the first number was parsed.",
+        "heal: Damage has multiple components and only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Solar Flare",
+      "slot": "primary fire",
+      "type": "Major Perk",
+      "shot_type": [
+        "[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] Area of effect"
+      ],
+      "raw": {
+        "hero name": "Illari",
+        "ability name": "Solar Flare",
+        "ability key": "primary fire",
+        "ability type": "Major Perk",
+        "shot type": "[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] <span class=\"tooltip\" title=\"Affects all enemies within an area. Usually requires unobstructed line of sight to the origin.\">Area of effect</span>",
+        "official description": "Press Primary Fire while using Solar Rifle's healing beam to heal all allies in front of Illari for 100 healing.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "100",
+        "cooldown": "10 seconds",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "<span class=\"tooltip\" title=\"0.4s startup + 0.4s recovery\">0.4 + 0.4 seconds</span>",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "20 meters",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* Can be used as long as Solar Rifle has any energy left.\n* Energy regeneration delay starts immediately when the button is pressed to activate Solar Flare."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "10 seconds",
+          "value": 10,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "100",
+          "value": 100,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "high",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Solar Rifle",
+      "slot": "primary fire",
+      "type": "Weapon;;Primary Fire",
+      "shot_type": [
+        "[[File:Icon-ability.tacticalvisor.png|40x40px|sub|class=inline-icon invert-image|link=Hitscan|Hitscan ]] Hitscan"
+      ],
+      "raw": {
+        "hero name": "Illari",
+        "ability name": "Solar Rifle",
+        "ability key": "primary fire",
+        "ability type": "Weapon;;Primary Fire",
+        "shot type": "[[File:Icon-ability.tacticalvisor.png|40x40px|sub|class=inline-icon invert-image|link=Hitscan|Hitscan ]] <span class=\"tooltip\" title=\"Hits are registered without delay.\">Hitscan</span>",
+        "official description": "Long-range auto charging rifle.",
+        "damage": "75 - 22.5 (max charge)<br>25 - 7.5 (min charge)",
+        "damage falloff range": "30 - 50 meters",
+        "headshot": "yes",
+        "headshot mod": "1.5",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "<span class=\"tooltip\" title=\"0.9s per shot (0.25s recovery + 0.65s charge)\">1.11 shot/s</span> (max charge)<br><span class=\"tooltip\" title=\"0.5s per shot (0.25s recovery + 0.25s charge)\">2.00 shots/s</span> (min charge)",
+        "ammo": "14",
+        "reload time": "1.5 seconds",
+        "cast time": "",
+        "duration": "0.65 seconds (charge time)<br>0.25 seconds (recovery)",
+        "pspeed": "",
+        "pradius": "0.07 meters",
+        "spread": "None",
+        "radius": "",
+        "range distance": "",
+        "dps": "(max charge): 77.7 while firing (68 overall w/ reload)",
+        "hps": "",
+        "ability keywords": "lesser critical::hitscan",
+        "ability details": "* Damage per second (max charge): 77.7 while firing (68 overall w/ reload)\n* Damage per second (min charge): 40 while firing (31.82 overall w/ reload)\n* Using secondary fire, quick melee or abilities do not interrupt charging.\n* Charge rate is affected by <span class=\"ability-tooltip\" data-ability=\"Kitsune Rush\" ><span class=\"ability-link\">[[File:Kitsune_Rush_Icon.png|sub|link=Kiriko#Kitsune Rush|40x40px |class=inline-icon invert-image]]</span>&#32;[[Kiriko#Kitsune Rush|Kitsune Rush]]</span>."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "0.65 seconds (charge time)<br>0.25 seconds (recovery)",
+          "value": 0.65,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "low",
+          "warnings": [
+            "duration has multiple values; only the first number was parsed."
+          ]
+        },
+        "reload_time": {
+          "raw": "1.5 seconds",
+          "value": 1.5,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "14",
+          "value": 14,
+          "min_value": null,
+          "max_value": null,
+          "unit": "rounds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "75 - 22.5 (max charge)<br>25 - 7.5 (min charge)",
+          "value": null,
+          "min_value": 22.5,
+          "max_value": 75,
+          "unit": "damage",
+          "confidence": "high",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "30 - 50 meters",
+          "value": null,
+          "min_value": 30,
+          "max_value": 50,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "<span class=\"tooltip\" title=\"0.9s per shot (0.25s recovery + 0.65s charge)\">1.11 shot/s</span> (max charge)<br><span class=\"tooltip\" title=\"0.5s per shot (0.25s recovery + 0.25s charge)\">2.00 shots/s</span> (min charge)",
+          "value": 1.11,
+          "min_value": null,
+          "max_value": null,
+          "unit": "shots_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "0.07 meters",
+          "value": 0.07,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "None",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "(max charge): 77.7 while firing (68 overall w/ reload)",
+          "value": 77.7,
+          "min_value": null,
+          "max_value": null,
+          "unit": "per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "duration: duration has multiple values; only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Solar Rifle Alt Fire",
+      "slot": "secondary fire",
+      "type": "Weapon;;Secondary Fire",
+      "shot_type": [
+        "[[File:Ability_Moira_Coalescence.png|sub|40x40px|class=inline-icon invert-image|link=Beam|Beam ]] Beam"
+      ],
+      "raw": {
+        "hero name": "Illari",
+        "ability name": "Solar Rifle Alt Fire",
+        "ability key": "secondary fire",
+        "ability type": "Weapon;;Secondary Fire",
+        "shot type": "[[File:Ability_Moira_Coalescence.png|sub|40x40px|class=inline-icon invert-image|link=Beam|Beam ]] <span class=\"tooltip\" title=\"High tickrate weapon. Ignores Deflect, Javelin Spin, Defense Matrix and Kinetic Grasp. Damage reduced by 30% against armor.\">Beam</span>",
+        "official description": "Medium range healing beam that consumes solar energy.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "no",
+        "headshot mod": "2",
+        "heal": "<span class=\"tooltip\" title=\"1.84 every 0.016 seconds\">115 per second</span>",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "0.6 seconds (energy regen delay)",
+        "pspeed": "",
+        "pradius": "0.25 meters",
+        "spread": "None",
+        "radius": "",
+        "range distance": "20 meters",
+        "dps": "",
+        "hps": "115 per second",
+        "ability keywords": "beam;;armor included::channeled::energy",
+        "ability details": "* Can be fired continuously for 3 seconds before running out of energy.\n* Takes 2.3 seconds to recharge to full once regeneration starts.\n* If completely ran out of energy, it takes an additional 0.4 seconds before energy starts recharging and secondary fire cannot be used again until the energy is fully recharged.\n* Using primary fire or reloading do not interrupt recharging energy.\n* Healing tickrate is affected by <span class=\"ability-tooltip\" data-ability=\"Kitsune Rush\" ><span class=\"ability-link\">[[File:Kitsune_Rush_Icon.png|sub|link=Kiriko#Kitsune Rush|40x40px |class=inline-icon invert-image]]</span>&#32;[[Kiriko#Kitsune Rush|Kitsune Rush]]</span> rush, but the resource consumption remains the same.\n* Is fully recharged from depleted when <span class=\"ability-tooltip\" data-ability=\"Captive Sun\" ><span class=\"error\">''Could not find 'Captive Sun' in 'Abilities'. Check spelling and see [[Help:Cargo]] if the issue persists.''</span></span> is used.\n* Can destroy fences and other breakables."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "0.6 seconds (energy regen delay)",
+          "value": 0.6,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "0.25 meters",
+          "value": 0.25,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "None",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "<span class=\"tooltip\" title=\"1.84 every 0.016 seconds\">115 per second</span>",
+          "value": 115,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "high",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "115 per second",
+          "value": 115,
+          "min_value": null,
+          "max_value": null,
+          "unit": "per_second",
+          "confidence": "high",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Captive Sun",
+      "slot": "ultimate",
+      "type": "Ultimate Ability",
+      "shot_type": [
+        "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] Projectile [[File:Swift_Step_Icon.png|40x40px|sub|class=inline-icon invert-image|link=Movement ability|Movement ]] Movement [[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] Area of effect"
+      ],
+      "raw": {
+        "hero name": "Illari",
+        "ability name": "Captive Sun",
+        "ability key": "ultimate",
+        "ability type": "Ultimate Ability",
+        "shot type": "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] <span class=\"tooltip\" title=\"Has travel time.\">Projectile</span><br>[[File:Swift_Step_Icon.png|40x40px|sub|class=inline-icon invert-image|link=Movement ability|Movement ]] <span class=\"tooltip\" title=\"Grants a burst of movement. Disabled by abilities that apply mobility lock status.\">Movement</span><br>[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] <span class=\"tooltip\" title=\"Affects all enemies within an area. Usually requires unobstructed line of sight to the origin.\">Area of effect</span>",
+        "official description": "Fire an explosive ball of solar energy. Enemies hit are slowed and explode after taking significant damage.",
+        "damage": "5 (direct hit)<br>50 (splash)<br>160 - 120 (Sunstruck explosion)",
+        "damage falloff range": "",
+        "headshot": "no",
+        "headshot mod": "2",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "1",
+        "reload time": "",
+        "cast time": "<span class=\"tooltip\" title=\"0s startup + 1.2s recovery\">0 + 1.2 seconds</span> (launch)<br><span class=\"tooltip\" title=\"0.016s startup + 0.592s recovery\">0.02 + 0.6 seconds</span> (solar energy ball)",
+        "duration": "5.2 seconds (flight)<br>6 seconds (Sunstruck debuff)<br>0.8 seconds (explosion delay)",
+        "pspeed": "30 m/s",
+        "pradius": "0.45 meters",
+        "spread": "",
+        "radius": "10 meters (impact)<br>1 - 5 meters (Sunstruck explosion, falloff start - max)",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "area of effect;;spherical::channeled::cleansable::flight::reloads::travel time::piercing",
+        "ability details": "* Captive Sun is a [[channeled]] ability; it is interrupted by becoming [[stunned]], [[knocked down]] or [[hacked]], including subsidiary effects, consuming the ultimate charge.\n* Launches Illari into the air granting her free flight for the duration and her next shot is replaced by solar energy ball.\n** [[Rooted]] and [[hindered]] make Illari temporarily unable to fly, but do not prevent the activation or immediately end the ability.\n** Upon launching, fully restores the energy of <span class=\"ability-tooltip\" data-ability=\"Solar Rifle Alt Fire\" ><span class=\"ability-link\">[[File:Solar_rifle_alt_icon.png|middle|link=Illari#Solar Rifle Alt Fire|40x40px |class=inline-icon invert-image]]</span>&#32;[[Illari#Solar Rifle Alt Fire|Solar Rifle Alt Fire]]</span> and removes the overheated status.\n** After the launch, the player has 4 seconds to fire the solar energy ball.\n*** The ball is automatically fired at the end of the timer.\n** Projectile passes through enemies (but not shields) and explodes only upon contact with a shield, terrain or terrain-like [[object]], like <span class=\"ability-tooltip\" data-ability=\"Ice Wall\" ><span class=\"ability-link\">[[File:Ability-mei3.png|sub|link=Mei#Ice Wall|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mei#Ice Wall|Ice Wall]]</span>, or if it has travelled for 10 seconds.\n** Any enemy heroes, including <span class=\"ability-tooltip\" data-ability=\"B.O.B.\" ><span class=\"ability-link\">[[File:Ability-ashe4.png|sub|link=Ashe#B.O.B.|40x40px |class=inline-icon invert-image]]</span>&#32;[[Ashe#B.O.B.|B.O.B.]]</span>, damaged by the direct hit or splash of the solar energy ball are marked and [[slowed]] for 6 seconds.\n*** Slow slowly decays over the duration.\n* If a marked enemy receives total of 90 damage after reductions or is killed, they will become \"SUNSTRUCK\", causing the mark to explode after 0.8 seconds dealing damage in an area.\n** Damage from the direct hit and splash from Captive Sun does not count toward this, but the damage from another player's Sunstruck explosion does.\n** Only one mark can be active at a time. For example, if an allied Echo duplicates Illari and hits the same target with Captive Sun.\n*** If the target is hit with another Captive Sun before Sunstruck is triggered, the duration of the mark is refreshed.\n*** If the target is hit with another Captive Sun during Sunstruck explosion delay, a new mark will not be applied.\n** The mark can be removed by Zarya's <span class=\"ability-tooltip\" data-ability=\"Particle Barrier\" ><span class=\"ability-link\">[[File:Ability-zarya2.png|sub|link=Zarya#Particle Barrier|40x40px |class=inline-icon invert-image]]</span>&#32;[[Zarya#Particle Barrier|Particle/Projected Barrier]]</span>, Zenyatta's <span class=\"ability-tooltip\" data-ability=\"Transcendence\" ><span class=\"ability-link\">[[File:Ability-zenyatta4.png|sub|link=Zenyatta#Transcendence|40x40px |class=inline-icon invert-image]]</span>&#32;[[Zenyatta#Transcendence|Transcendence]]</span>, D.Va's <span class=\"ability-tooltip\" data-ability=\"Call Mech\" ><span class=\"ability-link\">[[File:Ability-dva6.png|sub|link=D.Va#Call Mech|40x40px |class=inline-icon invert-image]]</span>&#32;[[D.Va#Call Mech|Call Mech]]</span> or by becoming [[phased out]], such as through <span class=\"ability-tooltip\" data-ability=\"Wraith Form\" ><span class=\"ability-link\">[[File:Ability-reaper2.png|sub|link=Reaper#Wraith Form|40x40px |class=inline-icon invert-image]]</span>&#32;[[Reaper#Wraith Form|Wraith Form]]</span> or <span class=\"ability-tooltip\" data-ability=\"Protection Suzu\" ><span class=\"ability-link\">[[File:Protection_Suzu_Icon.png|sub|link=Kiriko#Protection Suzu|40x40px |class=inline-icon invert-image]]</span>&#32;[[Kiriko#Protection Suzu|Protection Suzu]]</span>.\n*** However, if the target has already been Sunstruck, the explosion will happen regardless. Damage may still be prevented.\n*** [[Kiriko]] and [[Sombra]] can teleport, protecting themselves from the explosion. However, they carry the explosion with them, harming anyone around their destination. If a Sunstruck ally happens to be there, they could explode.\n* Sunstruck explosion has damage falloff, reducing damage by up to 25%.\n* The projectile can be destroyed while in air by <span class=\"ability-tooltip\" data-ability=\"Defense Matrix\" ><span class=\"ability-link\">[[File:Ability-dva3.png|sub|link=D.Va#Defense Matrix|40x40px |class=inline-icon invert-image]]</span>&#32;[[D.Va#Defense Matrix|Defense Matrix]]</span>, <span class=\"ability-tooltip\" data-ability=\"Kinetic Grasp\" ><span class=\"ability-link\">[[File:Abilities-sigma3.png|sub|link=Sigma#Kinetic Grasp|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sigma#Kinetic Grasp|Kinetic Grasp]]</span>, <span class=\"ability-tooltip\" data-ability=\"Javelin Spin\" ><span class=\"ability-link\">[[File:Ability_JavelinSpin.png|sub|link=Orisa#Javelin Spin|40x40px |class=inline-icon invert-image]]</span>&#32;[[Orisa#Javelin Spin|Javelin Spin]]</span>, <span class=\"ability-tooltip\" data-ability=\"Power Matrix\" ><span class=\"ability-link\">[[File:Perk_PowerMatrix.png|sub|link=Doomfist#Power Matrix|40x40px |class=inline-icon invert-image]]</span>&#32;[[Doomfist#Power Matrix|Power Matrix]]</span> and <span class=\"ability-tooltip\" data-ability=\"Kekkai Sanctuary\" ><span class=\"ability-link\">[[File:ULT Kekkai Sancturary.png|sub|link=Mizuki#Kekkai Sanctuary|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mizuki#Kekkai Sanctuary|Kekkai Sanctuary]]</span> and reflected by <span class=\"ability-tooltip\" data-ability=\"Deflect\" ><span class=\"ability-link\">[[File:Ability-genji2.png|sub|link=Genji#Deflect|40x40px |class=inline-icon invert-image]]</span>&#32;[[Genji#Deflect|Deflect]]</span>, but the splash and Sunstruck explosion are unaffected.\n* Direct damage and splash damage from Captive Sun are affected by <span class=\"ability-tooltip\" data-ability=\"Amplification Matrix\" ><span class=\"ability-link\">[[File:Baptiste-ability4.png|sub|link=Baptiste#Amplification Matrix|40x40px |class=inline-icon invert-image]]</span>&#32;[[Baptiste#Amplification Matrix|Amplification Matrix]]</span>, as long as the projectile passes through it. However, the Sunstruck explosion damage is not.\n* The projectile's environment collision size is 0 meters, so to collide with the environment the projectile's center would have to directly hit it.\n* Captive Sun's [[movement speed]] buff does not count towards global movement speed buff cap."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "5.2 seconds (flight)<br>6 seconds (Sunstruck debuff)<br>0.8 seconds (explosion delay)",
+          "value": 5.2,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "low",
+          "warnings": [
+            "duration has multiple values; only the first number was parsed."
+          ]
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "1",
+          "value": 1,
+          "min_value": null,
+          "max_value": null,
+          "unit": "rounds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "5 (direct hit)<br>50 (splash)<br>160 - 120 (Sunstruck explosion)",
+          "value": null,
+          "min_value": 120,
+          "max_value": 160,
+          "unit": "damage",
+          "confidence": "medium",
+          "warnings": [
+            "Damage appears to contain components; raw value should be checked."
+          ]
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "30 m/s",
+          "value": 30,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "0.45 meters",
+          "value": 0.45,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "duration: duration has multiple values; only the first number was parsed.",
+        "damage: Damage appears to contain components; raw value should be checked."
+      ]
+    }
+  ],
+  "source": "https://overwatch.fandom.com/api.php",
+  "fetched_at": "2026-06-25T07:13:01.679738+00:00"
+}

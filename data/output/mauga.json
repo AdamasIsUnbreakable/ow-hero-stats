@@ -1,0 +1,1850 @@
+{
+  "name": "Mauga",
+  "role": "Tank",
+  "sub_role": "Bruiser",
+  "health": {
+    "health": 425,
+    "armor": 150,
+    "shield": null
+  },
+  "abilities": [
+    {
+      "name": "Berserker",
+      "slot": "",
+      "type": "Passive Ability",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Mauga",
+        "ability name": "Berserker",
+        "ability key": "",
+        "ability type": "Passive Ability",
+        "shot type": "",
+        "official description": "Gain temporary health when dealing critical damage.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "2 seconds",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "overhealth",
+        "ability details": "* After 2 seconds, the [[Hit points#Overhealth|overhealth]] starts decaying at a rate of 5 hp/s. Dealing more critical damage will reset this condition.\n* Both headshots as well as hitting a burning target with \"Cha-Cha\" counts toward this.\n* The center of <span class=\"ability-tooltip\" data-ability=\"Overrun\"><span class=\"error\">''Could not find 'Overrun' in 'Abilities'. Check spelling and see [[Help:Cargo]] if the issue persists.''</span></span>'s stomp counts as critical damage and gives overhealth accordingly to damage dealt.\n* Critical damage dealt to objects such as <span class=\"ability-tooltip\" data-ability=\"Tree of Life\"><span class=\"ability-link\">[[File:Tree_of_Life_Icon.png|sub|link=Lifeweaver#Tree of Life|40x40px |class=inline-icon invert-image]]</span>&#32;[[Lifeweaver#Tree of Life|Tree of Life]]</span>, <span class=\"ability-tooltip\" data-ability=\"Petal Platform\"><span class=\"ability-link\">[[File:Petal_Platform_Icon.png|sub|link=Lifeweaver#Petal Platform|40x40px |class=inline-icon invert-image]]</span>&#32;[[Lifeweaver#Petal Platform|Petal Platform]]</span>, <span class=\"ability-tooltip\" data-ability=\"Ice Wall\"><span class=\"ability-link\">[[File:Ability-mei3.png|sub|link=Mei#Ice Wall|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mei#Ice Wall|Ice Wall]]</span> and others, does not generate overhealth."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "2 seconds",
+          "value": 2,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Combat Fuel",
+      "slot": "",
+      "type": "Major Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Mauga",
+        "ability name": "Combat Fuel",
+        "ability key": "",
+        "ability type": "Major Perk",
+        "shot type": "",
+        "official description": "Critical hits grant Mauga 3 temporary overhealth on Cardiac Overdrive's next use, up to 150 overhealth.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* The stored Overhealth resets when Mauga dies."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Firewalker",
+      "slot": "",
+      "type": "Major Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Mauga",
+        "ability name": "Firewalker",
+        "ability key": "",
+        "ability type": "Major Perk",
+        "shot type": "",
+        "official description": "Overrun ignites enemies hit.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* Both charge and stomp can apply the burn.\n* This has the same properties as the ignite from <span class=\"ability-tooltip\" data-ability=\"Incendiary Chaingun\"><span class=\"ability-link\">[[File:Incendiary_Chaingun_icon.png|middle|link=Mauga#Incendiary Chaingun|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mauga#Incendiary Chaingun|Incendiary Chaingun]]</span>, except it does not trigger <span class=\"ability-tooltip\" data-ability=\"Pyromaniac\"><span class=\"ability-link\">[[File:Pyromaniac.png|sub|link=Mauga#Pyromaniac|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mauga#Pyromaniac|Pyromaniac]]</span>."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Kinetic Bandolier",
+      "slot": "",
+      "type": "Minor Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Mauga",
+        "ability name": "Kinetic Bandolier",
+        "ability key": "",
+        "ability type": "Minor Perk",
+        "shot type": "",
+        "official description": "Overrun reloads up to 150 ammo during the first second of charging.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": ""
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Pyromaniac",
+      "slot": "",
+      "type": "Minor Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Mauga",
+        "ability name": "Pyromaniac",
+        "ability key": "",
+        "ability type": "Minor Perk",
+        "shot type": "",
+        "official description": "Igniting enemies with Incendiary Chaingun grants 50 overhealth.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* Shared maximum with <span class=\"ability-tooltip\" data-ability=\"Berserker\"><span class=\"ability-link\">[[File:Berserker_icon.png|sub|link=Mauga#Berserker|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mauga#Berserker|Berserker]]</span> overhealth from critical hits."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Two Hearts",
+      "slot": "",
+      "type": "Minor Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Mauga",
+        "ability name": "Two Hearts",
+        "ability key": "",
+        "ability type": "Minor Perk",
+        "shot type": "",
+        "official description": "While on an objective, Mauga counts as 2 heroes and regenerates 20 health per second.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "20 per second",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* ''Removed in Season 18.''"
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "20 per second",
+          "value": 20,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "high",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Overrun",
+      "slot": "ability 1",
+      "type": "Ability",
+      "shot_type": [
+        "[[File:Tectonic Shock icon.png|40x40px|sub|class=inline-icon invert-image|link=Shockwave|Shockwave ]] Shockwave [[File:Swift_Step_Icon.png|40x40px|sub|class=inline-icon invert-image|link=Movement ability|Movement ]] Movement"
+      ],
+      "raw": {
+        "hero name": "Mauga",
+        "ability name": "Overrun",
+        "ability key": "ability 1",
+        "ability type": "Ability",
+        "shot type": "[[File:Tectonic Shock icon.png|40x40px|sub|class=inline-icon invert-image|link=Shockwave|Shockwave ]] <span class=\"tooltip\" title=\"Travels along the ground and can climb and drop in height. Blocked by Barriers.\">Shockwave</span><br>[[File:Swift_Step_Icon.png|40x40px|sub|class=inline-icon invert-image|link=Movement ability|Movement ]] <span class=\"tooltip\" title=\"Grants a burst of movement. Disabled by abilities that apply mobility lock status.\">Movement</span>",
+        "official description": "Charge forward to stomp and launch enemies. You are unstoppable while charging.",
+        "damage": "30 (collision)<br>75 (stomp, outer radius)<br>150 (stomp, inner radius)",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "5 seconds",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "<span class=\"tooltip\" title=\"0.208 s startup + 0.496 s\">0.21 + 0.50 seconds</span>",
+        "duration": "0.32 seconds (charge, min)<br>2 seconds (charge, max)<br>0.6 seconds (stomp) <br>1 second (knockdown)",
+        "pspeed": "30 m/s (shockwave)",
+        "pradius": "",
+        "spread": "",
+        "radius": "7 meters (stomp, max)<br>2 meters (stomp, critical)",
+        "range distance": "4.4 meters (charge, min)<br>28 meters (charge, max)<br>6.5 meters (stomp)",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "ability critical::collide;;unstoppable::knockdown::shockwave::strong movement::unstoppable::break",
+        "ability details": "* Cooldown starts when the ability ends.\n* Mauga cannot shoot or use other abilities (except Cardiac Overdrive) during Overrun.\n* Mauga can turn while charging using the directional keys.\n* Overrun's charge ends automatically after 2 seconds of charging, causing Mauga to leap at the end.\n** Mauga takes 8 footsteps in this time.\n* The charge can be canceled into stomp early by pressing the Primary Fire or Jump key.\n* Alternatively, Overrun can be canceled early by pressing the ability key again, which causes the charge to end without a stomp.\n** The automatical stomp at max duration can also be canceled until slightly after the jump has started.\n** A manually input stomp cannot be cancelled.\n* Enemies that collide with Mauga while he is charging take damage and are [[knocked back]].\n** Each enemy can only be hit by the charge once per use.\n* The stomp has different effects based on the target's proximity upon landing:\n** Enemies hit by the outer area, will take damage and are knocked back.\n** Enemies hit by the inner area take double damage, and are [[knocked down]] for a brief period, similar to [[Sigma]]'s <span class=\"ability-tooltip\" data-ability=\"Accretion\"><span class=\"ability-link\">[[File:Abilities-sigma4.png|sub|link=Sigma#Accretion|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sigma#Accretion|Accretion]]</span>.\n*** This counts as a [[critical hit]]: it will trigger <span class=\"ability-tooltip\" data-ability=\"Berserker\"><span class=\"ability-link\">[[File:Berserker_icon.png|sub|link=Mauga#Berserker|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mauga#Berserker|Berserker]]</span> and shows in the kill feed as a critical death if it eliminated an enemy.\n* Overrun's stomp is treated as an actual jump that can clear small gaps.\n* Unlike [[Reinhardt]]'s <span class=\"ability-tooltip\" data-ability=\"Charge\"><span class=\"ability-link\">[[File:Ability-reinhardt3.png|sub|link=Reinhardt#Charge|40x40px |class=inline-icon invert-image]]</span>&#32;[[Reinhardt#Charge|Charge]]</span>, Overrun will not stop if directed towards a wall; Mauga will simply keep charging in place. \n* During the charge, Mauga is immune to being [[hacked]], [[slowed]], [[knocked back]]/up, [[stunned]], [[knocked down]], [[rooted]] or being affected by <span class=\"ability-tooltip\" data-ability=\"Graviton Surge\"><span class=\"ability-link\">[[File:Ability-zarya4.png|sub|link=Zarya#Graviton Surge|40x40px |class=inline-icon invert-image]]</span>&#32;[[Zarya#Graviton Surge|Graviton Surge]]</span>, <span class=\"ability-tooltip\" data-ability=\"Gravitic Flux\"><span class=\"ability-link\">[[File:Abilities-sigma5.png|sub|link=Sigma#Gravitic Flux|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sigma#Gravitic Flux|Gravitic Flux]]</span> or <span class=\"ability-tooltip\" data-ability=\"Cage Fight\"><span class=\"error\">''Could not find 'Cage Fight' in 'Abilities'. Check spelling and see [[Help:Cargo]] if the issue persists.''</span></span>, excluding the following interactions:\n** [[Orisa]] using <span class=\"ability-tooltip\" data-ability=\"Fortify\"><span class=\"ability-link\">[[File:Ability Orisa Fortify.png|sub|link=Orisa#Fortify|40x40px |class=inline-icon invert-image]]</span>&#32;[[Orisa#Fortify|Fortify]]</span> will be treated as a wall; Mauga will either slide off or stop in place in front of her.\n** [[Lifeweaver]] using <span class=\"ability-tooltip\" data-ability=\"Life Grip\"><span class=\"ability-link\">[[File:Life_Grip_Icon.png|sub|link=Lifeweaver#Life Grip|40x40px |class=inline-icon invert-image]]</span>&#32;[[Lifeweaver#Life Grip|Life Grip]]</span> will temporarily pause the charge until the grip ends, after which he will continue charging from his new position.\n** Clashing with another Mauga using Overrun will cause both Maugas to be [[knocked down]] for 1.7 seconds.\n*** There are no other counter-charge behaviours, such as with <span class=\"ability-tooltip\" data-ability=\"Charge\"><span class=\"ability-link\">[[File:Ability-reinhardt3.png|sub|link=Reinhardt#Charge|40x40px |class=inline-icon invert-image]]</span>&#32;[[Reinhardt#Charge|Charge]]</span>, <span class=\"ability-tooltip\" data-ability=\"Rocket Punch\"><span class=\"ability-link\">[[File:Rocket_punch.png|sub|link=Doomfist#Rocket Punch|40x40px |class=inline-icon invert-image]]</span>&#32;[[Doomfist#Rocket Punch|Rocket Punch]]</span> or <span class=\"ability-tooltip\" data-ability=\"Shield Bash\"><span class=\"ability-link\">[[File:Shield Bash.png|sub|link=Brigitte#Shield Bash|40x40px |class=inline-icon invert-image]]</span>&#32;[[Brigitte#Shield Bash|Shield Bash]]</span>. Overrun will continue, but the aforementioned abilities will stop upon colliding with Mauga during Overrun.\n**** Due to a bug, Mauga still receives crowd control if hit by [[Sigma|Sigma]]'s <span class=\"ability-tooltip\" data-ability=\"Hyper Strike\"><span class=\"ability-link\">[[File:Perk_HyperStrike.png|sub|link=Sigma#Hyper Strike|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sigma#Hyper Strike|Hyper Strike]]</span> major perk.\n**In some cases, Mauga can still be affected by [[crowd control]] during the initial startup animation (i.e, before he starts moving).\n* Stomp is blocked by [[barrier|barriers]] but the charge collision is not.\n* Overrun's movement speed buff does not count towards global movement speed buff cap."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "5 seconds",
+          "value": 5,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "0.32 seconds (charge, min)<br>2 seconds (charge, max)<br>0.6 seconds (stomp) <br>1 second (knockdown)",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": [
+            "duration has multiple components and was left unparsed."
+          ]
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "30 (collision)<br>75 (stomp, outer radius)<br>150 (stomp, inner radius)",
+          "value": 30,
+          "min_value": null,
+          "max_value": null,
+          "unit": "damage",
+          "confidence": "low",
+          "warnings": [
+            "Damage has multiple components and only the first number was parsed."
+          ]
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "30 m/s (shockwave)",
+          "value": 30,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "duration: duration has multiple components and was left unparsed.",
+        "damage: Damage has multiple components and only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Cardiac Overdrive",
+      "slot": "ability 2",
+      "type": "Ability",
+      "shot_type": [
+        "[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] Area of effect"
+      ],
+      "raw": {
+        "hero name": "Mauga",
+        "ability name": "Cardiac Overdrive",
+        "ability key": "ability 2",
+        "ability type": "Ability",
+        "shot type": "[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] <span class=\"tooltip\" title=\"Affects all enemies within an area. Usually requires unobstructed line of sight to the origin.\">Area of effect</span>",
+        "official description": "Gain damage reduction and nearby allies heal themselves by dealing damage.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "100% of damage dealt (self)<br>50% of damage dealt (allies)",
+        "cooldown": "12 seconds",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "None",
+        "duration": "3 seconds",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "10.5 meter radius",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "area of effect;;spherical::ignore barrier;;target ally::transformation",
+        "ability details": "* Cooldown starts when the ability ends.\n* Despite the description stating it only affects allies, Mauga also gains the effect of Cardiac Overdrive while it is active.\n* Allies that enter the radius after the ability has been activated will also gain its effects.\n* Allies that leave the radius will retain the effect for ~1.2 seconds.\n* An UI element below the crosshair displays the remaining time and the number of allies within range.\n* This ability requires line of sight for allies to gain the effects.\n** Enemy [[barrier]]s do not block line of sight.\n* Healing from Cardiac Overdrive is not reduced by the global healing reduction passive.\n* Healing from Cardiac Overdrive does not generate [[ultimate charge]]."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "12 seconds",
+          "value": 12,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "3 seconds",
+          "value": 3,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "100% of damage dealt (self)<br>50% of damage dealt (allies)",
+          "value": 100,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "low",
+          "warnings": [
+            "Damage has multiple components and only the first number was parsed."
+          ]
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "heal: Damage has multiple components and only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Incendiary Chaingun",
+      "slot": "primary fire",
+      "type": "Weapon;;Primary Fire",
+      "shot_type": [
+        "[[File:Icon-ability.tacticalvisor.png|40x40px|sub|class=inline-icon invert-image|link=Hitscan|Hitscan ]] Hitscan"
+      ],
+      "raw": {
+        "hero name": "Mauga",
+        "ability name": "Incendiary Chaingun",
+        "ability key": "primary fire",
+        "ability type": "Weapon;;Primary Fire",
+        "shot type": "[[File:Icon-ability.tacticalvisor.png|40x40px|sub|class=inline-icon invert-image|link=Hitscan|Hitscan ]] <span class=\"tooltip\" title=\"Hits are registered without delay.\">Hitscan</span>",
+        "official description": "Automatic weapon that ignites enemies on repeated impacts.",
+        "damage": "4 - 1.2 (direct)<br><span class=\"tooltip\" title=\"2.88 every 0.192 seconds\">15 per second</span> (damage over time)",
+        "damage falloff range": "30 - 40 meters<br>15 - 20 meters (simultaneous fire)",
+        "headshot": "yes",
+        "headshot mod": "2",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "<span class=\"tooltip\" title=\"0.0555... seconds per shot\">18 shots/s</span>",
+        "ammo": "300",
+        "reload time": "2 seconds",
+        "cast time": "",
+        "duration": "4 seconds (damage over time)",
+        "pspeed": "",
+        "pradius": "0.04 meters",
+        "spread": "1 degree (base)<br>4 degrees (simultaneous fire)",
+        "radius": "",
+        "range distance": "",
+        "dps": "72 while firing (64.7 w/ reload)\n87 w/ damage over time\n288 while firing both guns simultaneously\n303 w/ damage over time",
+        "hps": "",
+        "ability keywords": "burning::critical::hitscan",
+        "ability details": "* A.K.A \"Gunny\"\n* Damage per second: \n** 72 while firing (64.7 w/ reload) \n** 87 w/ damage over time\n** 144 while firing both guns simultaneously onto non-burning target\n** 216 while firing both guns simultaneously onto burning target\n** 231 w/ damage over time\n* Gunny and Cha-Cha can be fired one at a time or simultaneously:\n** Each gun has a 0.16 second windup delay.\n** Ammo and reload is shared between the two guns.\n** Movement speed penalties stack when firing both guns simultaneously.\n** Spread of both guns will increase to 4 degrees if both are fired at once.\n* The target enemy is ignited, causing them to take [[damage over time]], if they have been hit by 10 shots from Gunny.\n** The counter resets if the target has not been hit in the last 2 seconds or once they have been successfully ignited.\n** Being ignited while already burning refreshes the duration.\n** Burn damage is unaffected by <span class=\"ability-tooltip\" data-ability=\"Amplification Matrix\"><span class=\"ability-link\">[[File:Baptiste-ability4.png|sub|link=Baptiste#Amplification Matrix|40x40px |class=inline-icon invert-image]]</span>&#32;[[Baptiste#Amplification Matrix|Amplification Matrix]]</span>.\n* The following objects cannot be set on fire:\n** All [[barriers]]\n** <span class=\"ability-tooltip\" data-ability=\"Venom Mine\"><span class=\"ability-link\">[[File:Ability-widowmaker3.png|sub|link=Widowmaker#Venom Mine|40x40px |class=inline-icon invert-image]]</span>&#32;[[Widowmaker#Venom Mine|Venom Mine]]</span>\n** <span class=\"ability-tooltip\" data-ability=\"Sentry Turret\"><span class=\"ability-link\">[[File:Ability-symmetra2.png|sub|link=Symmetra#Sentry Turret|40x40px |class=inline-icon invert-image]]</span>&#32;[[Symmetra#Sentry Turret|Sentry Turret]]</span>\n** <span class=\"ability-tooltip\" data-ability=\"Steel Trap\"><span class=\"ability-link\">[[File:Ability-Junkrat3.png|sub|link=Junkrat#Steel Trap|40x40px |class=inline-icon invert-image]]</span>&#32;[[Junkrat#Steel Trap|Steel Trap]]</span>\n** <span class=\"ability-tooltip\" data-ability=\"Concussion Mine\"><span class=\"ability-link\">[[File:Ability-Junkrat2.png|sub|link=Junkrat#Concussion Mine|40x40px |class=inline-icon invert-image]]</span>&#32;[[Junkrat#Concussion Mine|Concussion Mine]]</span>"
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "4 seconds (damage over time)",
+          "value": 4,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "2 seconds",
+          "value": 2,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "300",
+          "value": 300,
+          "min_value": null,
+          "max_value": null,
+          "unit": "rounds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "4 - 1.2 (direct)<br><span class=\"tooltip\" title=\"2.88 every 0.192 seconds\">15 per second</span> (damage over time)",
+          "value": null,
+          "min_value": 1.2,
+          "max_value": 4,
+          "unit": "damage",
+          "confidence": "medium",
+          "warnings": [
+            "Damage appears to contain components; raw value should be checked."
+          ]
+        },
+        "damage_falloff_range": {
+          "raw": "30 - 40 meters<br>15 - 20 meters (simultaneous fire)",
+          "value": null,
+          "min_value": 30,
+          "max_value": 40,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "<span class=\"tooltip\" title=\"0.0555... seconds per shot\">18 shots/s</span>",
+          "value": 18,
+          "min_value": null,
+          "max_value": null,
+          "unit": "shots_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "0.04 meters",
+          "value": 0.04,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "1 degree (base)<br>4 degrees (simultaneous fire)",
+          "value": 1,
+          "min_value": null,
+          "max_value": null,
+          "unit": "degrees",
+          "confidence": "low",
+          "warnings": [
+            "spread has multiple values; only the first number was parsed."
+          ]
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "72 while firing (64.7 w/ reload)\n87 w/ damage over time\n288 while firing both guns simultaneously\n303 w/ damage over time",
+          "value": 72,
+          "min_value": null,
+          "max_value": null,
+          "unit": "per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "damage: Damage appears to contain components; raw value should be checked.",
+        "spread: spread has multiple values; only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Volatile Chaingun",
+      "slot": "secondary fire",
+      "type": "Weapon;;Secondary Fire",
+      "shot_type": [
+        "[[File:Icon-ability.tacticalvisor.png|40x40px|sub|class=inline-icon invert-image|link=Hitscan|Hitscan ]] Hitscan"
+      ],
+      "raw": {
+        "hero name": "Mauga",
+        "ability name": "Volatile Chaingun",
+        "ability key": "secondary fire",
+        "ability type": "Weapon;;Secondary Fire",
+        "shot type": "[[File:Icon-ability.tacticalvisor.png|40x40px|sub|class=inline-icon invert-image|link=Hitscan|Hitscan ]] <span class=\"tooltip\" title=\"Hits are registered without delay.\">Hitscan</span>",
+        "official description": "Automatic weapon that deals critical damage to burning enemies.",
+        "damage": "4 - 1.2",
+        "damage falloff range": "30 - 40 meters<br>15 - 20 meters (simultaneous fire)",
+        "headshot": "yes",
+        "headshot mod": "2",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "<span class=\"tooltip\" title=\"0.0555... seconds per shot\">18 shots/s</span>",
+        "ammo": "300",
+        "reload time": "2 seconds",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "0.04 meters",
+        "spread": "1 degree (base)<br>4 degrees (simultaneous fire)",
+        "radius": "",
+        "range distance": "",
+        "dps": "72 while firing (64.7 w/ reload)\n288 while firing both guns simultaneously\n303 w/ damage over time",
+        "hps": "",
+        "ability keywords": "critical::hitscan::ability critical",
+        "ability details": "* A.K.A \"Cha-Cha\"\n* Damage per second: \n** 72 while firing (64.7 w/ reload) onto non-burning target\n** 144 while firing onto burning target (forced criticals)\n** 144 while firing both guns simultaneously onto non-burning target\n** 216 while firing both guns simultaneously onto burning target\n** 231 w/ damage over time\n* Gunny and Cha-Cha can be fired one at a time or simultaneously:\n** Each gun has a 0.16 second windup delay.\n** Ammo and reload is shared between the two guns.\n** Movement speed penalties stack when firing both guns simultaneously.\n** Spread of both guns will increase to 4 degrees if both are fired at once.\n* <span class=\"ability-tooltip\" data-ability=\"Fortify\"><span class=\"ability-link\">[[File:Ability Orisa Fortify.png|sub|link=Orisa#Fortify|40x40px |class=inline-icon invert-image]]</span>&#32;[[Orisa#Fortify|Fortify]]</span> does not prevent [[critical hit]]s to an ignited Orisa.\n* Hitting enemies that are [[Status effect#Burning|burning]] from other abilities (such as [[Ashe]]'s <span class=\"ability-tooltip\" data-ability=\"Dynamite\"><span class=\"ability-link\">[[File:Ability-ashe2.png|sub|link=Ashe#Dynamite|40x40px |class=inline-icon invert-image]]</span>&#32;[[Ashe#Dynamite|Dynamite]]</span>, [[Torbjörn]]'s <span class=\"ability-tooltip\" data-ability=\"Molten Core\"><span class=\"ability-link\">[[File:Ability-torbjorn5.png|sub|link=Torbjörn#Molten Core|40x40px |class=inline-icon invert-image]]</span>&#32;[[Torbjörn#Molten Core|Molten Core]]</span> or [[Anran]]'s <span class=\"ability-tooltip\" data-ability=\"Ignition\"><span class=\"ability-link\">[[File:Passive Ignition.png|sub|link=Anran#Ignition|40x40px |class=inline-icon invert-image]]</span>&#32;[[Anran#Ignition|Ignition]]</span>) will also cause Cha-Cha to deal critical damage.\n** This also allows Cha-Cha to deal critical hits to objects that cannot be ignited by Gunny."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "2 seconds",
+          "value": 2,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "300",
+          "value": 300,
+          "min_value": null,
+          "max_value": null,
+          "unit": "rounds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "4 - 1.2",
+          "value": null,
+          "min_value": 1.2,
+          "max_value": 4,
+          "unit": "damage",
+          "confidence": "high",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "30 - 40 meters<br>15 - 20 meters (simultaneous fire)",
+          "value": null,
+          "min_value": 30,
+          "max_value": 40,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "<span class=\"tooltip\" title=\"0.0555... seconds per shot\">18 shots/s</span>",
+          "value": 18,
+          "min_value": null,
+          "max_value": null,
+          "unit": "shots_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "0.04 meters",
+          "value": 0.04,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "1 degree (base)<br>4 degrees (simultaneous fire)",
+          "value": 1,
+          "min_value": null,
+          "max_value": null,
+          "unit": "degrees",
+          "confidence": "low",
+          "warnings": [
+            "spread has multiple values; only the first number was parsed."
+          ]
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "72 while firing (64.7 w/ reload)\n288 while firing both guns simultaneously\n303 w/ damage over time",
+          "value": 72,
+          "min_value": null,
+          "max_value": null,
+          "unit": "per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "spread: spread has multiple values; only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Cage Fight",
+      "slot": "ultimate",
+      "type": "Ultimate Ability",
+      "shot_type": [
+        "[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] Area of effect"
+      ],
+      "raw": {
+        "hero name": "Mauga",
+        "ability name": "Cage Fight",
+        "ability key": "ultimate",
+        "ability type": "Ultimate Ability",
+        "shot type": "[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] <span class=\"tooltip\" title=\"Affects all enemies within an area. Usually requires unobstructed line of sight to the origin.\">Area of effect</span>",
+        "official description": "Deploy a barrier that traps yourself and enemies. Automatically reloads Mauga's Chainguns at the start of the ultimate.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "8 seconds",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "7.2 meters",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "area of effect;;cylindrical::barrier::deployable;;strong projectile::hinder::ignore barrier;;tether::reloads::tether",
+        "ability details": "* Can be interrupted by [[crowd control]] abilities during deployment, causing the Ultimate to be wasted.\n* Can be canceled early by pressing the ability key again.\n* Activating Cage Fight restores the ammo of <span class=\"ability-tooltip\" data-ability=\"Incendiary Chaingun\"><span class=\"ability-link\">[[File:Incendiary_Chaingun_icon.png|middle|link=Mauga#Incendiary Chaingun|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mauga#Incendiary Chaingun|Incendiary and Volatile Chainguns]]</span> to full.\n* Creates a cylindrical barrier centered around a device.\n** Like all barriers, it can be shot through by allies, and both enemies and allies can walk through it.\n** The barrier extends 3 meters below and 9 meters above the device.\n** The device is an invulnerable [[object]] with gravity.\n** The device - along with the barrier and chained targets - moves along with any object or map element it is standing on and will fall down if they are retracted or destroyed.\n*** The device can be placed on <span class=\"ability-tooltip\" data-ability=\"Petal Platform\"><span class=\"ability-link\">[[File:Petal_Platform_Icon.png|sub|link=Lifeweaver#Petal Platform|40x40px |class=inline-icon invert-image]]</span>&#32;[[Lifeweaver#Petal Platform|Petal Platform]]</span>, <span class=\"ability-tooltip\" data-ability=\"Ice Wall\"><span class=\"ability-link\">[[File:Ability-mei3.png|sub|link=Mei#Ice Wall|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mei#Ice Wall|Ice Wall]]</span>, [[payload]], [[push]] barricade, moving platforms and cars in [[Oasis]].\n* Mauga and enemy heroes within the barrier's bounds will be [[Status effect#Rooted|leashed]] by a chain and become unable move outside the barrier or vertically beyond a ~9 meter spherical radius of the barrier device.\n** [[D.Va]]'s <span class=\"ability-tooltip\" data-ability=\"Self-Destruct\"><span class=\"ability-link\">[[File:Ability-dva4.png|sub|link=D.Va#Self-Destruct|40x40px |class=inline-icon invert-image]]</span>&#32;[[D.Va#Self-Destruct|Self-Destruct]]</span>, [[Junkrat]]'s <span class=\"ability-tooltip\" data-ability=\"RIP-Tire\"><span class=\"ability-link\">[[File:Ability-Junkrat5.png|sub|link=Junkrat#RIP-Tire|40x40px |class=inline-icon invert-image]]</span>&#32;[[Junkrat#RIP-Tire|RIP-Tire]]</span> and [[Ashe]]'s <span class=\"ability-tooltip\" data-ability=\"B.O.B.\"><span class=\"ability-link\">[[File:Ability-ashe4.png|sub|link=Ashe#B.O.B.|40x40px |class=inline-icon invert-image]]</span>&#32;[[Ashe#B.O.B.|B.O.B.]]</span> are also affected.\n** Enemies who walk into the barrier even after its initial deployment will also become trapped.\n** Enemies need line of sight with the barrier device in order to be tethered by the chains. Once attached, the chains stay on even if enemy moves behind a wall or solid terrain.\n*** [[Barrier]]s, [[Lifeweaver]]'s <span class=\"ability-tooltip\" data-ability=\"Tree of Life\"><span class=\"ability-link\">[[File:Tree_of_Life_Icon.png|sub|link=Lifeweaver#Tree of Life|40x40px |class=inline-icon invert-image]]</span>&#32;[[Lifeweaver#Tree of Life|Tree of Life]]</span> or <span class=\"ability-tooltip\" data-ability=\"Petal Platform\"><span class=\"ability-link\">[[File:Petal_Platform_Icon.png|sub|link=Lifeweaver#Petal Platform|40x40px |class=inline-icon invert-image]]</span>&#32;[[Lifeweaver#Petal Platform|Petal Platform]]</span> and [[Mei]]'s <span class=\"ability-tooltip\" data-ability=\"Ice Wall\"><span class=\"ability-link\">[[File:Ability-mei3.png|sub|link=Mei#Ice Wall|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mei#Ice Wall|Ice Wall]]</span> will not prevent the chains from attaching.\n*** If deployed atop an already risen <span class=\"ability-tooltip\" data-ability=\"Petal Platform\"><span class=\"ability-link\">[[File:Petal_Platform_Icon.png|sub|link=Lifeweaver#Petal Platform|40x40px |class=inline-icon invert-image]]</span>&#32;[[Lifeweaver#Petal Platform|Petal Platform]]</span>, it does not attach to anyone below it (due to its height). Anyone already chained will be pulled off of the platform if they ascend on it.\n** Mauga still becomes chained, even if there are no nearby enemies to be chained.\n* Enemies and Mauga will see \"TRAPPED\" on their screen and their [[movement abilities]] will be disabled. It also cancels most movement abilities. Enemies can still move around normally.\n** It doesn't cancel [[Reaper]]'s <span class=\"ability-tooltip\" data-ability=\"Wraith Form\"><span class=\"ability-link\">[[File:Ability-reaper2.png|sub|link=Reaper#Wraith Form|40x40px |class=inline-icon invert-image]]</span>&#32;[[Reaper#Wraith Form|Wraith Form]]</span> if he activated it while outside, but he can't leave once inside.\n** [[Sombra]] will be forced out of <span class=\"ability-tooltip\" data-ability=\"Stealth\"><span class=\"ability-link\">[[File:Ability Sombra Thermoptic Camo.png|sub|link=Sombra#Stealth|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sombra#Stealth|Stealth]]</span> if she was within range.\n** Flying enemies will fall to the ground. \n*** However, certain abilities (such as [[Illari]]'s <span class=\"ability-tooltip\" data-ability=\"Captive Sun\"><span class=\"ability-link\">[[File:Captive_sun_icon.png|sub|link=Illari#Captive Sun|40x40px |class=inline-icon invert-image]]</span>&#32;[[Illari#Captive Sun|Captive Sun]]</span>) have a jump animation when casting, which cannot be interrupted by the chains. Once the animation ends, they fall back to the ground.\n** Only a few abilities let enemies leave the cylinder:\n*** [[Orisa]]'s <span class=\"ability-tooltip\" data-ability=\"Fortify\"><span class=\"ability-link\">[[File:Ability Orisa Fortify.png|sub|link=Orisa#Fortify|40x40px |class=inline-icon invert-image]]</span>&#32;[[Orisa#Fortify|Fortify]]</span> removes the chains, allowing her to exit through the ultimate's barrier.\n*** [[Symmetra]]'s <span class=\"ability-tooltip\" data-ability=\"Teleporter\"><span class=\"ability-link\">[[File:Ability-symmetra4.png|sub|link=Symmetra#Teleporter|40x40px |class=inline-icon invert-image]]</span>&#32;[[Symmetra#Teleporter|Teleporter]]</span> can let her and allies leave the cylinder. This also extends to the Mauga that casted the ultimate.\n*** [[Lifeweaver]]'s  <span class=\"ability-tooltip\" data-ability=\"Life Grip\"><span class=\"ability-link\">[[File:Life_Grip_Icon.png|sub|link=Lifeweaver#Life Grip|40x40px |class=inline-icon invert-image]]</span>&#32;[[Lifeweaver#Life Grip|Life Grip]]</span> can pull an ally out of the cylinder, given he's outside of it. This also extends to the Mauga that casted the ultimate.\n*** Mauga's Overrun and [[Moira]]'s <span class=\"ability-tooltip\" data-ability=\"Fade\"><span class=\"ability-link\">[[File:Ability Moira Fade.png|sub|link=Moira#Fade|40x40px |class=inline-icon invert-image]]</span>&#32;[[Moira#Fade|Fade]]</span> can allow them to go through the Cage Fight without being trapped, given their ability does not end while inside.\n** [[Sombra]] can teleport out of the cage if her <span class=\"ability-tooltip\" data-ability=\"Translocator\"><span class=\"ability-link\">[[File:Ability Sombra Translocator.png|sub|link=Sombra#Translocator|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sombra#Translocator|Translocator]]</span> is in flight when she becomes trapped.\n* Destroying the barrier will end the ultimate early and remove the trapped status effect.\n* Killing a Mauga using Cage Fight will not remove the barrier."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "8 seconds",
+          "value": 8,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    }
+  ],
+  "source": "https://overwatch.fandom.com/api.php",
+  "fetched_at": "2026-06-25T07:13:01.689018+00:00"
+}

@@ -1,0 +1,1533 @@
+{
+  "name": "Wuyang",
+  "role": "Support",
+  "sub_role": "Survivor",
+  "health": {
+    "health": 225,
+    "armor": null,
+    "shield": null
+  },
+  "abilities": [
+    {
+      "name": "Balance",
+      "slot": "",
+      "type": "Minor Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Wuyang",
+        "ability name": "Balance",
+        "ability key": "",
+        "ability type": "Minor Perk",
+        "shot type": "",
+        "official description": "When you deal damage with water orbs, increase Restorative Stream's passive healing by 30% for 2 seconds.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "20 → 26 per second",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "2 seconds",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* The water stream circling the target will glow to indicate when this effect is active.\n* Does not stack. Subsequent hits refresh the duration."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "2 seconds",
+          "value": 2,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "20 → 26 per second",
+          "value": 20,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "low",
+          "warnings": [
+            "Damage has multiple components and only the first number was parsed."
+          ]
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "heal: Damage has multiple components and only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Ebb and Flow",
+      "slot": "",
+      "type": "Major Perk",
+      "shot_type": [
+        "[[File:Tectonic Shock icon.png|40x40px|sub|class=inline-icon invert-image|link=Shockwave|Shockwave ]] Shockwave"
+      ],
+      "raw": {
+        "hero name": "Wuyang",
+        "ability name": "Ebb and Flow",
+        "ability key": "",
+        "ability type": "Major Perk",
+        "shot type": "[[File:Tectonic Shock icon.png|40x40px|sub|class=inline-icon invert-image|link=Shockwave|Shockwave ]] <span class=\"tooltip\" title=\"Travels along the ground and can climb and drop in height. Blocked by Barriers.\">Shockwave</span>",
+        "official description": "Guardian Wave rewinds to its starting location.",
+        "damage": "80",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "80",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* The wave returns upon reaching the maximum distance or if it hits an obstacle that blocks its path in its whole width.\n* Unlike the original wave, the damage and knockback strength of the returning wave are unaffected by the wave's travel distance.\n* Enemies are knocked in the travel direction of the wave, i.e. towards the initial cast location."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "80",
+          "value": 80,
+          "min_value": null,
+          "max_value": null,
+          "unit": "damage",
+          "confidence": "high",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "80",
+          "value": 80,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "high",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Falling Rain",
+      "slot": "",
+      "type": "Major Perk",
+      "shot_type": [
+        "[[File:Abilities-sigma4.png|40x40px|sub|class=inline-icon invert-image|link=Arcing projectile|Arcing projectile ]] Arcing projectile [[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] Area of effect"
+      ],
+      "raw": {
+        "hero name": "Wuyang",
+        "ability name": "Falling Rain",
+        "ability key": "",
+        "ability type": "Major Perk",
+        "shot type": "[[File:Abilities-sigma4.png|40x40px|sub|class=inline-icon invert-image|link=Arcing projectile|Arcing projectile ]] <span class=\"tooltip\" title=\"Has travel time. Also is affected by gravity.\">Arcing projectile</span><br>[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] <span class=\"tooltip\" title=\"Affects all enemies within an area. Usually requires unobstructed line of sight to the origin.\">Area of effect</span>",
+        "official description": "Simultaneously control 3 water orbs that deal 60% decreased damage and have have 25% decreased empowered explosion radius.",
+        "damage": "10 → 4 (direct hit bonus, uncharged)<br>20 → 8 (splash, uncharged)<br>40 → 16 (direct hit bonus, charged)<br>60 → 24 (splash, charged)",
+        "damage falloff range": "2.7 → 2.0 meters (splash, charged)",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "*Damage per second:\n**Rapid fire of uncharged orbs: 109.9 while firing (88.88 overall w/ reload)\n**Perfectly timed charged orbs: 190.48 while firing (153.85 overall w/ reload)\n* Does not affect the ammo consumption or the radius of the projectiles itself.\n* Each orb has its own controllable trajectory. Even if one of the other orbs explodes, the remaining ones can still be steered.\n* Orbs start with a slight spread. Controlling the orbs keeps them grouped together and decreases the amount of spread they still have when released."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "10 → 4 (direct hit bonus, uncharged)<br>20 → 8 (splash, uncharged)<br>40 → 16 (direct hit bonus, charged)<br>60 → 24 (splash, charged)",
+          "value": 10,
+          "min_value": null,
+          "max_value": null,
+          "unit": "damage",
+          "confidence": "low",
+          "warnings": [
+            "Damage has multiple components and only the first number was parsed."
+          ]
+        },
+        "damage_falloff_range": {
+          "raw": "2.7 → 2.0 meters (splash, charged)",
+          "value": 2.7,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters",
+          "confidence": "medium",
+          "warnings": [
+            "Parsed falloff range as a single distance."
+          ]
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "damage: Damage has multiple components and only the first number was parsed.",
+        "damage_falloff_range: Parsed falloff range as a single distance."
+      ]
+    },
+    {
+      "name": "Overflow",
+      "slot": "",
+      "type": "Minor Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Wuyang",
+        "ability name": "Overflow",
+        "ability key": "",
+        "ability type": "Minor Perk",
+        "shot type": "",
+        "official description": "Gain 10 ammo and 50% healing resource when Rushing Torrent is activated.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": ""
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Rushing Torrent",
+      "slot": "ability 1",
+      "type": "Ability",
+      "shot_type": [
+        "[[File:Swift_Step_Icon.png|40x40px|sub|class=inline-icon invert-image|link=Movement ability|Movement ]] Movement"
+      ],
+      "raw": {
+        "hero name": "Wuyang",
+        "ability name": "Rushing Torrent",
+        "ability key": "ability 1",
+        "ability type": "Ability",
+        "shot type": "[[File:Swift_Step_Icon.png|40x40px|sub|class=inline-icon invert-image|link=Movement ability|Movement ]] <span class=\"tooltip\" title=\"Grants a burst of movement. Disabled by abilities that apply mobility lock status.\">Movement</span>",
+        "official description": "Ride water to move faster and jump higher.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "8 seconds",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "None",
+        "duration": "3.5 seconds",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "3.7 meters (vertical)",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "movement::speed cap",
+        "ability details": "* Grants a short burst of movement speed when activated.\n* Wuyang has less friction with the ground while using Rushing Torrent.\n* Wuyang cannot crouch while Rushing Torrent is active.\n* Speed buff stacks with other [[movement speed]] buffs, up to the +75% global movement speed limit.\n* Destroys any fences and other breakables Wuyang travels through."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "8 seconds",
+          "value": 8,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "3.5 seconds",
+          "value": 3.5,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Guardian Wave",
+      "slot": "ability 2",
+      "type": "Ability",
+      "shot_type": [
+        "[[File:Tectonic Shock icon.png|40x40px|sub|class=inline-icon invert-image|link=Shockwave|Shockwave ]] Shockwave"
+      ],
+      "raw": {
+        "hero name": "Wuyang",
+        "ability name": "Guardian Wave",
+        "ability key": "ability 2",
+        "ability type": "Ability",
+        "shot type": "[[File:Tectonic Shock icon.png|40x40px|sub|class=inline-icon invert-image|link=Shockwave|Shockwave ]] <span class=\"tooltip\" title=\"Travels along the ground and can climb and drop in height. Blocked by Barriers.\">Shockwave</span>",
+        "official description": "Send a water wave forward that increases the amount of healing received by allies and knocks back enemies.",
+        "damage": "80 - 40",
+        "damage falloff range": "4 - 17.5 meters",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "80",
+        "cooldown": "14 seconds",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "<span class=\"tooltip\" title=\"0.4s startup + 0.4s recovery\">0.4 + 0.4 seconds</span>",
+        "duration": "3 seconds (healing amplification)",
+        "pspeed": "30 m/s",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "30 meters",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "evasive::shockwave",
+        "ability details": "* Guardian Wave requires contact with a walkable surface to be cast. If Wuyang is or becomes airborne during the cast, he will remain locked in the cast animation until he makes contact with a valid surface.\n** Can be activated while airborne. However, Wuyang is unable to use his weapon or any other abilities until the cast is completed. Does not bypass <span class=\"ability-tooltip\" data-ability=\"Gravitic Flux\" ><span class=\"ability-link\">[[File:Abilities-sigma5.png|sub|link=Sigma#Gravitic Flux|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sigma#Gravitic Flux|Gravitic Flux]]</span> - Wuyang will be locked in the animation until he returns to the ground. \n* The wave travels along the ground and can go up and down slopes and small elevations.\n* Damage and [[knockback]] strength are reduced based on distance to target.\n* Enemies are knocked away in the direction the wave is traveling.\n* Wuyang will also receive the healing and healing amplification from Guardian Wave.\n* Does not stack with healing received amplification from <span class=\"ability-tooltip\" data-ability=\"Biotic Grenade\" ><span class=\"ability-link\">[[File:Ability-ana3.png|sub|link=Ana#Biotic Grenade|40x40px |class=inline-icon invert-image]]</span>&#32;[[Ana#Biotic Grenade|Biotic Grenade]]</span>.\n* Healing received amplification stacks additively with <span class=\"ability-tooltip\" data-ability=\"Healing reduction from damage\" ><span class=\"ability-link\">[[File:Placeholder_ability_icon.png|sub|link=Global Passive Abilities#Healing reduction from damage|40x40px |class=inline-icon invert-image]]</span>&#32;[[Global Passive Abilities#Healing reduction from damage|Healing reduction from damage]]</span> healing received reduction.\n* Guardian Wave's healing is unaffected by healing received amplification, but it can be affected by healing received reduction.\n* Replenishes 33% Restorative Stream resource upon successful cast."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "14 seconds",
+          "value": 14,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "3 seconds (healing amplification)",
+          "value": 3,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "80 - 40",
+          "value": null,
+          "min_value": 40,
+          "max_value": 80,
+          "unit": "damage",
+          "confidence": "high",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "4 - 17.5 meters",
+          "value": null,
+          "min_value": 4,
+          "max_value": 17.5,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "30 m/s",
+          "value": 30,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "80",
+          "value": 80,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "high",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Xuanwu Staff",
+      "slot": "primary fire",
+      "type": "Weapon",
+      "shot_type": [
+        "[[File:Abilities-sigma4.png|40x40px|sub|class=inline-icon invert-image|link=Arcing projectile|Arcing projectile ]] Arcing projectile [[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] Area of effect"
+      ],
+      "raw": {
+        "hero name": "Wuyang",
+        "ability name": "Xuanwu Staff",
+        "ability key": "primary fire",
+        "ability type": "Weapon",
+        "shot type": "[[File:Abilities-sigma4.png|40x40px|sub|class=inline-icon invert-image|link=Arcing projectile|Arcing projectile ]] <span class=\"tooltip\" title=\"Has travel time. Also is affected by gravity.\">Arcing projectile</span><br>[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] <span class=\"tooltip\" title=\"Affects all enemies within an area. Usually requires unobstructed line of sight to the origin.\">Area of effect</span>",
+        "official description": "Fire a damaging water orb. Hold to control its trajectory and empower its explosion.",
+        "damage": "<span class=\"tooltip\" title=\"30 total\">10</span> (direct hit bonus, uncharged)<br>20 (splash, uncharged)<br><span class=\"tooltip\" title=\"100 total\">40</span> (direct hit bonus, charged)<br>60 (splash, charged)",
+        "damage falloff range": "0.8 - 1.3 meters (splash, uncharged)<br>0.8 - 2.7 meters (splash, charged)",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "<span class=\"tooltip\" title=\"0.33s recovery\">3 shots/s</span>",
+        "ammo": "20",
+        "reload time": "1.5 seconds",
+        "cast time": "",
+        "duration": "0.3 seconds (charge time)<br>2.5 seconds (max control time)",
+        "pspeed": "25 m/s",
+        "pradius": "0.42 meters",
+        "spread": "None",
+        "radius": "",
+        "range distance": "",
+        "dps": "Rapid fire of uncharged orbs: 90.91 while firing (74.07 overall w/ reload)\nPerfectly timed charged orbs: 158.73 while firing (128.21 overall w/ reload)",
+        "hps": "",
+        "ability keywords": "area of effect;;spherical::channeled::travel time",
+        "ability details": "* Damage per second:\n** Rapid fire of uncharged orbs: 90.91 while firing (74.07 overall w/ reload)\n** Perfectly timed charged orbs: 158.73 while firing (128.21 overall w/ reload)\n* You can start controlling an orb after 5.5 meters approximately.\n* While controlling the orb, it has no gravity and will continuously redirect towards the crosshair. \n* Upon releasing the orb or reaching the maximum control time, the orb it will continue in its current direction and will again be affected by gravity.\n* Orbs get empowered after being controlled for 0.3 seconds (approximately 7.5 meters), consuming an extra ammo but gaining increased damage and explosion radius. Orb will remain empowered even if the player stops controlling it.\n* Using <span class=\"ability-tooltip\" data-ability=\"Guardian Wave\" ><span class=\"error\">''Could not find 'Guardian Wave' in 'Abilities'. Check spelling and see [[Help:Cargo]] if the issue persists.''</span></span> and <span class=\"ability-tooltip\" data-ability=\"Tidal Blast\" ><span class=\"error\">''Could not find 'Tidal Blast' in 'Abilities'. Check spelling and see [[Help:Cargo]] if the issue persists.''</span></span> will release control of the orb.\n* A charged orb applies a brief knockback after its explosion."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "0.3 seconds (charge time)<br>2.5 seconds (max control time)",
+          "value": 0.3,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "low",
+          "warnings": [
+            "duration has multiple values; only the first number was parsed."
+          ]
+        },
+        "reload_time": {
+          "raw": "1.5 seconds",
+          "value": 1.5,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "20",
+          "value": 20,
+          "min_value": null,
+          "max_value": null,
+          "unit": "rounds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "<span class=\"tooltip\" title=\"30 total\">10</span> (direct hit bonus, uncharged)<br>20 (splash, uncharged)<br><span class=\"tooltip\" title=\"100 total\">40</span> (direct hit bonus, charged)<br>60 (splash, charged)",
+          "value": 10,
+          "min_value": null,
+          "max_value": null,
+          "unit": "damage",
+          "confidence": "low",
+          "warnings": [
+            "Damage has multiple components and only the first number was parsed."
+          ]
+        },
+        "damage_falloff_range": {
+          "raw": "0.8 - 1.3 meters (splash, uncharged)<br>0.8 - 2.7 meters (splash, charged)",
+          "value": null,
+          "min_value": 0.8,
+          "max_value": 1.3,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "<span class=\"tooltip\" title=\"0.33s recovery\">3 shots/s</span>",
+          "value": 3,
+          "min_value": null,
+          "max_value": null,
+          "unit": "shots_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "25 m/s",
+          "value": 25,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "0.42 meters",
+          "value": 0.42,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "None",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "Rapid fire of uncharged orbs: 90.91 while firing (74.07 overall w/ reload)\nPerfectly timed charged orbs: 158.73 while firing (128.21 overall w/ reload)",
+          "value": 90.91,
+          "min_value": null,
+          "max_value": null,
+          "unit": "per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "duration: duration has multiple values; only the first number was parsed.",
+        "damage: Damage has multiple components and only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Restorative Stream",
+      "slot": "Secondary Fire",
+      "type": "Ability",
+      "shot_type": [
+        "[[File:Ability target ui.png|40x40px|sub|class=inline-icon invert-image|link=Targeted ability|Targeted ]] Targeted (lock-on) [[File:Ability_Moira_Coalescence.png|sub|40x40px|class=inline-icon invert-image|link=Beam|Beam ]] Beam"
+      ],
+      "raw": {
+        "hero name": "Wuyang",
+        "ability name": "Restorative Stream",
+        "ability key": "Secondary Fire",
+        "ability type": "Ability",
+        "shot type": "[[File:Ability target ui.png|40x40px|sub|class=inline-icon invert-image|link=Targeted ability|Targeted ]] <span class=\"tooltip\" title=\"Applies to selected target. Cannot miss.\">Targeted</span> (lock-on) <br>[[File:Ability_Moira_Coalescence.png|sub|40x40px|class=inline-icon invert-image|link=Beam|Beam ]] <span class=\"tooltip\" title=\"High tickrate weapon. Ignores Deflect, Javelin Spin, Defense Matrix and Kinetic Grasp. Damage reduced by 30% against armor.\">Beam</span>",
+        "official description": "Place a passive healing stream on an ally. Hold on the target to manually heal at an improved rate, consuming resource.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "<span class=\"tooltip\" title=\"4.8 per 0.192s\">20 per second</span> (passive)<br><span class=\"tooltip\" title=\"9.6 per 0.192s\">55 per second</span> (bonus manual healing)",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "None",
+        "duration": "5 seconds (LoS timeout, passive)<br>1 second (LoS timeout, manual)<br>2 seconds (recharge delay)",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "20 meters",
+        "dps": "",
+        "hps": "25 per second \n75 per second (resource)",
+        "ability keywords": "ignore barrier;;target ally::beam;;armor included::channeled::energy",
+        "ability details": "* Manual healing stacks with passive healing, for a total of 75 health per second.\n* Resource starts regenerating at a rate of 12.5% per second after 2 seconds of not being used.\n* Targeting another ally with the beam will immediately move the passive stream to them.\n* Passive healing has no range restriction once it has been placed, however it will time out if the target is not in direct line of sight of Wuyang for too long.\n* Beam can be briefly activated without consuming energy to change the passive healing target. This can be done also while completely out of energy.\n* Restorative Stream is a [[channeled]] ability; use of fire is limited, and being [[stunned]] or [[knocked down]], including their subsidiary effects, interrupts the cast.\n** Wuyang cannot use his primary fire while channeling Restorative Stream. Other abilities are unaffected, and <span class=\"ability-tooltip\" data-ability=\"Tidal Blast\" ><span class=\"error\">''Could not find 'Tidal Blast' in 'Abilities'. Check spelling and see [[Help:Cargo]] if the issue persists.''</span></span> can still be used to target a player, which will stop channeling Restorative Stream upon activation.\n** Being stunned or knocked down stops channeling Restorative Stream, but will not cause the passive healing to be retracted. Being hacked does not stop the ability when it is already being channeled, but prevents from new channeling instances.\n* Abilities that make the target untargetable by allies (see [[#Tidal Blast]] for list) instantly break the active healing, however the passive healing will remain on them unless moved or expired."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "5 seconds (LoS timeout, passive)<br>1 second (LoS timeout, manual)<br>2 seconds (recharge delay)",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": [
+            "duration has multiple components and was left unparsed."
+          ]
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "<span class=\"tooltip\" title=\"4.8 per 0.192s\">20 per second</span> (passive)<br><span class=\"tooltip\" title=\"9.6 per 0.192s\">55 per second</span> (bonus manual healing)",
+          "value": 20,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "low",
+          "warnings": [
+            "Damage has multiple components and only the first number was parsed."
+          ]
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "25 per second \n75 per second (resource)",
+          "value": 25,
+          "min_value": null,
+          "max_value": null,
+          "unit": "per_second",
+          "confidence": "high",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "duration: duration has multiple components and was left unparsed.",
+        "heal: Damage has multiple components and only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Tidal Blast",
+      "slot": "ultimate",
+      "type": "Ultimate Ability",
+      "shot_type": [
+        "[[File:Ability target ui.png|40x40px|sub|class=inline-icon invert-image|link=Targeted ability|Targeted ]] Targeted [[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] Area of effect"
+      ],
+      "raw": {
+        "hero name": "Wuyang",
+        "ability name": "Tidal Blast",
+        "ability key": "ultimate",
+        "ability type": "Ultimate Ability",
+        "shot type": "[[File:Ability target ui.png|40x40px|sub|class=inline-icon invert-image|link=Targeted ability|Targeted ]] <span class=\"tooltip\" title=\"Applies to selected target. Cannot miss.\">Targeted</span><br>[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] <span class=\"tooltip\" title=\"Affects all enemies within an area. Usually requires unobstructed line of sight to the origin.\">Area of effect</span>",
+        "official description": "Protect an ally or yourself with water that detonates after a short duration. The explosion knocks down enemies and massively heals the host target.",
+        "damage": "100",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "250",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "<span class=\"tooltip\" title=\"0s startup + 0.5s recovery\">0 + 0.5 seconds</span> (ally)<br><span class=\"tooltip\" title=\"0.600s startup + 0.568s recovery\">0.6 + 0.56 seconds</span> (self)",
+        "duration": "3.5 seconds (explosion delay)<br>1.5 seconds (knockdown)",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "7.5 meters",
+        "range distance": "35 meters",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "area of effect;;spherical::ignore barrier;;target ally::knockdown::speed cap::overhealth",
+        "ability details": "* A confirmation prompt is given upon activation, allowing Wuyang to choose whether to target an ally (Primary Fire) or himself (Secondary Fire). Pressing ultimate ability key again cancels the targeting.\n** When used on Wuyang, the ultimate has an interruptible startup delay and the cast recovery is increased, but otherwise he gains the same benefits from the ultimate.\n* The target ally (or Wuyang) is granted [[overhealth]] and [[movement speed]] while the explosion winds up. Upon explosion, the overhealth and speed boost are removed and the ally is healed.\n* The target is ''not'' immune to negative effects while carrying Tidal Blast.\n* Once Tidal Blast is successfully placed on a hero, the explosion can only be interrupted by eliminating the target.\n* Enemies hit by the explosion are [[knocked down]] and take damage.\n* Tidal Blast persists on the target if they enter an invulnerability state where they are untargetable by allies, however the target must be out of this state when the wind up ends or the explosion will not happen.\n** Following interactions may prevent the explosion: Anran during <span class=\"ability-tooltip\" data-ability=\"Dancing Blaze\" ><span class=\"ability-link\">[[File:Ability Dancing Blaze.png|sub|link=Anran#Dancing Blaze|40x40px |class=inline-icon invert-image]]</span>&#32;[[Anran#Dancing Blaze|Dancing Blaze]]</span>, D.Va after entering her Mech with <span class=\"ability-tooltip\" data-ability=\"Call Mech\" ><span class=\"ability-link\">[[File:Ability-dva6.png|sub|link=D.Va#Call Mech|40x40px |class=inline-icon invert-image]]</span>&#32;[[D.Va#Call Mech|Call Mech]]</span>, Doomfist targeting <span class=\"ability-tooltip\" data-ability=\"Meteor Strike\" ><span class=\"ability-link\">[[File:Ability Doomfist Meteor Strike.png|sub|link=Doomfist#Meteor Strike|40x40px |class=inline-icon invert-image]]</span>&#32;[[Doomfist#Meteor Strike|Meteor Strike]]</span>, Echo transforming in/out of <span class=\"ability-tooltip\" data-ability=\"Duplicate\" ><span class=\"ability-link\">[[File:DUPLICATE.png|sub|link=Echo#Duplicate|40x40px |class=inline-icon invert-image]]</span>&#32;[[Echo#Duplicate|Duplicate]]</span>, Mei during <span class=\"ability-tooltip\" data-ability=\"Cryo-Freeze\" ><span class=\"ability-link\">[[File:Ability-mei2.png|sub|link=Mei#Cryo-Freeze|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mei#Cryo-Freeze|Cryo-Freeze]]</span>, Sombra while teleporting with <span class=\"ability-tooltip\" data-ability=\"Translocator\" ><span class=\"ability-link\">[[File:Ability Sombra Translocator.png|sub|link=Sombra#Translocator|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sombra#Translocator|Translocator]]</span>, Tracer during <span class=\"ability-tooltip\" data-ability=\"Recall\" ><span class=\"ability-link\">[[File:Ability-tracer3.png|sub|link=Tracer#Recall|40x40px |class=inline-icon invert-image]]</span>&#32;[[Tracer#Recall|Recall]]</span>, Venture during <span class=\"ability-tooltip\" data-ability=\"Burrow\" ><span class=\"ability-link\">[[File:Burrow_icon.png|sub|link=Venture#Burrow|40x40px |class=inline-icon invert-image]]</span>&#32;[[Venture#Burrow|Burrow]]</span>, Kiriko while teleporting with <span class=\"ability-tooltip\" data-ability=\"Swift Step\" ><span class=\"ability-link\">[[File:Swift_Step_Icon.png|sub|link=Kiriko#Swift Step|40x40px |class=inline-icon invert-image]]</span>&#32;[[Kiriko#Swift Step|Swift Step]]</span> and Moira during <span class=\"ability-tooltip\" data-ability=\"Fade\" ><span class=\"ability-link\">[[File:Ability Moira Fade.png|sub|link=Moira#Fade|40x40px |class=inline-icon invert-image]]</span>&#32;[[Moira#Fade|Fade]]</span>.\n** Following abilities will not prevent the explosion: Zarya's <span class=\"ability-tooltip\" data-ability=\"Particle Barrier\" ><span class=\"ability-link\">[[File:Ability-zarya2.png|sub|link=Zarya#Particle Barrier|40x40px |class=inline-icon invert-image]]</span>&#32;[[Zarya#Particle Barrier|Particle/Projected Barrier]]</span>, Reaper's <span class=\"ability-tooltip\" data-ability=\"Wraith Form\" ><span class=\"ability-link\">[[File:Ability-reaper2.png|sub|link=Reaper#Wraith Form|40x40px |class=inline-icon invert-image]]</span>&#32;[[Reaper#Wraith Form|Wraith Form]]</span>, Kiriko's <span class=\"ability-tooltip\" data-ability=\"Protection Suzu\" ><span class=\"ability-link\">[[File:Protection_Suzu_Icon.png|sub|link=Kiriko#Protection Suzu|40x40px |class=inline-icon invert-image]]</span>&#32;[[Kiriko#Protection Suzu|Protection Suzu]]</span>, Zenyatta's <span class=\"ability-tooltip\" data-ability=\"Transcendence\" ><span class=\"ability-link\">[[File:Ability-zenyatta4.png|sub|link=Zenyatta#Transcendence|40x40px |class=inline-icon invert-image]]</span>&#32;[[Zenyatta#Transcendence|Transcendence]]</span>\n* Tidal Blast cannot be placed on D.Va's exploding Mech, however if D.Va activates <span class=\"ability-tooltip\" data-ability=\"Self-Destruct\" ><span class=\"ability-link\">[[File:Ability-dva4.png|sub|link=D.Va#Self-Destruct|40x40px |class=inline-icon invert-image]]</span>&#32;[[D.Va#Self-Destruct|Self-Destruct]]</span> while carrying Tidal Blast, it will follow the exploding Mech.\n* Can be targeted through [[barrier]]s, but the explosion does not go through them.\n* The effect from Tidal Blast can stack, which means that Wuyang and a friendly Echo can place it on one player.\n* Benefits from [[Damage modification|damage buffs]], however they must be affecting the target of Tidal Blast rather than Wuyang.\n* Wuyang can start gaining ultimate charge 1.5 seconds after the explosion.\n* Speed buff stacks with other move speed buffs, up to the +75% global movement speed limit."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "3.5 seconds (explosion delay)<br>1.5 seconds (knockdown)",
+          "value": 3.5,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "low",
+          "warnings": [
+            "duration has multiple values; only the first number was parsed."
+          ]
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "100",
+          "value": 100,
+          "min_value": null,
+          "max_value": null,
+          "unit": "damage",
+          "confidence": "high",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "250",
+          "value": 250,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "high",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "duration: duration has multiple values; only the first number was parsed."
+      ]
+    }
+  ],
+  "source": "https://overwatch.fandom.com/api.php",
+  "fetched_at": "2026-06-25T07:13:01.716169+00:00"
+}

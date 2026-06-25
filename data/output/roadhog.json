@@ -1,0 +1,2196 @@
+{
+  "name": "Roadhog",
+  "role": "Tank",
+  "sub_role": "Bruiser",
+  "health": {
+    "health": 600,
+    "armor": null,
+    "shield": null
+  },
+  "abilities": [
+    {
+      "name": "Hog Toss",
+      "slot": "",
+      "type": "Minor Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Roadhog",
+        "ability name": "Hog Toss",
+        "ability key": "",
+        "ability type": "Minor Perk",
+        "shot type": "",
+        "official description": "Pig Pen's throw range is increased by 50% and damage is increased by 25%.",
+        "damage": "75 (initial)<br>56.25/s (periodic)<br>238.8 (total)",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "40 m/s",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "15.2 meters (straight forward)<br>29 meters (at 35° angle)",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* Replaced by <span class=\"ability-tooltip\" data-ability=\"Pent Up\"><span class=\"ability-link\">[[File:Pent_Up.png|sub|link=Roadhog#Pent Up|40x40px |class=inline-icon invert-image]]</span>&#32;[[Roadhog#Pent Up|Pent Up]]</span> in Season 16."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "75 (initial)<br>56.25/s (periodic)<br>238.8 (total)",
+          "value": 75,
+          "min_value": null,
+          "max_value": null,
+          "unit": "damage",
+          "confidence": "low",
+          "warnings": [
+            "Damage has multiple components and only the first number was parsed."
+          ]
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "40 m/s",
+          "value": 40,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "damage: Damage has multiple components and only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Hogdrogen Exposure",
+      "slot": "",
+      "type": "Major Perk",
+      "shot_type": [
+        "[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] Area of effect"
+      ],
+      "raw": {
+        "hero name": "Roadhog",
+        "ability name": "Hogdrogen Exposure",
+        "ability key": "",
+        "ability type": "Major Perk",
+        "shot type": "[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] <span class=\"tooltip\" title=\"Affects all enemies within an area. Usually requires unobstructed line of sight to the origin.\">Area of effect</span>",
+        "official description": "Take A Breather also heals nearby allies for 50% of its healing.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "<span class=\"tooltip\" title=\"7.19 every 0.0958 seconds\">75/s</span>",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "10 meters",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* ''Removed in Season 18, re-added in Reign of Talon Season 2: Summit''\n* Even if Hog is affected by [[Status_effect#Anti-heal|Anti-Heal]], allies will still receive the healing."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "<span class=\"tooltip\" title=\"7.19 every 0.0958 seconds\">75/s</span>",
+          "value": 75,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "high",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Invigorate",
+      "slot": "",
+      "type": "Major Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Roadhog",
+        "ability name": "Invigorate",
+        "ability key": "",
+        "ability type": "Major Perk",
+        "shot type": "",
+        "official description": "Take A Breather rapidly increases Roadhog's movement speed by 30%.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* ''Removed in Reign of Talon Season 2''"
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Pent Up",
+      "slot": "",
+      "type": "Minor Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Roadhog",
+        "ability name": "Pent Up",
+        "ability key": "",
+        "ability type": "Minor Perk",
+        "shot type": "",
+        "official description": "When Pig Pen is triggered, refill 50% Take A Breather resource which can overfill.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* ''Removed in Season 18.''"
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Pulled Pork",
+      "slot": "",
+      "type": "Major Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Roadhog",
+        "ability name": "Pulled Pork",
+        "ability key": "",
+        "ability type": "Major Perk",
+        "shot type": "",
+        "official description": "Gain overhealth based on how far you pull enemies with Chain Hook, up to 300.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "2 seconds",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* Grants 50 overhealth immediately on hit, and up to 250 additional overhealth based on pull distance.\n* Overhealth decays after 2 seconds at a rate of 50 hp/s."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "2 seconds",
+          "value": 2,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Scrap Hook",
+      "slot": "",
+      "type": "Minor Perk",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Roadhog",
+        "ability name": "Scrap Hook",
+        "ability key": "",
+        "ability type": "Minor Perk",
+        "shot type": "",
+        "official description": "Chain Hook hits reload 2 ammo.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* If you successfully refill 2 ammo, changes your overall dps w/ reload from 154.76 to 164.56."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Shrapnel Launcher",
+      "slot": "",
+      "type": "Minor Perk",
+      "shot_type": [
+        "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] Projectile (pre-detonation) [[File:Ability-reaper1.png|40x40px|middle|class=inline-icon invert-image|link=Shotgun|Shotgun ]] Shotgun (projectile",
+        "post-detonation)"
+      ],
+      "raw": {
+        "hero name": "Roadhog",
+        "ability name": "Shrapnel Launcher",
+        "ability key": "",
+        "ability type": "Minor Perk",
+        "shot type": "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] <span class=\"tooltip\" title=\"Has travel time.\">Projectile</span> (pre-detonation)<br>[[File:Ability-reaper1.png|40x40px|middle|class=inline-icon invert-image|link=Shotgun|Shotgun ]] <span class=\"tooltip\" title=\"Shoots many pellets at once.\">Shotgun</span> (projectile, post-detonation)",
+        "official description": "Extend the range of Scrap Gun's secondary fire by 50% and tighten its burst spread by 25%.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "8 → 6 degrees",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": ""
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "8 → 6 degrees",
+          "value": 8,
+          "min_value": null,
+          "max_value": null,
+          "unit": "degrees",
+          "confidence": "low",
+          "warnings": [
+            "spread has multiple values; only the first number was parsed."
+          ]
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "spread: spread has multiple values; only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Chain Hook",
+      "slot": "ability 1",
+      "type": "Ability",
+      "shot_type": [
+        "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] Projectile [[File:Whip_Shot.png|40x40px|sub|class=inline-icon invert-image|link=Melee|Melee ]] Extended Melee"
+      ],
+      "raw": {
+        "hero name": "Roadhog",
+        "ability name": "Chain Hook",
+        "ability key": "ability 1",
+        "ability type": "Ability",
+        "shot type": "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] <span class=\"tooltip\" title=\"Has travel time.\">Projectile</span><br>[[File:Whip_Shot.png|40x40px|sub|class=inline-icon invert-image|link=Melee|Melee ]] <span class=\"tooltip\" title=\"Physical attack with travel time and limited range. Always blocked by barriers.\">Extended Melee</span>",
+        "official description": "Drag a targeted enemy to you.",
+        "damage": "25",
+        "damage falloff range": "",
+        "headshot": "no",
+        "headshot mod": "2",
+        "heal": "",
+        "cooldown": "7 seconds",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "<span class=\"tooltip\" title=\"0.128s startup + 0.16s/0.228s recovery, no hit/hero hit, travel time excluded\">0.1 + 0.2 seconds</span>",
+        "duration": "0.3 seconds (initial)<br>0.4 seconds (final)",
+        "pspeed": "62 m/s",
+        "pradius": "0.5 meters (vs enemy)<br>None (vs wall or barrier)",
+        "spread": "",
+        "radius": "",
+        "range distance": "20 meters",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "extended melee::evasive;;targets::break::displace",
+        "ability details": "* Cooldown starts when Chain Hook ends.\n* Hooked targets are released if they leave Roadhog’s line of sight before being pulled.\n* Chain Hook is a [[channeled]] ability; Roadhog cannot shoot or use other abilities while it is active, and it ends immediately if Roadhog becomes [[stunned]], [[knocked down]] or [[hacked]], including their subsidiary effects.\n* If an enemy hero is hit, there is a ~0.3 seconds delay before the pull activates. During this time, there must be an unobstructed line of sight from the head of Roadhog to the head of the enemy.\n** Once this timer ends and the hook starts pulling an enemy towards him, the LoS check is disabled and the target's end location is determined:\n** The final stun when the target stops moving is 0.4 seconds.\n*** The target is pulled at a 3 meter distance from Roadhog, unless it was already closer when hit.\n*** The end location is shifted horizontally in the direction Roadhog is facing at the end of the timer, up to 70 degree rotation from the location where Hook connected.\n* Roadhog can start shooting as soon as his chain is gone.\n** Once he is able to shoot, the target will lose their stun after 0.192 seconds.\n** The minimum stun time if the ability was not interrupted is 0.7 seconds.\n** The maximum stun time if Roadhog and his target are stationary is ~1.2 seconds.\n* Damage is inflicted the instant the hook lands. If this damage is enough to kill the target, the hook will return instantly to Roadhog without holding him in place as it usually does on a hit.\n* Chain Hook is blocked but not reflected by <span class=\"ability-tooltip\" data-ability=\"Deflect\"><span class=\"ability-link\">[[File:Ability-genji2.png|sub|link=Genji#Deflect|40x40px |class=inline-icon invert-image]]</span>&#32;[[Genji#Deflect|Deflect]]</span>.\n* A self-destructing D.Va mech can be hooked.\n* Enemies being carried by <span class=\"ability-tooltip\" data-ability=\"lifeline\"><span class=\"ability-link\">[[File:Ability Lifeline.png|sub|link=Jetpack Cat#Lifeline|40x40px |class=inline-icon invert-image]]</span>&#32;[[Jetpack Cat#Lifeline|Lifeline]]</span> can be hooked. The tether will break.\n* Targets can be pulled out of Chain Hook by <span class=\"ability-tooltip\" data-ability=\"Life Grip\"><span class=\"ability-link\">[[File:Life_Grip_Icon.png|sub|link=Lifeweaver#Life Grip|40x40px |class=inline-icon invert-image]]</span>&#32;[[Lifeweaver#Life Grip|Life Grip]]</span>.\n* Chain Hook immediately ends if Roadhog is pulled by <span class=\"ability-tooltip\" data-ability=\"Life Grip\"><span class=\"ability-link\">[[File:Life_Grip_Icon.png|sub|link=Lifeweaver#Life Grip|40x40px |class=inline-icon invert-image]]</span>&#32;[[Lifeweaver#Life Grip|Life Grip]]</span> any time while casting it."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "7 seconds",
+          "value": 7,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "0.3 seconds (initial)<br>0.4 seconds (final)",
+          "value": 0.3,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "low",
+          "warnings": [
+            "duration has multiple values; only the first number was parsed."
+          ]
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "25",
+          "value": 25,
+          "min_value": null,
+          "max_value": null,
+          "unit": "damage",
+          "confidence": "high",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "62 m/s",
+          "value": 62,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "0.5 meters (vs enemy)<br>None (vs wall or barrier)",
+          "value": 0.5,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "duration: duration has multiple values; only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Pig Pen",
+      "slot": "ability 2",
+      "type": "Ability",
+      "shot_type": [
+        "[[File:Abilities-sigma4.png|40x40px|sub|class=inline-icon invert-image|link=Arcing projectile|Arcing projectile ]] Arcing projectile [[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] Area of effect"
+      ],
+      "raw": {
+        "hero name": "Roadhog",
+        "ability name": "Pig Pen",
+        "ability key": "ability 2",
+        "ability type": "Ability",
+        "shot type": "[[File:Abilities-sigma4.png|40x40px|sub|class=inline-icon invert-image|link=Arcing projectile|Arcing projectile ]] <span class=\"tooltip\" title=\"Has travel time. Also is affected by gravity.\">Arcing projectile</span><br>[[File:Ability-parah3.png|40x40px|sub|class=inline-icon invert-image|link=Area of effect|Area of effect ]] <span class=\"tooltip\" title=\"Affects all enemies within an area. Usually requires unobstructed line of sight to the origin.\">Area of effect</span>",
+        "official description": "Launch a trap that slows and damages nearby enemies.",
+        "damage": "60 (initial)<br>45/s (periodic)<br>195 (total)",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "",
+        "cooldown": "12 seconds",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "<span class=\"tooltip\" title=\"0.144 s startup + 0.4 s recovery\">0.14 + 0.4 seconds</span>",
+        "duration": "0.8 seconds (arming delay)<br>3 seconds (slow)",
+        "pspeed": "27 m/s",
+        "pradius": "None",
+        "spread": "",
+        "radius": "2.5 meters (trigger)<br>4 meters (slow area)",
+        "range distance": "8.2 meters (straight forward)<br>13.5 meters (at 35° angle)",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "",
+        "ability details": "* ''Removed in Season 18.''\n* Cooldown starts when the ability is activated.\n* The trap is an [[object]].\n** The trap deploys upon landing on object or terrain with a walkable surface, and bounces off when colliding with other surfaces or a hero.\n** Only one trap can be active at a time. An upward arrow above the ability icon indicates that a trap is active.\n** The trap can be destroyed while dormant but not while it is in air or once it has been triggered.\n** The trap is visible to all players.\n** Turrets and <span class=\"ability-tooltip\" data-ability=\"B.O.B.\"><span class=\"ability-link\">[[File:Ability-ashe4.png|sub|link=Ashe#B.O.B.|40x40px |class=inline-icon invert-image]]</span>&#32;[[Ashe#B.O.B.|B.O.B.]]</span> do not target the trap.\n* The trap stays on ground until destroyed, a new trap is deployed or until an enemy hero (incl. <span class=\"ability-tooltip\" data-ability=\"B.O.B.\"><span class=\"ability-link\">[[File:Ability-ashe4.png|sub|link=Ashe#B.O.B.|40x40px |class=inline-icon invert-image]]</span>&#32;[[Ashe#B.O.B.|B.O.B.]]</span>) enters its radius triggering it.\n** There is a short delay after deploying before the trap can trigger.\n** The player receives a cue when an enemy triggers or destroys the trap.\n** Enemies that are [[phased out]], such as Reaper during <span class=\"ability-tooltip\" data-ability=\"Wraith Form\"><span class=\"ability-link\">[[File:Ability-reaper2.png|sub|link=Reaper#Wraith Form|40x40px |class=inline-icon invert-image]]</span>&#32;[[Reaper#Wraith Form|Wraith Form]]</span>, cannot trigger the trap.\n** Enemies that are [[invulnerable]], such as Zenyatta during <span class=\"ability-tooltip\" data-ability=\"Transcendence\"><span class=\"ability-link\">[[File:Ability-zenyatta4.png|sub|link=Zenyatta#Transcendence|40x40px |class=inline-icon invert-image]]</span>&#32;[[Zenyatta#Transcendence|Transcendence]]</span>, can trigger the trap.\n** [[Invisible]] enemies can trigger the trap.\n* Upon triggering all enemies within the radius take damage and receive a small [[knock up]]. The trap then slows all enemies within a larger area and deals periodic damage to enemies while they stay within the radius.\n** The slow stacks with other slows, such as <span class=\"ability-tooltip\" data-ability=\"Ravenous Vortex\"><span class=\"ability-link\">[[File:Ravenous_Vortex_Icon.png|sub|link=Ramattra#Ravenous Vortex|40x40px |class=inline-icon invert-image]]</span>&#32;[[Ramattra#Ravenous Vortex|Ravenous Vortex]]</span> and <span class=\"ability-tooltip\" data-ability=\"Endothermic Blaster\"><span class=\"ability-link\">[[File:Ability-mei1.png|middle|link=Mei#Endothermic Blaster|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mei#Endothermic Blaster|Endothermic Blaster]]</span>.\n* The trap can be lifted by <span class=\"ability-tooltip\" data-ability=\"Ice Wall\"><span class=\"ability-link\">[[File:Ability-mei3.png|sub|link=Mei#Ice Wall|40x40px |class=inline-icon invert-image]]</span>&#32;[[Mei#Ice Wall|Ice Wall]]</span> and <span class=\"ability-tooltip\" data-ability=\"Petal Platform\"><span class=\"ability-link\">[[File:Petal_Platform_Icon.png|sub|link=Lifeweaver#Petal Platform|40x40px |class=inline-icon invert-image]]</span>&#32;[[Lifeweaver#Petal Platform|Petal Platform]]</span> if the trap is placed on them afterwards, but they cannot lift a trap that is already on ground.\n** The AoE is also lifted with the trap if it was placed on the platform/wall.\n* Barriers block the projectile and prevent a trap on the ground from triggering through them, but the damage pierces barriers.\n* If the cast time for throwing the trap is interrupted, the trap will not be thrown and the ability will go on cooldown.\n* The trap cannot be targeted by <span class=\"ability-tooltip\" data-ability=\"Hack\"><span class=\"ability-link\">[[File:Ability Sombra Hack.png|sub|link=Sombra#Hack|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sombra#Hack|Hack]]</span>, and <span class=\"ability-tooltip\" data-ability=\"EMP\"><span class=\"ability-link\">[[File:Ability Sombra EMP.png|sub|link=Sombra#EMP|40x40px |class=inline-icon invert-image]]</span>&#32;[[Sombra#EMP|EMP]]</span> only damages the trap.\n* The trap is destroyed if [[payload]], [[TS-1|push robot]] or push barricade travels over it.\n* The trap is destroyed if <span class=\"ability-tooltip\" data-ability=\"Tree of Life\"><span class=\"ability-link\">[[File:Tree_of_Life_Icon.png|sub|link=Lifeweaver#Tree of Life|40x40px |class=inline-icon invert-image]]</span>&#32;[[Lifeweaver#Tree of Life|Tree of Life]]</span> is deployed or falls on top of it.\n* The projectile travels the furthest when thrown at a 35 degree angle."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "12 seconds",
+          "value": 12,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "0.8 seconds (arming delay)<br>3 seconds (slow)",
+          "value": 0.8,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "low",
+          "warnings": [
+            "duration has multiple values; only the first number was parsed."
+          ]
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "60 (initial)<br>45/s (periodic)<br>195 (total)",
+          "value": 60,
+          "min_value": null,
+          "max_value": null,
+          "unit": "damage",
+          "confidence": "low",
+          "warnings": [
+            "Damage has multiple components and only the first number was parsed."
+          ]
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "27 m/s",
+          "value": 27,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "None",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "duration: duration has multiple values; only the first number was parsed.",
+        "damage: Damage has multiple components and only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Take a Breather",
+      "slot": "ability 2",
+      "type": "Ability",
+      "shot_type": [],
+      "raw": {
+        "hero name": "Roadhog",
+        "ability name": "Take a Breather",
+        "ability key": "ability 2",
+        "ability type": "Ability",
+        "shot type": "",
+        "official description": "Heal yourself and reduce damage taken.",
+        "damage": "",
+        "damage falloff range": "",
+        "headshot": "",
+        "headshot mod": "",
+        "heal": "<span class=\"tooltip\" title=\"67.2 every 0.048 seconds\">150 per second</span>",
+        "cooldown": "1.25 seconds",
+        "charges": "",
+        "fire rate": "",
+        "ammo": "",
+        "reload time": "",
+        "cast time": "<span class=\"tooltip\" title=\"0.208 s startup + 0.540 s recovery\">0.21 + 0.54 seconds</span>",
+        "duration": "0.4 seconds (min)<br>3 seconds (max)<br>1.3 seconds (energy regen delay)",
+        "pspeed": "",
+        "pradius": "",
+        "spread": "",
+        "radius": "",
+        "range distance": "",
+        "dps": "",
+        "hps": "",
+        "ability keywords": "channeled::energy",
+        "ability details": "* The activation is toggled, pressing the ability key again, firing or using <span class=\"ability-tooltip\" data-ability=\"Chain Hook\"><span class=\"ability-link\">[[File:Ability-Roadhog3.png|sub|link=Roadhog#Chain Hook|40x40px |class=inline-icon invert-image]]</span>&#32;[[Roadhog#Chain Hook|Chain Hook]]</span> automatically stops channeling the ability.\n** There is an option to make the ability end immediately after releasing the Ability 2 button.\n* Restores 450 health at full duration.\n* Take a Breather has a resource meter which will deplete while Take a Breather is active and recharge when not in use.\n** Has a 1.3 second regen delay.\n** Excluding the delay, the meter takes 8 seconds to recharge from 0% to 100%.\n** Recharge time is unaffected by <span class=\"ability-tooltip\" data-ability=\"Kitsune Rush\"><span class=\"ability-link\">[[File:Kitsune_Rush_Icon.png|sub|link=Kiriko#Kitsune Rush|40x40px |class=inline-icon invert-image]]</span>&#32;[[Kiriko#Kitsune Rush|Kitsune Rush]]</span>, cooldown reduction or being affected by [[crowd control]].\n* Take a Breather is a [[channeled]] ability; Roadhog cannot fire or use other abilities while it is active, and it ends immediately if Roadhog becomes [[stunned]], [[knocked down]] or [[hacked]], including their subsidiary effects.\n* Damage reduction starts together with the heal after a short cast time.\n* Damage reduction works even while affected by an enemy [[anti-heal]] effect, such as <span class=\"ability-tooltip\" data-ability=\"Biotic Grenade\"><span class=\"ability-link\">[[File:Ability-ana3.png|sub|link=Ana#Biotic Grenade|40x40px |class=inline-icon invert-image]]</span>&#32;[[Ana#Biotic Grenade|Biotic Grenade]]</span> or <span class=\"ability-tooltip\" data-ability=\"Rampage\"><span class=\"ability-link\">[[File:Rampage_Icon.png|sub|link=Junker Queen#Rampage|40x40px |class=inline-icon invert-image]]</span>&#32;[[Junker Queen#Rampage|Rampage]]</span>."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "1.25 seconds",
+          "value": 1.25,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "0.4 seconds (min)<br>3 seconds (max)<br>1.3 seconds (energy regen delay)",
+          "value": 0.4,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "low",
+          "warnings": [
+            "duration has multiple values; only the first number was parsed."
+          ]
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "<span class=\"tooltip\" title=\"67.2 every 0.048 seconds\">150 per second</span>",
+          "value": 150,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "high",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "duration: duration has multiple values; only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Scrap Gun",
+      "slot": "primary fire",
+      "type": "Weapon;;Primary Fire",
+      "shot_type": [
+        "[[File:Ability-reaper1.png|40x40px|middle|class=inline-icon invert-image|link=Shotgun|Shotgun ]] Shotgun (projectile)"
+      ],
+      "raw": {
+        "hero name": "Roadhog",
+        "ability name": "Scrap Gun",
+        "ability key": "primary fire",
+        "ability type": "Weapon;;Primary Fire",
+        "shot type": "[[File:Ability-reaper1.png|40x40px|middle|class=inline-icon invert-image|link=Shotgun|Shotgun ]] <span class=\"tooltip\" title=\"Shoots many pellets at once.\">Shotgun</span> (projectile)",
+        "official description": "Short-range spread weapon.",
+        "damage": "7 – 2.1 (per pellet)<br>175 – 52.5 (per shot)",
+        "damage falloff range": "30 – 50 meters",
+        "headshot": "yes",
+        "headshot mod": "2",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "<span class=\"tooltip\" title=\"0.8 seconds recovery\">1.25 shots/s</span>",
+        "ammo": "6",
+        "reload time": "<span class=\"tooltip\" title=\"restores ammo after 1 second\">1.75 seconds animation</span>",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "80 m/s",
+        "pradius": "0.05 meters",
+        "spread": "8 degrees",
+        "radius": "",
+        "range distance": "",
+        "dps": "203.13 while firing (154.76 overall w/ reload)",
+        "hps": "",
+        "ability keywords": "critical::travel time",
+        "ability details": "* Damage per second: 218.75 while firing (160.31 overall w/ reload)\n* Fire recovery stops while using melee."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "<span class=\"tooltip\" title=\"restores ammo after 1 second\">1.75 seconds animation</span>",
+          "value": 1.75,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "6",
+          "value": 6,
+          "min_value": null,
+          "max_value": null,
+          "unit": "rounds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "7 – 2.1 (per pellet)<br>175 – 52.5 (per shot)",
+          "value": null,
+          "min_value": 2.1,
+          "max_value": 7,
+          "unit": "damage",
+          "confidence": "high",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "30 – 50 meters",
+          "value": null,
+          "min_value": 30,
+          "max_value": 50,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "<span class=\"tooltip\" title=\"0.8 seconds recovery\">1.25 shots/s</span>",
+          "value": 1.25,
+          "min_value": null,
+          "max_value": null,
+          "unit": "shots_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "80 m/s",
+          "value": 80,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "0.05 meters",
+          "value": 0.05,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "8 degrees",
+          "value": 8,
+          "min_value": null,
+          "max_value": null,
+          "unit": "degrees",
+          "confidence": "high",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "203.13 while firing (154.76 overall w/ reload)",
+          "value": 203.13,
+          "min_value": null,
+          "max_value": null,
+          "unit": "per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": []
+    },
+    {
+      "name": "Scrap Gun Alt Fire",
+      "slot": "secondary fire",
+      "type": "Weapon;;Secondary Fire",
+      "shot_type": [
+        "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] Projectile (pre-detonation) [[File:Ability-reaper1.png|40x40px|middle|class=inline-icon invert-image|link=Shotgun|Shotgun ]] Shotgun (projectile",
+        "post-detonation)"
+      ],
+      "raw": {
+        "hero name": "Roadhog",
+        "ability name": "Scrap Gun Alt Fire",
+        "ability key": "secondary fire",
+        "ability type": "Weapon;;Secondary Fire",
+        "shot type": "[[File:Ability-dva7.png|40x40px|sub|class=inline-icon invert-image|link=Projectile|Projectile ]] <span class=\"tooltip\" title=\"Has travel time.\">Projectile</span> (pre-detonation)<br>[[File:Ability-reaper1.png|40x40px|middle|class=inline-icon invert-image|link=Shotgun|Shotgun ]] <span class=\"tooltip\" title=\"Shoots many pellets at once.\">Shotgun</span> (projectile, post-detonation)",
+        "official description": "Medium-range projectile that explodes into the weapon's short-range primary fire.",
+        "damage": "50 (pre-detonation)<br>7 – 2.1 (post-detonation, per pellet)<br>175 – 52.5 (post-detonation, per shot)",
+        "damage falloff range": "None (pre-detonation)<br><span class=\"tooltip\" title=\"15 - 30 meters, from point of detonation\">24 - 39 meters</span> (post-detonation)",
+        "headshot": "yes",
+        "headshot mod": "2",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "<span class=\"tooltip\" title=\"0.8 seconds recovery\">1.25 shots/s</span>",
+        "ammo": "6",
+        "reload time": "<span class=\"tooltip\" title=\"restores ammo after 1 second\">1.75 seconds animation</span>",
+        "cast time": "",
+        "duration": "",
+        "pspeed": "60 m/s (pre-detonation)<br>80 m/s (post-detonation)",
+        "pradius": "0.05 meters (pre-detonation)<br>0.075 meters (post-detonation)",
+        "spread": "8 degrees",
+        "radius": "",
+        "range distance": "9 meters (pre-detonation)",
+        "dps": "203.13 while firing (154.76 overall w/ reload)",
+        "hps": "",
+        "ability keywords": "critical::travel time",
+        "ability details": "* Damage per second (pre-detonation): 62.5 while firing (47.62 overall w/reload)\n* Damage per second (post-detonation) 218.75 while firing (160.31 overall w/ reload)\n* Fire recovery stops while using melee.\n* Roadhog initially fires a single projectile which then explodes into 25 pellets after travelling for 0.15 seconds (9 meters)."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "<span class=\"tooltip\" title=\"restores ammo after 1 second\">1.75 seconds animation</span>",
+          "value": 1.75,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "6",
+          "value": 6,
+          "min_value": null,
+          "max_value": null,
+          "unit": "rounds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "50 (pre-detonation)<br>7 – 2.1 (post-detonation, per pellet)<br>175 – 52.5 (post-detonation, per shot)",
+          "value": null,
+          "min_value": 2.1,
+          "max_value": 7,
+          "unit": "damage",
+          "confidence": "high",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "None (pre-detonation)<br><span class=\"tooltip\" title=\"15 - 30 meters, from point of detonation\">24 - 39 meters</span> (post-detonation)",
+          "value": null,
+          "min_value": 24,
+          "max_value": 39,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "<span class=\"tooltip\" title=\"0.8 seconds recovery\">1.25 shots/s</span>",
+          "value": 1.25,
+          "min_value": null,
+          "max_value": null,
+          "unit": "shots_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "60 m/s (pre-detonation)<br>80 m/s (post-detonation)",
+          "value": 60,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "0.05 meters (pre-detonation)<br>0.075 meters (post-detonation)",
+          "value": 0.05,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters",
+          "confidence": "low",
+          "warnings": [
+            "projectile radius has multiple values; only the first number was parsed."
+          ]
+        },
+        "spread": {
+          "raw": "8 degrees",
+          "value": 8,
+          "min_value": null,
+          "max_value": null,
+          "unit": "degrees",
+          "confidence": "high",
+          "warnings": []
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "203.13 while firing (154.76 overall w/ reload)",
+          "value": 203.13,
+          "min_value": null,
+          "max_value": null,
+          "unit": "per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "pradius: projectile radius has multiple values; only the first number was parsed."
+      ]
+    },
+    {
+      "name": "Whole Hog",
+      "slot": "ultimate",
+      "type": "Ultimate Ability",
+      "shot_type": [
+        "[[File:Ability-reaper1.png|40x40px|middle|class=inline-icon invert-image|link=Shotgun|Shotgun ]] Shotgun (hitscan)"
+      ],
+      "raw": {
+        "hero name": "Roadhog",
+        "ability name": "Whole Hog",
+        "ability key": "ultimate",
+        "ability type": "Ultimate Ability",
+        "shot type": "[[File:Ability-reaper1.png|40x40px|middle|class=inline-icon invert-image|link=Shotgun|Shotgun ]] <span class=\"tooltip\" title=\"Shoots many pellets at once.\">Shotgun</span> (hitscan)",
+        "official description": "Damage and knock back enemies in front of you.",
+        "damage": "7 – 2.1",
+        "damage falloff range": "30 – 40 meters",
+        "headshot": "yes",
+        "headshot mod": "2",
+        "heal": "",
+        "cooldown": "",
+        "charges": "",
+        "fire rate": "<span class=\"tooltip\" title=\"1 shot per ~0.128s\">8 shots/s</span>",
+        "ammo": "∞",
+        "reload time": "",
+        "cast time": "<span class=\"tooltip\" title=\"0.496s startup + 1s recovery\">0.5 + 1 seconds</span>",
+        "duration": "7.5 seconds",
+        "pspeed": "",
+        "pradius": "0.04 meters",
+        "spread": "20 degrees (horizontal)<br>2 degrees (vertical)",
+        "radius": "",
+        "range distance": "",
+        "dps": "768 while firing",
+        "hps": "",
+        "ability keywords": "critical::hitscan::reloads::transformation",
+        "ability details": "* Damage per second: 48 per pellet, 768 total.\n** Fires a total of 960 pellets, dealing up to 5760 damage overall.\n* Whole Hog [[transformation|transforms]] Roadhog weapon:\n** Whole Hog does not end when hit by negative [[status effect]]s.\n** Roadhog can freely press primary fire to attack.\n** Roadhog can still use <span class=\"ability-tooltip\" data-ability=\"Chain Hook\"><span class=\"ability-link\">[[File:Ability-Roadhog3.png|sub|link=Roadhog#Chain Hook|40x40px |class=inline-icon invert-image]]</span>&#32;[[Roadhog#Chain Hook|Chain Hook]]</span> and <span class=\"ability-tooltip\" data-ability=\"Take A Breather\"><span class=\"ability-link\">[[File:Ability-Roadhog2.png|sub|link=Roadhog#Take a Breather|40x40px |class=inline-icon invert-image]]</span>&#32;[[Roadhog#Take a Breather|Take a Breather]]</span> during the ultimate.\n* While firing Whole Hog, Roadhog receives a 25% [[movement speed]] penalty and cannot crouch.\n* Whole Hog cannot be manually canceled.\n* Restores <span class=\"ability-tooltip\" data-ability=\"Scrap Gun\"><span class=\"ability-link\">[[File:Ability-Roadhog1.png|middle|link=Roadhog#Scrap Gun|40x40px |class=inline-icon invert-image]]</span>&#32;[[Roadhog#Scrap Gun|Scrap Gun]]</span> ammo when the ultimate ends.\n* While the ultimate is in use, Roadhog's bullets will have red tracer lines on enemy vision."
+      },
+      "parsed": {
+        "cooldown": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "duration": {
+          "raw": "7.5 seconds",
+          "value": 7.5,
+          "min_value": null,
+          "max_value": null,
+          "unit": "seconds",
+          "confidence": "high",
+          "warnings": []
+        },
+        "reload_time": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "ammo": {
+          "raw": "∞",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": [
+            "Could not parse ammo."
+          ]
+        },
+        "charges": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "damage": {
+          "raw": "7 – 2.1",
+          "value": null,
+          "min_value": 2.1,
+          "max_value": 7,
+          "unit": "damage",
+          "confidence": "high",
+          "warnings": []
+        },
+        "damage_falloff_range": {
+          "raw": "30 – 40 meters",
+          "value": null,
+          "min_value": 30,
+          "max_value": 40,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "fire_rate": {
+          "raw": "<span class=\"tooltip\" title=\"1 shot per ~0.128s\">8 shots/s</span>",
+          "value": 8,
+          "min_value": null,
+          "max_value": null,
+          "unit": "shots_per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "pspeed": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "pradius": {
+          "raw": "0.04 meters",
+          "value": 0.04,
+          "min_value": null,
+          "max_value": null,
+          "unit": "meters",
+          "confidence": "high",
+          "warnings": []
+        },
+        "spread": {
+          "raw": "20 degrees (horizontal)<br>2 degrees (vertical)",
+          "value": 20,
+          "min_value": null,
+          "max_value": null,
+          "unit": "degrees",
+          "confidence": "low",
+          "warnings": [
+            "spread has multiple values; only the first number was parsed."
+          ]
+        },
+        "heal": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": "healing",
+          "confidence": "unparsed",
+          "warnings": []
+        },
+        "dps": {
+          "raw": "768 while firing",
+          "value": 768,
+          "min_value": null,
+          "max_value": null,
+          "unit": "per_second",
+          "confidence": "high",
+          "warnings": []
+        },
+        "hps": {
+          "raw": "",
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "unit": null,
+          "confidence": "unparsed",
+          "warnings": []
+        }
+      },
+      "parse_warnings": [
+        "ammo: Could not parse ammo.",
+        "spread: spread has multiple values; only the first number was parsed."
+      ]
+    }
+  ],
+  "source": "https://overwatch.fandom.com/api.php",
+  "fetched_at": "2026-06-25T07:13:01.699855+00:00"
+}
