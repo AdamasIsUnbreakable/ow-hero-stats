@@ -66,10 +66,10 @@ def _single_number_with_unit(raw: object, unit: str, label: str) -> StatValue:
     if len(matches) > 1:
         return StatValue(
             raw=str(raw),
-            value=_number(matches[0]),
+            value=None,
             unit=unit,
             confidence="low",
-            warnings=[f"{label} has multiple values; only the first number was parsed."],
+            warnings=[f"{label} has multiple values; no single {unit} value was parsed."],
         )
     value = _first_number(text)
     if value is None:

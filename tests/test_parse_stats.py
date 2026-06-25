@@ -11,6 +11,7 @@ from overwatch_stats.parse_stats import (
     parse_fire_rate,
     parse_projectile_speed,
     parse_reload_time,
+    parse_spread,
 )
 
 
@@ -34,6 +35,13 @@ class ParseStatsTests(unittest.TestCase):
         self.assertEqual(stat.value, 4)
         self.assertEqual(stat.confidence, "medium")
         self.assertTrue(stat.warnings)
+
+    def test_duration_with_multiple_values_keeps_value_empty(self):
+        stat = parse_duration("1.5 seconds (start) 5 seconds (burn)")
+        self.assertIsNone(stat.value)
+        self.assertEqual(stat.unit, "seconds")
+        self.assertEqual(stat.confidence, "low")
+        self.assertIn("duration has multiple values; no single seconds value was parsed.", stat.warnings)
 
     def test_falloff_range(self):
         stat = parse_falloff_range("25 - 40 meters")
@@ -86,6 +94,13 @@ class ParseStatsTests(unittest.TestCase):
         self.assertEqual(stat.value, 120)
         self.assertEqual(stat.unit, "meters_per_second")
         self.assertEqual(stat.confidence, "high")
+
+    def test_spread_with_multiple_values_keeps_value_empty(self):
+        stat = parse_spread("1.2 degrees 3.4 degrees")
+        self.assertIsNone(stat.value)
+        self.assertEqual(stat.unit, "degrees")
+        self.assertEqual(stat.confidence, "low")
+        self.assertIn("spread has multiple values; no single degrees value was parsed.", stat.warnings)
 
 
 if __name__ == "__main__":
