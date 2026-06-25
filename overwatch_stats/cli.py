@@ -5,7 +5,7 @@ import difflib
 import json
 import sys
 
-from .audit import build_all_audit, render_all_audit, render_hero_audit
+from .audit import all_audit_summary, build_all_audit, hero_audit_summary, render_all_audit, render_hero_audit
 from .export_json import hero_to_json, write_all, write_hero
 from .fandom_client import FandomApiError, FandomClient
 from .normalize import normalize_selected, normalize_hero
@@ -31,6 +31,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     audit = subparsers.add_parser("audit", help="Print parser/source quality audit without exporting JSON.")
     audit.add_argument("target", help="Hero name or all.")
+    audit.add_argument("--json", action="store_true", help="Print a stable JSON audit summary instead of text.")
 
     subparsers.add_parser("all", help="Fetch and export all heroes.")
     return parser
@@ -54,7 +55,7 @@ def main(argv: list[str] | None = None) -> int:
         if args.command == "all":
             return _all(client, args.output_dir)
         if args.command == "audit":
-            return _audit(client, args.target)
+            return _audit(client, args.target, json_output=args.json)
     except FandomApiError as exc:
         print(f"Fandom API error: {exc}", file=sys.stderr)
         return 2
@@ -104,13 +105,16 @@ def _all(client: FandomClient, output_dir: str) -> int:
     return 0
 
 
-def _audit(client: FandomClient, target: str) -> int:
+def _audit(client: FandomClient, target: str, json_output: bool = False) -> int:
     if target.casefold() == "all":
         hero_names = client.get_hero_page_names()
         hero_rows = client.get_all_heroes()
         ability_rows = client.get_all_abilities()
         heroes, validation = build_all_audit(hero_names, hero_rows, ability_rows)
-        print(render_all_audit(hero_names, hero_rows, heroes, ability_rows, validation))
+        if json_output:
+            print(json.dumps(all_audit_summary(hero_names, hero_rows, heroes, ability_rows, validation), ensure_ascii=False, indent=2))
+        else:
+            print(render_all_audit(hero_names, hero_rows, heroes, ability_rows, validation))
         return 0
 
     hero_row = client.get_hero_metadata(target)
@@ -120,7 +124,10 @@ def _audit(client: FandomClient, target: str) -> int:
     hero_name = hero_row.get("Name", target)
     ability_rows = client.get_hero_abilities(hero_name)
     hero = normalize_hero(hero_row, ability_rows)
-    print(render_hero_audit(hero, len(ability_rows)))
+    if json_output:
+        print(json.dumps(hero_audit_summary(hero, len(ability_rows)), ensure_ascii=False, indent=2))
+    else:
+        print(render_hero_audit(hero, len(ability_rows)))
     return 0
 
 

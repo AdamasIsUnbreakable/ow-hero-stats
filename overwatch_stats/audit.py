@@ -47,23 +47,20 @@ def build_all_audit(
 
 
 def render_hero_audit(hero: HeroStats, ability_row_count: int) -> str:
-    confidence_counts = count_confidences([hero])
-    unparsed_raw = non_empty_unparsed_fields(hero.abilities)
-    grouped_warnings = warnings_by_ability(hero.abilities)
-    parsed_count = sum(confidence_counts.values())
+    summary = hero_audit_summary(hero, ability_row_count)
 
     lines = [
-        f"Hero audit: {hero.name}",
-        f"Role: {_value_or_dash(hero.role)} / {_value_or_dash(hero.sub_role)}",
-        f"Ability rows fetched: {ability_row_count}",
-        f"Parsed stat fields: {parsed_count}",
-        "Confidence counts: " + _format_confidences(confidence_counts),
+        f"Hero audit: {summary['hero_name']}",
+        f"Role: {_value_or_dash(summary['role'])} / {_value_or_dash(summary['sub_role'])}",
+        f"Ability rows fetched: {summary['ability_rows']}",
+        f"Parsed stat fields: {summary['parsed_stat_fields']}",
+        "Confidence counts: " + _format_confidences(Counter(summary["confidence_counts"])),
         "",
         "Non-empty raw fields left unparsed:",
     ]
-    lines.extend(_format_list(unparsed_raw, empty="  None"))
+    lines.extend(_format_list(summary["non_empty_unparsed_fields"], empty="  None"))
     lines.extend(["", "Parse warnings by ability:"])
-    lines.extend(_format_grouped_warnings(grouped_warnings))
+    lines.extend(_format_grouped_warnings(summary["warnings_by_ability"]))
     return "\n".join(lines)
 
 
@@ -74,6 +71,62 @@ def render_all_audit(
     ability_rows: list[dict[str, Any]],
     validation: SourceValidation,
 ) -> str:
+    summary = all_audit_summary(playable_hero_names, character_rows, heroes, ability_rows, validation)
+    source_validation = summary["source_validation"]
+
+    lines = [
+        "All-heroes audit",
+        f"Playable heroes: {summary['totals']['playable_heroes']}",
+        f"Characters rows: {summary['totals']['character_rows']}",
+        f"Abilities hero groups: {summary['totals']['ability_hero_groups']}",
+        f"Total ability rows: {summary['totals']['ability_rows']}",
+        f"Total parsed stat fields: {summary['totals']['parsed_stat_fields']}",
+        "Confidence counts: " + _format_confidences(Counter(summary["confidence_counts"])),
+        "",
+        f"Heroes missing metadata ({len(source_validation['heroes_missing_metadata'])}):",
+    ]
+    lines.extend(_format_list(source_validation["heroes_missing_metadata"], limit=50, empty="  None"))
+    lines.extend(["", f"Heroes missing abilities ({len(source_validation['heroes_missing_abilities'])}):"])
+    lines.extend(_format_list(source_validation["heroes_missing_abilities"], limit=50, empty="  None"))
+    lines.extend(["", f"Normalized heroes with zero abilities ({len(summary['heroes_with_zero_abilities'])}):"])
+    lines.extend(_format_list(summary["heroes_with_zero_abilities"], limit=50, empty="  None"))
+    lines.extend(["", f"Ability hero names not in playable hero list ({len(source_validation['extra_ability_hero_names'])}):"])
+    lines.extend(_format_list(source_validation["extra_ability_hero_names"], limit=50, empty="  None"))
+    lines.extend(["", f"Extra Characters rows not in playable hero list ({len(source_validation['extra_character_rows'])}):"])
+    lines.extend(_format_list(source_validation["extra_character_rows"], limit=50, empty="  None"))
+    lines.extend(["", "Most common parse warnings:"])
+    if summary["most_common_parse_warnings"]:
+        lines.extend(
+            f"  {entry['count']}x {entry['warning']}"
+            for entry in summary["most_common_parse_warnings"]
+        )
+    else:
+        lines.append("  None")
+    return "\n".join(lines)
+
+
+def hero_audit_summary(hero: HeroStats, ability_row_count: int) -> dict[str, Any]:
+    confidence_counts = count_confidences([hero])
+    return {
+        "scope": "hero",
+        "hero_name": hero.name,
+        "role": hero.role,
+        "sub_role": hero.sub_role,
+        "ability_rows": ability_row_count,
+        "parsed_stat_fields": sum(confidence_counts.values()),
+        "confidence_counts": _plain_confidence_counts(confidence_counts),
+        "non_empty_unparsed_fields": non_empty_unparsed_fields(hero.abilities),
+        "warnings_by_ability": warnings_by_ability(hero.abilities),
+    }
+
+
+def all_audit_summary(
+    playable_hero_names: list[str],
+    character_rows: list[dict[str, Any]],
+    heroes: list[HeroStats],
+    ability_rows: list[dict[str, Any]],
+    validation: SourceValidation,
+) -> dict[str, Any]:
     confidence_counts = count_confidences(heroes)
     warning_counts = Counter(
         warning
@@ -81,36 +134,29 @@ def render_all_audit(
         for ability in hero.abilities
         for warning in ability.parse_warnings
     )
-    parsed_count = sum(confidence_counts.values())
-    zero_ability_heroes = [hero.name for hero in heroes if not hero.abilities]
     ability_group_count = len(_name_map(_row_name(row, "hero_name") for row in ability_rows))
-
-    lines = [
-        "All-heroes audit",
-        f"Playable heroes: {len(playable_hero_names)}",
-        f"Characters rows: {len(character_rows)}",
-        f"Abilities hero groups: {ability_group_count}",
-        f"Total ability rows: {len(ability_rows)}",
-        f"Total parsed stat fields: {parsed_count}",
-        "Confidence counts: " + _format_confidences(confidence_counts),
-        "",
-        f"Heroes missing metadata ({len(validation.playable_missing_from_characters)}):",
-    ]
-    lines.extend(_format_list(validation.playable_missing_from_characters, limit=50, empty="  None"))
-    lines.extend(["", f"Heroes missing abilities ({len(validation.playable_missing_from_abilities)}):"])
-    lines.extend(_format_list(validation.playable_missing_from_abilities, limit=50, empty="  None"))
-    lines.extend(["", f"Normalized heroes with zero abilities ({len(zero_ability_heroes)}):"])
-    lines.extend(_format_list(zero_ability_heroes, limit=50, empty="  None"))
-    lines.extend(["", f"Ability hero names not in playable hero list ({len(validation.extra_ability_hero_names)}):"])
-    lines.extend(_format_list(validation.extra_ability_hero_names, limit=50, empty="  None"))
-    lines.extend(["", f"Extra Characters rows not in playable hero list ({len(validation.extra_character_rows)}):"])
-    lines.extend(_format_list(validation.extra_character_rows, limit=50, empty="  None"))
-    lines.extend(["", "Most common parse warnings:"])
-    if warning_counts:
-        lines.extend(f"  {count}x {warning}" for warning, count in warning_counts.most_common(10))
-    else:
-        lines.append("  None")
-    return "\n".join(lines)
+    return {
+        "scope": "all",
+        "totals": {
+            "playable_heroes": len(playable_hero_names),
+            "character_rows": len(character_rows),
+            "ability_hero_groups": ability_group_count,
+            "ability_rows": len(ability_rows),
+            "parsed_stat_fields": sum(confidence_counts.values()),
+        },
+        "confidence_counts": _plain_confidence_counts(confidence_counts),
+        "heroes_with_zero_abilities": [hero.name for hero in heroes if not hero.abilities],
+        "source_validation": {
+            "heroes_missing_metadata": validation.playable_missing_from_characters,
+            "heroes_missing_abilities": validation.playable_missing_from_abilities,
+            "extra_character_rows": validation.extra_character_rows,
+            "extra_ability_hero_names": validation.extra_ability_hero_names,
+        },
+        "most_common_parse_warnings": [
+            {"warning": warning, "count": count}
+            for warning, count in warning_counts.most_common(10)
+        ],
+    }
 
 
 def count_confidences(heroes: Iterable[HeroStats]) -> Counter[str]:
@@ -159,6 +205,10 @@ def _sorted_originals(keys: Iterable[str], originals: dict[str, str]) -> list[st
 
 def _format_confidences(counts: Counter[str]) -> str:
     return ", ".join(f"{confidence}={counts[confidence]}" for confidence in CONFIDENCE_ORDER)
+
+
+def _plain_confidence_counts(counts: Counter[str]) -> dict[str, int]:
+    return {confidence: counts[confidence] for confidence in CONFIDENCE_ORDER}
 
 
 def _format_list(values: list[str], limit: int | None = None, empty: str = "  None") -> list[str]:

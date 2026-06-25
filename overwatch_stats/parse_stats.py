@@ -25,7 +25,6 @@ def clean_text(value: object) -> str | None:
 
 
 def unparsed(raw: object, warning: str | None = None) -> StatValue:
-    text = clean_text(raw)
     warnings = [warning] if warning else []
     return StatValue(raw=None if raw is None else str(raw), confidence="unparsed", warnings=warnings)
 

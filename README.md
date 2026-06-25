@@ -49,10 +49,22 @@ Audit one hero without exporting JSON:
 .\.venv\Scripts\python.exe -m overwatch_stats.cli audit Ashe
 ```
 
+Print the same hero audit as stable JSON for automation or a future UI:
+
+```powershell
+.\.venv\Scripts\python.exe -m overwatch_stats.cli audit Ashe --json
+```
+
 Audit all heroes and compare Fandom source sets:
 
 ```powershell
 .\.venv\Scripts\python.exe -m overwatch_stats.cli audit all
+```
+
+Print the all-heroes audit as stable JSON:
+
+```powershell
+.\.venv\Scripts\python.exe -m overwatch_stats.cli audit all --json
 ```
 
 ## Output Model
@@ -101,8 +113,18 @@ Overwatch Fandom is community-maintained. Refresh cached data after patches or w
 
 ## Tests
 
-Normal tests do not require live network access. Representative Cargo payloads live under `tests\fixtures`.
+Normal tests do not require live network access. Representative Cargo payloads live under `tests\fixtures`, including `tests\fixtures\ashe_cargo_sample.json`, so parser and normalizer behavior can be checked against realistic Cargo-style strings without calling the Fandom API.
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest discover -s tests
+```
+
+## CI
+
+GitHub Actions runs on `push` and `pull_request`. The workflow installs Python 3.11, installs the package with development dependencies, runs the unit tests, and runs Ruff:
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -e .[dev]
+.\.venv\Scripts\python.exe -m unittest discover -s tests
+.\.venv\Scripts\python.exe -m ruff check .
 ```
