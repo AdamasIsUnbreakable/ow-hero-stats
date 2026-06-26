@@ -110,7 +110,10 @@ function bindEvents() {
   });
 
   elements.allHeroes.addEventListener("click", () => {
+    state.search = "";
+    elements.search.value = "";
     showHeroSelect("", { historyMode: "push" });
+    elements.search.focus();
   });
 
   window.addEventListener("popstate", () => {
@@ -397,7 +400,8 @@ function renderAbilitySection(title, abilities, variant = "") {
 }
 
 function renderPerkSection(perks) {
-  if (!perks.length) {
+  const livePerks = perks.filter((perk) => !isHistoricalPerk(perk));
+  if (!livePerks.length) {
     return `
       <section class="ow-ability-section">
         <div class="ow-section-title">Perks</div>
@@ -405,9 +409,9 @@ function renderPerkSection(perks) {
       </section>
     `;
   }
-  const minor = perks.filter((perk) => String(perk.type || "").toLowerCase().includes("minor"));
-  const major = perks.filter((perk) => String(perk.type || "").toLowerCase().includes("major"));
-  const other = perks.filter((perk) => !minor.includes(perk) && !major.includes(perk));
+  const minor = livePerks.filter((perk) => String(perk.type || "").toLowerCase().includes("minor"));
+  const major = livePerks.filter((perk) => String(perk.type || "").toLowerCase().includes("major"));
+  const other = livePerks.filter((perk) => !minor.includes(perk) && !major.includes(perk));
   return `
     <section class="ow-ability-section">
       <div class="ow-section-title">Perks</div>
@@ -436,6 +440,7 @@ function renderAbilityRow(ability) {
 
 function renderAbilityDetailPanel(ability) {
   const keywords = abilityKeywords(ability);
+  const description = abilityDescription(ability);
   const cooldown = hasDisplayableStat(ability.stats?.cooldown) ? stripHtml(formatStatValue(ability.stats.cooldown)) : "";
   const stats = Object.values(ability.stats || {}).filter(hasDisplayableStat);
   return `
@@ -447,6 +452,7 @@ function renderAbilityDetailPanel(ability) {
           <p>${[cooldown, ability.slot].filter(Boolean).map(escapeHtml).join(" | ")}</p>
         </div>
       </div>
+      ${description ? `<p class="ability-detail-description">${escapeHtml(description)}</p>` : ""}
       ${keywords.length ? `<div class="keyword-chips">${keywords.map((keyword) => `<span>${escapeHtml(keyword)}</span>`).join("")}</div>` : ""}
       <div class="ability-detail-stats">
         ${stats.length ? stats.map(renderDetailStat).join("") : '<p class="ow-muted">No parsed stat fields.</p>'}
@@ -475,12 +481,38 @@ function renderDetailStat(stat) {
 }
 
 function abilityDescription(ability) {
-  return ability.raw_display?.official_description || ability.raw?.official_description || ability.raw_display?.ability_details || "";
+  return firstTextField(ability, [
+    "official_description",
+    "official description",
+    "ability_details",
+    "ability details",
+    "description",
+    "summary",
+  ]);
 }
 
 function abilityKeywords(ability) {
-  const source = ability.raw_display?.ability_keywords || ability.raw?.ability_keywords || "";
+  const source = firstTextField(ability, ["ability_keywords", "ability keywords"]);
   return String(source).split(/[;,]/).map((item) => item.trim()).filter(Boolean).slice(0, 8);
+}
+
+function isHistoricalPerk(ability) {
+  if (!String(ability.type || "").toLowerCase().includes("perk")) {
+    return false;
+  }
+  const details = firstTextField(ability, ["ability_details", "ability details", "notes"]);
+  return /\bremoved\b|\bhistorical\b|\bformerly\b/i.test(stripHtml(details));
+}
+
+function firstTextField(ability, keys) {
+  for (const source of [ability.raw_display, ability.raw]) {
+    for (const key of keys) {
+      if (hasText(source?.[key])) {
+        return source[key];
+      }
+    }
+  }
+  return "";
 }
 
 function bindAbilityRows() {
