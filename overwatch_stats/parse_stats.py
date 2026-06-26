@@ -61,10 +61,33 @@ def _single_number_with_unit(raw: object, unit: str, label: str) -> StatValue:
     if blank:
         return blank
     text = clean_text(raw) or ""
-    if "/" in text or "+" in text or "," in text:
-        return unparsed(raw, f"{label} has multiple components and was left unparsed.")
+    lowered = text.lower()
+    if lowered.startswith("none"):
+        return StatValue(raw=str(raw), value="none", unit=unit, confidence="medium")
     matches = re.findall(r"-?\d+(?:\.\d+)?", text)
+    if ("/" in text or "+" in text or "," in text) and len(matches) > 1:
+        components = _numbered_components(text, unit)
+        if components:
+            return StatValue(
+                raw=str(raw),
+                value=None,
+                unit=unit,
+                confidence="medium",
+                warnings=[f"{label} parsed into components; no single {unit} value was assigned."],
+                components=components,
+            )
+        return unparsed(raw, f"{label} has multiple components and was left unparsed.")
     if len(matches) > 1:
+        components = _numbered_components(text, unit)
+        if components:
+            return StatValue(
+                raw=str(raw),
+                value=None,
+                unit=unit,
+                confidence="medium",
+                warnings=[f"{label} parsed into components; no single {unit} value was assigned."],
+                components=components,
+            )
         return StatValue(
             raw=str(raw),
             value=None,
@@ -85,6 +108,15 @@ def parse_cooldown(raw: object) -> StatValue:
 
 
 def parse_duration(raw: object) -> StatValue:
+    blank = _blank(raw)
+    if blank:
+        return blank
+    text = clean_text(raw) or ""
+    lowered = text.lower()
+    if "∞" in text or re.search(r"\binfinite|unlimited\b", text, re.IGNORECASE):
+        return StatValue(raw=str(raw), value="infinite", unit="duration", confidence="high")
+    if lowered.startswith("until "):
+        return StatValue(raw=str(raw), value=lowered.replace(" ", "_"), unit="duration", confidence="medium")
     return _single_number_with_unit(raw, "seconds", "duration")
 
 
@@ -97,7 +129,7 @@ def parse_ammo(raw: object) -> StatValue:
     if blank:
         return blank
     text = clean_text(raw) or ""
-    if re.search(r"infinite|unlimited", text, re.IGNORECASE):
+    if re.search(r"infinite|unlimited|∞", text, re.IGNORECASE):
         return StatValue(raw=str(raw), value="infinite", unit="rounds", confidence="high")
     value = _first_number(text)
     if value is None:
@@ -247,9 +279,53 @@ def parse_spread(raw: object) -> StatValue:
 
 
 def parse_healing(raw: object) -> StatValue:
+    blank = _blank(raw)
+    if blank:
+        return blank
+    text = clean_text(raw) or ""
+    if re.search(r"\b(full health|revives?|restores full health)\b", text, re.IGNORECASE):
+        return StatValue(raw=str(raw), value="full_health", unit="health", confidence="medium")
     value = parse_damage(raw)
     value.unit = "healing"
     return value
+
+
+def _numbered_components(text: str, unit: str) -> list[StatComponent]:
+    components: list[StatComponent] = []
+    matches = list(
+        re.finditer(
+            r"(?P<value>-?\d+(?:\.\d+)?)\s*(?P<unit>seconds?|sec(?:onds?)?|s\.?|degrees?|meters?|m)?(?:\s*\((?P<label>[^)]+)\))?(?:\s*(?P<tail>per\s+[^;,+]+))?",
+            text,
+            re.IGNORECASE,
+        ),
+    )
+    if len(matches) < 2:
+        return []
+
+    for index, match in enumerate(matches, start=1):
+        matched_unit = match.group("unit") or ""
+        if matched_unit and not _component_unit_matches(unit, matched_unit):
+            continue
+        label = match.group("label") or match.group("tail") or f"component {index}"
+        components.append(
+            StatComponent(
+                label=clean_text(label) or f"component {index}",
+                raw=match.group(0).strip(),
+                value=_number(match.group("value")),
+                unit=unit,
+            ),
+        )
+    return components if len(components) >= 2 else []
+
+
+def _component_unit_matches(unit: str, matched_unit: str) -> bool:
+    normalized = matched_unit.lower().rstrip(".")
+    aliases = {
+        "seconds": {"s", "sec", "second", "seconds"},
+        "degrees": {"degree", "degrees"},
+        "meters": {"m", "meter", "meters"},
+    }
+    return normalized in aliases.get(unit, {unit.rstrip("s"), unit})
 
 
 def parse_dps_hps(raw: object) -> StatValue:

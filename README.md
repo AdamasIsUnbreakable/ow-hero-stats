@@ -129,6 +129,7 @@ site\public\data\v1\
   manifest.json
   heroes.index.json
   audit-summary.json
+  quality-report.json
   heroes\
     ashe.json
     ana.json
@@ -146,6 +147,8 @@ Each `heroes\{slug}.json` detail file includes raw and parsed stats for that her
 Stat objects in hero detail files include both `field` and `label`. `field` is the stable machine-readable stat key, such as `pspeed`; `label` is the human-readable display label, such as `Projectile Speed`.
 
 `audit-summary.json` mirrors the `audit all --json` summary shape with totals, confidence counts, source validation, zero-ability heroes, and common parse warnings.
+
+`quality-report.json` summarizes website data coverage, warning counts, empty/not-applicable stat fields, meaningful unparsed fields, field-level warning counts, and component stat coverage.
 
 Generated site data should be regenerated after Overwatch patches or wiki updates:
 

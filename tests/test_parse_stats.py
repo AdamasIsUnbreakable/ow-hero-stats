@@ -10,6 +10,8 @@ from overwatch_stats.parse_stats import (
     parse_duration,
     parse_falloff_range,
     parse_fire_rate,
+    parse_healing,
+    parse_projectile_radius,
     parse_projectile_speed,
     parse_reload_time,
     parse_spread,
@@ -41,8 +43,24 @@ class ParseStatsTests(unittest.TestCase):
         stat = parse_duration("1.5 seconds (start) 5 seconds (burn)")
         self.assertIsNone(stat.value)
         self.assertEqual(stat.unit, "seconds")
-        self.assertEqual(stat.confidence, "low")
-        self.assertIn("duration has multiple values; no single seconds value was parsed.", stat.warnings)
+        self.assertEqual(stat.confidence, "medium")
+        self.assertIn("duration parsed into components; no single seconds value was assigned.", stat.warnings)
+        self.assertEqual(stat.components[0].label, "start")
+        self.assertEqual(stat.components[0].value, 1.5)
+        self.assertEqual(stat.components[1].label, "burn")
+        self.assertEqual(stat.components[1].value, 5)
+
+    def test_duration_until_cancelled_parses_textual_duration(self):
+        stat = parse_duration("Until cancelled")
+        self.assertEqual(stat.value, "until_cancelled")
+        self.assertEqual(stat.unit, "duration")
+        self.assertEqual(stat.confidence, "medium")
+
+    def test_duration_infinity_symbol(self):
+        stat = parse_duration("∞")
+        self.assertEqual(stat.value, "infinite")
+        self.assertEqual(stat.unit, "duration")
+        self.assertEqual(stat.confidence, "high")
 
     def test_falloff_range(self):
         stat = parse_falloff_range("25 - 40 meters")
@@ -110,6 +128,12 @@ class ParseStatsTests(unittest.TestCase):
         self.assertIsNone(stat.value)
         self.assertEqual(stat.confidence, "unparsed")
 
+    def test_infinite_ammo_symbol(self):
+        stat = parse_ammo("∞ (Blaster)")
+        self.assertEqual(stat.value, "infinite")
+        self.assertEqual(stat.unit, "rounds")
+        self.assertEqual(stat.confidence, "high")
+
     def test_weird_string_remains_unparsed(self):
         stat = parse_fire_rate("depends on charge level")
         self.assertEqual(stat.confidence, "unparsed")
@@ -125,8 +149,27 @@ class ParseStatsTests(unittest.TestCase):
         stat = parse_spread("1.2 degrees 3.4 degrees")
         self.assertIsNone(stat.value)
         self.assertEqual(stat.unit, "degrees")
-        self.assertEqual(stat.confidence, "low")
-        self.assertIn("spread has multiple values; no single degrees value was parsed.", stat.warnings)
+        self.assertEqual(stat.confidence, "medium")
+        self.assertIn("spread parsed into components; no single degrees value was assigned.", stat.warnings)
+        self.assertEqual(len(stat.components), 2)
+
+    def test_spread_with_single_value_and_comma_note(self):
+        stat = parse_spread("1.5 degrees (max, horizontal only)")
+        self.assertEqual(stat.value, 1.5)
+        self.assertEqual(stat.unit, "degrees")
+        self.assertEqual(stat.confidence, "high")
+
+    def test_projectile_radius_none_with_note(self):
+        stat = parse_projectile_radius("None (vs wall or barrier)")
+        self.assertEqual(stat.value, "none")
+        self.assertEqual(stat.unit, "meters")
+        self.assertEqual(stat.confidence, "medium")
+
+    def test_full_health_healing(self):
+        stat = parse_healing("Revives ally at full health")
+        self.assertEqual(stat.value, "full_health")
+        self.assertEqual(stat.unit, "health")
+        self.assertEqual(stat.confidence, "medium")
 
 
 if __name__ == "__main__":

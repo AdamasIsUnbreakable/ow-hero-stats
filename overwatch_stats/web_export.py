@@ -13,6 +13,7 @@ from .audit import warnings_by_ability
 from .export_json import hero_slug
 from .fandom_client import API_ENDPOINT
 from .models import AbilityStats, HeroStats, StatValue
+from .parse_stats import EMPTY_VALUES, clean_text
 
 
 SCHEMA_VERSION = "1.2.0"
@@ -166,25 +167,44 @@ def build_audit_summary(
 
 def build_quality_report(heroes: list[HeroStats], generated_at: str | None = None) -> dict[str, Any]:
     hero_entries = [build_quality_hero_entry(hero) for hero in heroes]
-    warning_counter: Counter[str] = Counter()
+    warning_counter: Counter[tuple[str, str, str | None]] = Counter()
     warnings_by_hero: dict[str, int] = {}
+    warnings_by_field: Counter[str] = Counter()
+    empty_by_field: Counter[str] = Counter()
+    unparsed_nonempty_by_field: Counter[str] = Counter()
+    component_stats_by_field: Counter[str] = Counter()
     zero_ability_heroes: list[str] = []
     many_warning_heroes: list[str] = []
     many_unparsed_heroes: list[str] = []
     component_heroes: list[str] = []
 
     for hero, entry in zip(heroes, hero_entries, strict=True):
-        warning_counter.update(
-            warning
+        warning_counter.update(_quality_warning_keys(hero))
+        warnings_by_field.update(_stat_warning_fields(hero))
+        empty_by_field.update(
+            field
             for ability in hero.abilities
-            for warning in ability.parse_warnings
+            for field, stat in ability.parsed.items()
+            if stat.confidence == "unparsed" and is_empty_stat_raw(stat.raw)
+        )
+        unparsed_nonempty_by_field.update(
+            field
+            for ability in hero.abilities
+            for field, stat in ability.parsed.items()
+            if stat.confidence == "unparsed" and not is_empty_stat_raw(stat.raw)
+        )
+        component_stats_by_field.update(
+            field
+            for ability in hero.abilities
+            for field, stat in ability.parsed.items()
+            if stat.components
         )
         warnings_by_hero[hero.name] = entry["warning_count"]
         if entry["ability_count"] == 0:
             zero_ability_heroes.append(hero.name)
         if entry["warning_count"] >= 10:
             many_warning_heroes.append(hero.name)
-        if entry["parsed_stat_count"] and entry["confidence_counts"]["unparsed"] / entry["parsed_stat_count"] >= 0.75:
+        if entry["unparsed_nonempty_stat_count"] >= 10:
             many_unparsed_heroes.append(hero.name)
         if entry["component_stat_count"]:
             component_heroes.append(hero.name)
@@ -202,10 +222,22 @@ def build_quality_report(heroes: list[HeroStats], generated_at: str | None = Non
         "heroes": hero_entries,
         "warnings": {
             "most_common": [
-                {"warning": warning, "count": count}
-                for warning, count in warning_counter.most_common(20)
+                {
+                    "warning": warning,
+                    "count": count,
+                    "level": level,
+                    "field": field,
+                }
+                for (level, field, warning), count in warning_counter.most_common(20)
             ],
             "by_hero": warnings_by_hero,
+        },
+        "fields": {
+            "warnings_by_field": dict(sorted(warnings_by_field.items())),
+            "empty_by_field": dict(sorted(empty_by_field.items())),
+            "unparsed_nonempty_by_field": dict(sorted(unparsed_nonempty_by_field.items())),
+            "unparsed_by_field": dict(sorted(unparsed_nonempty_by_field.items())),
+            "component_stats_by_field": dict(sorted(component_stats_by_field.items())),
         },
         "coverage_flags": {
             "heroes_with_zero_abilities": zero_ability_heroes,
@@ -219,13 +251,35 @@ def build_quality_report(heroes: list[HeroStats], generated_at: str | None = Non
 def build_quality_hero_entry(hero: HeroStats) -> dict[str, Any]:
     confidence_counts = count_confidences([hero])
     parsed_stat_count = sum(len(ability.parsed) for ability in hero.abilities)
+    empty_stat_count = sum(
+        1
+        for ability in hero.abilities
+        for stat in ability.parsed.values()
+        if stat.confidence == "unparsed" and is_empty_stat_raw(stat.raw)
+    )
+    unparsed_nonempty_stat_count = sum(
+        1
+        for ability in hero.abilities
+        for stat in ability.parsed.values()
+        if stat.confidence == "unparsed" and not is_empty_stat_raw(stat.raw)
+    )
+    ability_warning_count = sum(len(ability.parse_warnings) for ability in hero.abilities)
+    stat_warning_count = sum(
+        len(stat.warnings)
+        for ability in hero.abilities
+        for stat in ability.parsed.values()
+    )
     return {
         "name": hero.name,
         "slug": hero_slug(hero.name),
         "role": hero.role,
         "ability_count": len(hero.abilities),
         "parsed_stat_count": parsed_stat_count,
-        "warning_count": sum(len(ability.parse_warnings) for ability in hero.abilities),
+        "empty_stat_count": empty_stat_count,
+        "unparsed_nonempty_stat_count": unparsed_nonempty_stat_count,
+        "ability_warning_count": ability_warning_count,
+        "stat_warning_count": stat_warning_count,
+        "warning_count": ability_warning_count + stat_warning_count,
         "component_stat_count": sum(
             1
             for ability in hero.abilities
@@ -234,6 +288,29 @@ def build_quality_hero_entry(hero: HeroStats) -> dict[str, Any]:
         ),
         "confidence_counts": {key: confidence_counts[key] for key in ("high", "medium", "low", "unparsed")},
     }
+
+
+def _quality_warning_keys(hero: HeroStats) -> list[tuple[str, str | None, str]]:
+    keys: list[tuple[str, str | None, str]] = []
+    for ability in hero.abilities:
+        keys.extend(("ability", None, warning) for warning in ability.parse_warnings)
+        for field, stat in ability.parsed.items():
+            keys.extend(("stat", field, f"{field}: {warning}") for warning in stat.warnings)
+    return keys
+
+
+def _stat_warning_fields(hero: HeroStats) -> list[str]:
+    return [
+        field
+        for ability in hero.abilities
+        for field, stat in ability.parsed.items()
+        for _warning in stat.warnings
+    ]
+
+
+def is_empty_stat_raw(raw: object) -> bool:
+    text = clean_text(raw)
+    return text is None or text.lower() in EMPTY_VALUES
 
 
 def write_web_data(

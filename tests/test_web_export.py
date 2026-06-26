@@ -126,11 +126,29 @@ class WebExportTests(unittest.TestCase):
         self.assertEqual(report["summary"]["hero_count"], 1)
         self.assertEqual(report["summary"]["ability_count"], 2)
         self.assertGreater(report["summary"]["warning_count"], 0)
-        self.assertEqual(report["summary"]["component_stat_count"], 1)
+        self.assertEqual(report["summary"]["component_stat_count"], 2)
         self.assertEqual(report["heroes"][0]["name"], "Ashe")
-        self.assertEqual(report["heroes"][0]["component_stat_count"], 1)
+        self.assertIn("ability_warning_count", report["heroes"][0])
+        self.assertIn("stat_warning_count", report["heroes"][0])
+        self.assertIn("empty_stat_count", report["heroes"][0])
+        self.assertIn("unparsed_nonempty_stat_count", report["heroes"][0])
+        self.assertGreater(report["heroes"][0]["empty_stat_count"], 0)
+        self.assertEqual(report["heroes"][0]["unparsed_nonempty_stat_count"], 0)
+        self.assertEqual(
+            report["heroes"][0]["warning_count"],
+            report["heroes"][0]["ability_warning_count"] + report["heroes"][0]["stat_warning_count"],
+        )
+        self.assertEqual(report["heroes"][0]["component_stat_count"], 2)
         self.assertIn("Ashe", report["coverage_flags"]["heroes_with_component_stats"])
-        self.assertTrue(report["warnings"]["most_common"])
+        most_common_warnings = report["warnings"]["most_common"]
+        self.assertTrue(most_common_warnings)
+        self.assertTrue(any(warning["level"] == "stat" for warning in most_common_warnings))
+        self.assertTrue(any(warning["field"] == "damage" for warning in most_common_warnings))
+        self.assertIn("damage", report["fields"]["warnings_by_field"])
+        self.assertIn("dps", report["fields"]["empty_by_field"])
+        self.assertNotIn("reload_time", report["fields"]["unparsed_nonempty_by_field"])
+        self.assertEqual(report["fields"]["unparsed_by_field"], report["fields"]["unparsed_nonempty_by_field"])
+        self.assertIn("damage", report["fields"]["component_stats_by_field"])
 
     def test_write_web_data_outputs_valid_json_files(self):
         heroes, validation = build_all_audit(["Ashe"], [self.fixture["hero"]], self.fixture["abilities"])
@@ -151,7 +169,17 @@ class WebExportTests(unittest.TestCase):
         self.assertEqual(audit["scope"], "all")
         self.assertEqual(quality["schema_version"], SCHEMA_VERSION)
         self.assertEqual(quality["summary"]["hero_count"], 1)
-        self.assertEqual(quality["summary"]["component_stat_count"], 1)
+        self.assertEqual(quality["summary"]["component_stat_count"], 2)
+        self.assertEqual(
+            quality["heroes"][0]["warning_count"],
+            quality["heroes"][0]["ability_warning_count"] + quality["heroes"][0]["stat_warning_count"],
+        )
+        self.assertGreater(quality["heroes"][0]["empty_stat_count"], 0)
+        self.assertEqual(quality["heroes"][0]["unparsed_nonempty_stat_count"], 0)
+        self.assertIn("damage", quality["fields"]["warnings_by_field"])
+        self.assertIn("dps", quality["fields"]["empty_by_field"])
+        self.assertNotIn("reload_time", quality["fields"]["unparsed_nonempty_by_field"])
+        self.assertIn("damage", quality["fields"]["component_stats_by_field"])
         self.assertIn("Ashe", quality["coverage_flags"]["heroes_with_component_stats"])
         self.assertEqual(detail["name"], "Ashe")
         self.assertEqual(detail["abilities"][1]["stats"]["damage"]["value"], None)

@@ -38,9 +38,8 @@ class RealDataFixtureTests(unittest.TestCase):
     def test_fixture_audit_reports_unparsed_and_warning_sections(self):
         report = render_hero_audit(self.hero, len(self.fixture["abilities"]))
         self.assertIn("Hero audit: Ashe", report)
-        self.assertIn("Non-empty raw fields left unparsed", report)
         self.assertIn("Parse warnings by ability", report)
-        self.assertTrue(non_empty_unparsed_fields(self.hero.abilities))
+        self.assertEqual(non_empty_unparsed_fields(self.hero.abilities), [])
 
 
 if __name__ == "__main__":
