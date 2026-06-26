@@ -257,13 +257,47 @@ def match_ability_icon_titles(
     generic_by_key = _titles_by_icon_key(generic_titles)
 
     for hero_key, abilities in abilities_by_hero.items():
-        titles_by_key = _titles_by_icon_key(titles_by_hero.get(hero_key, []))
+        hero_titles = titles_by_hero.get(hero_key, [])
+        titles_by_key = _titles_by_icon_key(hero_titles)
+        matched_ability_ids: set[int] = set()
+        used_titles: set[str] = set()
         for ability in abilities:
             key = ability_match_key(ability["ability_name"])
             title = titles_by_key.get(key) or generic_by_key.get(key)
             if not title:
                 continue
             matches.append({**ability, "file_title": title})
+            matched_ability_ids.add(id(ability))
+            used_titles.add(title)
+
+        secondary_title = _secondary_fire_icon_title(hero_key, hero_titles, used_titles)
+        if secondary_title:
+            secondary_ability = next(
+                (
+                    ability
+                    for ability in abilities
+                    if id(ability) not in matched_ability_ids
+                    and _ability_slot_priority(ability) == 1
+                ),
+                None,
+            )
+            if secondary_ability:
+                matches.append({**secondary_ability, "file_title": secondary_title})
+                matched_ability_ids.add(id(secondary_ability))
+                used_titles.add(secondary_title)
+
+        numbered_titles = _numbered_ability_icon_titles(hero_key, hero_titles, used_titles)
+        if numbered_titles:
+            unmatched = [
+                ability
+                for ability in abilities
+                if id(ability) not in matched_ability_ids and not _is_perk_ability(ability)
+            ]
+            unmatched.sort(key=_ability_slot_priority)
+            for ability, title in zip(unmatched, numbered_titles, strict=False):
+                matches.append({**ability, "file_title": title})
+                matched_ability_ids.add(id(ability))
+                used_titles.add(title)
     return matches
 
 
@@ -377,11 +411,60 @@ def _load_needed_abilities(heroes_data_dir: Path) -> dict[str, list[dict[str, st
                 "hero_slug": hero_slug_value,
                 "hero_name": payload["name"],
                 "ability_name": ability["name"],
+                "slot": ability.get("slot") or "",
+                "type": ability.get("type") or "",
             }
             for ability in payload.get("abilities", [])
             if ability.get("name")
         ]
     return abilities_by_hero
+
+
+def _numbered_ability_icon_titles(hero_key: str, titles: list[str], used_titles: set[str]) -> list[str]:
+    numbered: list[tuple[int, str]] = []
+    pattern = re.compile(rf"^File:Ability[-_. ]*{re.escape(hero_key)}(?P<number>\d+)\.", re.IGNORECASE)
+    for title in titles:
+        if title in used_titles:
+            continue
+        match = pattern.match(title)
+        if match:
+            numbered.append((int(match.group("number")), title))
+    return [title for _, title in sorted(numbered)]
+
+
+def _secondary_fire_icon_title(hero_key: str, titles: list[str], used_titles: set[str]) -> str | None:
+    hero_key_compact = ability_match_key(hero_key)
+    for title in titles:
+        if title in used_titles:
+            continue
+        key = ability_icon_key_from_file_title(title) or ""
+        if key.startswith("zoom") and hero_key_compact in key and key.endswith("secondary"):
+            return title
+    return None
+
+
+def _is_perk_ability(ability: dict[str, str]) -> bool:
+    return "perk" in ability.get("type", "").casefold()
+
+
+def _ability_slot_priority(ability: dict[str, str]) -> int:
+    slot = ability.get("slot", "").casefold()
+    ability_type = ability.get("type", "").casefold()
+    if "primary fire" in slot:
+        return 0
+    if "secondary fire" in slot:
+        return 1
+    if "ability 1" in slot:
+        return 2
+    if "ability 2" in slot:
+        return 3
+    if "ability 3" in slot:
+        return 4
+    if "ultimate" in slot or "ultimate" in ability_type:
+        return 5
+    if "passive" in slot or "passive" in ability_type:
+        return 6
+    return 7
 
 
 def _titles_by_icon_key(titles: list[str]) -> dict[str, str]:

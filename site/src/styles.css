@@ -722,7 +722,7 @@ dd {
 .hero-info-page {
   position: relative;
   min-height: calc(100vh - 91px);
-  overflow: hidden;
+  overflow: visible;
   background:
     linear-gradient(90deg, rgba(12, 17, 24, 0.96), rgba(12, 17, 24, 0.74) 44%, rgba(12, 17, 24, 0.94)),
     #10151d;
@@ -866,12 +866,15 @@ dd {
 }
 
 .ow-ability-list {
+  position: relative;
   display: grid;
   gap: 12px;
+  overflow: visible;
 }
 
 .ow-ability-row {
   position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 64px minmax(0, 1fr);
   gap: 14px;
@@ -887,6 +890,7 @@ dd {
 .ow-ability-row:focus,
 .ow-ability-row:focus-within,
 .ow-ability-row.expanded {
+  z-index: 80;
   border-color: rgba(53, 227, 230, 0.82);
   background: rgba(20, 40, 52, 0.82);
   box-shadow: 0 0 0 2px rgba(53, 227, 230, 0.2), 0 18px 44px rgba(0, 0, 0, 0.34);
@@ -896,12 +900,14 @@ dd {
 .ability-detail-icon {
   display: grid;
   place-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  border: 1px solid rgba(71, 235, 239, 0.28);
   border-radius: var(--radius);
-  background: rgba(255, 255, 255, 0.88);
-  color: #0d141d;
+  background: rgba(13, 20, 29, 0.82);
+  color: #dff8ff;
   font-weight: 900;
-  object-fit: cover;
+  object-fit: contain;
+  padding: 6px;
 }
 
 .ow-ability-icon {
@@ -947,12 +953,12 @@ dd {
 
 .ability-detail-panel {
   position: absolute;
-  top: calc(100% + 8px);
-  left: 76px;
-  z-index: 20;
+  top: var(--panel-top, 96px);
+  left: var(--panel-left, 96px);
+  z-index: 100;
   display: none;
-  width: min(520px, calc(100vw - 120px));
-  max-height: min(70vh, 720px);
+  width: var(--panel-width, min(520px, calc(100vw - 32px)));
+  max-height: calc(100vh - 32px);
   overflow: auto;
   padding: 14px;
   border-radius: var(--radius);

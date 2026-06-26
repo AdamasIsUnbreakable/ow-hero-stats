@@ -76,6 +76,47 @@ class ImageTests(unittest.TestCase):
 
         self.assertEqual([match["ability_name"] for match in matches], ["Remote Detonator", "Viper's Sting"])
 
+    def test_match_numbered_hero_ability_icons_by_slot_order(self) -> None:
+        matches = match_ability_icon_titles(
+            {
+                "ana": [
+                    {"hero_slug": "ana", "hero_name": "Ana", "ability_name": "Sleep Dart", "slot": "ability 1"},
+                    {"hero_slug": "ana", "hero_name": "Ana", "ability_name": "Biotic Grenade", "slot": "ability 2"},
+                    {
+                        "hero_slug": "ana",
+                        "hero_name": "Ana",
+                        "ability_name": "Biotic Rifle",
+                        "slot": "primary fire",
+                    },
+                    {"hero_slug": "ana", "hero_name": "Ana", "ability_name": "Zoom (ADS)", "slot": "secondary fire"},
+                    {"hero_slug": "ana", "hero_name": "Ana", "ability_name": "Nano Boost", "slot": "ultimate"},
+                    {"hero_slug": "ana", "hero_name": "Ana", "ability_name": "Groggy", "type": "Minor Perk"},
+                ]
+            },
+            {
+                "ana": [
+                    "File:Ability-ana1.png",
+                    "File:Ability-ana2.png",
+                    "File:Ability-ana3.png",
+                    "File:Ability-ana4.png",
+                    "File:Zoom Ana Secondary.png",
+                    "File:Perk Groggy.png",
+                ]
+            },
+        )
+
+        self.assertEqual(
+            [(match["ability_name"], match["file_title"]) for match in matches],
+            [
+                ("Groggy", "File:Perk Groggy.png"),
+                ("Zoom (ADS)", "File:Zoom Ana Secondary.png"),
+                ("Biotic Rifle", "File:Ability-ana1.png"),
+                ("Sleep Dart", "File:Ability-ana2.png"),
+                ("Biotic Grenade", "File:Ability-ana3.png"),
+                ("Nano Boost", "File:Ability-ana4.png"),
+            ],
+        )
+
     def test_ability_manifest_entry_uses_public_asset_path(self) -> None:
         entry = build_ability_manifest_entry(
             "File:Remote Detonator.png",

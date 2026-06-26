@@ -436,8 +436,8 @@ function renderAbilityRow(ability) {
 
 function renderAbilityDetailPanel(ability) {
   const keywords = abilityKeywords(ability);
-  const cooldown = ability.stats?.cooldown ? stripHtml(formatStatValue(ability.stats.cooldown)) : "";
-  const stats = Object.values(ability.stats || {}).filter((stat) => stat.raw !== null || stat.value !== null || stat.min_value !== null || stat.components?.length);
+  const cooldown = hasDisplayableStat(ability.stats?.cooldown) ? stripHtml(formatStatValue(ability.stats.cooldown)) : "";
+  const stats = Object.values(ability.stats || {}).filter(hasDisplayableStat);
   return `
     <aside class="ability-detail-panel">
       <div class="ability-detail-header">
@@ -485,19 +485,98 @@ function abilityKeywords(ability) {
 
 function bindAbilityRows() {
   elements.heroDetail.querySelectorAll("[data-ability-row]").forEach((row) => {
+    row.addEventListener("pointerenter", () => positionAbilityPanel(row));
+    row.addEventListener("focusin", () => positionAbilityPanel(row));
     row.addEventListener("click", () => {
       row.classList.toggle("expanded");
+      if (row.classList.contains("expanded")) {
+        positionAbilityPanel(row);
+      }
     });
     row.addEventListener("keydown", (event) => {
       if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
         row.classList.toggle("expanded");
+        if (row.classList.contains("expanded")) {
+          positionAbilityPanel(row);
+        }
       }
       if (event.key === "Escape") {
         row.classList.remove("expanded");
       }
     });
   });
+}
+
+function positionAbilityPanel(row) {
+  if (window.matchMedia("(max-width: 900px)").matches) {
+    return;
+  }
+
+  const panel = row.querySelector(".ability-detail-panel");
+  if (!panel) {
+    return;
+  }
+
+  const previousDisplay = panel.style.display;
+  const previousVisibility = panel.style.visibility;
+
+  panel.style.visibility = "hidden";
+  panel.style.display = "grid";
+  panel.style.setProperty("--panel-left", "0px");
+  panel.style.setProperty("--panel-top", "0px");
+  panel.style.setProperty("--panel-width", "min(520px, calc(100vw - 32px))");
+
+  const gap = 12;
+  const margin = 16;
+  const topMargin = Math.max(document.querySelector(".site-header")?.getBoundingClientRect().bottom || 0, 0) + 12;
+  const rowRect = row.getBoundingClientRect();
+  const panelRect = panel.getBoundingClientRect();
+  const panelWidth = Math.min(520, Math.max(280, Math.min(panelRect.width || 520, window.innerWidth - margin * 2)));
+  const maxPanelHeight = Math.max(280, window.innerHeight - topMargin - margin);
+  const contentHeight = Math.max(panel.scrollHeight || 0, panelRect.height || 0);
+  const isLongPanel = contentHeight > maxPanelHeight || panel.querySelectorAll(".detail-stat").length > 6;
+  const panelHeight = isLongPanel ? maxPanelHeight : Math.min(contentHeight || 420, maxPanelHeight);
+
+  let viewportLeft;
+  if (rowRect.right + gap + panelWidth <= window.innerWidth - margin) {
+    viewportLeft = rowRect.right + gap;
+  } else if (rowRect.left - gap - panelWidth >= margin) {
+    viewportLeft = rowRect.left - gap - panelWidth;
+  } else {
+    viewportLeft = clamp(rowRect.left, margin, window.innerWidth - panelWidth - margin);
+  }
+
+  const viewportTop = clamp(rowRect.top, topMargin, window.innerHeight - panelHeight - margin);
+  const relativeLeft = viewportLeft - rowRect.left;
+  const relativeTop = viewportTop - rowRect.top;
+
+  panel.style.setProperty("--panel-left", `${Math.round(relativeLeft)}px`);
+  panel.style.setProperty("--panel-top", `${Math.round(relativeTop)}px`);
+  panel.style.setProperty("--panel-width", `${Math.round(panelWidth)}px`);
+  panel.style.display = previousDisplay;
+  panel.style.visibility = previousVisibility;
+}
+
+function hasDisplayableStat(stat) {
+  if (!stat) {
+    return false;
+  }
+  return Boolean(
+    hasText(displayRaw(stat))
+    || stat.value !== null
+    || stat.min_value !== null
+    || stat.max_value !== null
+    || stat.components?.length
+    || stat.warnings?.length,
+  );
+}
+
+function clamp(value, min, max) {
+  if (max < min) {
+    return min;
+  }
+  return Math.min(Math.max(value, min), max);
 }
 
 function stripHtml(value) {
