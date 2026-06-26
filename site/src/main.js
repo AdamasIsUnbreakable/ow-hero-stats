@@ -1,4 +1,4 @@
-const DATA_ROOT = "./public/data/v1/";
+const DATA_ROOT = new URL("./public/data/v1/", window.location.href);
 const state = {
   manifest: null,
   heroes: [],
@@ -72,11 +72,38 @@ function bindEvents() {
 }
 
 async function fetchJson(path) {
-  const response = await fetch(`${DATA_ROOT}${path}`);
+  const url = resolveDataUrl(path);
+  let response;
+
+  try {
+    response = await fetch(url);
+  } catch (error) {
+    throw new Error(
+      `Failed to load ${path} from ${url}. ${error.message}. Serve the site with python -m http.server instead of opening index.html directly.`,
+    );
+  }
+
   if (!response.ok) {
-    throw new Error(`Failed to load ${path}: ${response.status}`);
+    throw new Error(`Failed to load ${path} from ${url}: ${response.status}`);
   }
   return response.json();
+}
+
+function resolveDataUrl(path) {
+  const normalizedPath = String(path || "")
+    .replaceAll("\\", "/")
+    .replace(/^\.?\//, "");
+
+  if (/^https?:\/\//.test(normalizedPath)) {
+    return normalizedPath;
+  }
+
+  const dataPath = normalizedPath
+    .replace(/^site\/public\/data\/v1\//, "")
+    .replace(/^public\/data\/v1\//, "")
+    .replace(/^data\/v1\//, "");
+
+  return new URL(dataPath, DATA_ROOT).href;
 }
 
 function renderAuditStatus() {
@@ -238,7 +265,7 @@ function formatStatValue(stat) {
     return `${formatNumber(stat.value)} ${escapeHtml(stat.unit || "")}`.trim();
   }
   if (hasText(stat.raw)) {
-    return `<span class="not-parsed">Raw: ${escapeHtml(stat.raw)}</span>`;
+    return `<span class="not-parsed">Not safely parsed: Raw: ${escapeHtml(stat.raw)}</span>`;
   }
   return "-";
 }
@@ -277,7 +304,7 @@ function renderConfidenceSummary(counts) {
 }
 
 function renderHealthCell(label, value) {
-  return `<div><dt>${label}</dt><dd>${value ?? "—"}</dd></div>`;
+  return `<div><dt>${label}</dt><dd>${value ?? "-"}</dd></div>`;
 }
 
 function formatHealth(health = {}) {

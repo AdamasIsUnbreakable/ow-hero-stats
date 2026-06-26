@@ -169,6 +169,8 @@ http://localhost:8000
 
 The browser loads data from `site\public\data\v1`. Use the raw value toggle to inspect original wiki strings alongside parsed values, confidence, and parser warnings.
 
+You can also double-click `open-website.cmd` from the repo root. It uses existing generated data when available, starts a local server, and opens the website in your browser. Keep the launcher window open while using the site.
+
 ## Tests
 
 Normal tests do not require live network access. Representative Cargo payloads live under `tests\fixtures`, including `tests\fixtures\ashe_cargo_sample.json`, so parser and normalizer behavior can be checked against realistic Cargo-style strings without calling the Fandom API.
