@@ -193,7 +193,7 @@ Open:
 http://localhost:8000
 ```
 
-The browser loads data from `site\public\data\v1`. Select a hero to open that hero's stat page, then use the raw value toggle to inspect original wiki strings alongside parsed values, confidence, and parser warnings.
+The browser loads data from `site\public\data\v1`. Select a hero to open a dark hero info/stat page with grouped weapons, abilities, passives, ultimates, and perks. Ability rows show detailed stat panels on hover or keyboard focus; mobile users can tap rows to expand details inline. Use the raw value toggle to inspect original wiki strings alongside parsed values, confidence, parser warnings, and stat components.
 
 Hero portraits are downloaded from the Overwatch Fandom `Category:Overwatch 2 hero icons` MediaWiki category into `site\public\assets\heroes`, with a generated `manifest.json` beside the images. The viewer loads that manifest when it exists and falls back to the text-only layout if portraits have not been generated. Downloaded portraits are generated assets and are ignored by Git.
 

@@ -292,45 +292,216 @@ async function selectHero(indexHero, options = {}) {
 }
 
 function renderHeroDetail(hero) {
+  const groups = groupHeroAbilities(hero.abilities || []);
   elements.heroDetail.innerHTML = `
-    <article>
-      <header class="detail-header">
-        <div class="detail-identity">
-          ${renderHeroPortrait(hero.slug, hero.name, "hero-portrait")}
-          <div>
-            <div class="hero-title-row">
-              <h2>${escapeHtml(hero.name)}</h2>
-              <button class="copy-link-button" type="button" data-copy-link>Copy link</button>
+    <article class="hero-info-page">
+      ${renderHeroBackdrop(hero)}
+      <div class="hero-info-layout">
+        <section class="hero-info-column hero-info-left">
+          <div class="ow-section-title">Hero &amp; Weapon</div>
+          <header class="ow-hero-card">
+            ${renderHeroIdentityPortrait(hero)}
+            <div>
+              <div class="hero-title-row">
+                <h2>${escapeHtml(hero.name)}</h2>
+                <button class="copy-link-button" type="button" data-copy-link>Copy link</button>
+              </div>
+              <p>
+                <span class="role-pill ${roleClass(hero.role)}">${escapeHtml(hero.role || "Unknown")}</span>
+                ${hero.sub_role ? `<span class="ow-muted">${escapeHtml(hero.sub_role)}</span>` : ""}
+              </p>
+              <p class="copy-link-feedback" aria-live="polite" data-copy-link-feedback></p>
             </div>
-            <p>
-              <span class="role-pill ${roleClass(hero.role)}">${escapeHtml(hero.role || "Unknown")}</span>
-              ${hero.sub_role ? `<span class="muted">${escapeHtml(hero.sub_role)}</span>` : ""}
-            </p>
-            <p class="copy-link-feedback" aria-live="polite" data-copy-link-feedback></p>
-          </div>
-        </div>
-        <dl class="health-grid">
-          ${renderHealthCell("Health", hero.health?.health)}
-          ${renderHealthCell("Armor", hero.health?.armor)}
-          ${renderHealthCell("Shield", hero.health?.shield)}
-        </dl>
-      </header>
+          </header>
 
-      <section class="summary-card">
-        <h3>Audit</h3>
-        <p>${hero.audit?.warning_count || 0} parser warnings</p>
-        <div class="confidence-summary">${renderConfidenceSummary(hero.audit?.confidence_counts || {})}</div>
-        ${renderWarningsByAbility(hero.audit?.warnings_by_ability || {})}
-      </section>
+          <section class="ow-panel">
+            <h3>Hero Stats</h3>
+            <dl class="ow-health-grid">
+              ${renderHealthCell("Health", hero.health?.health)}
+              ${renderHealthCell("Armor", hero.health?.armor)}
+              ${renderHealthCell("Shield", hero.health?.shield)}
+            </dl>
+            <div class="confidence-summary">${renderConfidenceSummary(hero.audit?.confidence_counts || {})}</div>
+            <p class="ow-muted">${hero.audit?.warning_count || 0} parser warnings</p>
+          </section>
 
-      <section class="ability-list">
-        ${hero.abilities.map(renderAbilityCard).join("")}
-      </section>
+          ${renderAbilitySection("Weapons", groups.weapons)}
+          ${renderAbilitySection("Ultimate", groups.ultimate)}
+        </section>
+
+        <section class="hero-info-column hero-info-middle">
+          ${renderAbilitySection("Abilities", groups.abilities, "primary")}
+          ${renderAbilitySection("Passive", groups.passive)}
+        </section>
+
+        <section class="hero-info-column hero-info-right">
+          ${renderPerkSection(groups.perks)}
+          <section class="ow-panel ow-audit-panel">
+            <h3>Data Notes</h3>
+            ${renderWarningsByAbility(hero.audit?.warnings_by_ability || {}) || '<p class="ow-muted">No parser warnings for this hero.</p>'}
+          </section>
+        </section>
+      </div>
     </article>
   `;
 
   const copyButton = elements.heroDetail.querySelector("[data-copy-link]");
   copyButton?.addEventListener("click", () => copySelectedHeroLink(hero.slug));
+  bindAbilityRows();
+}
+
+function renderHeroBackdrop(hero) {
+  const portrait = state.portraits?.[hero.slug];
+  if (!portrait?.local_path) {
+    return `<div class="hero-backdrop hero-backdrop-fallback">${escapeHtml(heroInitials(hero.name))}</div>`;
+  }
+  const src = resolvePublicAssetUrl(portrait.local_path);
+  return `<div class="hero-backdrop" style="background-image: url('${escapeHtml(src)}')"></div>`;
+}
+
+function renderHeroIdentityPortrait(hero) {
+  return renderHeroPortrait(hero.slug, hero.name, "ow-hero-portrait")
+    || `<span class="ow-hero-portrait hero-portrait-fallback">${escapeHtml(heroInitials(hero.name))}</span>`;
+}
+
+function groupHeroAbilities(abilities) {
+  return abilities.reduce((groups, ability) => {
+    groups[abilityGroup(ability)].push(ability);
+    return groups;
+  }, { weapons: [], abilities: [], passive: [], ultimate: [], perks: [] });
+}
+
+function abilityGroup(ability) {
+  const type = String(ability.type || "").toLowerCase();
+  const slot = String(ability.slot || "").toLowerCase();
+  const name = String(ability.name || "").toLowerCase();
+  if (type.includes("perk")) return "perks";
+  if (type.includes("passive") || slot.includes("passive")) return "passive";
+  if (type.includes("ultimate") || slot.includes("ultimate") || name.includes("ultimate")) return "ultimate";
+  if (type.includes("weapon") || slot.includes("primary fire") || slot.includes("secondary fire")) return "weapons";
+  return "abilities";
+}
+
+function renderAbilitySection(title, abilities, variant = "") {
+  if (!abilities.length) {
+    return "";
+  }
+  return `
+    <section class="ow-ability-section ${variant ? `ow-ability-section-${variant}` : ""}">
+      <div class="ow-section-title">${escapeHtml(title)}</div>
+      <div class="ow-ability-list">
+        ${abilities.map(renderAbilityRow).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function renderPerkSection(perks) {
+  if (!perks.length) {
+    return `
+      <section class="ow-ability-section">
+        <div class="ow-section-title">Perks</div>
+        <div class="ow-panel ow-empty-panel">No perk data available.</div>
+      </section>
+    `;
+  }
+  const minor = perks.filter((perk) => String(perk.type || "").toLowerCase().includes("minor"));
+  const major = perks.filter((perk) => String(perk.type || "").toLowerCase().includes("major"));
+  const other = perks.filter((perk) => !minor.includes(perk) && !major.includes(perk));
+  return `
+    <section class="ow-ability-section">
+      <div class="ow-section-title">Perks</div>
+      ${minor.length ? `<div class="ow-subtitle">Minor</div><div class="ow-ability-list">${minor.map(renderAbilityRow).join("")}</div>` : ""}
+      ${major.length ? `<div class="ow-subtitle">Major</div><div class="ow-ability-list">${major.map(renderAbilityRow).join("")}</div>` : ""}
+      ${other.length ? `<div class="ow-ability-list">${other.map(renderAbilityRow).join("")}</div>` : ""}
+    </section>
+  `;
+}
+
+function renderAbilityRow(ability) {
+  return `
+    <article class="ow-ability-row" tabindex="0" data-ability-row>
+      ${renderAbilityVisual(ability, "ow-ability-icon")}
+      <div class="ow-ability-summary">
+        <div class="ow-ability-heading">
+          <h3>${escapeHtml(ability.name)}</h3>
+          ${ability.slot ? `<span class="slot-badge">${escapeHtml(ability.slot)}</span>` : ""}
+        </div>
+        ${abilityDescription(ability) ? `<p>${escapeHtml(abilityDescription(ability))}</p>` : ""}
+      </div>
+      ${renderAbilityDetailPanel(ability)}
+    </article>
+  `;
+}
+
+function renderAbilityDetailPanel(ability) {
+  const keywords = abilityKeywords(ability);
+  const cooldown = ability.stats?.cooldown ? stripHtml(formatStatValue(ability.stats.cooldown)) : "";
+  const stats = Object.values(ability.stats || {}).filter((stat) => stat.raw !== null || stat.value !== null || stat.min_value !== null || stat.components?.length);
+  return `
+    <aside class="ability-detail-panel">
+      <div class="ability-detail-header">
+        ${renderAbilityVisual(ability, "ability-detail-icon")}
+        <div>
+          <h4>${escapeHtml(ability.name)}</h4>
+          <p>${[cooldown, ability.slot].filter(Boolean).map(escapeHtml).join(" | ")}</p>
+        </div>
+      </div>
+      ${keywords.length ? `<div class="keyword-chips">${keywords.map((keyword) => `<span>${escapeHtml(keyword)}</span>`).join("")}</div>` : ""}
+      <div class="ability-detail-stats">
+        ${stats.length ? stats.map(renderDetailStat).join("") : '<p class="ow-muted">No parsed stat fields.</p>'}
+      </div>
+      ${ability.parse_warnings?.length ? renderWarningList(ability.parse_warnings) : ""}
+    </aside>
+  `;
+}
+
+function renderDetailStat(stat) {
+  const rawText = displayRaw(stat);
+  const rawHtml = state.showRaw && hasText(rawText) ? `<div class="raw-value">Raw: ${escapeHtml(rawText)}</div>` : "";
+  const warnings = stat.warnings?.length ? `<div class="stat-warnings">${stat.warnings.map((warning) => `Warning: ${escapeHtml(warning)}`).join("<br>")}</div>` : "";
+  return `
+    <section class="detail-stat">
+      <div class="detail-stat-top">
+        <h5>${escapeHtml(stat.label || stat.field)}</h5>
+        <span class="confidence ${confidenceClass(stat.confidence)}">${escapeHtml(stat.confidence || "unparsed")}</span>
+      </div>
+      <div class="detail-stat-value">${formatStatValue(stat)}</div>
+      ${stat.components?.length ? renderStatComponents(stat.components) : ""}
+      ${rawHtml}
+      ${warnings}
+    </section>
+  `;
+}
+
+function abilityDescription(ability) {
+  return ability.raw_display?.official_description || ability.raw?.official_description || ability.raw_display?.ability_details || "";
+}
+
+function abilityKeywords(ability) {
+  const source = ability.raw_display?.ability_keywords || ability.raw?.ability_keywords || "";
+  return String(source).split(/[;,]/).map((item) => item.trim()).filter(Boolean).slice(0, 8);
+}
+
+function bindAbilityRows() {
+  elements.heroDetail.querySelectorAll("[data-ability-row]").forEach((row) => {
+    row.addEventListener("click", () => {
+      row.classList.toggle("expanded");
+    });
+    row.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        row.classList.toggle("expanded");
+      }
+      if (event.key === "Escape") {
+        row.classList.remove("expanded");
+      }
+    });
+  });
+}
+
+function stripHtml(value) {
+  return String(value).replace(/<[^>]*>/g, "");
 }
 
 function renderHeroPortrait(slug, name, className) {
@@ -422,6 +593,15 @@ function renderAbilityIcon(ability) {
   }
   const src = resolvePublicAssetUrl(icon.local_path);
   return `<img class="ability-icon" src="${escapeHtml(src)}" alt="${escapeHtml(ability.name)} icon" loading="lazy">`;
+}
+
+function renderAbilityVisual(ability, className) {
+  const icon = state.abilityIcons?.[abilityIconKey(state.selectedHero?.slug, ability.name)];
+  if (icon?.local_path) {
+    const src = resolvePublicAssetUrl(icon.local_path);
+    return `<img class="${className}" src="${escapeHtml(src)}" alt="${escapeHtml(ability.name)} icon" loading="lazy">`;
+  }
+  return `<span class="${className} ability-icon-fallback" aria-hidden="true">${escapeHtml(heroInitials(ability.name))}</span>`;
 }
 
 function renderStatRow(stat) {
