@@ -423,18 +423,35 @@ function renderStatRow(stat) {
 
 function renderStatComponents(components) {
   return `
-    <dl class="stat-components">
+    <div class="stat-components">
+      <div class="stat-components-title">Breakdown</div>
+      <div class="stat-component-grid">
       ${components.map(renderStatComponent).join("")}
-    </dl>
+      </div>
+    </div>
   `;
 }
 
 function renderStatComponent(component) {
+  const rawText = displayRaw(component);
+  const rawHtml = state.showRaw && hasText(rawText)
+    ? `<div class="component-raw">Raw: ${escapeHtml(rawText)}</div>`
+    : "";
+  const notesHtml = component.notes?.length
+    ? `<div class="component-notes">${component.notes.map(escapeHtml).join("; ")}</div>`
+    : "";
+  const warningHtml = component.warnings?.length
+    ? `<div class="component-warnings">${component.warnings.map(escapeHtml).join("; ")}</div>`
+    : "";
+
   return `
-    <div>
-      <dt>${escapeHtml(titleCase(component.label || "component"))}</dt>
-      <dd>${formatComponentValue(component)}</dd>
-    </div>
+    <article class="stat-component-card">
+      <div class="component-label">${escapeHtml(titleCase(component.label || "component"))}</div>
+      <div class="component-value">${formatComponentValue(component)}</div>
+      ${notesHtml}
+      ${rawHtml}
+      ${warningHtml}
+    </article>
   `;
 }
 
@@ -453,6 +470,9 @@ function formatComponentValue(component) {
 }
 
 function formatStatValue(stat) {
+  if (stat.components?.length) {
+    return `<span class="not-parsed">No single value; see breakdown</span>`;
+  }
   if (stat.min_value !== null && stat.min_value !== undefined && stat.max_value !== null && stat.max_value !== undefined) {
     return `${formatNumber(stat.min_value)}-${formatNumber(stat.max_value)} ${escapeHtml(stat.unit || "")}`.trim();
   }

@@ -76,6 +76,12 @@ class NormalizeTests(unittest.TestCase):
         self.assertEqual([hero.name for hero in heroes], ["Ana"])
         self.assertEqual(heroes[0].abilities[0].name, "Biotic Rifle")
 
+    def test_shion_role_override(self):
+        hero = normalize_hero({"Name": "Shion"}, [])
+
+        self.assertEqual(hero.name, "Shion")
+        self.assertEqual(hero.role, "Damage")
+
 
 if __name__ == "__main__":
     unittest.main()

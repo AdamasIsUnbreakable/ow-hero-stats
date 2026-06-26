@@ -518,31 +518,71 @@ dd {
 }
 
 .raw-value,
-.stat-warnings {
+.stat-warnings,
+.component-raw,
+.component-notes,
+.component-warnings {
   margin-top: 5px;
   font-size: 0.9rem;
 }
 
 .stat-warnings,
-.warning-list {
+.warning-list,
+.component-warnings {
   color: var(--warning);
 }
 
 .stat-components {
   display: grid;
-  gap: 4px;
-  margin: 8px 0 0;
+  gap: 8px;
+  margin: 10px 0 0;
 }
 
-.stat-components div {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
+.stat-components-title {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
-.stat-components dt {
-  font-size: 0.9rem;
-  font-weight: 700;
+.stat-component-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 8px;
+}
+
+.stat-component-card {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #f8fafc;
+  padding: 9px;
+}
+
+.component-label {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+.component-value {
+  margin-top: 3px;
+  color: var(--text);
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.component-notes,
+.component-raw {
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+.component-warnings {
+  overflow-wrap: anywhere;
 }
 
 .stat-components dd {

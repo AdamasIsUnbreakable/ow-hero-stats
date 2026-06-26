@@ -123,6 +123,40 @@ class ParseStatsTests(unittest.TestCase):
         self.assertEqual(stat.confidence, "low")
         self.assertIn(COMPLEX_DAMAGE_WARNING, stat.warnings)
 
+    def test_semicolon_damage_parses_best_guess_components(self):
+        stat = parse_damage("50 - 20 (explosion, enemy); 100 over 5 seconds (burn, enemy)")
+
+        self.assertIsNone(stat.value)
+        self.assertEqual(stat.unit, "damage")
+        self.assertEqual(stat.confidence, "medium")
+        self.assertIn(COMPONENT_DAMAGE_WARNING, stat.warnings)
+        self.assertEqual(len(stat.components), 2)
+        self.assertEqual(stat.components[0].label, "explosion, enemy")
+        self.assertEqual(stat.components[0].min_value, 20)
+        self.assertEqual(stat.components[0].max_value, 50)
+        self.assertEqual(stat.components[1].label, "burn, enemy")
+        self.assertEqual(stat.components[1].value, 100)
+        self.assertIn("over 5 seconds", stat.components[1].notes)
+
+    def test_over_time_damage_parses_single_low_confidence_component(self):
+        stat = parse_damage("75 over 0.59 seconds")
+
+        self.assertIsNone(stat.value)
+        self.assertEqual(stat.confidence, "low")
+        self.assertEqual(len(stat.components), 1)
+        self.assertEqual(stat.components[0].label, "over time")
+        self.assertEqual(stat.components[0].value, 75)
+        self.assertEqual(stat.components[0].unit, "damage")
+
+    def test_complex_healing_components_use_healing_unit(self):
+        stat = parse_healing("25 (instantly); 100 over 2 seconds (over time)")
+
+        self.assertIsNone(stat.value)
+        self.assertEqual(stat.unit, "healing")
+        self.assertEqual(len(stat.components), 2)
+        self.assertEqual(stat.components[0].unit, "healing")
+        self.assertEqual(stat.components[1].unit, "healing")
+
     def test_blank_value(self):
         stat = parse_ammo("")
         self.assertIsNone(stat.value)

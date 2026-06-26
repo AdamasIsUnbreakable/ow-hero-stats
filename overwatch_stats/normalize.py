@@ -9,14 +9,18 @@ from .parse_stats import PARSERS, clean_text
 
 
 API_ENDPOINT = "https://overwatch.fandom.com/api.php"
+ROLE_OVERRIDES = {
+    "shion": "Damage",
+}
 
 
 def normalize_hero(hero_row: dict[str, Any], ability_rows: list[dict[str, Any]]) -> HeroStats:
     hero_data = _canonicalize_keys(hero_row)
     name = clean_text(hero_data.get("name")) or "Unknown"
+    role = clean_text(hero_data.get("role")) or ROLE_OVERRIDES.get(name.casefold())
     hero = HeroStats(
         name=name,
-        role=clean_text(hero_data.get("role")),
+        role=role,
         sub_role=clean_text(hero_data.get("subrole") or hero_data.get("sub_role")),
         health={
             "health": _parse_int(hero_data.get("health")),

@@ -25,6 +25,20 @@ def clean_text(value: object) -> str | None:
     return text
 
 
+def _stat_text(value: object) -> str:
+    if value is None:
+        return ""
+    text = str(value)
+    text = html.unescape(text)
+    text = text.replace("Ã¢â‚¬â€œ", "-").replace("Ã¢â‚¬â€", "-")
+    text = text.replace("â€“", "-").replace("â€”", "-").replace("âˆ’", "-")
+    text = re.sub(r"<\s*br\s*/?\s*>", "; ", text, flags=re.IGNORECASE)
+    text = re.sub(r"<[^>]+>", " ", text)
+    text = re.sub(r"\s*;\s*", "; ", text)
+    text = re.sub(r"\s+", " ", text).strip()
+    return text
+
+
 def unparsed(raw: object, warning: str | None = None) -> StatValue:
     warnings = [warning] if warning else []
     return StatValue(raw=None if raw is None else str(raw), confidence="unparsed", warnings=warnings)
@@ -48,7 +62,7 @@ def _first_number(text: str) -> float | int | None:
 
 
 def _range(text: str) -> tuple[float | int, float | int] | None:
-    match = re.search(r"(-?\d+(?:\.\d+)?)\s*(?:-|to)\s*(-?\d+(?:\.\d+)?)", text, re.IGNORECASE)
+    match = re.search(r"(-?\d+(?:\.\d+)?)\s*(?:-|to|→)\s*(-?\d+(?:\.\d+)?)", text, re.IGNORECASE)
     if not match:
         return None
     first = _number(match.group(1))
@@ -60,7 +74,7 @@ def _single_number_with_unit(raw: object, unit: str, label: str) -> StatValue:
     blank = _blank(raw)
     if blank:
         return blank
-    text = clean_text(raw) or ""
+    text = _stat_text(raw)
     lowered = text.lower()
     if lowered.startswith("none"):
         return StatValue(raw=str(raw), value="none", unit=unit, confidence="medium")
@@ -111,7 +125,7 @@ def parse_duration(raw: object) -> StatValue:
     blank = _blank(raw)
     if blank:
         return blank
-    text = clean_text(raw) or ""
+    text = _stat_text(raw)
     lowered = text.lower()
     if "∞" in text or re.search(r"\binfinite|unlimited\b", text, re.IGNORECASE):
         return StatValue(raw=str(raw), value="infinite", unit="duration", confidence="high")
@@ -128,7 +142,7 @@ def parse_ammo(raw: object) -> StatValue:
     blank = _blank(raw)
     if blank:
         return blank
-    text = clean_text(raw) or ""
+    text = _stat_text(raw)
     if re.search(r"infinite|unlimited|∞", text, re.IGNORECASE):
         return StatValue(raw=str(raw), value="infinite", unit="rounds", confidence="high")
     value = _first_number(text)
@@ -141,7 +155,7 @@ def parse_charges(raw: object) -> StatValue:
     blank = _blank(raw)
     if blank:
         return blank
-    text = clean_text(raw) or ""
+    text = _stat_text(raw)
     value = _first_number(text)
     if value is None:
         return unparsed(raw, "Could not parse charges.")
@@ -152,7 +166,7 @@ def parse_damage(raw: object) -> StatValue:
     blank = _blank(raw)
     if blank:
         return blank
-    text = clean_text(raw) or ""
+    text = _stat_text(raw)
     components = _direct_plus_splash_components(text)
     if components:
         return StatValue(
@@ -165,6 +179,19 @@ def parse_damage(raw: object) -> StatValue:
         )
     is_complex = _is_complex_damage(text)
     if is_complex:
+        components = _complex_value_components(text, "damage")
+        if components:
+            warnings = [COMPONENT_DAMAGE_WARNING]
+            if len(components) == 1:
+                warnings.append(COMPLEX_DAMAGE_WARNING)
+            return StatValue(
+                raw=str(raw),
+                value=None,
+                unit="damage",
+                confidence="medium" if len(components) > 1 else "low",
+                warnings=warnings,
+                components=components,
+            )
         return StatValue(
             raw=str(raw),
             value=None,
@@ -223,11 +250,97 @@ def _direct_plus_splash_components(text: str) -> list[StatComponent]:
     ]
 
 
+def _complex_value_components(text: str, unit: str) -> list[StatComponent]:
+    pieces = _complex_pieces(text)
+    components = [_component_from_piece(piece, unit, index) for index, piece in enumerate(pieces, start=1)]
+    return [component for component in components if component]
+
+
+def _complex_pieces(text: str) -> list[str]:
+    if ";" in text:
+        return [piece.strip() for piece in text.split(";") if piece.strip()]
+    return [text.strip()]
+
+
+def _component_from_piece(piece: str, unit: str, index: int) -> StatComponent | None:
+    range_match = re.search(r"(-?\d+(?:\.\d+)?)\s*(?:-|to|→)\s*(-?\d+(?:\.\d+)?)", piece, re.IGNORECASE)
+    first_number = re.search(r"-?\d+(?:\.\d+)?", piece)
+    if not first_number:
+        return None
+
+    label = _component_label(piece)
+    notes = _component_notes(piece)
+    if label is None and not notes:
+        return None
+    label = label or f"component {index}"
+    if range_match:
+        first = _number(range_match.group(1))
+        second = _number(range_match.group(2))
+        return StatComponent(
+            label=label,
+            raw=piece,
+            min_value=min(first, second),
+            max_value=max(first, second),
+            unit=unit,
+            notes=notes,
+        )
+
+    return StatComponent(
+        label=label,
+        raw=piece,
+        value=_number(first_number.group(0)),
+        unit=unit,
+        notes=notes,
+    )
+
+
+def _component_label(piece: str) -> str | None:
+    colon_match = re.match(r"\s*([A-Za-z][^:]{1,40}):", piece)
+    if colon_match:
+        return clean_text(colon_match.group(1))
+
+    parenthetical = re.search(r"\(([^)]+)\)", piece)
+    if parenthetical:
+        return clean_text(parenthetical.group(1))
+
+    lowered = piece.lower()
+    label_patterns = [
+        ("direct hit", r"\bdirect hit\b"),
+        ("direct", r"\bdirect\b"),
+        ("splash", r"\bsplash\b"),
+        ("explosion", r"\bexplosion\b"),
+        ("impact", r"\bimpact\b"),
+        ("self", r"\bself\b"),
+        ("enemy", r"\benemy\b"),
+        ("over time", r"\bover\s+\d"),
+        ("per second", r"\bper\s+second\b"),
+        ("total", r"\btotal\b"),
+        ("per projectile", r"\bper\s+projectile\b"),
+        ("per pellet", r"\bper\s+pellet\b"),
+        ("per shot", r"\bper\s+shot\b"),
+        ("per volley", r"\bper\s+volley\b"),
+    ]
+    for label, pattern in label_patterns:
+        if re.search(pattern, lowered):
+            return label
+    return None
+
+
+def _component_notes(piece: str) -> list[str]:
+    notes: list[str] = []
+    over_time = re.search(r"\bover\s+\d+(?:\.\d+)?\s*(?:seconds?|s\.?)", piece, re.IGNORECASE)
+    if over_time:
+        notes.append(clean_text(over_time.group(0)) or over_time.group(0))
+    if "→" in piece:
+        notes.append("scales between listed values")
+    return notes
+
+
 def parse_falloff_range(raw: object) -> StatValue:
     blank = _blank(raw)
     if blank:
         return blank
-    text = clean_text(raw) or ""
+    text = _stat_text(raw)
     number_range = _range(text)
     if number_range:
         return StatValue(raw=str(raw), min_value=number_range[0], max_value=number_range[1], unit="meters", confidence="high")
@@ -247,7 +360,7 @@ def parse_fire_rate(raw: object) -> StatValue:
     blank = _blank(raw)
     if blank:
         return blank
-    text = clean_text(raw) or ""
+    text = _stat_text(raw)
     number_range = _range(text)
     if number_range:
         return StatValue(raw=str(raw), min_value=number_range[0], max_value=number_range[1], unit="shots_per_second", confidence="medium")
@@ -261,7 +374,7 @@ def parse_projectile_speed(raw: object) -> StatValue:
     blank = _blank(raw)
     if blank:
         return blank
-    text = clean_text(raw) or ""
+    text = _stat_text(raw)
     value = _first_number(text)
     if value is None:
         return unparsed(raw, "Could not parse projectile speed.")
@@ -282,11 +395,13 @@ def parse_healing(raw: object) -> StatValue:
     blank = _blank(raw)
     if blank:
         return blank
-    text = clean_text(raw) or ""
+    text = _stat_text(raw)
     if re.search(r"\b(full health|revives?|restores full health)\b", text, re.IGNORECASE):
         return StatValue(raw=str(raw), value="full_health", unit="health", confidence="medium")
     value = parse_damage(raw)
     value.unit = "healing"
+    for component in value.components:
+        component.unit = "healing"
     return value
 
 
@@ -332,7 +447,7 @@ def parse_dps_hps(raw: object) -> StatValue:
     blank = _blank(raw)
     if blank:
         return blank
-    text = clean_text(raw) or ""
+    text = _stat_text(raw)
     number_range = _range(text)
     if number_range:
         return StatValue(raw=str(raw), min_value=number_range[0], max_value=number_range[1], unit="per_second", confidence="high")
@@ -344,6 +459,12 @@ def parse_dps_hps(raw: object) -> StatValue:
 
 def _is_complex_damage(text: str) -> bool:
     if re.search(r"\b(direct|splash|impact|explosion)\b|\+", text, re.IGNORECASE):
+        return True
+    if "→" in text:
+        return True
+    if ";" in text:
+        return True
+    if re.search(r"\bover\s+\d+(?:\.\d+)?\s*(?:seconds?|s\.?)", text, re.IGNORECASE):
         return True
     if re.search(r"\d+(?:\.\d+)?\s*/\s*\d+(?:\.\d+)?", text):
         return True
