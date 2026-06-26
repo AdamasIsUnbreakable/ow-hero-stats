@@ -14,41 +14,38 @@
           Overwatch Fandom stat data with raw wiki values, parser confidence, and warnings kept visible.
         </p>
       </div>
-      <button id="raw-toggle" class="secondary-button" type="button" aria-pressed="false">
-        Show raw values
-      </button>
+      <div class="header-actions">
+        <button id="all-heroes" class="secondary-button" type="button" hidden>
+          All heroes
+        </button>
+        <button id="raw-toggle" class="secondary-button" type="button" aria-pressed="false" hidden>
+          Show raw values
+        </button>
+      </div>
     </header>
 
-    <main class="app-shell">
-      <aside class="sidebar" aria-label="Hero browser">
-        <section class="controls" aria-label="Search and filters">
+    <main>
+      <section id="hero-select-view" class="hero-select-view" aria-label="Hero select" hidden>
+        <div class="hero-select-intro">
+          <div>
+            <h2>Choose Your Hero</h2>
+            <p>Browse by role, then open a hero page to inspect parsed stats, raw values, warnings, and confidence.</p>
+          </div>
+          <section class="controls" aria-label="Search heroes">
           <label for="hero-search">Search heroes</label>
           <input id="hero-search" type="search" placeholder="Search by name">
-
-          <label for="role-filter">Role</label>
-          <select id="role-filter">
-            <option value="All">All</option>
-            <option value="Tank">Tank</option>
-            <option value="Damage">Damage</option>
-            <option value="Support">Support</option>
-          </select>
         </section>
+        </div>
+        <p id="select-message" class="select-message" aria-live="polite"></p>
+        <div id="role-sections" class="role-sections" aria-live="polite"></div>
+      </section>
 
-        <section>
-          <div class="section-heading">
-            <h2>Heroes</h2>
-            <span id="hero-count" class="muted"></span>
-          </div>
-          <div id="hero-list" class="hero-list" aria-live="polite"></div>
-        </section>
-      </aside>
-
-      <section class="detail-pane" aria-label="Selected hero details">
+      <section id="stats-view" class="stats-view detail-pane" aria-label="Selected hero details" hidden>
         <section id="audit-status" class="status-panel"></section>
         <section id="hero-detail" class="hero-detail">
           <div class="empty-state">
             <h2>Select a hero</h2>
-            <p>Choose a hero from the list to inspect parsed stats, raw values, confidence, and warnings.</p>
+            <p>Choose a hero to inspect parsed stats, raw values, confidence, and warnings.</p>
           </div>
         </section>
       </section>

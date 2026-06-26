@@ -1,48 +1,58 @@
 const DATA_ROOT = new URL("./public/data/v1/", window.location.href);
+const HERO_ASSET_ROOT = new URL("./public/assets/heroes/", window.location.href);
 const state = {
   manifest: null,
   heroes: [],
   audit: null,
+  portraits: {},
   selectedSlug: null,
   selectedHero: null,
   search: "",
-  role: "All",
   showRaw: false,
   copyLinkFeedbackTimer: null,
 };
 
 const elements = {
+  selectView: document.querySelector("#hero-select-view"),
+  statsView: document.querySelector("#stats-view"),
   search: document.querySelector("#hero-search"),
-  role: document.querySelector("#role-filter"),
-  heroList: document.querySelector("#hero-list"),
-  heroCount: document.querySelector("#hero-count"),
+  roleSections: document.querySelector("#role-sections"),
+  selectMessage: document.querySelector("#select-message"),
   heroDetail: document.querySelector("#hero-detail"),
   auditStatus: document.querySelector("#audit-status"),
   rawToggle: document.querySelector("#raw-toggle"),
+  allHeroes: document.querySelector("#all-heroes"),
 };
 
 document.addEventListener("DOMContentLoaded", init);
 
 async function init() {
   try {
-    const [manifest, heroes, audit] = await Promise.all([
+    const [manifest, heroes, audit, portraits] = await Promise.all([
       fetchJson("manifest.json"),
       fetchJson("heroes.index.json"),
       fetchJson("audit-summary.json"),
+      fetchPortraitManifest(),
     ]);
     state.manifest = manifest;
     state.heroes = heroes;
     state.audit = audit;
+    state.portraits = portraits;
 
     bindEvents();
-    renderAuditStatus();
-    renderHeroList();
 
-    const initialHero = getHeroFromUrl() || heroes[0];
+    const requestedSlug = getHeroSlugFromUrl();
+    const initialHero = getHeroFromUrl();
     if (initialHero) {
       await selectHero(initialHero);
+    } else if (requestedSlug) {
+      showHeroSelect("Hero not found. Choose a hero below.");
+    } else {
+      showHeroSelect();
     }
   } catch (error) {
+    elements.selectView.hidden = true;
+    elements.statsView.hidden = false;
     elements.heroDetail.innerHTML = `
       <div class="empty-state error">
         <h2>Data could not be loaded</h2>
@@ -52,15 +62,24 @@ async function init() {
   }
 }
 
+async function fetchPortraitManifest() {
+  const url = new URL("manifest.json", HERO_ASSET_ROOT).href;
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      return {};
+    }
+    const entries = await response.json();
+    return Object.fromEntries(entries.map((entry) => [entry.hero_slug, entry]));
+  } catch {
+    return {};
+  }
+}
+
 function bindEvents() {
   elements.search.addEventListener("input", (event) => {
     state.search = event.target.value.trim().toLowerCase();
-    renderHeroList();
-  });
-
-  elements.role.addEventListener("change", (event) => {
-    state.role = event.target.value;
-    renderHeroList();
+    renderHeroSelect();
   });
 
   elements.rawToggle.addEventListener("click", () => {
@@ -72,10 +91,19 @@ function bindEvents() {
     }
   });
 
+  elements.allHeroes.addEventListener("click", () => {
+    showHeroSelect("", { historyMode: "push" });
+  });
+
   window.addEventListener("popstate", () => {
-    const hero = getHeroFromUrl() || state.heroes[0];
+    const requestedSlug = getHeroSlugFromUrl();
+    const hero = getHeroFromUrl();
     if (hero) {
       selectHero(hero);
+    } else if (requestedSlug) {
+      showHeroSelect("Hero not found. Choose a hero below.");
+    } else {
+      showHeroSelect();
     }
   });
 }
@@ -136,17 +164,33 @@ function renderAuditStatus() {
   `;
 }
 
-function renderHeroList() {
-  const filtered = state.heroes.filter((hero) => {
-    const matchesSearch = hero.name.toLowerCase().includes(state.search);
-    const matchesRole = state.role === "All" || hero.role === state.role;
-    return matchesSearch && matchesRole;
-  });
+function showHeroSelect(message = "", options = {}) {
+  const { historyMode = "none" } = options;
+  state.selectedSlug = null;
+  state.selectedHero = null;
+  clearCopyLinkFeedback();
+  updateSelectorUrl(historyMode);
 
-  elements.heroCount.textContent = `${filtered.length} shown`;
-  elements.heroList.innerHTML = filtered.map(renderHeroCard).join("");
+  elements.selectView.hidden = false;
+  elements.statsView.hidden = true;
+  elements.rawToggle.hidden = true;
+  elements.allHeroes.hidden = true;
+  elements.selectMessage.textContent = message;
+  renderHeroSelect();
+}
 
-  elements.heroList.querySelectorAll("[data-hero-slug]").forEach((button) => {
+function renderHeroSelect() {
+  const filtered = state.heroes.filter((hero) => hero.name.toLowerCase().includes(state.search));
+  const grouped = groupHeroesByRole(filtered);
+  const sections = ["Tank", "Damage", "Support", "Unknown"]
+    .filter((role) => grouped[role]?.length)
+    .map((role) => renderRoleSection(role, grouped[role]));
+
+  elements.roleSections.innerHTML = sections.length
+    ? sections.join("")
+    : `<div class="empty-state selector-empty"><h2>No matches</h2><p>Try a different hero name.</p></div>`;
+
+  elements.roleSections.querySelectorAll("[data-hero-slug]").forEach((button) => {
     button.addEventListener("click", () => {
       const hero = state.heroes.find((item) => item.slug === button.dataset.heroSlug);
       if (hero) {
@@ -156,26 +200,61 @@ function renderHeroList() {
   });
 }
 
-function renderHeroCard(hero) {
-  const activeClass = hero.slug === state.selectedSlug ? " active" : "";
+function groupHeroesByRole(heroes) {
+  return heroes.reduce((groups, hero) => {
+    const role = ["Tank", "Damage", "Support"].includes(hero.role) ? hero.role : "Unknown";
+    groups[role] = groups[role] || [];
+    groups[role].push(hero);
+    return groups;
+  }, {});
+}
+
+function renderRoleSection(role, heroes) {
   return `
-    <button class="hero-card${activeClass}" type="button" data-hero-slug="${escapeHtml(hero.slug)}">
-      <span class="hero-card-main">
-        <strong>${escapeHtml(hero.name)}</strong>
-        <span class="role-pill ${roleClass(hero.role)}">${escapeHtml(hero.role || "Unknown")}</span>
-      </span>
-      <span class="hero-card-meta">
-        ${formatHealth(hero.health)} &middot; ${hero.ability_count} abilities &middot; ${hero.warning_count} warnings
-      </span>
-      <span class="confidence-summary">${renderConfidenceSummary(hero.confidence_counts)}</span>
+    <section class="role-section role-section-${escapeHtml(role.toLowerCase())}">
+      <div class="role-section-heading">
+        <h3>${escapeHtml(role)}</h3>
+        <span>${heroes.length} heroes</span>
+      </div>
+      <div class="hero-tile-grid">
+        ${heroes.map(renderHeroTile).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function renderHeroTile(hero) {
+  const portrait = renderHeroTilePortrait(hero);
+  return `
+    <button class="hero-tile" type="button" data-hero-slug="${escapeHtml(hero.slug)}">
+      ${portrait}
+      <span class="hero-tile-name">${escapeHtml(hero.name)}</span>
     </button>
+  `;
+}
+
+function renderHeroTilePortrait(hero) {
+  const portrait = state.portraits?.[hero.slug];
+  if (portrait?.local_path) {
+    const src = resolvePublicAssetUrl(portrait.local_path);
+    return `<span class="hero-tile-image-wrap"><img src="${escapeHtml(src)}" alt="${escapeHtml(hero.name)} portrait" loading="lazy"></span>`;
+  }
+
+  return `
+    <span class="hero-tile-fallback" aria-hidden="true">
+      ${escapeHtml(heroInitials(hero.name))}
+    </span>
   `;
 }
 
 async function selectHero(indexHero, options = {}) {
   const { historyMode = "none" } = options;
   state.selectedSlug = indexHero.slug;
-  renderHeroList();
+  elements.selectView.hidden = true;
+  elements.statsView.hidden = false;
+  elements.rawToggle.hidden = false;
+  elements.allHeroes.hidden = false;
+  renderAuditStatus();
   elements.heroDetail.innerHTML = `<div class="empty-state"><p>Loading ${escapeHtml(indexHero.name)}...</p></div>`;
 
   updateHeroUrl(indexHero.slug, historyMode);
@@ -198,16 +277,19 @@ function renderHeroDetail(hero) {
   elements.heroDetail.innerHTML = `
     <article>
       <header class="detail-header">
-        <div>
-          <div class="hero-title-row">
-            <h2>${escapeHtml(hero.name)}</h2>
-            <button class="copy-link-button" type="button" data-copy-link>Copy link</button>
+        <div class="detail-identity">
+          ${renderHeroPortrait(hero.slug, hero.name, "hero-portrait")}
+          <div>
+            <div class="hero-title-row">
+              <h2>${escapeHtml(hero.name)}</h2>
+              <button class="copy-link-button" type="button" data-copy-link>Copy link</button>
+            </div>
+            <p>
+              <span class="role-pill ${roleClass(hero.role)}">${escapeHtml(hero.role || "Unknown")}</span>
+              ${hero.sub_role ? `<span class="muted">${escapeHtml(hero.sub_role)}</span>` : ""}
+            </p>
+            <p class="copy-link-feedback" aria-live="polite" data-copy-link-feedback></p>
           </div>
-          <p>
-            <span class="role-pill ${roleClass(hero.role)}">${escapeHtml(hero.role || "Unknown")}</span>
-            ${hero.sub_role ? `<span class="muted">${escapeHtml(hero.sub_role)}</span>` : ""}
-          </p>
-          <p class="copy-link-feedback" aria-live="polite" data-copy-link-feedback></p>
         </div>
         <dl class="health-grid">
           ${renderHealthCell("Health", hero.health?.health)}
@@ -231,6 +313,24 @@ function renderHeroDetail(hero) {
 
   const copyButton = elements.heroDetail.querySelector("[data-copy-link]");
   copyButton?.addEventListener("click", () => copySelectedHeroLink(hero.slug));
+}
+
+function renderHeroPortrait(slug, name, className) {
+  const portrait = state.portraits?.[slug];
+  if (!portrait?.local_path) {
+    return "";
+  }
+  const src = resolvePublicAssetUrl(portrait.local_path);
+  return `<img class="${className}" src="${escapeHtml(src)}" alt="${escapeHtml(name)} portrait" loading="lazy">`;
+}
+
+function resolvePublicAssetUrl(path) {
+  const normalizedPath = String(path || "")
+    .replaceAll("\\", "/")
+    .replace(/^\.?\//, "")
+    .replace(/^site\/public\//, "")
+    .replace(/^public\//, "");
+  return new URL(normalizedPath, new URL("./public/", window.location.href)).href;
 }
 
 async function copySelectedHeroLink(slug) {
@@ -427,12 +527,17 @@ function roleClass(role) {
 }
 
 function getHeroFromUrl() {
-  const slug = new URLSearchParams(window.location.search).get("hero");
+  const slug = getHeroSlugFromUrl();
   if (!slug) {
     return null;
   }
 
-  return state.heroes.find((hero) => hero.slug === slug.toLowerCase()) || null;
+  return state.heroes.find((hero) => hero.slug === slug) || null;
+}
+
+function getHeroSlugFromUrl() {
+  const slug = new URLSearchParams(window.location.search).get("hero");
+  return slug ? slug.toLowerCase() : null;
 }
 
 function updateHeroUrl(slug, historyMode) {
@@ -461,10 +566,41 @@ function buildHeroUrl(slug) {
   return url.href;
 }
 
+function updateSelectorUrl(historyMode) {
+  if (historyMode === "none") {
+    return;
+  }
+
+  const url = new URL(window.location.href);
+  url.searchParams.delete("hero");
+  if (url.href === window.location.href) {
+    return;
+  }
+
+  if (historyMode === "replace") {
+    window.history.replaceState({}, "", url.href);
+    return;
+  }
+
+  if (historyMode === "push") {
+    window.history.pushState({}, "", url.href);
+  }
+}
+
 function titleCase(value) {
   return String(value)
     .replaceAll("_", " ")
     .replace(/\w\S*/g, (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase());
+}
+
+function heroInitials(name) {
+  return String(name)
+    .split(/[\s.-]+/)
+    .filter(Boolean)
+    .map((part) => part[0])
+    .join("")
+    .slice(0, 3)
+    .toUpperCase();
 }
 
 function displayRaw(item) {

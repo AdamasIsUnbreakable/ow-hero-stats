@@ -8,6 +8,7 @@ import sys
 from .audit import all_audit_summary, build_all_audit, hero_audit_summary, render_all_audit, render_hero_audit
 from .export_json import hero_to_json, write_all, write_hero
 from .fandom_client import FandomApiError, FandomClient
+from .images import DEFAULT_HERO_IMAGE_DIR, download_hero_portraits
 from .normalize import normalize_selected, normalize_hero
 from .web_export import DEFAULT_WEB_DATA_DIR, build_audit_summary, write_web_data
 
@@ -38,6 +39,10 @@ def build_parser() -> argparse.ArgumentParser:
     web_data.add_argument("--refresh", action="store_true", dest="command_refresh", help="Bypass local cache and refetch API data.")
     web_data.add_argument("--output-dir", default=str(DEFAULT_WEB_DATA_DIR), help="Directory for generated website data.")
 
+    images = subparsers.add_parser("images", help="Download hero portraits for the static website.")
+    images.add_argument("--refresh", action="store_true", dest="command_refresh", help="Redownload existing portrait files.")
+    images.add_argument("--output-dir", default=str(DEFAULT_HERO_IMAGE_DIR), help="Directory for generated hero portraits.")
+
     subparsers.add_parser("all", help="Fetch and export all heroes.")
     return parser
 
@@ -63,6 +68,8 @@ def main(argv: list[str] | None = None) -> int:
             return _audit(client, args.target, json_output=args.json)
         if args.command == "web-data":
             return _web_data(client, args.output_dir)
+        if args.command == "images":
+            return _images(args.output_dir, refresh=refresh)
     except FandomApiError as exc:
         print(f"Fandom API error: {exc}", file=sys.stderr)
         return 2
@@ -147,6 +154,20 @@ def _web_data(client: FandomClient, output_dir: str) -> int:
     paths = write_web_data(heroes, audit_summary, output_dir=output_dir)
     print(f"Generated web data for {len(heroes)} heroes in {paths['manifest'].parent}")
     return 0
+
+
+def _images(output_dir: str, refresh: bool = False) -> int:
+    result = download_hero_portraits(output_dir=output_dir, refresh=refresh)
+    print(f"Found {result['category_file_count']} files in hero icon category.")
+    print(f"Selected {result['selected_count']} hero portrait files.")
+    print(f"Downloaded {result['downloaded_count']} portraits.")
+    print(f"Skipped {result['skipped_existing_count']} existing portraits.")
+    if result["failed_count"]:
+        print(f"Failed {result['failed_count']} portraits:", file=sys.stderr)
+        for failure in result["failed"]:
+            print(f"- {failure['file_title']}: {failure['error']}", file=sys.stderr)
+    print(f"Wrote manifest to {result['manifest_path']}")
+    return 1 if result["failed_count"] and not result["entries"] else 0
 
 
 def _print_not_found(client: FandomClient, name: str) -> None:

@@ -74,6 +74,13 @@ Generate static website-ready data:
 .\.venv\Scripts\python.exe -m overwatch_stats.cli web-data --refresh
 ```
 
+Download hero portraits for the static viewer:
+
+```powershell
+.\.venv\Scripts\python.exe -m overwatch_stats.cli images
+.\.venv\Scripts\python.exe -m overwatch_stats.cli images --refresh
+```
+
 ## Output Model
 
 Each normalized hero export includes:
@@ -160,10 +167,13 @@ Generated site data should be regenerated after Overwatch patches or wiki update
 
 The repository includes a minimal plain HTML/CSS/JavaScript viewer that reads the generated JSON data contract. It has no React, Vite, TypeScript, Tailwind, or build step.
 
-Generate data, serve the `site` folder, then open the local URL:
+The default page is a full-page hero select screen. Heroes are grouped by Tank, Damage, and Support, with portrait tiles when downloaded and clean fallback tiles when portraits are missing.
+
+Generate data and optional hero portraits, serve the `site` folder, then open the local URL:
 
 ```powershell
 .\.venv\Scripts\python.exe -m overwatch_stats.cli web-data
+.\.venv\Scripts\python.exe -m overwatch_stats.cli images
 cd site
 python -m http.server 8000
 ```
@@ -174,11 +184,27 @@ Open:
 http://localhost:8000
 ```
 
-The browser loads data from `site\public\data\v1`. Use the raw value toggle to inspect original wiki strings alongside parsed values, confidence, and parser warnings.
+The browser loads data from `site\public\data\v1`. Select a hero to open that hero's stat page, then use the raw value toggle to inspect original wiki strings alongside parsed values, confidence, and parser warnings.
 
-Selecting a hero updates the browser URL, so links such as `http://localhost:8000/?hero=ashe` open that hero directly. Use the selected hero's Copy link button to copy a refresh-safe URL.
+Hero portraits are downloaded from the Overwatch Fandom `Category:Overwatch 2 hero icons` MediaWiki category into `site\public\assets\heroes`, with a generated `manifest.json` beside the images. The viewer loads that manifest when it exists and falls back to the text-only layout if portraits have not been generated. Downloaded portraits are generated assets and are ignored by Git.
+
+Selecting a hero updates the browser URL, so links such as `http://localhost:8000/?hero=ashe` still open that hero directly. Use the selected hero's Copy link button to copy a refresh-safe URL, or use All heroes to return to the selector.
 
 You can also double-click `open-website.cmd` from the repo root. It uses existing generated data when available, starts a local server, and opens the website in your browser. Keep the launcher window open while using the site.
+
+## Deployment
+
+Local development still uses:
+
+```powershell
+.\.venv\Scripts\python.exe -m overwatch_stats.cli web-data
+```
+
+GitHub Pages deployment generates fresh website data in CI, runs tests and Ruff, then publishes the `site` folder. The published site reads the generated `site\public\data\v1` files from the Pages artifact.
+
+The deployment workflow also downloads hero portraits during CI, so the published artifact includes `site\public\assets\heroes` without committing downloaded images to the repository.
+
+If Pages is not enabled yet, enable it in the GitHub repository settings and choose GitHub Actions as the Pages source.
 
 ## Tests
 
