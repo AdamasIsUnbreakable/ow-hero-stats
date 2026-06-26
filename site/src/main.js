@@ -456,11 +456,12 @@ function renderStatComponent(component) {
 }
 
 function formatComponentValue(component) {
+  const unit = formatUnit(component);
   if (component.min_value !== null && component.min_value !== undefined && component.max_value !== null && component.max_value !== undefined) {
-    return `${formatNumber(component.min_value)}-${formatNumber(component.max_value)} ${escapeHtml(component.unit || "")}`.trim();
+    return `${formatNumber(component.min_value)}-${formatNumber(component.max_value)} ${escapeHtml(unit)}`.trim();
   }
   if (component.value !== null && component.value !== undefined && component.value !== "") {
-    return `${formatNumber(component.value)} ${escapeHtml(component.unit || "")}`.trim();
+    return `${formatNumber(component.value)} ${escapeHtml(unit)}`.trim();
   }
   const rawText = displayRaw(component);
   if (hasText(rawText)) {
@@ -471,19 +472,30 @@ function formatComponentValue(component) {
 
 function formatStatValue(stat) {
   if (stat.components?.length) {
-    return `<span class="not-parsed">No single value; see breakdown</span>`;
+    return `<span class="complex-value">Complex value</span>`;
   }
+  const unit = formatUnit(stat);
   if (stat.min_value !== null && stat.min_value !== undefined && stat.max_value !== null && stat.max_value !== undefined) {
-    return `${formatNumber(stat.min_value)}-${formatNumber(stat.max_value)} ${escapeHtml(stat.unit || "")}`.trim();
+    return `${formatNumber(stat.min_value)}-${formatNumber(stat.max_value)} ${escapeHtml(unit)}`.trim();
   }
   if (stat.value !== null && stat.value !== undefined && stat.value !== "") {
-    return `${formatNumber(stat.value)} ${escapeHtml(stat.unit || "")}`.trim();
+    return `${formatNumber(stat.value)} ${escapeHtml(unit)}`.trim();
   }
   const rawText = displayRaw(stat);
   if (hasText(rawText)) {
     return `<span class="not-parsed">Not safely parsed: Raw: ${escapeHtml(rawText)}</span>`;
   }
   return "-";
+}
+
+function formatUnit(item) {
+  if (hasText(item?.display_unit)) {
+    return item.display_unit;
+  }
+  if (hasText(item?.unit)) {
+    return String(item.unit).replaceAll("_", " ");
+  }
+  return "";
 }
 
 function renderWarningsByAbility(grouped) {

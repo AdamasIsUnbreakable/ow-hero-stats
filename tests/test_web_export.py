@@ -15,6 +15,7 @@ from overwatch_stats.web_export import (
     build_quality_report,
     build_manifest,
     clean_display_text,
+    display_unit,
     write_web_data,
 )
 
@@ -61,6 +62,8 @@ class WebExportTests(unittest.TestCase):
         self.assertEqual(dynamite["stats"]["pspeed"]["field"], "pspeed")
         self.assertEqual(dynamite["stats"]["pspeed"]["label"], "Projectile Speed")
         self.assertEqual(dynamite["stats"]["pspeed"]["unit"], "meters_per_second")
+        self.assertEqual(dynamite["stats"]["pspeed"]["display_unit"], "m/s")
+        self.assertEqual(dynamite["stats"]["cooldown"]["display_unit"], "s")
         self.assertIsNone(dynamite["stats"]["damage"]["value"])
         self.assertEqual(dynamite["stats"]["damage"]["raw"], "50 direct + 25 splash")
         self.assertEqual(dynamite["stats"]["damage"]["raw_display"], "50 direct + 25 splash")
@@ -77,6 +80,7 @@ class WebExportTests(unittest.TestCase):
                     "min_value": None,
                     "max_value": None,
                     "unit": "damage",
+                    "display_unit": "damage",
                     "warnings": [],
                     "notes": [],
                 },
@@ -88,6 +92,7 @@ class WebExportTests(unittest.TestCase):
                     "min_value": None,
                     "max_value": None,
                     "unit": "damage",
+                    "display_unit": "damage",
                     "warnings": [],
                     "notes": [],
                 },
@@ -112,7 +117,7 @@ class WebExportTests(unittest.TestCase):
         manifest = build_manifest(hero_count=1, generated_at="2026-06-25T23:00:00Z")
 
         self.assertEqual(manifest["schema_version"], SCHEMA_VERSION)
-        self.assertEqual(manifest["schema_version"], "1.2.0")
+        self.assertEqual(manifest["schema_version"], "1.3.0")
         self.assertEqual(manifest["hero_count"], 1)
         self.assertEqual(manifest["data_files"]["hero_index"], "heroes.index.json")
         self.assertEqual(manifest["data_files"]["audit_summary"], "audit-summary.json")
@@ -149,6 +154,9 @@ class WebExportTests(unittest.TestCase):
         self.assertNotIn("reload_time", report["fields"]["unparsed_nonempty_by_field"])
         self.assertEqual(report["fields"]["unparsed_by_field"], report["fields"]["unparsed_nonempty_by_field"])
         self.assertIn("damage", report["fields"]["component_stats_by_field"])
+        self.assertIn("meters_per_second", report["fields"]["machine_units_by_unit"])
+        self.assertIn("m/s", report["fields"]["display_units_by_unit"])
+        self.assertEqual(report["coverage_flags"]["stats_missing_display_unit"], [])
 
     def test_write_web_data_outputs_valid_json_files(self):
         heroes, validation = build_all_audit(["Ashe"], [self.fixture["hero"]], self.fixture["abilities"])
@@ -180,15 +188,27 @@ class WebExportTests(unittest.TestCase):
         self.assertIn("dps", quality["fields"]["empty_by_field"])
         self.assertNotIn("reload_time", quality["fields"]["unparsed_nonempty_by_field"])
         self.assertIn("damage", quality["fields"]["component_stats_by_field"])
+        self.assertIn("meters_per_second", quality["fields"]["machine_units_by_unit"])
+        self.assertIn("m/s", quality["fields"]["display_units_by_unit"])
+        self.assertEqual(quality["coverage_flags"]["stats_missing_display_unit"], [])
         self.assertIn("Ashe", quality["coverage_flags"]["heroes_with_component_stats"])
         self.assertEqual(detail["name"], "Ashe")
         self.assertEqual(detail["abilities"][1]["stats"]["damage"]["value"], None)
         self.assertEqual(detail["abilities"][1]["stats"]["damage"]["components"][0]["label"], "direct")
+        self.assertEqual(detail["abilities"][1]["stats"]["damage"]["components"][0]["display_unit"], "damage")
 
     def test_clean_display_text_removes_html_but_keeps_original_separate(self):
         raw = '2 seconds<br><span class="tooltip" title="extra">5 seconds</span>'
 
         self.assertEqual(clean_display_text(raw), "2 seconds; 5 seconds")
+
+    def test_display_unit_mapping(self):
+        self.assertEqual(display_unit("fire_rate", "shots_per_second"), "shots/s")
+        self.assertEqual(display_unit("pspeed", "meters_per_second"), "m/s")
+        self.assertEqual(display_unit("dps", "per_second"), "damage/s")
+        self.assertEqual(display_unit("hps", "per_second"), "healing/s")
+        self.assertEqual(display_unit("fire_rate", "percent"), "%")
+        self.assertEqual(display_unit("custom", "some_machine_unit"), "some machine unit")
 
 
 if __name__ == "__main__":

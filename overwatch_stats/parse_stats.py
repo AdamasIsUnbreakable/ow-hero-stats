@@ -361,6 +361,17 @@ def parse_fire_rate(raw: object) -> StatValue:
     if blank:
         return blank
     text = _stat_text(raw)
+    if "%" in text:
+        value = _first_number(text)
+        if value is None:
+            return unparsed(raw, "Could not parse fire rate percentage modifier.")
+        return StatValue(
+            raw=str(raw),
+            value=value,
+            unit="percent",
+            confidence="medium",
+            warnings=["Parsed as a fire rate percentage modifier, not a base shots-per-second value."],
+        )
     number_range = _range(text)
     if number_range:
         return StatValue(raw=str(raw), min_value=number_range[0], max_value=number_range[1], unit="shots_per_second", confidence="medium")
@@ -409,7 +420,7 @@ def _numbered_components(text: str, unit: str) -> list[StatComponent]:
     components: list[StatComponent] = []
     matches = list(
         re.finditer(
-            r"(?P<value>-?\d+(?:\.\d+)?)\s*(?P<unit>seconds?|sec(?:onds?)?|s\.?|degrees?|meters?|m)?(?:\s*\((?P<label>[^)]+)\))?(?:\s*(?P<tail>per\s+[^;,+]+))?",
+            r"(?P<value>-?\d+(?:\.\d+)?)\s*(?P<unit>seconds?|sec(?:onds?)?|s\.?|degrees?|meters?|m)?(?:\s*\((?P<label>[^)]+)\))?(?:\s*(?P<tail>per\s+[^;,+/]+))?(?:\s+(?P<label_after>[A-Za-z][^;,+/\d]*?))?(?=\s*(?:[;,+/]|-?\d|$))",
             text,
             re.IGNORECASE,
         ),
@@ -421,7 +432,7 @@ def _numbered_components(text: str, unit: str) -> list[StatComponent]:
         matched_unit = match.group("unit") or ""
         if matched_unit and not _component_unit_matches(unit, matched_unit):
             continue
-        label = match.group("label") or match.group("tail") or f"component {index}"
+        label = match.group("label") or match.group("tail") or match.group("label_after") or f"component {index}"
         components.append(
             StatComponent(
                 label=clean_text(label) or f"component {index}",

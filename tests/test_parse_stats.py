@@ -179,6 +179,14 @@ class ParseStatsTests(unittest.TestCase):
         self.assertEqual(stat.unit, "meters_per_second")
         self.assertEqual(stat.confidence, "high")
 
+    def test_fire_rate_percentage_modifier_is_not_shots_per_second(self):
+        stat = parse_fire_rate("+5 % (per stack)")
+
+        self.assertEqual(stat.value, 5)
+        self.assertEqual(stat.unit, "percent")
+        self.assertEqual(stat.confidence, "medium")
+        self.assertIn("percentage modifier", stat.warnings[0])
+
     def test_spread_with_multiple_values_keeps_value_empty(self):
         stat = parse_spread("1.2 degrees 3.4 degrees")
         self.assertIsNone(stat.value)
@@ -198,6 +206,18 @@ class ParseStatsTests(unittest.TestCase):
         self.assertEqual(stat.value, "none")
         self.assertEqual(stat.unit, "meters")
         self.assertEqual(stat.confidence, "medium")
+
+    def test_projectile_radius_labeled_slash_components(self):
+        stat = parse_projectile_radius("2 m inner / 5 m outer")
+
+        self.assertIsNone(stat.value)
+        self.assertEqual(stat.confidence, "medium")
+        self.assertIn("projectile radius parsed into components; no single meters value was assigned.", stat.warnings)
+        self.assertEqual(len(stat.components), 2)
+        self.assertEqual(stat.components[0].label, "inner")
+        self.assertEqual(stat.components[0].value, 2)
+        self.assertEqual(stat.components[1].label, "outer")
+        self.assertEqual(stat.components[1].value, 5)
 
     def test_full_health_healing(self):
         stat = parse_healing("Revives ally at full health")

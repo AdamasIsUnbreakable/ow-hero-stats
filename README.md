@@ -97,7 +97,8 @@ Each parsed stat has:
 - `raw_display`: a cleaned display string with wiki markup and tooltip HTML removed. Keep using `raw` when exact source text matters.
 - `value`: a single value only when the parser can represent the stat safely.
 - `min_value` / `max_value`: range values when a range can be represented safely.
-- `unit`: normalized unit label such as `seconds`, `damage`, or `meters`.
+- `unit`: machine-readable normalized unit label such as `seconds`, `shots_per_second`, or `meters_per_second`.
+- `display_unit`: UI-readable unit label such as `s`, `shots/s`, or `m/s`.
 - `confidence`: one of `high`, `medium`, `low`, or `unparsed`.
 - `warnings`: parser-specific warnings.
 - `components`: structured sub-values for narrow complex cases, such as `direct` and `splash` damage. The parent stat still keeps `value` empty when there is no safe single value.
@@ -109,7 +110,7 @@ Confidence levels:
 - `low`: parsed shape is risky or partial; check `raw` and warnings before using.
 - `unparsed`: raw value is blank, unsupported, or too ambiguous to parse.
 
-Complex damage strings keep the raw value and emit explicit warnings instead of pretending the first number is the full damage model. Narrow direct plus splash strings, such as `50 direct + 25 splash`, are also exposed as stat `components` while the parent `value` remains empty.
+Complex damage strings keep the raw value and emit explicit warnings instead of pretending the first number is the full damage model. Complex stats may expose `components` while the parent `value` remains empty, so the website can show an intentional breakdown without reducing the stat to one misleading number.
 
 ## Cache And Generated Output
 
@@ -145,17 +146,17 @@ site\public\data\v1\
 
 `manifest.json` includes the schema version, generation timestamp, source API endpoint, hero count, and paths to the other files.
 
-Current website schema version: `1.2.0`. This version adds cleaned `raw_display` fields for website rendering and stat `components` for narrow complex values such as direct plus splash damage, while keeping original `raw` values as the source backup.
+Current website schema version: `1.3.0`. This version adds UI-readable `display_unit` fields for stats and components while preserving machine-readable `unit` values. It also keeps cleaned `raw_display` fields and stat `components` for complex values while preserving original `raw` values as the source backup.
 
 `heroes.index.json` is lightweight for hero selector/search views. It includes hero identity, role, health, ability count, warning count, confidence counts, and each hero detail path. It does not include full raw ability rows.
 
 Each `heroes\{slug}.json` detail file includes raw and parsed stats for that hero, so a future website can support raw/parsed toggles and warning-aware displays.
 
-Stat objects in hero detail files include both `field` and `label`. `field` is the stable machine-readable stat key, such as `pspeed`; `label` is the human-readable display label, such as `Projectile Speed`.
+Stat objects in hero detail files include both `field` and `label`. `field` is the stable machine-readable stat key, such as `pspeed`; `label` is the human-readable display label, such as `Projectile Speed`. They also include both `unit` and `display_unit`; use `unit` for code and `display_unit` for UI text.
 
 `audit-summary.json` mirrors the `audit all --json` summary shape with totals, confidence counts, source validation, zero-ability heroes, and common parse warnings.
 
-`quality-report.json` summarizes website data coverage, warning counts, empty/not-applicable stat fields, meaningful unparsed fields, field-level warning counts, and component stat coverage.
+`quality-report.json` summarizes website data coverage, warning counts, empty/not-applicable stat fields, meaningful unparsed fields, field-level warning counts, component stat coverage, machine unit usage, display unit usage, and stats missing display units.
 
 Generated site data should be regenerated after Overwatch patches or wiki updates:
 

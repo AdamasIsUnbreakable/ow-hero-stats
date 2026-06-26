@@ -595,6 +595,17 @@ dd {
   font-style: italic;
 }
 
+.complex-value {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  background: #eef6ff;
+  color: #24516f;
+  font-size: 0.85rem;
+  font-weight: 800;
+  padding: 3px 8px;
+}
+
 .warning-panel {
   margin-top: 12px;
   padding: 12px;

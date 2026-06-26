@@ -16,7 +16,7 @@ from .models import AbilityStats, HeroStats, StatValue
 from .parse_stats import EMPTY_VALUES, clean_text
 
 
-SCHEMA_VERSION = "1.2.0"
+SCHEMA_VERSION = "1.3.0"
 DEFAULT_WEB_DATA_DIR = Path("site/public/data/v1")
 STAT_LABELS = {
     "damage": "Damage",
@@ -38,6 +38,23 @@ STAT_LABELS = {
     "range_distance": "Range",
     "dps": "DPS",
     "hps": "HPS",
+}
+DISPLAY_UNITS = {
+    "shots_per_second": "shots/s",
+    "meters_per_second": "m/s",
+    "per_second": "/s",
+    "meters": "m",
+    "seconds": "s",
+    "degrees": "\u00b0",
+    "damage": "damage",
+    "healing": "healing",
+    "rounds": "rounds",
+    "charges": "charges",
+    "percent": "%",
+}
+FIELD_DISPLAY_UNITS = {
+    ("dps", "per_second"): "damage/s",
+    ("hps", "per_second"): "healing/s",
 }
 
 
@@ -123,6 +140,7 @@ def build_stat_detail(label: str, stat: StatValue) -> dict[str, Any]:
         "min_value": stat.min_value,
         "max_value": stat.max_value,
         "unit": stat.unit,
+        "display_unit": display_unit(label, stat.unit),
         "confidence": stat.confidence,
         "warnings": stat.warnings,
         "components": [
@@ -134,6 +152,7 @@ def build_stat_detail(label: str, stat: StatValue) -> dict[str, Any]:
                 "min_value": component.min_value,
                 "max_value": component.max_value,
                 "unit": component.unit,
+                "display_unit": display_unit(label, component.unit),
                 "warnings": component.warnings,
                 "notes": component.notes,
             }
@@ -155,6 +174,14 @@ def clean_display_text(value: object) -> str | None:
     return text
 
 
+def display_unit(field: str, unit: str | None) -> str | None:
+    if unit is None:
+        return None
+    if (field, unit) in FIELD_DISPLAY_UNITS:
+        return FIELD_DISPLAY_UNITS[(field, unit)]
+    return DISPLAY_UNITS.get(unit, unit.replace("_", " "))
+
+
 def build_audit_summary(
     playable_hero_names: list[str],
     character_rows: list[dict[str, Any]],
@@ -173,6 +200,9 @@ def build_quality_report(heroes: list[HeroStats], generated_at: str | None = Non
     empty_by_field: Counter[str] = Counter()
     unparsed_nonempty_by_field: Counter[str] = Counter()
     component_stats_by_field: Counter[str] = Counter()
+    machine_units_by_unit: Counter[str] = Counter()
+    display_units_by_unit: Counter[str] = Counter()
+    stats_missing_display_unit: list[str] = []
     zero_ability_heroes: list[str] = []
     many_warning_heroes: list[str] = []
     many_unparsed_heroes: list[str] = []
@@ -199,6 +229,23 @@ def build_quality_report(heroes: list[HeroStats], generated_at: str | None = Non
             for field, stat in ability.parsed.items()
             if stat.components
         )
+        for ability in hero.abilities:
+            for field, stat in ability.parsed.items():
+                if stat.unit:
+                    machine_units_by_unit[stat.unit] += 1
+                    unit_display = display_unit(field, stat.unit)
+                    if unit_display:
+                        display_units_by_unit[unit_display] += 1
+                    else:
+                        stats_missing_display_unit.append(f"{hero.name}: {ability.name}: {field}")
+                for component in stat.components:
+                    if component.unit:
+                        machine_units_by_unit[component.unit] += 1
+                        component_display = display_unit(field, component.unit)
+                        if component_display:
+                            display_units_by_unit[component_display] += 1
+                        else:
+                            stats_missing_display_unit.append(f"{hero.name}: {ability.name}: {field}: {component.label}")
         warnings_by_hero[hero.name] = entry["warning_count"]
         if entry["ability_count"] == 0:
             zero_ability_heroes.append(hero.name)
@@ -238,12 +285,15 @@ def build_quality_report(heroes: list[HeroStats], generated_at: str | None = Non
             "unparsed_nonempty_by_field": dict(sorted(unparsed_nonempty_by_field.items())),
             "unparsed_by_field": dict(sorted(unparsed_nonempty_by_field.items())),
             "component_stats_by_field": dict(sorted(component_stats_by_field.items())),
+            "machine_units_by_unit": dict(sorted(machine_units_by_unit.items())),
+            "display_units_by_unit": dict(sorted(display_units_by_unit.items())),
         },
         "coverage_flags": {
             "heroes_with_zero_abilities": zero_ability_heroes,
             "heroes_with_many_warnings": many_warning_heroes,
             "heroes_with_many_unparsed_stats": many_unparsed_heroes,
             "heroes_with_component_stats": component_heroes,
+            "stats_missing_display_unit": stats_missing_display_unit,
         },
     }
 
