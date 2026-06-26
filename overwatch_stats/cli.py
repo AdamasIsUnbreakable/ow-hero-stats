@@ -78,9 +78,22 @@ def main(argv: list[str] | None = None) -> int:
         if args.command == "web-data":
             return _web_data(client, args.output_dir)
         if args.command == "images":
-            return _images(args.output_dir, refresh=refresh)
+            return _images(
+                args.output_dir,
+                refresh=refresh,
+                cache_dir=args.cache_dir,
+                max_retries=args.retries,
+                retry_delay=args.retry_delay,
+            )
         if args.command == "ability-icons":
-            return _ability_icons(args.heroes_data_dir, args.output_dir, refresh=refresh)
+            return _ability_icons(
+                args.heroes_data_dir,
+                args.output_dir,
+                refresh=refresh,
+                cache_dir=args.cache_dir,
+                max_retries=args.retries,
+                retry_delay=args.retry_delay,
+            )
     except FandomApiError as exc:
         print(f"Fandom API error: {exc}", file=sys.stderr)
         return 2
@@ -167,8 +180,20 @@ def _web_data(client: FandomClient, output_dir: str) -> int:
     return 0
 
 
-def _images(output_dir: str, refresh: bool = False) -> int:
-    result = download_hero_portraits(output_dir=output_dir, refresh=refresh)
+def _images(
+    output_dir: str,
+    refresh: bool = False,
+    cache_dir: str = "data/cache",
+    max_retries: int = 5,
+    retry_delay: float = 10.0,
+) -> int:
+    result = download_hero_portraits(
+        output_dir=output_dir,
+        refresh=refresh,
+        cache_dir=f"{cache_dir}/images",
+        max_retries=max_retries,
+        retry_delay=retry_delay,
+    )
     print(f"Found {result['category_file_count']} files in hero icon category.")
     print(f"Selected {result['selected_count']} hero portrait files.")
     print(f"Downloaded {result['downloaded_count']} portraits.")
@@ -181,8 +206,22 @@ def _images(output_dir: str, refresh: bool = False) -> int:
     return 1 if result["failed_count"] and not result["entries"] else 0
 
 
-def _ability_icons(heroes_data_dir: str, output_dir: str, refresh: bool = False) -> int:
-    result = download_ability_icons(heroes_data_dir=heroes_data_dir, output_dir=output_dir, refresh=refresh)
+def _ability_icons(
+    heroes_data_dir: str,
+    output_dir: str,
+    refresh: bool = False,
+    cache_dir: str = "data/cache",
+    max_retries: int = 5,
+    retry_delay: float = 10.0,
+) -> int:
+    result = download_ability_icons(
+        heroes_data_dir=heroes_data_dir,
+        output_dir=output_dir,
+        refresh=refresh,
+        cache_dir=f"{cache_dir}/images",
+        max_retries=max_retries,
+        retry_delay=retry_delay,
+    )
     print(f"Found {result['category_file_count']} files in ability icon categories.")
     print(f"Scanned {result['hero_category_count']} hero ability icon categories.")
     print(f"Needed {result['needed_ability_count']} exported abilities.")

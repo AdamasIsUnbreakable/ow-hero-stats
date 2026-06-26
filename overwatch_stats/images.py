@@ -1,7 +1,10 @@
 from __future__ import annotations
 
+import hashlib
 import json
 import re
+import time
+from datetime import datetime, timezone
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -14,7 +17,9 @@ HERO_ICON_CATEGORY = "Category:Overwatch_2_hero_icons"
 ABILITY_ICON_CATEGORY = "Category:Ability_icons"
 DEFAULT_HERO_IMAGE_DIR = Path("site/public/assets/heroes")
 DEFAULT_ABILITY_IMAGE_DIR = Path("site/public/assets/abilities")
+DEFAULT_IMAGE_CACHE_DIR = Path("data/cache/images")
 PORTRAIT_TITLE_RE = re.compile(r"^File:(?P<hero>.+?) Hero\.(?P<ext>png|webp|jpg|jpeg)$", re.IGNORECASE)
+RETRYABLE_STATUS_CODES = {429, 502, 503, 504}
 
 
 @dataclass(frozen=True)
@@ -24,6 +29,87 @@ class ImageInfo:
     height: int | None
     mime: str | None
     size: int | None
+
+
+class ImageApiClient:
+    def __init__(
+        self,
+        session: Any,
+        endpoint: str = API_ENDPOINT,
+        cache_dir: str | Path = DEFAULT_IMAGE_CACHE_DIR,
+        refresh: bool = False,
+        max_retries: int = 5,
+        retry_delay: float = 10.0,
+        timeout: int = 30,
+    ) -> None:
+        self.session = session
+        self.endpoint = endpoint
+        self.cache_dir = Path(cache_dir)
+        self.refresh = refresh
+        self.max_retries = max_retries
+        self.retry_delay = retry_delay
+        self.timeout = timeout
+
+    def get_json(self, params: dict[str, Any]) -> dict[str, Any]:
+        cache_path = self._cache_path(params)
+        if cache_path.exists() and not self.refresh:
+            cached = json.loads(cache_path.read_text(encoding="utf-8"))
+            return cached.get("raw_response", cached)
+
+        payload = self._request_json(params)
+        self.cache_dir.mkdir(parents=True, exist_ok=True)
+        cache_record = {
+            "fetched_at": datetime.now(timezone.utc).isoformat(),
+            "source_endpoint": self.endpoint,
+            "query_params": params,
+            "raw_response": payload,
+        }
+        cache_path.write_text(json.dumps(cache_record, ensure_ascii=False, indent=2), encoding="utf-8")
+        return payload
+
+    def download_file(self, url: str, path: Path) -> None:
+        response = self._request(url)
+        path.write_bytes(response.content)
+
+    def _request_json(self, params: dict[str, Any]) -> dict[str, Any]:
+        for attempt in range(self.max_retries + 1):
+            response = self.session.get(self.endpoint, params=params, timeout=self.timeout)
+            if response.status_code in RETRYABLE_STATUS_CODES and attempt < self.max_retries:
+                self._wait(response, attempt)
+                continue
+            response.raise_for_status()
+            payload = response.json()
+            if _is_rate_limit_payload(payload) and attempt < self.max_retries:
+                self._wait(response, attempt)
+                continue
+            if "error" in payload:
+                info = payload["error"].get("info", "Unknown Fandom API error")
+                raise RuntimeError(info)
+            return payload
+        raise RuntimeError("Fandom API request exhausted its retry limit.")
+
+    def _request(self, url: str) -> Any:
+        for attempt in range(self.max_retries + 1):
+            response = self.session.get(url, timeout=self.timeout)
+            if response.status_code in RETRYABLE_STATUS_CODES and attempt < self.max_retries:
+                self._wait(response, attempt)
+                continue
+            response.raise_for_status()
+            return response
+        raise RuntimeError("Image download exhausted its retry limit.")
+
+    def _wait(self, response: Any, attempt: int) -> None:
+        retry_after = response.headers.get("Retry-After") if hasattr(response, "headers") else None
+        try:
+            delay = float(retry_after) if retry_after is not None else self.retry_delay * (attempt + 1)
+        except ValueError:
+            delay = self.retry_delay * (attempt + 1)
+        time.sleep(max(0.0, delay))
+
+    def _cache_path(self, params: dict[str, Any]) -> Path:
+        query = json.dumps({"endpoint": self.endpoint, "params": params}, sort_keys=True, ensure_ascii=True)
+        digest = hashlib.sha256(query.encode("utf-8")).hexdigest()[:20]
+        return self.cache_dir / f"mediawiki-{digest}.json"
 
 
 def hero_name_from_file_title(title: str) -> str | None:
@@ -93,6 +179,7 @@ def build_ability_manifest_entry(
         "hero_slug": hero_slug_value,
         "hero_name": ability["hero_name"],
         "ability_name": ability["ability_name"],
+        "ability_key": ability_match_key(ability["ability_name"]),
         "ability_slug": ability_slug,
         "file_title": title,
         "local_path": local_path,
@@ -108,15 +195,26 @@ def download_hero_portraits(
     output_dir: str | Path = DEFAULT_HERO_IMAGE_DIR,
     refresh: bool = False,
     endpoint: str = API_ENDPOINT,
+    cache_dir: str | Path = DEFAULT_IMAGE_CACHE_DIR,
+    max_retries: int = 5,
+    retry_delay: float = 10.0,
 ) -> dict[str, Any]:
     import requests
 
     session = requests.Session()
     session.headers.update({"User-Agent": USER_AGENT})
+    api = ImageApiClient(
+        session,
+        endpoint=endpoint,
+        cache_dir=cache_dir,
+        refresh=refresh,
+        max_retries=max_retries,
+        retry_delay=retry_delay,
+    )
 
-    category_titles = fetch_category_file_titles(session, endpoint=endpoint)
+    category_titles = fetch_category_file_titles(api, endpoint=endpoint)
     selected_titles = filter_portrait_titles(category_titles)
-    image_info = fetch_image_info(selected_titles, session, endpoint=endpoint)
+    image_info = fetch_image_info(selected_titles, api, endpoint=endpoint)
 
     output_path = Path(output_dir)
     output_path.mkdir(parents=True, exist_ok=True)
@@ -141,7 +239,7 @@ def download_hero_portraits(
             skipped_existing_count += 1
         else:
             try:
-                _download_file(session, info.source_url, target_path)
+                _download_file(api, info.source_url, target_path)
                 downloaded_count += 1
             except Exception as exc:  # noqa: BLE001 - keep downloading the rest and report per-file failures.
                 failed.append({"file_title": title, "error": str(exc)})
@@ -170,14 +268,25 @@ def download_ability_icons(
     output_dir: str | Path = DEFAULT_ABILITY_IMAGE_DIR,
     refresh: bool = False,
     endpoint: str = API_ENDPOINT,
+    cache_dir: str | Path = DEFAULT_IMAGE_CACHE_DIR,
+    max_retries: int = 5,
+    retry_delay: float = 10.0,
 ) -> dict[str, Any]:
     import requests
 
     abilities_by_hero = _load_needed_abilities(Path(heroes_data_dir))
     session = requests.Session()
     session.headers.update({"User-Agent": USER_AGENT})
+    api = ImageApiClient(
+        session,
+        endpoint=endpoint,
+        cache_dir=cache_dir,
+        refresh=refresh,
+        max_retries=max_retries,
+        retry_delay=retry_delay,
+    )
 
-    parent_members = fetch_category_members(session, ABILITY_ICON_CATEGORY, endpoint=endpoint)
+    parent_members = fetch_category_members(api, ABILITY_ICON_CATEGORY, endpoint=endpoint)
     hero_categories = {
         member["title"]
         for member in parent_members
@@ -191,12 +300,12 @@ def download_ability_icons(
         hero_key = _hero_from_ability_category(category_title)
         if not hero_key:
             continue
-        titles = fetch_category_file_titles(session, category_title, endpoint=endpoint)
+        titles = fetch_category_file_titles(api, category_title, endpoint=endpoint)
         titles_by_hero[hero_key] = titles
         category_file_count += len(titles)
 
     matches = match_ability_icon_titles(abilities_by_hero, titles_by_hero, generic_titles)
-    image_info = fetch_image_info([match["file_title"] for match in matches], session, endpoint=endpoint)
+    image_info = fetch_image_info([match["file_title"] for match in matches], api, endpoint=endpoint)
 
     output_path = Path(output_dir)
     output_path.mkdir(parents=True, exist_ok=True)
@@ -221,7 +330,7 @@ def download_ability_icons(
             skipped_existing_count += 1
         else:
             try:
-                _download_file(session, info.source_url, target_path)
+                _download_file(api, info.source_url, target_path)
                 downloaded_count += 1
             except Exception as exc:  # noqa: BLE001 - keep downloading the rest and report per-file failures.
                 failed.append({"file_title": title, "error": str(exc)})
@@ -263,7 +372,8 @@ def match_ability_icon_titles(
         used_titles: set[str] = set()
         for ability in abilities:
             key = ability_match_key(ability["ability_name"])
-            title = titles_by_key.get(key) or generic_by_key.get(key)
+            title = _file_title_from_icon_value(ability.get("icon_file"))
+            title = title or titles_by_key.get(key) or generic_by_key.get(key)
             if not title:
                 continue
             matches.append({**ability, "file_title": title})
@@ -349,6 +459,7 @@ def fetch_image_info(titles: list[str], session: Any, endpoint: str = API_ENDPOI
                 "titles": "|".join(chunk),
             },
         )
+        chunk_info: dict[str, ImageInfo] = {}
         for page in payload.get("query", {}).get("pages", {}).values():
             title = page.get("title")
             info_rows = page.get("imageinfo") or []
@@ -358,23 +469,36 @@ def fetch_image_info(titles: list[str], session: Any, endpoint: str = API_ENDPOI
             source_url = info.get("url")
             if not source_url:
                 continue
-            image_info[title] = ImageInfo(
+            chunk_info[title] = ImageInfo(
                 source_url=source_url,
                 width=info.get("width"),
                 height=info.get("height"),
                 mime=info.get("mime"),
                 size=info.get("size"),
             )
+        image_info.update(chunk_info)
+        for requested_title in chunk:
+            actual_title = next(
+                (title for title in chunk_info if _file_title_lookup_key(title) == _file_title_lookup_key(requested_title)),
+                None,
+            )
+            if actual_title:
+                image_info[requested_title] = chunk_info[actual_title]
     return image_info
 
 
 def _download_file(session: Any, url: str, path: Path) -> None:
+    if hasattr(session, "download_file"):
+        session.download_file(url, path)
+        return
     response = session.get(url, timeout=30)
     response.raise_for_status()
     path.write_bytes(response.content)
 
 
 def _get_json(session: Any, endpoint: str, params: dict[str, Any]) -> dict[str, Any]:
+    if hasattr(session, "get_json"):
+        return session.get_json(params)
     response = session.get(endpoint, params=params, timeout=30)
     response.raise_for_status()
     payload = response.json()
@@ -382,6 +506,15 @@ def _get_json(session: Any, endpoint: str, params: dict[str, Any]) -> dict[str, 
         info = payload["error"].get("info", "Unknown Fandom API error")
         raise RuntimeError(info)
     return payload
+
+
+def _is_rate_limit_payload(payload: dict[str, Any]) -> bool:
+    error = payload.get("error")
+    if not isinstance(error, dict):
+        return False
+    code = str(error.get("code", "")).casefold()
+    info = str(error.get("info", "")).casefold()
+    return "rate" in code or "rate limit" in info or "ratelimit" in info
 
 
 def _chunks(values: list[str], size: int) -> list[list[str]]:
@@ -413,6 +546,7 @@ def _load_needed_abilities(heroes_data_dir: Path) -> dict[str, list[dict[str, st
                 "ability_name": ability["name"],
                 "slot": ability.get("slot") or "",
                 "type": ability.get("type") or "",
+                "icon_file": _raw_ability_image(ability),
             }
             for ability in payload.get("abilities", [])
             if ability.get("name")
@@ -487,6 +621,48 @@ def _file_stem(title: str) -> str | None:
     if not title.casefold().startswith("file:"):
         return None
     return Path(title.split(":", 1)[1]).stem
+
+
+def _raw_ability_image(ability: dict[str, Any]) -> str:
+    raw = ability.get("raw") or {}
+    for key, value in raw.items():
+        if _match_key(str(key)) == "abilityimage" and value:
+            return str(value).strip()
+    return ""
+
+
+def _file_title_from_icon_value(value: str | None) -> str | None:
+    if not value:
+        return None
+    cleaned = value.strip()
+    if not re.search(r"\.(?:png|webp|jpe?g|svg)$", cleaned, re.IGNORECASE):
+        return None
+    return cleaned if cleaned.casefold().startswith("file:") else f"File:{cleaned}"
+
+
+def _file_title_lookup_key(title: str) -> str:
+    return title.casefold().replace("_", " ").removeprefix("file:").strip()
+
+
+def find_ability_manifest_entry(
+    entries: list[dict[str, Any]],
+    hero_slug_value: str,
+    ability_name: str,
+    ability_key: str | None = None,
+) -> dict[str, Any] | None:
+    wanted_keys = {ability_match_key(ability_name)}
+    if ability_key:
+        wanted_keys.add(ability_match_key(ability_key))
+    for entry in entries:
+        if entry.get("hero_slug") != hero_slug_value:
+            continue
+        entry_keys = {
+            ability_match_key(str(entry.get("ability_name") or "")),
+            ability_match_key(str(entry.get("ability_key") or "")),
+        }
+        if wanted_keys & entry_keys:
+            return entry
+    return None
 
 
 def _match_key(value: str) -> str:

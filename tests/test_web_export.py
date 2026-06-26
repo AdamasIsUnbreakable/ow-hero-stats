@@ -13,9 +13,12 @@ from overwatch_stats.web_export import (
     build_hero_detail,
     build_hero_index,
     build_quality_report,
+    build_icon_quality,
+    build_perk_quality,
     build_manifest,
     clean_display_text,
     display_unit,
+    icon_asset_issue,
     write_web_data,
 )
 
@@ -117,7 +120,7 @@ class WebExportTests(unittest.TestCase):
         manifest = build_manifest(hero_count=1, generated_at="2026-06-25T23:00:00Z")
 
         self.assertEqual(manifest["schema_version"], SCHEMA_VERSION)
-        self.assertEqual(manifest["schema_version"], "1.3.0")
+        self.assertEqual(manifest["schema_version"], "1.4.0")
         self.assertEqual(manifest["hero_count"], 1)
         self.assertEqual(manifest["data_files"]["hero_index"], "heroes.index.json")
         self.assertEqual(manifest["data_files"]["audit_summary"], "audit-summary.json")
@@ -157,6 +160,56 @@ class WebExportTests(unittest.TestCase):
         self.assertIn("meters_per_second", report["fields"]["machine_units_by_unit"])
         self.assertIn("m/s", report["fields"]["display_units_by_unit"])
         self.assertEqual(report["coverage_flags"]["stats_missing_display_unit"], [])
+        self.assertEqual(report["icons"]["missing_icon_count"], 2)
+        self.assertIn("Ashe", report["icons"]["heroes_with_missing_icons"])
+        self.assertIn("Ashe", report["perks"]["heroes_with_unexpected_minor_count"])
+        self.assertIn("Ashe", report["perks"]["heroes_with_unexpected_major_count"])
+
+    def test_icon_quality_distinguishes_assets_from_fallbacks(self):
+        hero = normalize_hero(
+            {"Name": "Ashe", "Role": "Damage"},
+            [
+                {"ability_name": "Coach Gun", "ability_type": "Ability", "ability_image": ""},
+                {"ability_name": "Dynamite", "ability_type": "Ability"},
+                {"ability_name": "Initials", "ability_type": "Passive", "ability_image": "CR"},
+                {"ability_name": "The Viper", "ability_type": "Weapon", "ability_image": "Ability-ashe1.png"},
+            ],
+        )
+
+        report = build_icon_quality([hero])
+        self.assertEqual(report["missing_icon_count"], 3)
+        self.assertEqual(icon_asset_issue(""), "missing image asset")
+        self.assertEqual(icon_asset_issue(None), "missing image asset")
+        self.assertEqual(icon_asset_issue("CR"), "text-only fallback")
+        self.assertIsNone(icon_asset_issue("assets/abilities/ashe/coach-gun.png"))
+
+    def test_perk_quality_flags_only_unexpected_counts(self):
+        hero = normalize_hero(
+            {"Name": "Ashe", "Role": "Damage"},
+            [
+                {"ability_name": "Minor One", "ability_type": "Minor Perk"},
+                {"ability_name": "Minor Two", "ability_type": "Minor Perk"},
+                {"ability_name": "Major One", "ability_type": "Major Perk"},
+                {"ability_name": "Major Two", "ability_type": "Major Perk"},
+            ],
+        )
+        self.assertEqual(build_perk_quality([hero])["heroes_with_unexpected_minor_count"], {})
+        self.assertEqual(build_perk_quality([hero])["heroes_with_unexpected_major_count"], {})
+
+        hero.abilities.pop()
+        report = build_perk_quality([hero])
+        self.assertEqual(report["heroes_with_unexpected_major_count"]["Ashe"]["count"], 1)
+
+        hero.abilities.extend(
+            [
+                normalize_hero({}, [{"ability_name": "Minor Three", "ability_type": "Minor Perk"}]).abilities[0],
+                normalize_hero({}, [{"ability_name": "Major Three", "ability_type": "Major Perk"}]).abilities[0],
+                normalize_hero({}, [{"ability_name": "Major Four", "ability_type": "Major Perk"}]).abilities[0],
+            ]
+        )
+        report = build_perk_quality([hero])
+        self.assertEqual(report["heroes_with_unexpected_minor_count"]["Ashe"]["count"], 3)
+        self.assertEqual(report["heroes_with_unexpected_major_count"]["Ashe"]["count"], 3)
 
     def test_write_web_data_outputs_valid_json_files(self):
         heroes, validation = build_all_audit(["Ashe"], [self.fixture["hero"]], self.fixture["abilities"])

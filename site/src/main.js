@@ -400,8 +400,7 @@ function renderAbilitySection(title, abilities, variant = "") {
 }
 
 function renderPerkSection(perks) {
-  const livePerks = perks.filter((perk) => !isHistoricalPerk(perk));
-  if (!livePerks.length) {
+  if (!perks.length) {
     return `
       <section class="ow-ability-section">
         <div class="ow-section-title">Perks</div>
@@ -409,9 +408,9 @@ function renderPerkSection(perks) {
       </section>
     `;
   }
-  const minor = livePerks.filter((perk) => String(perk.type || "").toLowerCase().includes("minor"));
-  const major = livePerks.filter((perk) => String(perk.type || "").toLowerCase().includes("major"));
-  const other = livePerks.filter((perk) => !minor.includes(perk) && !major.includes(perk));
+  const minor = perks.filter((perk) => String(perk.type || "").toLowerCase().includes("minor"));
+  const major = perks.filter((perk) => String(perk.type || "").toLowerCase().includes("major"));
+  const other = perks.filter((perk) => !minor.includes(perk) && !major.includes(perk));
   return `
     <section class="ow-ability-section">
       <div class="ow-section-title">Perks</div>
@@ -494,14 +493,6 @@ function abilityDescription(ability) {
 function abilityKeywords(ability) {
   const source = firstTextField(ability, ["ability_keywords", "ability keywords"]);
   return String(source).split(/[;,]/).map((item) => item.trim()).filter(Boolean).slice(0, 8);
-}
-
-function isHistoricalPerk(ability) {
-  if (!String(ability.type || "").toLowerCase().includes("perk")) {
-    return false;
-  }
-  const details = firstTextField(ability, ["ability_details", "ability details", "notes"]);
-  return /\bremoved\b|\bhistorical\b|\bformerly\b/i.test(stripHtml(details));
 }
 
 function firstTextField(ability, keys) {

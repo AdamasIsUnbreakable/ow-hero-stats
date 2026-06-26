@@ -163,7 +163,9 @@ ABILITY_FIELDS = ",".join(
     [
         "hero_name",
         "ability_name",
+        "ability_image",
         "ability_key",
+        "removed",
         "ability_type",
         "shot_type",
         "official_description",

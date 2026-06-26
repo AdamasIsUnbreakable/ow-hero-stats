@@ -1,21 +1,84 @@
 from __future__ import annotations
 
 import unittest
+from tempfile import TemporaryDirectory
+from unittest.mock import patch
 
 from overwatch_stats.images import (
+    ImageApiClient,
     ImageInfo,
     ability_icon_key_from_file_title,
     ability_match_key,
     build_ability_manifest_entry,
     build_manifest_entry,
     filter_portrait_titles,
+    find_ability_manifest_entry,
     hero_name_from_file_title,
     match_ability_icon_titles,
     portrait_slug_from_file_title,
 )
 
 
+class FakeResponse:
+    def __init__(
+        self,
+        payload: dict[str, object],
+        status_code: int = 200,
+        headers: dict[str, str] | None = None,
+    ) -> None:
+        self.payload = payload
+        self.status_code = status_code
+        self.headers = headers or {}
+
+    def json(self) -> dict[str, object]:
+        return self.payload
+
+    def raise_for_status(self) -> None:
+        if self.status_code >= 400:
+            raise RuntimeError(f"HTTP {self.status_code}")
+
+
+class FakeSession:
+    def __init__(self, responses: list[FakeResponse]) -> None:
+        self.responses = responses
+        self.calls = 0
+
+    def get(self, *_args: object, **_kwargs: object) -> FakeResponse:
+        response = self.responses[self.calls]
+        self.calls += 1
+        return response
+
+
 class ImageTests(unittest.TestCase):
+    def test_image_api_metadata_is_cached(self) -> None:
+        payload = {"query": {"categorymembers": [{"title": "File:Ashe Hero.png"}]}}
+        with TemporaryDirectory() as cache_dir:
+            first_session = FakeSession([FakeResponse(payload)])
+            client = ImageApiClient(first_session, cache_dir=cache_dir)
+
+            self.assertEqual(client.get_json({"action": "query"}), payload)
+            self.assertEqual(first_session.calls, 1)
+
+            offline_session = FakeSession([])
+            cached_client = ImageApiClient(offline_session, cache_dir=cache_dir)
+            self.assertEqual(cached_client.get_json({"action": "query"}), payload)
+            self.assertEqual(offline_session.calls, 0)
+
+    def test_image_api_retries_rate_limit_using_retry_after(self) -> None:
+        payload = {"query": {"categorymembers": []}}
+        session = FakeSession(
+            [
+                FakeResponse({}, status_code=429, headers={"Retry-After": "2"}),
+                FakeResponse(payload),
+            ]
+        )
+        with TemporaryDirectory() as cache_dir, patch("overwatch_stats.images.time.sleep") as sleep:
+            client = ImageApiClient(session, cache_dir=cache_dir, max_retries=1, retry_delay=10)
+            self.assertEqual(client.get_json({"action": "query"}), payload)
+
+        sleep.assert_called_once_with(2.0)
+        self.assertEqual(session.calls, 2)
+
     def test_filter_keeps_hero_portraits_and_skips_icons(self) -> None:
         titles = [
             "File:Ashe Hero.png",
@@ -76,6 +139,37 @@ class ImageTests(unittest.TestCase):
 
         self.assertEqual([match["ability_name"] for match in matches], ["Remote Detonator", "Viper's Sting"])
 
+    def test_cargo_icon_filename_is_preferred_even_outside_category(self) -> None:
+        matches = match_ability_icon_titles(
+            {
+                "ashe": [
+                    {
+                        "hero_slug": "ashe",
+                        "hero_name": "Ashe",
+                        "ability_name": "Coach Gun",
+                        "icon_file": "Ability-ashe3.png",
+                    }
+                ]
+            },
+            {"ashe": []},
+        )
+
+        self.assertEqual(matches[0]["file_title"], "File:Ability-ashe3.png")
+
+    def test_manifest_entry_matches_by_hero_and_name_or_key(self) -> None:
+        entries = [
+            {
+                "hero_slug": "ashe",
+                "ability_name": "Coach Gun",
+                "ability_key": "coachgun",
+                "local_path": "assets/abilities/ashe/coach-gun.png",
+            }
+        ]
+
+        self.assertIsNotNone(find_ability_manifest_entry(entries, "ashe", "Coach Gun"))
+        self.assertIsNotNone(find_ability_manifest_entry(entries, "ashe", "Other", "coach_gun"))
+        self.assertIsNone(find_ability_manifest_entry(entries, "cassidy", "Coach Gun"))
+
     def test_match_numbered_hero_ability_icons_by_slot_order(self) -> None:
         matches = match_ability_icon_titles(
             {
@@ -132,6 +226,7 @@ class ImageTests(unittest.TestCase):
 
         self.assertEqual(entry["hero_slug"], "ashe")
         self.assertEqual(entry["ability_name"], "Remote Detonator")
+        self.assertEqual(entry["ability_key"], "remotedetonator")
         self.assertEqual(entry["ability_slug"], "remote-detonator")
         self.assertEqual(entry["local_path"], "assets/abilities/ashe/remote-detonator.png")
 

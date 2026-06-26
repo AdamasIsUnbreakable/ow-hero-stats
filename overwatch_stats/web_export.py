@@ -16,7 +16,7 @@ from .models import AbilityStats, HeroStats, StatValue
 from .parse_stats import EMPTY_VALUES, clean_text
 
 
-SCHEMA_VERSION = "1.3.0"
+SCHEMA_VERSION = "1.4.0"
 DEFAULT_WEB_DATA_DIR = Path("site/public/data/v1")
 STAT_LABELS = {
     "damage": "Damage",
@@ -194,6 +194,8 @@ def build_audit_summary(
 
 def build_quality_report(heroes: list[HeroStats], generated_at: str | None = None) -> dict[str, Any]:
     hero_entries = [build_quality_hero_entry(hero) for hero in heroes]
+    icon_quality = build_icon_quality(heroes)
+    perk_quality = build_perk_quality(heroes)
     warning_counter: Counter[tuple[str, str, str | None]] = Counter()
     warnings_by_hero: dict[str, int] = {}
     warnings_by_field: Counter[str] = Counter()
@@ -265,6 +267,7 @@ def build_quality_report(heroes: list[HeroStats], generated_at: str | None = Non
             "parsed_stat_count": sum(entry["parsed_stat_count"] for entry in hero_entries),
             "warning_count": sum(entry["warning_count"] for entry in hero_entries),
             "component_stat_count": sum(entry["component_stat_count"] for entry in hero_entries),
+            "missing_icon_count": icon_quality["missing_icon_count"],
         },
         "heroes": hero_entries,
         "warnings": {
@@ -295,7 +298,99 @@ def build_quality_report(heroes: list[HeroStats], generated_at: str | None = Non
             "heroes_with_component_stats": component_heroes,
             "stats_missing_display_unit": stats_missing_display_unit,
         },
+        "icons": icon_quality,
+        "perks": perk_quality,
     }
+
+
+def build_icon_quality(heroes: list[HeroStats]) -> dict[str, Any]:
+    by_hero: dict[str, list[dict[str, Any]]] = {}
+    hero_details: dict[str, dict[str, Any]] = {}
+    missing_count = 0
+    for hero in heroes:
+        missing_abilities: list[dict[str, Any]] = []
+        missing_passives: list[dict[str, Any]] = []
+        missing_perks: list[dict[str, Any]] = []
+        for ability in hero.abilities:
+            icon_value = _ability_raw_field(ability, "ability_image")
+            reason = icon_asset_issue(icon_value)
+            if not reason:
+                continue
+            record = {
+                "ability": ability.name,
+                "type": ability.type,
+                "reason": reason,
+                "source_value": icon_value,
+            }
+            ability_type = (ability.type or "").casefold()
+            if "perk" in ability_type:
+                missing_perks.append(record)
+            elif "passive" in ability_type:
+                missing_passives.append(record)
+            else:
+                missing_abilities.append(record)
+        all_missing = missing_abilities + missing_passives + missing_perks
+        if all_missing:
+            by_hero[hero.name] = all_missing
+            hero_details[hero.name] = {
+                "missing_ability_icons": missing_abilities,
+                "missing_passive_icons": missing_passives,
+                "missing_perk_icons": missing_perks,
+                "missing_icon_count": len(all_missing),
+            }
+            missing_count += len(all_missing)
+    return {
+        "heroes_with_missing_icons": by_hero,
+        "by_hero": hero_details,
+        "missing_icon_count": missing_count,
+    }
+
+
+def icon_asset_issue(value: object) -> str | None:
+    text = clean_text(value)
+    if not text:
+        return "missing image asset"
+    if re.fullmatch(r"[A-Za-z]{1,4}", text):
+        return "text-only fallback"
+    candidate = text.split("?", 1)[0].split("#", 1)[0]
+    if not re.search(r"\.(?:png|webp|jpe?g|svg)$", candidate, re.IGNORECASE):
+        return "not a real image asset"
+    return None
+
+
+def build_perk_quality(heroes: list[HeroStats]) -> dict[str, Any]:
+    unexpected_minor: dict[str, dict[str, Any]] = {}
+    unexpected_major: dict[str, dict[str, Any]] = {}
+    for hero in heroes:
+        minor = sorted(
+            ability.name
+            for ability in hero.abilities
+            if "minor perk" in (ability.type or "").casefold()
+        )
+        major = sorted(
+            ability.name
+            for ability in hero.abilities
+            if "major perk" in (ability.type or "").casefold()
+        )
+        if len(minor) != 2:
+            unexpected_minor[hero.name] = {"count": len(minor), "perks": minor}
+        if len(major) != 2:
+            unexpected_major[hero.name] = {"count": len(major), "perks": major}
+    return {
+        "expected_minor_count": 2,
+        "expected_major_count": 2,
+        "heroes_with_unexpected_minor_count": unexpected_minor,
+        "heroes_with_unexpected_major_count": unexpected_major,
+    }
+
+
+def _ability_raw_field(ability: AbilityStats, wanted_field: str) -> Any:
+    wanted_key = re.sub(r"[^a-z0-9]", "", wanted_field.casefold())
+    for key, value in ability.raw.items():
+        key_normalized = re.sub(r"[^a-z0-9]", "", str(key).casefold())
+        if key_normalized == wanted_key:
+            return value
+    return None
 
 
 def build_quality_hero_entry(hero: HeroStats) -> dict[str, Any]:

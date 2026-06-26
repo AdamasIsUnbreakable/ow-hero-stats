@@ -27,11 +27,17 @@ def normalize_hero(hero_row: dict[str, Any], ability_rows: list[dict[str, Any]])
             "armor": _parse_int(hero_data.get("armor")),
             "shield": _parse_int(hero_data.get("shield")),
         },
-        abilities=[normalize_ability(row) for row in ability_rows],
+        abilities=[normalize_ability(row) for row in ability_rows if not is_removed_ability_row(row)],
         source=API_ENDPOINT,
         fetched_at=datetime.now(timezone.utc).isoformat(),
     )
     return hero
+
+
+def is_removed_ability_row(row: dict[str, Any]) -> bool:
+    ability_data = _canonicalize_keys(row)
+    removed = clean_text(ability_data.get("removed"))
+    return bool(removed and removed.casefold() in {"1", "true", "yes", "removed"})
 
 
 def normalize_all(hero_rows: list[dict[str, Any]], ability_rows: list[dict[str, Any]]) -> list[HeroStats]:

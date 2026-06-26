@@ -82,6 +82,17 @@ class NormalizeTests(unittest.TestCase):
         self.assertEqual(hero.name, "Shion")
         self.assertEqual(hero.role, "Damage")
 
+    def test_explicitly_removed_ability_rows_are_filtered(self):
+        hero = normalize_hero(
+            {"Name": "Ashe", "Role": "Damage"},
+            [
+                {"ability_name": "Remote Detonator", "ability_type": "Minor Perk", "removed": ""},
+                {"ability_name": "Sidewinder", "ability_type": "Minor Perk", "removed": "yes"},
+            ],
+        )
+
+        self.assertEqual([ability.name for ability in hero.abilities], ["Remote Detonator"])
+
 
 if __name__ == "__main__":
     unittest.main()

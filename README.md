@@ -153,7 +153,7 @@ site\public\data\v1\
 
 `manifest.json` includes the schema version, generation timestamp, source API endpoint, hero count, and paths to the other files.
 
-Current website schema version: `1.3.0`. This version adds UI-readable `display_unit` fields for stats and components while preserving machine-readable `unit` values. It also keeps cleaned `raw_display` fields and stat `components` for complex values while preserving original `raw` values as the source backup.
+Current website schema version: `1.4.0`. This version adds icon and perk-count quality reporting. It retains UI-readable `display_unit` fields, cleaned `raw_display` fields, stat `components`, and original `raw` values as the source backup.
 
 `heroes.index.json` is lightweight for hero selector/search views. It includes hero identity, role, health, ability count, warning count, confidence counts, and each hero detail path. It does not include full raw ability rows.
 
@@ -163,7 +163,7 @@ Stat objects in hero detail files include both `field` and `label`. `field` is t
 
 `audit-summary.json` mirrors the `audit all --json` summary shape with totals, confidence counts, source validation, zero-ability heroes, and common parse warnings.
 
-`quality-report.json` summarizes website data coverage, warning counts, empty/not-applicable stat fields, meaningful unparsed fields, field-level warning counts, component stat coverage, machine unit usage, display unit usage, and stats missing display units.
+`quality-report.json` summarizes website data coverage, warning counts, empty/not-applicable stat fields, meaningful unparsed fields, field-level warning counts, component stat coverage, machine/display unit usage, and stats missing display units. Its `icons` section reports missing, blank, fallback-text, and invalid ability/passive/perk icon values by hero. Its `perks` section reports heroes that differ from the expected two current Minor and two current Major perks. Cargo rows explicitly marked `removed` are excluded before current perk counts are calculated; unresolved source anomalies remain visible in the report.
 
 Generated site data should be regenerated after Overwatch patches or wiki updates:
 
@@ -197,7 +197,7 @@ The browser loads data from `site\public\data\v1`. Select a hero to open a dark 
 
 Hero portraits are downloaded from the Overwatch Fandom `Category:Overwatch 2 hero icons` MediaWiki category into `site\public\assets\heroes`, with a generated `manifest.json` beside the images. The viewer loads that manifest when it exists and falls back to the text-only layout if portraits have not been generated. Downloaded portraits are generated assets and are ignored by Git.
 
-Ability icons are downloaded from the Overwatch Fandom `Category:Ability icons` MediaWiki category and its hero-specific ability icon subcategories. The downloader matches only icon files for abilities present in the generated hero JSON and writes them under `site\public\assets\abilities` with a generated manifest. Ability cards show icons when matched and fall back to text-only headers when no matching icon exists.
+Ability icons are downloaded with the Fandom MediaWiki API into `site\public\assets\abilities`; `manifest.json` beside them records the hero, ability, source filename/URL, dimensions, MIME type, and local path. The downloader first uses Cargo's exact `ability_image` filename, then falls back to matching `Category:Ability icons` and hero-specific icon categories. Generated assets are ignored by Git. Ability cards show real icons when matched and a fallback only when no source asset resolves. MediaWiki category and image metadata is cached under `data\cache\images`; ordinary reruns reuse both that metadata and existing image files. `--refresh` deliberately bypasses the cache. Rate-limited requests use bounded retries and honor Fandom's `Retry-After` response when provided.
 
 Selecting a hero updates the browser URL, so links such as `http://localhost:8000/?hero=ashe` still open that hero directly. Use the selected hero's Copy link button to copy a refresh-safe URL, or use All heroes to return to the selector.
 
