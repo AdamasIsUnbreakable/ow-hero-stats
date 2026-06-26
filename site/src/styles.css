@@ -531,6 +531,22 @@ dd {
   object-fit: cover;
 }
 
+.ability-icon-fallback {
+  display: grid;
+  place-items: center;
+  border-style: dashed;
+  border-color: rgba(176, 190, 203, 0.38);
+  background: rgba(13, 20, 29, 0.45);
+  color: rgba(207, 217, 226, 0.62);
+  box-shadow: none;
+}
+
+.missing-icon-glyph {
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
 .shot-type {
   margin: 10px 0;
   color: var(--muted);

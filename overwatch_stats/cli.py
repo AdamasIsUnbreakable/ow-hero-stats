@@ -228,11 +228,16 @@ def _ability_icons(
     print(f"Selected {result['selected_count']} matched ability icons.")
     print(f"Downloaded {result['downloaded_count']} ability icons.")
     print(f"Skipped {result['skipped_existing_count']} existing ability icons.")
+    print(f"Failed {result['failed_count']} ability icons.")
     if result["failed_count"]:
         print(f"Failed {result['failed_count']} ability icons:", file=sys.stderr)
         for failure in result["failed"]:
             print(f"- {failure['file_title']}: {failure['error']}", file=sys.stderr)
     print(f"Wrote manifest to {result['manifest_path']}")
+    coverage = result["coverage_report"]
+    print(f"Missing after download: {coverage['missing_after_download_count']}.")
+    print(f"Duplicate name collisions: {coverage['duplicate_name_collision_count']}.")
+    print(f"Wrote coverage report to {result['coverage_report_path']}")
     return 1 if result["failed_count"] and not result["entries"] else 0
 
 

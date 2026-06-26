@@ -6,7 +6,7 @@ const state = {
   heroes: [],
   audit: null,
   portraits: {},
-  abilityIcons: {},
+  abilityIcons: [],
   selectedSlug: null,
   selectedHero: null,
   search: "",
@@ -88,9 +88,9 @@ async function fetchAbilityIconManifest() {
       return {};
     }
     const entries = await response.json();
-    return Object.fromEntries(entries.map((entry) => [abilityIconKey(entry.hero_slug, entry.ability_name), entry]));
+    return Array.isArray(entries) ? entries : [];
   } catch {
-    return {};
+    return [];
   }
 }
 
@@ -282,6 +282,10 @@ async function selectHero(indexHero, options = {}) {
 
   try {
     const detail = await fetchJson(indexHero.detail_path);
+    detail.abilities = (detail.abilities || []).map((ability, abilityIndex) => ({
+      ...ability,
+      ability_index: abilityIndex,
+    }));
     state.selectedHero = detail;
     renderHeroDetail(detail);
   } catch (error) {
@@ -689,21 +693,25 @@ function renderAbilityCard(ability) {
 }
 
 function renderAbilityIcon(ability) {
-  const icon = state.abilityIcons?.[abilityIconKey(state.selectedHero?.slug, ability.name)];
+  const icon = findAbilityIcon(ability);
   if (!icon?.local_path) {
-    return "";
+    return renderMissingAbilityIcon("ability-icon");
   }
   const src = resolvePublicAssetUrl(icon.local_path);
   return `<img class="ability-icon" src="${escapeHtml(src)}" alt="${escapeHtml(ability.name)} icon" loading="lazy">`;
 }
 
 function renderAbilityVisual(ability, className) {
-  const icon = state.abilityIcons?.[abilityIconKey(state.selectedHero?.slug, ability.name)];
+  const icon = findAbilityIcon(ability);
   if (icon?.local_path) {
     const src = resolvePublicAssetUrl(icon.local_path);
     return `<img class="${className}" src="${escapeHtml(src)}" alt="${escapeHtml(ability.name)} icon" loading="lazy">`;
   }
-  return `<span class="${className} ability-icon-fallback" aria-hidden="true">${escapeHtml(heroInitials(ability.name))}</span>`;
+  return renderMissingAbilityIcon(className);
+}
+
+function renderMissingAbilityIcon(className) {
+  return `<span class="${className} ability-icon-fallback" aria-hidden="true"><span class="missing-icon-glyph">?</span></span>`;
 }
 
 function renderStatRow(stat) {
@@ -945,8 +953,37 @@ function heroInitials(name) {
     .toUpperCase();
 }
 
-function abilityIconKey(heroSlug, abilityName) {
-  return `${heroSlug || ""}:${abilityName || ""}`.toLowerCase();
+function findAbilityIcon(ability) {
+  const heroSlug = state.selectedHero?.slug || "";
+  const candidates = (state.abilityIcons || []).filter((entry) => entry.hero_slug === heroSlug);
+  const nameKey = iconIdentity(ability.name);
+  const exact = candidates.filter((entry) => (
+    iconIdentity(entry.ability_name) === nameKey
+    && entry.slot !== undefined
+    && entry.type !== undefined
+    && iconIdentity(entry.slot) === iconIdentity(ability.slot)
+    && iconIdentity(entry.type) === iconIdentity(ability.type)
+  ));
+  const indexed = exact.filter((entry) => entry.ability_index === ability.ability_index);
+  if (indexed.length === 1) return indexed[0];
+  if (exact.length === 1) return exact[0];
+
+  const abilityKey = ability.ability_key || ability.slot;
+  if (hasText(abilityKey)) {
+    const keyMatches = candidates.filter((entry) => iconMatchKey(entry.ability_key) === iconMatchKey(abilityKey));
+    if (keyMatches.length === 1) return keyMatches[0];
+  }
+
+  const nameMatches = candidates.filter((entry) => iconIdentity(entry.ability_name) === nameKey);
+  return nameMatches.length === 1 ? nameMatches[0] : null;
+}
+
+function iconIdentity(value) {
+  return String(value || "").trim().toLowerCase();
+}
+
+function iconMatchKey(value) {
+  return iconIdentity(value).replace(/[^a-z0-9]+/g, "");
 }
 
 function displayRaw(item) {

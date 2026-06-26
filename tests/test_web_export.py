@@ -164,6 +164,10 @@ class WebExportTests(unittest.TestCase):
         self.assertIn("Ashe", report["icons"]["heroes_with_missing_icons"])
         self.assertIn("Ashe", report["perks"]["heroes_with_unexpected_minor_count"])
         self.assertIn("Ashe", report["perks"]["heroes_with_unexpected_major_count"])
+        self.assertEqual(
+            report["asset_reports"]["ability_icon_coverage"],
+            "assets/abilities/coverage-report.json",
+        )
 
     def test_icon_quality_distinguishes_assets_from_fallbacks(self):
         hero = normalize_hero(

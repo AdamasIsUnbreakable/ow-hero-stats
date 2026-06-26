@@ -9,6 +9,7 @@ from overwatch_stats.images import (
     ImageInfo,
     ability_icon_key_from_file_title,
     ability_match_key,
+    build_ability_icon_coverage,
     build_ability_manifest_entry,
     build_manifest_entry,
     filter_portrait_titles,
@@ -221,14 +222,114 @@ class ImageTests(unittest.TestCase):
                 mime="image/png",
                 size=4321,
             ),
-            {"hero_slug": "ashe", "hero_name": "Ashe", "ability_name": "Remote Detonator"},
+            {
+                "hero_slug": "ashe",
+                "hero_name": "Ashe",
+                "ability_name": "Remote Detonator",
+                "ability_key": "ability 2",
+                "slot": "ability 2",
+                "type": "Minor Perk",
+                "ability_index": 7,
+            },
         )
 
         self.assertEqual(entry["hero_slug"], "ashe")
         self.assertEqual(entry["ability_name"], "Remote Detonator")
-        self.assertEqual(entry["ability_key"], "remotedetonator")
+        self.assertEqual(entry["ability_key"], "ability 2")
+        self.assertEqual(entry["slot"], "ability 2")
+        self.assertEqual(entry["type"], "Minor Perk")
+        self.assertEqual(entry["ability_index"], 7)
         self.assertEqual(entry["ability_slug"], "remote-detonator")
         self.assertEqual(entry["local_path"], "assets/abilities/ashe/remote-detonator.png")
+
+    def test_coverage_report_uses_exact_identity_and_old_name_fallback(self) -> None:
+        abilities = {
+            "sombra": [
+                {
+                    "hero_slug": "sombra",
+                    "hero_name": "Sombra",
+                    "ability_name": "Translocator",
+                    "ability_key": "ability 1",
+                    "slot": "ability 1",
+                    "type": "Ability",
+                    "ability_index": 0,
+                },
+                {
+                    "hero_slug": "sombra",
+                    "hero_name": "Sombra",
+                    "ability_name": "Translocator",
+                    "ability_key": "ability 2",
+                    "slot": "ability 2",
+                    "type": "Ability",
+                    "ability_index": 1,
+                },
+                {
+                    "hero_slug": "sombra",
+                    "hero_name": "Sombra",
+                    "ability_name": "Virus",
+                    "ability_key": "ability 3",
+                    "slot": "ability 3",
+                    "type": "Ability",
+                    "ability_index": 2,
+                },
+            ]
+        }
+        manifest = [
+            {
+                "hero_slug": "sombra",
+                "ability_name": "Translocator",
+                "ability_key": "ability 1",
+                "slot": "ability 1",
+                "type": "Ability",
+                "ability_index": 0,
+                "local_path": "assets/abilities/sombra/translocator-one.png",
+            },
+            {
+                "hero_slug": "sombra",
+                "ability_name": "Translocator",
+                "ability_key": "ability 2",
+                "slot": "ability 2",
+                "type": "Ability",
+                "ability_index": 1,
+                "local_path": "assets/abilities/sombra/translocator-two.png",
+            },
+            {
+                "hero_slug": "sombra",
+                "ability_name": "Virus",
+                "local_path": "assets/abilities/sombra/virus.png",
+            },
+        ]
+
+        report = build_ability_icon_coverage(abilities, manifest)
+
+        self.assertEqual(report["needed_ability_count"], 3)
+        self.assertEqual(report["matched_icon_count"], 3)
+        self.assertEqual(report["missing_after_download_count"], 0)
+        self.assertEqual(report["fallback_icon_count"], 0)
+        self.assertEqual(report["duplicate_name_collision_count"], 1)
+        self.assertEqual(report["duplicate_name_collisions"][0]["ability_name"], "Translocator")
+
+    def test_coverage_report_lists_missing_entries_by_hero(self) -> None:
+        abilities = {
+            "ashe": [
+                {
+                    "hero_slug": "ashe",
+                    "hero_name": "Ashe",
+                    "ability_name": "Coach Gun",
+                    "ability_key": "ability 1",
+                    "slot": "ability 1",
+                    "type": "Ability",
+                    "ability_index": 0,
+                }
+            ]
+        }
+
+        report = build_ability_icon_coverage(abilities, [])
+
+        self.assertEqual(report["needed_ability_count"], 1)
+        self.assertEqual(report["matched_icon_count"], 0)
+        self.assertEqual(report["missing_after_download_count"], 1)
+        self.assertEqual(report["missing_after_download_by_hero"]["Ashe"][0]["ability"], "Coach Gun")
 
 
 if __name__ == "__main__":

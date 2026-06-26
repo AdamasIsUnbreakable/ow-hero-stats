@@ -179,8 +179,11 @@ def build_ability_manifest_entry(
         "hero_slug": hero_slug_value,
         "hero_name": ability["hero_name"],
         "ability_name": ability["ability_name"],
-        "ability_key": ability_match_key(ability["ability_name"]),
+        "ability_key": ability.get("ability_key") or ability_match_key(ability["ability_name"]),
         "ability_slug": ability_slug,
+        "slot": ability.get("slot") or "",
+        "type": ability.get("type") or "",
+        "ability_index": ability.get("ability_index"),
         "file_title": title,
         "local_path": local_path,
         "source_url": info.source_url,
@@ -341,6 +344,12 @@ def download_ability_icons(
     entries.sort(key=lambda entry: (entry["hero_name"].casefold(), entry["ability_name"].casefold()))
     manifest_path = output_path / "manifest.json"
     manifest_path.write_text(json.dumps(entries, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    coverage_report = build_ability_icon_coverage(abilities_by_hero, entries)
+    coverage_report_path = output_path / "coverage-report.json"
+    coverage_report_path.write_text(
+        json.dumps(coverage_report, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
 
     return {
         "category_file_count": category_file_count,
@@ -352,6 +361,8 @@ def download_ability_icons(
         "failed_count": len(failed),
         "failed": failed,
         "manifest_path": manifest_path,
+        "coverage_report_path": coverage_report_path,
+        "coverage_report": coverage_report,
         "entries": entries,
     }
 
@@ -534,8 +545,8 @@ def _public_asset_path(output_dir: Path, slug: str, extension: str) -> str:
     return f"assets/{output_dir.name}/{slug}{extension}"
 
 
-def _load_needed_abilities(heroes_data_dir: Path) -> dict[str, list[dict[str, str]]]:
-    abilities_by_hero: dict[str, list[dict[str, str]]] = {}
+def _load_needed_abilities(heroes_data_dir: Path) -> dict[str, list[dict[str, Any]]]:
+    abilities_by_hero: dict[str, list[dict[str, Any]]] = {}
     for path in sorted(heroes_data_dir.glob("*.json")):
         payload = json.loads(path.read_text(encoding="utf-8"))
         hero_slug_value = payload["slug"]
@@ -544,11 +555,13 @@ def _load_needed_abilities(heroes_data_dir: Path) -> dict[str, list[dict[str, st
                 "hero_slug": hero_slug_value,
                 "hero_name": payload["name"],
                 "ability_name": ability["name"],
+                "ability_key": ability.get("slot") or ability_match_key(ability["name"]),
                 "slot": ability.get("slot") or "",
                 "type": ability.get("type") or "",
+                "ability_index": index,
                 "icon_file": _raw_ability_image(ability),
             }
-            for ability in payload.get("abilities", [])
+            for index, ability in enumerate(payload.get("abilities", []))
             if ability.get("name")
         ]
     return abilities_by_hero
@@ -649,20 +662,120 @@ def find_ability_manifest_entry(
     hero_slug_value: str,
     ability_name: str,
     ability_key: str | None = None,
+    slot: str | None = None,
+    ability_type: str | None = None,
+    ability_index: int | None = None,
 ) -> dict[str, Any] | None:
-    wanted_keys = {ability_match_key(ability_name)}
+    candidates = [entry for entry in entries if entry.get("hero_slug") == hero_slug_value]
+    name_key = ability_match_key(ability_name)
+    exact = [
+        entry
+        for entry in candidates
+        if ability_match_key(str(entry.get("ability_name") or "")) == name_key
+        and slot is not None
+        and ability_type is not None
+        and _identity_value(entry.get("slot")) == _identity_value(slot)
+        and _identity_value(entry.get("type")) == _identity_value(ability_type)
+    ]
+    if ability_index is not None:
+        indexed = [entry for entry in exact if entry.get("ability_index") == ability_index]
+        if len(indexed) == 1:
+            return indexed[0]
+    if len(exact) == 1:
+        return exact[0]
     if ability_key:
-        wanted_keys.add(ability_match_key(ability_key))
-    for entry in entries:
-        if entry.get("hero_slug") != hero_slug_value:
-            continue
-        entry_keys = {
-            ability_match_key(str(entry.get("ability_name") or "")),
-            ability_match_key(str(entry.get("ability_key") or "")),
-        }
-        if wanted_keys & entry_keys:
-            return entry
+        key_matches = [
+            entry
+            for entry in candidates
+            if ability_match_key(str(entry.get("ability_key") or "")) == ability_match_key(ability_key)
+        ]
+        if len(key_matches) == 1:
+            return key_matches[0]
+    name_matches = [
+        entry
+        for entry in candidates
+        if ability_match_key(str(entry.get("ability_name") or "")) == name_key
+    ]
+    if len(name_matches) == 1:
+        return name_matches[0]
     return None
+
+
+def build_ability_icon_coverage(
+    abilities_by_hero: dict[str, list[dict[str, Any]]],
+    manifest_entries: list[dict[str, Any]],
+) -> dict[str, Any]:
+    missing_by_hero: dict[str, list[dict[str, Any]]] = {}
+    collisions: list[dict[str, Any]] = []
+    matched_count = 0
+    needed_count = sum(len(abilities) for abilities in abilities_by_hero.values())
+
+    for hero_slug_value, abilities in abilities_by_hero.items():
+        available_entries = [
+            entry for entry in manifest_entries if entry.get("hero_slug") == hero_slug_value
+        ]
+        names: dict[str, list[dict[str, Any]]] = {}
+        for ability in abilities:
+            names.setdefault(ability_match_key(ability["ability_name"]), []).append(ability)
+        for duplicate_rows in names.values():
+            if len(duplicate_rows) > 1:
+                collisions.append(
+                    {
+                        "hero_slug": hero_slug_value,
+                        "hero_name": duplicate_rows[0]["hero_name"],
+                        "ability_name": duplicate_rows[0]["ability_name"],
+                        "count": len(duplicate_rows),
+                        "entries": [
+                            {
+                                "ability_index": row.get("ability_index"),
+                                "ability_key": row.get("ability_key"),
+                                "slot": row.get("slot"),
+                                "type": row.get("type"),
+                            }
+                            for row in duplicate_rows
+                        ],
+                    }
+                )
+
+        for ability in abilities:
+            entry = find_ability_manifest_entry(
+                available_entries,
+                hero_slug_value,
+                ability["ability_name"],
+                ability.get("ability_key"),
+                ability.get("slot"),
+                ability.get("type"),
+                ability.get("ability_index"),
+            )
+            if entry and entry.get("local_path"):
+                matched_count += 1
+                available_entries.remove(entry)
+                continue
+            missing_by_hero.setdefault(ability["hero_name"], []).append(
+                {
+                    "ability": ability["ability_name"],
+                    "ability_key": ability.get("ability_key"),
+                    "slot": ability.get("slot"),
+                    "type": ability.get("type"),
+                    "ability_index": ability.get("ability_index"),
+                    "reason": "no generated icon asset matched",
+                }
+            )
+
+    missing_count = needed_count - matched_count
+    return {
+        "needed_ability_count": needed_count,
+        "matched_icon_count": matched_count,
+        "missing_after_download_count": missing_count,
+        "fallback_icon_count": missing_count,
+        "duplicate_name_collision_count": len(collisions),
+        "duplicate_name_collisions": collisions,
+        "missing_after_download_by_hero": missing_by_hero,
+    }
+
+
+def _identity_value(value: object) -> str:
+    return str(value or "").strip().casefold()
 
 
 def _match_key(value: str) -> str:

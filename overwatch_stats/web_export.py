@@ -300,6 +300,9 @@ def build_quality_report(heroes: list[HeroStats], generated_at: str | None = Non
         },
         "icons": icon_quality,
         "perks": perk_quality,
+        "asset_reports": {
+            "ability_icon_coverage": "assets/abilities/coverage-report.json",
+        },
     }
 
 
