@@ -137,7 +137,7 @@ site\public\data\v1\
 
 `manifest.json` includes the schema version, generation timestamp, source API endpoint, hero count, and paths to the other files.
 
-Current website schema version: `1.2.0`. This version adds cleaned `raw_display` fields for website rendering while keeping original `raw` values as the source backup.
+Current website schema version: `1.2.0`. This version adds cleaned `raw_display` fields for website rendering and stat `components` for narrow complex values such as direct plus splash damage, while keeping original `raw` values as the source backup.
 
 `heroes.index.json` is lightweight for hero selector/search views. It includes hero identity, role, health, ability count, warning count, confidence counts, and each hero detail path. It does not include full raw ability rows.
 

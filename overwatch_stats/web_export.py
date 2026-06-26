@@ -1,8 +1,9 @@
 from __future__ import annotations
 
+from collections import Counter
+import html
 import json
 import re
-import html
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -48,6 +49,7 @@ def build_manifest(hero_count: int, generated_at: str | None = None) -> dict[str
         "data_files": {
             "hero_index": "heroes.index.json",
             "audit_summary": "audit-summary.json",
+            "quality_report": "quality-report.json",
             "hero_detail_dir": "heroes/",
         },
     }
@@ -162,6 +164,78 @@ def build_audit_summary(
     return all_audit_summary(playable_hero_names, character_rows, heroes, ability_rows, validation)
 
 
+def build_quality_report(heroes: list[HeroStats], generated_at: str | None = None) -> dict[str, Any]:
+    hero_entries = [build_quality_hero_entry(hero) for hero in heroes]
+    warning_counter: Counter[str] = Counter()
+    warnings_by_hero: dict[str, int] = {}
+    zero_ability_heroes: list[str] = []
+    many_warning_heroes: list[str] = []
+    many_unparsed_heroes: list[str] = []
+    component_heroes: list[str] = []
+
+    for hero, entry in zip(heroes, hero_entries, strict=True):
+        warning_counter.update(
+            warning
+            for ability in hero.abilities
+            for warning in ability.parse_warnings
+        )
+        warnings_by_hero[hero.name] = entry["warning_count"]
+        if entry["ability_count"] == 0:
+            zero_ability_heroes.append(hero.name)
+        if entry["warning_count"] >= 10:
+            many_warning_heroes.append(hero.name)
+        if entry["parsed_stat_count"] and entry["confidence_counts"]["unparsed"] / entry["parsed_stat_count"] >= 0.75:
+            many_unparsed_heroes.append(hero.name)
+        if entry["component_stat_count"]:
+            component_heroes.append(hero.name)
+
+    return {
+        "schema_version": SCHEMA_VERSION,
+        "generated_at": generated_at or _utc_now(),
+        "summary": {
+            "hero_count": len(heroes),
+            "ability_count": sum(entry["ability_count"] for entry in hero_entries),
+            "parsed_stat_count": sum(entry["parsed_stat_count"] for entry in hero_entries),
+            "warning_count": sum(entry["warning_count"] for entry in hero_entries),
+            "component_stat_count": sum(entry["component_stat_count"] for entry in hero_entries),
+        },
+        "heroes": hero_entries,
+        "warnings": {
+            "most_common": [
+                {"warning": warning, "count": count}
+                for warning, count in warning_counter.most_common(20)
+            ],
+            "by_hero": warnings_by_hero,
+        },
+        "coverage_flags": {
+            "heroes_with_zero_abilities": zero_ability_heroes,
+            "heroes_with_many_warnings": many_warning_heroes,
+            "heroes_with_many_unparsed_stats": many_unparsed_heroes,
+            "heroes_with_component_stats": component_heroes,
+        },
+    }
+
+
+def build_quality_hero_entry(hero: HeroStats) -> dict[str, Any]:
+    confidence_counts = count_confidences([hero])
+    parsed_stat_count = sum(len(ability.parsed) for ability in hero.abilities)
+    return {
+        "name": hero.name,
+        "slug": hero_slug(hero.name),
+        "role": hero.role,
+        "ability_count": len(hero.abilities),
+        "parsed_stat_count": parsed_stat_count,
+        "warning_count": sum(len(ability.parse_warnings) for ability in hero.abilities),
+        "component_stat_count": sum(
+            1
+            for ability in hero.abilities
+            for stat in ability.parsed.values()
+            if stat.components
+        ),
+        "confidence_counts": {key: confidence_counts[key] for key in ("high", "medium", "low", "unparsed")},
+    }
+
+
 def write_web_data(
     heroes: list[HeroStats],
     audit_summary: dict[str, Any],
@@ -171,17 +245,21 @@ def write_web_data(
     heroes_dir = base_dir / "heroes"
     heroes_dir.mkdir(parents=True, exist_ok=True)
 
-    manifest = build_manifest(hero_count=len(heroes))
+    generated_at = _utc_now()
+    manifest = build_manifest(hero_count=len(heroes), generated_at=generated_at)
     hero_index = build_hero_index(heroes)
+    quality_report = build_quality_report(heroes, generated_at=generated_at)
 
     paths = {
         "manifest": base_dir / "manifest.json",
         "hero_index": base_dir / "heroes.index.json",
         "audit_summary": base_dir / "audit-summary.json",
+        "quality_report": base_dir / "quality-report.json",
     }
     _write_json(paths["manifest"], manifest)
     _write_json(paths["hero_index"], hero_index)
     _write_json(paths["audit_summary"], audit_summary)
+    _write_json(paths["quality_report"], quality_report)
 
     for hero in heroes:
         _write_json(heroes_dir / f"{hero_slug(hero.name)}.json", build_hero_detail(hero))

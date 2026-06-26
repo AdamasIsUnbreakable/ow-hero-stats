@@ -12,6 +12,7 @@ from overwatch_stats.web_export import (
     build_audit_summary,
     build_hero_detail,
     build_hero_index,
+    build_quality_report,
     build_manifest,
     clean_display_text,
     write_web_data,
@@ -115,7 +116,21 @@ class WebExportTests(unittest.TestCase):
         self.assertEqual(manifest["hero_count"], 1)
         self.assertEqual(manifest["data_files"]["hero_index"], "heroes.index.json")
         self.assertEqual(manifest["data_files"]["audit_summary"], "audit-summary.json")
+        self.assertEqual(manifest["data_files"]["quality_report"], "quality-report.json")
         self.assertEqual(manifest["data_files"]["hero_detail_dir"], "heroes/")
+
+    def test_quality_report_counts_fixture_hero(self):
+        report = build_quality_report([self.hero], generated_at="2026-06-25T23:00:00Z")
+
+        self.assertEqual(report["schema_version"], SCHEMA_VERSION)
+        self.assertEqual(report["summary"]["hero_count"], 1)
+        self.assertEqual(report["summary"]["ability_count"], 2)
+        self.assertGreater(report["summary"]["warning_count"], 0)
+        self.assertEqual(report["summary"]["component_stat_count"], 1)
+        self.assertEqual(report["heroes"][0]["name"], "Ashe")
+        self.assertEqual(report["heroes"][0]["component_stat_count"], 1)
+        self.assertIn("Ashe", report["coverage_flags"]["heroes_with_component_stats"])
+        self.assertTrue(report["warnings"]["most_common"])
 
     def test_write_web_data_outputs_valid_json_files(self):
         heroes, validation = build_all_audit(["Ashe"], [self.fixture["hero"]], self.fixture["abilities"])
@@ -127,11 +142,17 @@ class WebExportTests(unittest.TestCase):
             manifest = json.loads(paths["manifest"].read_text(encoding="utf-8"))
             index = json.loads(paths["hero_index"].read_text(encoding="utf-8"))
             audit = json.loads(paths["audit_summary"].read_text(encoding="utf-8"))
+            quality = json.loads(paths["quality_report"].read_text(encoding="utf-8"))
             detail = json.loads((Path(temp_dir) / "heroes" / "ashe.json").read_text(encoding="utf-8"))
 
         self.assertEqual(manifest["data_files"]["hero_index"], "heroes.index.json")
+        self.assertEqual(manifest["data_files"]["quality_report"], "quality-report.json")
         self.assertEqual(index[0]["detail_path"], "heroes/ashe.json")
         self.assertEqual(audit["scope"], "all")
+        self.assertEqual(quality["schema_version"], SCHEMA_VERSION)
+        self.assertEqual(quality["summary"]["hero_count"], 1)
+        self.assertEqual(quality["summary"]["component_stat_count"], 1)
+        self.assertIn("Ashe", quality["coverage_flags"]["heroes_with_component_stats"])
         self.assertEqual(detail["name"], "Ashe")
         self.assertEqual(detail["abilities"][1]["stats"]["damage"]["value"], None)
         self.assertEqual(detail["abilities"][1]["stats"]["damage"]["components"][0]["label"], "direct")
