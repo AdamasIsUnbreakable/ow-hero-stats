@@ -169,6 +169,8 @@ http://localhost:8000
 
 The browser loads data from `site\public\data\v1`. Use the raw value toggle to inspect original wiki strings alongside parsed values, confidence, and parser warnings.
 
+Selecting a hero updates the browser URL, so links such as `http://localhost:8000/?hero=ashe` open that hero directly. Use the selected hero's Copy link button to copy a refresh-safe URL.
+
 You can also double-click `open-website.cmd` from the repo root. It uses existing generated data when available, starts a local server, and opens the website in your browser. Keep the launcher window open while using the site.
 
 ## Tests

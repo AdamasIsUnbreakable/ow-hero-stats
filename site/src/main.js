@@ -8,6 +8,7 @@ const state = {
   search: "",
   role: "All",
   showRaw: false,
+  copyLinkFeedbackTimer: null,
 };
 
 const elements = {
@@ -37,8 +38,9 @@ async function init() {
     renderAuditStatus();
     renderHeroList();
 
-    if (heroes.length > 0) {
-      await selectHero(heroes[0]);
+    const initialHero = getHeroFromUrl() || heroes[0];
+    if (initialHero) {
+      await selectHero(initialHero);
     }
   } catch (error) {
     elements.heroDetail.innerHTML = `
@@ -67,6 +69,13 @@ function bindEvents() {
     elements.rawToggle.textContent = state.showRaw ? "Hide raw values" : "Show raw values";
     if (state.selectedHero) {
       renderHeroDetail(state.selectedHero);
+    }
+  });
+
+  window.addEventListener("popstate", () => {
+    const hero = getHeroFromUrl() || state.heroes[0];
+    if (hero) {
+      selectHero(hero);
     }
   });
 }
@@ -141,7 +150,7 @@ function renderHeroList() {
     button.addEventListener("click", () => {
       const hero = state.heroes.find((item) => item.slug === button.dataset.heroSlug);
       if (hero) {
-        selectHero(hero);
+        selectHero(hero, { historyMode: "push" });
       }
     });
   });
@@ -163,10 +172,13 @@ function renderHeroCard(hero) {
   `;
 }
 
-async function selectHero(indexHero) {
+async function selectHero(indexHero, options = {}) {
+  const { historyMode = "none" } = options;
   state.selectedSlug = indexHero.slug;
   renderHeroList();
   elements.heroDetail.innerHTML = `<div class="empty-state"><p>Loading ${escapeHtml(indexHero.name)}...</p></div>`;
+
+  updateHeroUrl(indexHero.slug, historyMode);
 
   try {
     const detail = await fetchJson(indexHero.detail_path);
@@ -187,11 +199,15 @@ function renderHeroDetail(hero) {
     <article>
       <header class="detail-header">
         <div>
-          <h2>${escapeHtml(hero.name)}</h2>
+          <div class="hero-title-row">
+            <h2>${escapeHtml(hero.name)}</h2>
+            <button class="copy-link-button" type="button" data-copy-link>Copy link</button>
+          </div>
           <p>
             <span class="role-pill ${roleClass(hero.role)}">${escapeHtml(hero.role || "Unknown")}</span>
             ${hero.sub_role ? `<span class="muted">${escapeHtml(hero.sub_role)}</span>` : ""}
           </p>
+          <p class="copy-link-feedback" aria-live="polite" data-copy-link-feedback></p>
         </div>
         <dl class="health-grid">
           ${renderHealthCell("Health", hero.health?.health)}
@@ -212,6 +228,51 @@ function renderHeroDetail(hero) {
       </section>
     </article>
   `;
+
+  const copyButton = elements.heroDetail.querySelector("[data-copy-link]");
+  copyButton?.addEventListener("click", () => copySelectedHeroLink(hero.slug));
+}
+
+async function copySelectedHeroLink(slug) {
+  const url = buildHeroUrl(slug);
+  const feedback = elements.heroDetail.querySelector("[data-copy-link-feedback]");
+
+  clearCopyLinkFeedback();
+
+  if (navigator.clipboard?.writeText) {
+    try {
+      await navigator.clipboard.writeText(url);
+      showCopyLinkFeedback("Copied link");
+      return;
+    } catch {
+      showCopyLinkFeedback(`Copy failed. Link: ${url}`);
+      return;
+    }
+  }
+
+  if (feedback) {
+    feedback.innerHTML = `Copy this link: <span>${escapeHtml(url)}</span>`;
+  }
+}
+
+function clearCopyLinkFeedback() {
+  if (state.copyLinkFeedbackTimer) {
+    window.clearTimeout(state.copyLinkFeedbackTimer);
+    state.copyLinkFeedbackTimer = null;
+  }
+}
+
+function showCopyLinkFeedback(message) {
+  const feedback = elements.heroDetail.querySelector("[data-copy-link-feedback]");
+  if (!feedback) {
+    return;
+  }
+
+  feedback.textContent = message;
+  state.copyLinkFeedbackTimer = window.setTimeout(() => {
+    feedback.textContent = "";
+    state.copyLinkFeedbackTimer = null;
+  }, 1800);
 }
 
 function renderAbilityCard(ability) {
@@ -328,6 +389,41 @@ function confidenceClass(confidence) {
 
 function roleClass(role) {
   return `role-${String(role || "unknown").toLowerCase()}`;
+}
+
+function getHeroFromUrl() {
+  const slug = new URLSearchParams(window.location.search).get("hero");
+  if (!slug) {
+    return null;
+  }
+
+  return state.heroes.find((hero) => hero.slug === slug.toLowerCase()) || null;
+}
+
+function updateHeroUrl(slug, historyMode) {
+  if (historyMode === "none") {
+    return;
+  }
+
+  const url = buildHeroUrl(slug);
+  if (url === window.location.href) {
+    return;
+  }
+
+  if (historyMode === "replace") {
+    window.history.replaceState({ hero: slug }, "", url);
+    return;
+  }
+
+  if (historyMode === "push") {
+    window.history.pushState({ hero: slug }, "", url);
+  }
+}
+
+function buildHeroUrl(slug) {
+  const url = new URL(window.location.href);
+  url.searchParams.set("hero", slug);
+  return url.href;
 }
 
 function hasText(value) {
