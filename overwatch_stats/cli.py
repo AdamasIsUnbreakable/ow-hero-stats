@@ -8,7 +8,7 @@ import sys
 from .audit import all_audit_summary, build_all_audit, hero_audit_summary, render_all_audit, render_hero_audit
 from .export_json import hero_to_json, write_all, write_hero
 from .fandom_client import FandomApiError, FandomClient
-from .images import DEFAULT_HERO_IMAGE_DIR, download_hero_portraits
+from .images import DEFAULT_ABILITY_IMAGE_DIR, DEFAULT_HERO_IMAGE_DIR, download_ability_icons, download_hero_portraits
 from .normalize import normalize_selected, normalize_hero
 from .web_export import DEFAULT_WEB_DATA_DIR, build_audit_summary, write_web_data
 
@@ -43,6 +43,15 @@ def build_parser() -> argparse.ArgumentParser:
     images.add_argument("--refresh", action="store_true", dest="command_refresh", help="Redownload existing portrait files.")
     images.add_argument("--output-dir", default=str(DEFAULT_HERO_IMAGE_DIR), help="Directory for generated hero portraits.")
 
+    ability_icons = subparsers.add_parser("ability-icons", help="Download matched ability icons for the static website.")
+    ability_icons.add_argument("--refresh", action="store_true", dest="command_refresh", help="Redownload existing ability icon files.")
+    ability_icons.add_argument("--output-dir", default=str(DEFAULT_ABILITY_IMAGE_DIR), help="Directory for generated ability icons.")
+    ability_icons.add_argument(
+        "--heroes-data-dir",
+        default=str(DEFAULT_WEB_DATA_DIR / "heroes"),
+        help="Directory containing generated hero detail JSON files.",
+    )
+
     subparsers.add_parser("all", help="Fetch and export all heroes.")
     return parser
 
@@ -70,6 +79,8 @@ def main(argv: list[str] | None = None) -> int:
             return _web_data(client, args.output_dir)
         if args.command == "images":
             return _images(args.output_dir, refresh=refresh)
+        if args.command == "ability-icons":
+            return _ability_icons(args.heroes_data_dir, args.output_dir, refresh=refresh)
     except FandomApiError as exc:
         print(f"Fandom API error: {exc}", file=sys.stderr)
         return 2
@@ -164,6 +175,22 @@ def _images(output_dir: str, refresh: bool = False) -> int:
     print(f"Skipped {result['skipped_existing_count']} existing portraits.")
     if result["failed_count"]:
         print(f"Failed {result['failed_count']} portraits:", file=sys.stderr)
+        for failure in result["failed"]:
+            print(f"- {failure['file_title']}: {failure['error']}", file=sys.stderr)
+    print(f"Wrote manifest to {result['manifest_path']}")
+    return 1 if result["failed_count"] and not result["entries"] else 0
+
+
+def _ability_icons(heroes_data_dir: str, output_dir: str, refresh: bool = False) -> int:
+    result = download_ability_icons(heroes_data_dir=heroes_data_dir, output_dir=output_dir, refresh=refresh)
+    print(f"Found {result['category_file_count']} files in ability icon categories.")
+    print(f"Scanned {result['hero_category_count']} hero ability icon categories.")
+    print(f"Needed {result['needed_ability_count']} exported abilities.")
+    print(f"Selected {result['selected_count']} matched ability icons.")
+    print(f"Downloaded {result['downloaded_count']} ability icons.")
+    print(f"Skipped {result['skipped_existing_count']} existing ability icons.")
+    if result["failed_count"]:
+        print(f"Failed {result['failed_count']} ability icons:", file=sys.stderr)
         for failure in result["failed"]:
             print(f"- {failure['file_title']}: {failure['error']}", file=sys.stderr)
     print(f"Wrote manifest to {result['manifest_path']}")

@@ -4,9 +4,13 @@ import unittest
 
 from overwatch_stats.images import (
     ImageInfo,
+    ability_icon_key_from_file_title,
+    ability_match_key,
+    build_ability_manifest_entry,
     build_manifest_entry,
     filter_portrait_titles,
     hero_name_from_file_title,
+    match_ability_icon_titles,
     portrait_slug_from_file_title,
 )
 
@@ -51,6 +55,44 @@ class ImageTests(unittest.TestCase):
         self.assertEqual(entry["height"], 300)
         self.assertEqual(entry["mime"], "image/png")
         self.assertEqual(entry["size"], 12345)
+
+    def test_ability_icon_key_normalizes_fandom_file_titles(self) -> None:
+        self.assertEqual(ability_icon_key_from_file_title("File:Remote Detonator.png"), "remotedetonator")
+        self.assertEqual(ability_icon_key_from_file_title("File:Icon-ability.helixrockets.png"), "helixrockets")
+        self.assertEqual(ability_icon_key_from_file_title("File:Perk VipersSting.png"), "viperssting")
+        self.assertEqual(ability_match_key("Viper's Sting"), "viperssting")
+
+    def test_match_ability_icon_titles_only_selects_needed_abilities(self) -> None:
+        matches = match_ability_icon_titles(
+            {
+                "ashe": [
+                    {"hero_slug": "ashe", "hero_name": "Ashe", "ability_name": "Remote Detonator"},
+                    {"hero_slug": "ashe", "hero_name": "Ashe", "ability_name": "Viper's Sting"},
+                    {"hero_slug": "ashe", "hero_name": "Ashe", "ability_name": "Dynamite"},
+                ]
+            },
+            {"ashe": ["File:Remote Detonator.png", "File:Perk VipersSting.png", "File:Unrelated.png"]},
+        )
+
+        self.assertEqual([match["ability_name"] for match in matches], ["Remote Detonator", "Viper's Sting"])
+
+    def test_ability_manifest_entry_uses_public_asset_path(self) -> None:
+        entry = build_ability_manifest_entry(
+            "File:Remote Detonator.png",
+            ImageInfo(
+                source_url="https://static.wikia.nocookie.net/example/remote.png",
+                width=128,
+                height=128,
+                mime="image/png",
+                size=4321,
+            ),
+            {"hero_slug": "ashe", "hero_name": "Ashe", "ability_name": "Remote Detonator"},
+        )
+
+        self.assertEqual(entry["hero_slug"], "ashe")
+        self.assertEqual(entry["ability_name"], "Remote Detonator")
+        self.assertEqual(entry["ability_slug"], "remote-detonator")
+        self.assertEqual(entry["local_path"], "assets/abilities/ashe/remote-detonator.png")
 
 
 if __name__ == "__main__":

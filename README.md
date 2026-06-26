@@ -81,6 +81,13 @@ Download hero portraits for the static viewer:
 .\.venv\Scripts\python.exe -m overwatch_stats.cli images --refresh
 ```
 
+Download matched ability icons for the static viewer:
+
+```powershell
+.\.venv\Scripts\python.exe -m overwatch_stats.cli ability-icons
+.\.venv\Scripts\python.exe -m overwatch_stats.cli ability-icons --refresh
+```
+
 ## Output Model
 
 Each normalized hero export includes:
@@ -170,11 +177,12 @@ The repository includes a minimal plain HTML/CSS/JavaScript viewer that reads th
 
 The default page is a full-page hero select screen. Heroes are grouped by Tank, Damage, and Support, with portrait tiles when downloaded and clean fallback tiles when portraits are missing.
 
-Generate data and optional hero portraits, serve the `site` folder, then open the local URL:
+Generate data and optional images, serve the `site` folder, then open the local URL:
 
 ```powershell
 .\.venv\Scripts\python.exe -m overwatch_stats.cli web-data
 .\.venv\Scripts\python.exe -m overwatch_stats.cli images
+.\.venv\Scripts\python.exe -m overwatch_stats.cli ability-icons
 cd site
 python -m http.server 8000
 ```
@@ -188,6 +196,8 @@ http://localhost:8000
 The browser loads data from `site\public\data\v1`. Select a hero to open that hero's stat page, then use the raw value toggle to inspect original wiki strings alongside parsed values, confidence, and parser warnings.
 
 Hero portraits are downloaded from the Overwatch Fandom `Category:Overwatch 2 hero icons` MediaWiki category into `site\public\assets\heroes`, with a generated `manifest.json` beside the images. The viewer loads that manifest when it exists and falls back to the text-only layout if portraits have not been generated. Downloaded portraits are generated assets and are ignored by Git.
+
+Ability icons are downloaded from the Overwatch Fandom `Category:Ability icons` MediaWiki category and its hero-specific ability icon subcategories. The downloader matches only icon files for abilities present in the generated hero JSON and writes them under `site\public\assets\abilities` with a generated manifest. Ability cards show icons when matched and fall back to text-only headers when no matching icon exists.
 
 Selecting a hero updates the browser URL, so links such as `http://localhost:8000/?hero=ashe` still open that hero directly. Use the selected hero's Copy link button to copy a refresh-safe URL, or use All heroes to return to the selector.
 
@@ -203,7 +213,7 @@ Local development still uses:
 
 GitHub Pages deployment generates fresh website data in CI, runs tests and Ruff, then publishes the `site` folder. The published site reads the generated `site\public\data\v1` files from the Pages artifact.
 
-The deployment workflow also downloads hero portraits during CI, so the published artifact includes `site\public\assets\heroes` without committing downloaded images to the repository.
+The deployment workflow also downloads hero portraits and matched ability icons during CI, so the published artifact includes `site\public\assets\heroes` and `site\public\assets\abilities` without committing downloaded images to the repository.
 
 If Pages is not enabled yet, enable it in the GitHub repository settings and choose GitHub Actions as the Pages source. The workflow uploads and deploys the Pages artifact directly; it does not require a separate branch-based Pages source.
 

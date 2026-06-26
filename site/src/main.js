@@ -1,10 +1,12 @@
 const DATA_ROOT = new URL("./public/data/v1/", window.location.href);
 const HERO_ASSET_ROOT = new URL("./public/assets/heroes/", window.location.href);
+const ABILITY_ASSET_ROOT = new URL("./public/assets/abilities/", window.location.href);
 const state = {
   manifest: null,
   heroes: [],
   audit: null,
   portraits: {},
+  abilityIcons: {},
   selectedSlug: null,
   selectedHero: null,
   search: "",
@@ -28,16 +30,18 @@ document.addEventListener("DOMContentLoaded", init);
 
 async function init() {
   try {
-    const [manifest, heroes, audit, portraits] = await Promise.all([
+    const [manifest, heroes, audit, portraits, abilityIcons] = await Promise.all([
       fetchJson("manifest.json"),
       fetchJson("heroes.index.json"),
       fetchJson("audit-summary.json"),
       fetchPortraitManifest(),
+      fetchAbilityIconManifest(),
     ]);
     state.manifest = manifest;
     state.heroes = heroes;
     state.audit = audit;
     state.portraits = portraits;
+    state.abilityIcons = abilityIcons;
 
     bindEvents();
 
@@ -71,6 +75,20 @@ async function fetchPortraitManifest() {
     }
     const entries = await response.json();
     return Object.fromEntries(entries.map((entry) => [entry.hero_slug, entry]));
+  } catch {
+    return {};
+  }
+}
+
+async function fetchAbilityIconManifest() {
+  const url = new URL("manifest.json", ABILITY_ASSET_ROOT).href;
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      return {};
+    }
+    const entries = await response.json();
+    return Object.fromEntries(entries.map((entry) => [abilityIconKey(entry.hero_slug, entry.ability_name), entry]));
   } catch {
     return {};
   }
@@ -380,6 +398,7 @@ function renderAbilityCard(ability) {
   return `
     <article class="ability-card">
       <header>
+        ${renderAbilityIcon(ability)}
         <div>
           <h3>${escapeHtml(ability.name)}</h3>
           <p class="muted">
@@ -394,6 +413,15 @@ function renderAbilityCard(ability) {
       ${ability.parse_warnings?.length ? renderWarningList(ability.parse_warnings) : ""}
     </article>
   `;
+}
+
+function renderAbilityIcon(ability) {
+  const icon = state.abilityIcons?.[abilityIconKey(state.selectedHero?.slug, ability.name)];
+  if (!icon?.local_path) {
+    return "";
+  }
+  const src = resolvePublicAssetUrl(icon.local_path);
+  return `<img class="ability-icon" src="${escapeHtml(src)}" alt="${escapeHtml(ability.name)} icon" loading="lazy">`;
 }
 
 function renderStatRow(stat) {
@@ -633,6 +661,10 @@ function heroInitials(name) {
     .join("")
     .slice(0, 3)
     .toUpperCase();
+}
+
+function abilityIconKey(heroSlug, abilityName) {
+  return `${heroSlug || ""}:${abilityName || ""}`.toLowerCase();
 }
 
 function displayRaw(item) {

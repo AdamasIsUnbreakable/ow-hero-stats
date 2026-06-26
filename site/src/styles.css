@@ -494,6 +494,22 @@ dd {
   overflow: hidden;
 }
 
+.ability-card header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ability-icon {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel-soft);
+  object-fit: cover;
+}
+
 .shot-type {
   margin: 10px 0;
   color: var(--muted);

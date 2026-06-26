@@ -43,6 +43,9 @@ jobs:
       - name: Download hero portraits
         run: python -m overwatch_stats.cli images
 
+      - name: Download ability icons
+        run: python -m overwatch_stats.cli ability-icons
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
         with:

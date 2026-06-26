@@ -12,6 +12,7 @@ data/cache-test/
 data/output/
 site/public/data/
 site/public/assets/heroes/
+site/public/assets/abilities/
 
 .agents/
 .codex/
