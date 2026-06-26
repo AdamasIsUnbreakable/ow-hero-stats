@@ -325,6 +325,28 @@ dd {
   color: var(--warning);
 }
 
+.stat-components {
+  display: grid;
+  gap: 4px;
+  margin: 8px 0 0;
+}
+
+.stat-components div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.stat-components dt {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.stat-components dd {
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
 .not-parsed {
   color: var(--muted);
   font-style: italic;

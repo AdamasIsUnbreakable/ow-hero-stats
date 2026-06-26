@@ -87,11 +87,13 @@ Each normalized hero export includes:
 Each parsed stat has:
 
 - `raw`: the original string.
+- `raw_display`: a cleaned display string with wiki markup and tooltip HTML removed. Keep using `raw` when exact source text matters.
 - `value`: a single value only when the parser can represent the stat safely.
 - `min_value` / `max_value`: range values when a range can be represented safely.
 - `unit`: normalized unit label such as `seconds`, `damage`, or `meters`.
 - `confidence`: one of `high`, `medium`, `low`, or `unparsed`.
 - `warnings`: parser-specific warnings.
+- `components`: structured sub-values for narrow complex cases, such as `direct` and `splash` damage. The parent stat still keeps `value` empty when there is no safe single value.
 
 Confidence levels:
 
@@ -100,7 +102,7 @@ Confidence levels:
 - `low`: parsed shape is risky or partial; check `raw` and warnings before using.
 - `unparsed`: raw value is blank, unsupported, or too ambiguous to parse.
 
-Complex damage strings such as direct plus splash damage keep the raw value and emit explicit warnings instead of pretending the first number is the full damage model.
+Complex damage strings keep the raw value and emit explicit warnings instead of pretending the first number is the full damage model. Narrow direct plus splash strings, such as `50 direct + 25 splash`, are also exposed as stat `components` while the parent `value` remains empty.
 
 ## Cache And Generated Output
 
@@ -134,6 +136,8 @@ site\public\data\v1\
 ```
 
 `manifest.json` includes the schema version, generation timestamp, source API endpoint, hero count, and paths to the other files.
+
+Current website schema version: `1.2.0`. This version adds cleaned `raw_display` fields for website rendering while keeping original `raw` values as the source backup.
 
 `heroes.index.json` is lightweight for hero selector/search views. It includes hero identity, role, health, ability count, warning count, confidence counts, and each hero detail path. It does not include full raw ability rows.
 

@@ -4,11 +4,12 @@ import html
 import re
 from typing import Callable
 
-from .models import StatValue
+from .models import StatComponent, StatValue
 
 
 EMPTY_VALUES = {"", "-", "n/a", "na", "none", "unknown", "varies"}
 COMPLEX_DAMAGE_WARNING = "Complex damage model: raw value contains multiple components; no single damage value was parsed."
+COMPONENT_DAMAGE_WARNING = "Complex damage model parsed into components; no single damage value was assigned."
 
 
 def clean_text(value: object) -> str | None:
@@ -120,13 +121,28 @@ def parse_damage(raw: object) -> StatValue:
     if blank:
         return blank
     text = clean_text(raw) or ""
+    components = _direct_plus_splash_components(text)
+    if components:
+        return StatValue(
+            raw=str(raw),
+            value=None,
+            unit="damage",
+            confidence="medium",
+            warnings=[COMPONENT_DAMAGE_WARNING],
+            components=components,
+        )
+    is_complex = _is_complex_damage(text)
+    if is_complex:
+        return StatValue(
+            raw=str(raw),
+            value=None,
+            unit="damage",
+            confidence="low",
+            warnings=[COMPLEX_DAMAGE_WARNING],
+        )
     number_range = _range(text)
     warnings: list[str] = []
     confidence = "high"
-    is_complex = _is_complex_damage(text)
-    if is_complex:
-        warnings.append(COMPLEX_DAMAGE_WARNING)
-        confidence = "low"
     if number_range:
         return StatValue(
             raw=str(raw),
@@ -149,6 +165,30 @@ def parse_damage(raw: object) -> StatValue:
             warnings=warnings or [COMPLEX_DAMAGE_WARNING],
         )
     return StatValue(raw=str(raw), value=value, unit="damage", confidence=confidence, warnings=warnings)
+
+
+def _direct_plus_splash_components(text: str) -> list[StatComponent]:
+    match = re.fullmatch(
+        r"\s*(-?\d+(?:\.\d+)?)\s+(direct)\s*\+\s*(-?\d+(?:\.\d+)?)\s+(splash)\s*",
+        text,
+        re.IGNORECASE,
+    )
+    if not match:
+        return []
+    return [
+        StatComponent(
+            label=match.group(2).lower(),
+            raw=f"{match.group(1)} {match.group(2).lower()}",
+            value=_number(match.group(1)),
+            unit="damage",
+        ),
+        StatComponent(
+            label=match.group(4).lower(),
+            raw=f"{match.group(3)} {match.group(4).lower()}",
+            value=_number(match.group(3)),
+            unit="damage",
+        ),
+    ]
 
 
 def parse_falloff_range(raw: object) -> StatValue:

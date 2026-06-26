@@ -298,8 +298,10 @@ function renderAbilityCard(ability) {
 
 function renderStatRow(stat) {
   const formatted = formatStatValue(stat);
-  const rawHtml = state.showRaw && hasText(stat.raw)
-    ? `<div class="raw-value">Raw: ${escapeHtml(stat.raw)}</div>`
+  const componentsHtml = stat.components?.length ? renderStatComponents(stat.components) : "";
+  const rawText = displayRaw(stat);
+  const rawHtml = state.showRaw && hasText(rawText)
+    ? `<div class="raw-value">Raw: ${escapeHtml(rawText)}</div>`
     : "";
   const warningHtml = stat.warnings?.length
     ? `<div class="stat-warnings">${stat.warnings.map((warning) => `Warning: ${escapeHtml(warning)}`).join("<br>")}</div>`
@@ -310,12 +312,44 @@ function renderStatRow(stat) {
       <div class="stat-label">${escapeHtml(stat.label || stat.field)}</div>
       <div class="stat-value">
         <span>${formatted}</span>
+        ${componentsHtml}
         ${rawHtml}
         ${warningHtml}
       </div>
       <div><span class="confidence ${confidenceClass(stat.confidence)}">${escapeHtml(stat.confidence || "unparsed")}</span></div>
     </div>
   `;
+}
+
+function renderStatComponents(components) {
+  return `
+    <dl class="stat-components">
+      ${components.map(renderStatComponent).join("")}
+    </dl>
+  `;
+}
+
+function renderStatComponent(component) {
+  return `
+    <div>
+      <dt>${escapeHtml(titleCase(component.label || "component"))}</dt>
+      <dd>${formatComponentValue(component)}</dd>
+    </div>
+  `;
+}
+
+function formatComponentValue(component) {
+  if (component.min_value !== null && component.min_value !== undefined && component.max_value !== null && component.max_value !== undefined) {
+    return `${formatNumber(component.min_value)}-${formatNumber(component.max_value)} ${escapeHtml(component.unit || "")}`.trim();
+  }
+  if (component.value !== null && component.value !== undefined && component.value !== "") {
+    return `${formatNumber(component.value)} ${escapeHtml(component.unit || "")}`.trim();
+  }
+  const rawText = displayRaw(component);
+  if (hasText(rawText)) {
+    return `Raw: ${escapeHtml(rawText)}`;
+  }
+  return "-";
 }
 
 function formatStatValue(stat) {
@@ -325,8 +359,9 @@ function formatStatValue(stat) {
   if (stat.value !== null && stat.value !== undefined && stat.value !== "") {
     return `${formatNumber(stat.value)} ${escapeHtml(stat.unit || "")}`.trim();
   }
-  if (hasText(stat.raw)) {
-    return `<span class="not-parsed">Not safely parsed: Raw: ${escapeHtml(stat.raw)}</span>`;
+  const rawText = displayRaw(stat);
+  if (hasText(rawText)) {
+    return `<span class="not-parsed">Not safely parsed: Raw: ${escapeHtml(rawText)}</span>`;
   }
   return "-";
 }
@@ -424,6 +459,16 @@ function buildHeroUrl(slug) {
   const url = new URL(window.location.href);
   url.searchParams.set("hero", slug);
   return url.href;
+}
+
+function titleCase(value) {
+  return String(value)
+    .replaceAll("_", " ")
+    .replace(/\w\S*/g, (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase());
+}
+
+function displayRaw(item) {
+  return hasText(item?.raw_display) ? item.raw_display : item?.raw;
 }
 
 function hasText(value) {

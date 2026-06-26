@@ -4,7 +4,7 @@ from pathlib import Path
 
 from overwatch_stats.audit import hero_audit_summary
 from overwatch_stats.normalize import normalize_hero
-from overwatch_stats.parse_stats import COMPLEX_DAMAGE_WARNING
+from overwatch_stats.parse_stats import COMPONENT_DAMAGE_WARNING
 
 
 FIXTURE_PATH = Path(__file__).parent / "fixtures" / "ashe_cargo_sample.json"
@@ -54,21 +54,26 @@ class FixtureNormalizeTests(unittest.TestCase):
         self.assertEqual(projectile_speed.value, 25)
         self.assertEqual(projectile_speed.unit, "meters_per_second")
 
-    def test_dynamite_complex_damage_is_low_confidence_with_warning(self):
+    def test_dynamite_complex_damage_has_components_with_warning(self):
         dynamite = self.abilities["Dynamite"]
         damage = dynamite.parsed["damage"]
 
         self.assertIsNone(damage.value)
-        self.assertEqual(damage.confidence, "low")
-        self.assertIn(COMPLEX_DAMAGE_WARNING, damage.warnings)
-        self.assertIn(f"damage: {COMPLEX_DAMAGE_WARNING}", dynamite.parse_warnings)
+        self.assertEqual(damage.confidence, "medium")
+        self.assertIn(COMPONENT_DAMAGE_WARNING, damage.warnings)
+        self.assertEqual(len(damage.components), 2)
+        self.assertEqual(damage.components[0].label, "direct")
+        self.assertEqual(damage.components[0].value, 50)
+        self.assertEqual(damage.components[1].label, "splash")
+        self.assertEqual(damage.components[1].value, 25)
+        self.assertIn(f"damage: {COMPONENT_DAMAGE_WARNING}", dynamite.parse_warnings)
 
     def test_fixture_hero_audit_summary_includes_dynamite_warning(self):
         summary = hero_audit_summary(self.hero, ability_row_count=len(self.fixture["abilities"]))
 
         self.assertEqual(summary["scope"], "hero")
         self.assertEqual(summary["hero_name"], "Ashe")
-        self.assertGreaterEqual(summary["confidence_counts"]["low"], 1)
+        self.assertGreaterEqual(summary["confidence_counts"]["medium"], 1)
         self.assertIn("Dynamite", summary["warnings_by_ability"])
 
 

@@ -54,7 +54,7 @@ class AuditTests(unittest.TestCase):
         self.assertEqual(summary["scope"], "hero")
         self.assertEqual(summary["hero_name"], "Ashe")
         self.assertEqual(summary["ability_rows"], 1)
-        self.assertEqual(summary["confidence_counts"]["low"], 1)
+        self.assertEqual(summary["confidence_counts"]["medium"], 1)
         self.assertIn("Dynamite", summary["warnings_by_ability"])
 
 

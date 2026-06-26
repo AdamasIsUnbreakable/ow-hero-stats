@@ -6,13 +6,14 @@ from tempfile import TemporaryDirectory
 from overwatch_stats.audit import build_all_audit
 from overwatch_stats.export_json import hero_slug
 from overwatch_stats.normalize import normalize_hero
-from overwatch_stats.parse_stats import COMPLEX_DAMAGE_WARNING
+from overwatch_stats.parse_stats import COMPONENT_DAMAGE_WARNING
 from overwatch_stats.web_export import (
     SCHEMA_VERSION,
     build_audit_summary,
     build_hero_detail,
     build_hero_index,
     build_manifest,
+    clean_display_text,
     write_web_data,
 )
 
@@ -54,13 +55,43 @@ class WebExportTests(unittest.TestCase):
         self.assertEqual(detail["schema_version"], SCHEMA_VERSION)
         self.assertEqual(detail["slug"], "ashe")
         self.assertEqual(dynamite["raw"]["damage"], "50 direct + 25 splash")
+        self.assertEqual(dynamite["raw_display"]["damage"], "50 direct + 25 splash")
         self.assertEqual(dynamite["stats"]["cooldown"]["value"], 12)
         self.assertEqual(dynamite["stats"]["pspeed"]["field"], "pspeed")
         self.assertEqual(dynamite["stats"]["pspeed"]["label"], "Projectile Speed")
         self.assertEqual(dynamite["stats"]["pspeed"]["unit"], "meters_per_second")
         self.assertIsNone(dynamite["stats"]["damage"]["value"])
-        self.assertEqual(dynamite["stats"]["damage"]["confidence"], "low")
-        self.assertIn(COMPLEX_DAMAGE_WARNING, dynamite["stats"]["damage"]["warnings"])
+        self.assertEqual(dynamite["stats"]["damage"]["raw"], "50 direct + 25 splash")
+        self.assertEqual(dynamite["stats"]["damage"]["raw_display"], "50 direct + 25 splash")
+        self.assertEqual(dynamite["stats"]["damage"]["confidence"], "medium")
+        self.assertIn(COMPONENT_DAMAGE_WARNING, dynamite["stats"]["damage"]["warnings"])
+        self.assertEqual(
+            dynamite["stats"]["damage"]["components"],
+            [
+                {
+                    "label": "direct",
+                    "raw": "50 direct",
+                    "raw_display": "50 direct",
+                    "value": 50,
+                    "min_value": None,
+                    "max_value": None,
+                    "unit": "damage",
+                    "warnings": [],
+                    "notes": [],
+                },
+                {
+                    "label": "splash",
+                    "raw": "25 splash",
+                    "raw_display": "25 splash",
+                    "value": 25,
+                    "min_value": None,
+                    "max_value": None,
+                    "unit": "damage",
+                    "warnings": [],
+                    "notes": [],
+                },
+            ],
+        )
 
         viper = abilities["The Viper"]
         self.assertEqual(viper["stats"]["damage_falloff_range"]["field"], "damage_falloff_range")
@@ -72,7 +103,7 @@ class WebExportTests(unittest.TestCase):
         self.assertIn("warnings_by_ability", detail["audit"])
         self.assertIn("Dynamite", detail["audit"]["warnings_by_ability"])
         self.assertIn(
-            f"damage: {COMPLEX_DAMAGE_WARNING}",
+            f"damage: {COMPONENT_DAMAGE_WARNING}",
             detail["audit"]["warnings_by_ability"]["Dynamite"],
         )
 
@@ -80,6 +111,7 @@ class WebExportTests(unittest.TestCase):
         manifest = build_manifest(hero_count=1, generated_at="2026-06-25T23:00:00Z")
 
         self.assertEqual(manifest["schema_version"], SCHEMA_VERSION)
+        self.assertEqual(manifest["schema_version"], "1.2.0")
         self.assertEqual(manifest["hero_count"], 1)
         self.assertEqual(manifest["data_files"]["hero_index"], "heroes.index.json")
         self.assertEqual(manifest["data_files"]["audit_summary"], "audit-summary.json")
@@ -102,6 +134,12 @@ class WebExportTests(unittest.TestCase):
         self.assertEqual(audit["scope"], "all")
         self.assertEqual(detail["name"], "Ashe")
         self.assertEqual(detail["abilities"][1]["stats"]["damage"]["value"], None)
+        self.assertEqual(detail["abilities"][1]["stats"]["damage"]["components"][0]["label"], "direct")
+
+    def test_clean_display_text_removes_html_but_keeps_original_separate(self):
+        raw = '2 seconds<br><span class="tooltip" title="extra">5 seconds</span>'
+
+        self.assertEqual(clean_display_text(raw), "2 seconds; 5 seconds")
 
 
 if __name__ == "__main__":

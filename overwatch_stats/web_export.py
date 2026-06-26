@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import json
+import re
+import html
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -12,7 +14,7 @@ from .fandom_client import API_ENDPOINT
 from .models import AbilityStats, HeroStats, StatValue
 
 
-SCHEMA_VERSION = "1.0.0"
+SCHEMA_VERSION = "1.2.0"
 DEFAULT_WEB_DATA_DIR = Path("site/public/data/v1")
 STAT_LABELS = {
     "damage": "Damage",
@@ -100,6 +102,10 @@ def build_ability_detail(ability: AbilityStats) -> dict[str, Any]:
             for field, stat in ability.parsed.items()
         },
         "raw": ability.raw,
+        "raw_display": {
+            key: clean_display_text(value)
+            for key, value in ability.raw.items()
+        },
         "parse_warnings": ability.parse_warnings,
     }
 
@@ -109,13 +115,41 @@ def build_stat_detail(label: str, stat: StatValue) -> dict[str, Any]:
         "field": label,
         "label": STAT_LABELS.get(label, label.replace("_", " ").title()),
         "raw": stat.raw,
+        "raw_display": clean_display_text(stat.raw),
         "value": stat.value,
         "min_value": stat.min_value,
         "max_value": stat.max_value,
         "unit": stat.unit,
         "confidence": stat.confidence,
         "warnings": stat.warnings,
+        "components": [
+            {
+                "label": component.label,
+                "raw": component.raw,
+                "raw_display": clean_display_text(component.raw),
+                "value": component.value,
+                "min_value": component.min_value,
+                "max_value": component.max_value,
+                "unit": component.unit,
+                "warnings": component.warnings,
+                "notes": component.notes,
+            }
+            for component in stat.components
+        ],
     }
+
+
+def clean_display_text(value: object) -> str | None:
+    if value is None:
+        return None
+    text = html.unescape(str(value))
+    text = text.replace("Ã¢â‚¬â€œ", "-").replace("Ã¢â‚¬â€", "-")
+    text = text.replace("â€“", "-").replace("â€”", "-").replace("âˆ’", "-")
+    text = re.sub(r"<\s*br\s*/?\s*>", "; ", text, flags=re.IGNORECASE)
+    text = re.sub(r"<[^>]+>", " ", text)
+    text = re.sub(r"\s*;\s*", "; ", text)
+    text = re.sub(r"\s+", " ", text).strip()
+    return text
 
 
 def build_audit_summary(

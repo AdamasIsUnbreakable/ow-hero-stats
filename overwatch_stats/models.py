@@ -8,6 +8,18 @@ Confidence = Literal["high", "medium", "low", "unparsed"]
 
 
 @dataclass
+class StatComponent:
+    label: str
+    raw: str | None
+    value: float | int | str | None = None
+    min_value: float | None = None
+    max_value: float | None = None
+    unit: str | None = None
+    warnings: list[str] = field(default_factory=list)
+    notes: list[str] = field(default_factory=list)
+
+
+@dataclass
 class StatValue:
     raw: str | None
     value: float | int | str | None = None
@@ -16,6 +28,7 @@ class StatValue:
     unit: str | None = None
     confidence: Confidence = "unparsed"
     warnings: list[str] = field(default_factory=list)
+    components: list[StatComponent] = field(default_factory=list)
 
 
 @dataclass

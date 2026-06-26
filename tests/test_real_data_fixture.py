@@ -4,6 +4,7 @@ from pathlib import Path
 
 from overwatch_stats.audit import non_empty_unparsed_fields, render_hero_audit, warnings_by_ability
 from overwatch_stats.normalize import normalize_hero
+from overwatch_stats.parse_stats import COMPONENT_DAMAGE_WARNING
 
 
 FIXTURE_PATH = Path(__file__).parent / "fixtures" / "ashe_cargo_sample.json"
@@ -26,8 +27,12 @@ class RealDataFixtureTests(unittest.TestCase):
         damage = dynamite.parsed["damage"]
         self.assertEqual(damage.raw, "50 direct + 25 splash")
         self.assertIsNone(damage.value)
-        self.assertEqual(damage.confidence, "low")
-        self.assertTrue(damage.warnings)
+        self.assertEqual(damage.confidence, "medium")
+        self.assertIn(COMPONENT_DAMAGE_WARNING, damage.warnings)
+        self.assertEqual(damage.components[0].label, "direct")
+        self.assertEqual(damage.components[0].value, 50)
+        self.assertEqual(damage.components[1].label, "splash")
+        self.assertEqual(damage.components[1].value, 25)
         self.assertIn("Dynamite", warnings_by_ability(self.hero.abilities))
 
     def test_fixture_audit_reports_unparsed_and_warning_sections(self):
