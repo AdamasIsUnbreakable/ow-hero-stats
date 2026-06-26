@@ -204,7 +204,7 @@ GitHub Pages deployment generates fresh website data in CI, runs tests and Ruff,
 
 The deployment workflow also downloads hero portraits during CI, so the published artifact includes `site\public\assets\heroes` without committing downloaded images to the repository.
 
-If Pages is not enabled yet, enable it in the GitHub repository settings and choose GitHub Actions as the Pages source.
+If Pages is not enabled yet, enable it in the GitHub repository settings and choose GitHub Actions as the Pages source. The workflow uploads and deploys the Pages artifact directly; it does not require a separate branch-based Pages source.
 
 ## Tests
 
