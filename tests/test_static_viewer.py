@@ -85,6 +85,21 @@ class StaticViewerTests(unittest.TestCase):
         self.assertIn('"ability details"', notes_source)
         self.assertIn(r"/\s*\*\s+|;;|::/", notes_source)
 
+    def test_health_meter_hides_missing_types_and_shows_functional_pool_math(self) -> None:
+        source = MAIN_JS.read_text(encoding="utf-8")
+        styles = STYLES_CSS.read_text(encoding="utf-8")
+        health_source = source[
+            source.index("function renderHealthCell"):source.index("function formatHealth(")
+        ]
+
+        self.assertIn("amount > 0", health_source)
+        self.assertIn("function renderHealthStats", health_source)
+        self.assertIn("Total functional health pool", health_source)
+        self.assertIn("max(d − 7, d × 0.5)", health_source)
+        self.assertIn("armor / 0.7", health_source)
+        self.assertIn("when d ≤ 14", health_source)
+        self.assertIn("repeat(auto-fit", styles)
+
 
 if __name__ == "__main__":
     unittest.main()

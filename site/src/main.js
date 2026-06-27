@@ -331,11 +331,7 @@ function renderHeroDetail(hero) {
 
           <section class="ow-panel">
             <h3>Hero Stats</h3>
-            <dl class="ow-health-grid">
-              ${renderHealthCell("Health", hero.health?.health)}
-              ${renderHealthCell("Armor", hero.health?.armor)}
-              ${renderHealthCell("Shield", hero.health?.shield)}
-            </dl>
+            ${renderHealthStats(hero.health)}
             <div class="confidence-summary">${renderConfidenceSummary(hero.audit?.confidence_counts || {})}</div>
             <p class="ow-muted">${hero.audit?.warning_count || 0} parser warnings</p>
           </section>
@@ -1091,7 +1087,74 @@ function renderConfidenceSummary(counts) {
 }
 
 function renderHealthCell(label, value) {
-  return `<div><dt>${label}</dt><dd>${value ?? "-"}</dd></div>`;
+  const amount = Number(value);
+  return Number.isFinite(amount) && amount > 0
+    ? `<div><dt>${label}</dt><dd>${formatNumber(amount)}</dd></div>`
+    : "";
+}
+
+function renderHealthStats(health = {}) {
+  const healthAmount = positiveHealthValue(health.health);
+  const armor = positiveHealthValue(health.armor);
+  const shield = positiveHealthValue(health.shield);
+  const total = healthAmount + armor + shield;
+  const basePool = healthAmount + shield;
+  const rawTerms = healthMathTerms(healthAmount, armor, shield);
+  const baseTerms = healthMathTerms(healthAmount, 0, shield);
+
+  if (!total) {
+    return '<p class="ow-muted">No health data</p>';
+  }
+
+  const normalMath = armor
+    ? `${baseTerms.join(" + ")}${baseTerms.length ? " + " : ""}${formatNumber(armor)} × d / max(d − 7, d × 0.5)`
+    : `${formatNumber(total)} HP (no armor mitigation)`;
+  const beamMath = armor
+    ? `${baseTerms.join(" + ")}${baseTerms.length ? " + " : ""}${formatNumber(armor)} / 0.7 = ${formatHealthPool(basePool + armor / 0.7)} HP`
+    : `${formatNumber(total)} HP (no armor mitigation)`;
+  const normalMaximum = armor
+    ? `<span class="functional-health-result">Maximum: ${formatHealthPool(basePool + armor * 2)} HP when d ≤ 14</span>`
+    : "";
+
+  return `
+    <dl class="ow-health-grid">
+      ${renderHealthCell("Health", healthAmount)}
+      ${renderHealthCell("Armor", armor)}
+      ${renderHealthCell("Shield", shield)}
+    </dl>
+    <div class="functional-health">
+      <h4>Total functional health pool</h4>
+      <p class="functional-health-total">${rawTerms.join(" + ")} = <strong>${formatNumber(total)} HP</strong></p>
+      <dl>
+        <div>
+          <dt>Normal damage</dt>
+          <dd><code>${normalMath}</code>${normalMaximum}</dd>
+        </div>
+        <div>
+          <dt>Beam damage</dt>
+          <dd><code>${beamMath}</code></dd>
+        </div>
+      </dl>
+      ${armor ? '<p class="functional-health-note"><var>d</var> is incoming damage per hit. Armor takes max(d − 7, d × 0.5) from normal hits and d × 0.7 from beams.</p>' : ""}
+    </div>
+  `;
+}
+
+function positiveHealthValue(value) {
+  const amount = Number(value);
+  return Number.isFinite(amount) && amount > 0 ? amount : 0;
+}
+
+function healthMathTerms(health, armor, shield) {
+  return [
+    health > 0 ? `${formatNumber(health)} Health` : "",
+    armor > 0 ? `${formatNumber(armor)} Armor` : "",
+    shield > 0 ? `${formatNumber(shield)} Shield` : "",
+  ].filter(Boolean);
+}
+
+function formatHealthPool(value) {
+  return Number.isInteger(value) ? String(value) : value.toFixed(1);
 }
 
 function formatHealth(health = {}) {

@@ -872,7 +872,7 @@ dd {
 
 .ow-health-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
   gap: 8px;
   margin: 0;
 }
@@ -881,6 +881,68 @@ dd {
   padding: 8px;
   border-radius: var(--radius);
   background: rgba(238, 246, 255, 0.1);
+}
+
+.functional-health {
+  display: grid;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid rgba(53, 227, 230, 0.22);
+  border-radius: var(--radius);
+  background: rgba(8, 20, 29, 0.38);
+}
+
+.functional-health h4,
+.functional-health p,
+.functional-health dl {
+  margin: 0;
+}
+
+.functional-health h4 {
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.functional-health dl {
+  display: grid;
+  gap: 7px;
+}
+
+.functional-health dl > div {
+  display: grid;
+  gap: 3px;
+}
+
+.functional-health dt {
+  color: #35e3e6;
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.functional-health dd {
+  margin: 0;
+}
+
+.functional-health code {
+  color: #f1f7ff;
+  font-family: inherit;
+  font-size: 0.82rem;
+  white-space: normal;
+}
+
+.functional-health-result {
+  display: block;
+  margin-top: 3px;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.functional-health-note {
+  color: #b9c2ce;
+  font-size: 0.76rem;
+  line-height: 1.35;
 }
 
 .ow-ability-list {
