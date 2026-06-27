@@ -30,8 +30,24 @@ class StaticViewerTests(unittest.TestCase):
 
         self.assertIn("abilityShotTypes(ability)", source)
         self.assertIn("abilityNotes(ability)", source)
+        self.assertIn("Shot type", source)
         self.assertIn("Gameplay notes", source)
         self.assertIn("/::|;;|[;,]/", source)
+
+    def test_ability_details_are_reserved_for_gameplay_notes(self) -> None:
+        source = MAIN_JS.read_text(encoding="utf-8")
+        description_source = source[
+            source.index("function abilityDescription"):source.index("function abilityKeywords")
+        ]
+        notes_source = source[
+            source.index("function abilityNotes"):source.index("function uniqueTextItems")
+        ]
+
+        self.assertNotIn('"ability_details"', description_source)
+        self.assertNotIn('"ability details"', description_source)
+        self.assertIn('"ability_details"', notes_source)
+        self.assertIn('"ability details"', notes_source)
+        self.assertIn(r"/\s*\*\s+|;;|::/", notes_source)
 
 
 if __name__ == "__main__":

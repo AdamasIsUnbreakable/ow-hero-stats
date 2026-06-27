@@ -500,8 +500,6 @@ function abilityDescription(ability) {
   return firstTextField(ability, [
     "official_description",
     "official description",
-    "ability_details",
-    "ability details",
     "description",
     "summary",
   ]);
@@ -523,7 +521,7 @@ function abilityNotes(ability) {
   if (!hasText(source)) {
     return [];
   }
-  return uniqueTextItems(String(source).split(/\s*\*\s+/));
+  return uniqueTextItems(String(source).split(/\s*\*\s+|;;|::/));
 }
 
 function uniqueTextItems(items) {
