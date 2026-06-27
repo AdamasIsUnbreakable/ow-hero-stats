@@ -16,7 +16,7 @@ from .models import AbilityStats, HeroStats, StatValue
 from .parse_stats import EMPTY_VALUES, clean_text
 
 
-SCHEMA_VERSION = "1.5.0"
+SCHEMA_VERSION = "1.6.0"
 DEFAULT_WEB_DATA_DIR = Path("site/public/data/v1")
 STAT_LABELS = {
     "damage": "Damage",
@@ -173,6 +173,9 @@ def clean_display_text(value: object) -> str | None:
     text = text.replace("â€“", "-").replace("â€”", "-").replace("âˆ’", "-")
     text = re.sub(r"<\s*br\s*/?\s*>", "; ", text, flags=re.IGNORECASE)
     text = re.sub(r"<[^>]+>", " ", text)
+    text = re.sub(r"\[\[(?:File|Image):[^\]]+\]\]", " ", text, flags=re.IGNORECASE)
+    text = re.sub(r"\[\[[^\]|]+\|([^\]]+)\]\]", r"\1", text)
+    text = re.sub(r"\[\[([^\]]+)\]\]", r"\1", text)
     text = re.sub(r"\s*;\s*", "; ", text)
     text = re.sub(r"\s+", " ", text).strip()
     return text

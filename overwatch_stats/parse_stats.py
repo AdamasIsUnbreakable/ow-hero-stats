@@ -138,6 +138,59 @@ def parse_reload_time(raw: object) -> StatValue:
     return _single_number_with_unit(raw, "seconds", "reload time")
 
 
+def parse_cast_time(raw: object) -> StatValue:
+    blank = _blank(raw)
+    if blank:
+        return blank
+    text = _stat_text(raw)
+    startup_recovery = re.fullmatch(
+        r"\s*(-?\d+(?:\.\d+)?)\s*\+\s*(-?\d+(?:\.\d+)?)\s*(?:seconds?|sec(?:onds?)?|s\.?)\s*",
+        text,
+        re.IGNORECASE,
+    )
+    if startup_recovery:
+        return StatValue(
+            raw=str(raw),
+            unit="seconds",
+            confidence="high",
+            components=[
+                StatComponent(label="startup", raw=startup_recovery.group(1), value=_number(startup_recovery.group(1)), unit="seconds"),
+                StatComponent(label="recovery", raw=startup_recovery.group(2), value=_number(startup_recovery.group(2)), unit="seconds"),
+            ],
+        )
+    return _single_number_with_unit(raw, "seconds", "cast time")
+
+
+def parse_headshot(raw: object) -> StatValue:
+    blank = _blank(raw)
+    if blank:
+        return blank
+    text = _stat_text(raw).strip().casefold()
+    if text == "yes":
+        return StatValue(raw=str(raw), value=True, confidence="high")
+    if text == "no":
+        return StatValue(raw=str(raw), value=False, confidence="high")
+    return unparsed(raw, "Could not parse whether the ability can headshot.")
+
+
+def parse_headshot_multiplier(raw: object) -> StatValue:
+    blank = _blank(raw)
+    if blank:
+        return blank
+    text = _stat_text(raw)
+    number_match = re.search(r"-?\d+(?:\.\d+)?", text)
+    if not number_match:
+        return unparsed(raw, "Could not parse headshot multiplier.")
+    value = _number(number_match.group(0))
+    note = text[number_match.end():].strip(" ,")
+    return StatValue(
+        raw=str(raw),
+        value=value,
+        confidence="high" if not note else "medium",
+        components=[StatComponent(label="applies to", raw=note, value=value, notes=[note])] if note else [],
+    )
+
+
 def parse_ammo(raw: object) -> StatValue:
     blank = _blank(raw)
     if blank:
@@ -398,6 +451,27 @@ def parse_projectile_radius(raw: object) -> StatValue:
     return _single_number_with_unit(raw, "meters", "projectile radius")
 
 
+def parse_distance(raw: object, label: str) -> StatValue:
+    blank = _blank(raw)
+    if blank:
+        return blank
+    text = _stat_text(raw)
+    if re.search(r"(?:∞|âˆž|\binfinite\b|\bunlimited\b)", text, re.IGNORECASE):
+        return StatValue(raw=str(raw), value="infinite", unit="meters", confidence="high")
+    number_range = _range(text)
+    if number_range:
+        return StatValue(raw=str(raw), min_value=number_range[0], max_value=number_range[1], unit="meters", confidence="high")
+    return _single_number_with_unit(raw, "meters", label)
+
+
+def parse_radius(raw: object) -> StatValue:
+    return parse_distance(raw, "effect radius")
+
+
+def parse_range_distance(raw: object) -> StatValue:
+    return parse_distance(raw, "range distance")
+
+
 def parse_spread(raw: object) -> StatValue:
     return _single_number_with_unit(raw, "degrees", "spread")
 
@@ -488,13 +562,18 @@ PARSERS: dict[str, Callable[[object], StatValue]] = {
     "cooldown": parse_cooldown,
     "duration": parse_duration,
     "reload_time": parse_reload_time,
+    "cast_time": parse_cast_time,
     "ammo": parse_ammo,
     "charges": parse_charges,
     "damage": parse_damage,
     "damage_falloff_range": parse_falloff_range,
+    "headshot": parse_headshot,
+    "headshot_mod": parse_headshot_multiplier,
     "fire_rate": parse_fire_rate,
     "pspeed": parse_projectile_speed,
     "pradius": parse_projectile_radius,
+    "radius": parse_radius,
+    "range_distance": parse_range_distance,
     "spread": parse_spread,
     "heal": parse_healing,
     "dps": parse_dps_hps,
