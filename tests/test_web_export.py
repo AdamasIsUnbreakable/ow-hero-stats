@@ -122,7 +122,7 @@ class WebExportTests(unittest.TestCase):
         manifest = build_manifest(hero_count=1, generated_at="2026-06-25T23:00:00Z")
 
         self.assertEqual(manifest["schema_version"], SCHEMA_VERSION)
-        self.assertEqual(manifest["schema_version"], "1.5.0")
+        self.assertEqual(manifest["schema_version"], "1.6.0")
         self.assertEqual(manifest["hero_count"], 1)
         self.assertEqual(manifest["data_files"]["hero_index"], "heroes.index.json")
         self.assertEqual(manifest["data_files"]["audit_summary"], "audit-summary.json")
@@ -284,6 +284,11 @@ class WebExportTests(unittest.TestCase):
         raw = '2 seconds<br><span class="tooltip" title="extra">5 seconds</span>'
 
         self.assertEqual(clean_display_text(raw), "2 seconds; 5 seconds")
+
+    def test_clean_display_text_removes_wiki_icon_markup(self):
+        raw = "[[File:Ability.png|40px|link=Projectile]] [[Projectile|Projectile]]"
+
+        self.assertEqual(clean_display_text(raw), "Projectile")
 
     def test_display_unit_mapping(self):
         self.assertEqual(display_unit("fire_rate", "shots_per_second"), "shots/s")

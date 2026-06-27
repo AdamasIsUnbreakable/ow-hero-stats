@@ -25,6 +25,14 @@ class StaticViewerTests(unittest.TestCase):
         self.assertIn(".ow-ability-row.hovered .ability-detail-panel", styles)
         self.assertNotIn(".ow-ability-row:hover .ability-detail-panel", styles)
 
+    def test_player_facing_source_fields_are_rendered(self) -> None:
+        source = MAIN_JS.read_text(encoding="utf-8")
+
+        self.assertIn("abilityShotTypes(ability)", source)
+        self.assertIn("abilityNotes(ability)", source)
+        self.assertIn("Gameplay notes", source)
+        self.assertIn("/::|;;|[;,]/", source)
+
 
 if __name__ == "__main__":
     unittest.main()

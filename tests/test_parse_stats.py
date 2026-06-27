@@ -5,14 +5,19 @@ from overwatch_stats.parse_stats import (
     COMPONENT_DAMAGE_WARNING,
     clean_text,
     parse_ammo,
+    parse_cast_time,
     parse_cooldown,
     parse_damage,
     parse_duration,
     parse_falloff_range,
     parse_fire_rate,
+    parse_headshot,
+    parse_headshot_multiplier,
     parse_healing,
     parse_projectile_radius,
     parse_projectile_speed,
+    parse_radius,
+    parse_range_distance,
     parse_reload_time,
     parse_spread,
 )
@@ -32,6 +37,34 @@ class ParseStatsTests(unittest.TestCase):
         stat = parse_reload_time("1.5 sec.")
         self.assertEqual(stat.value, 1.5)
         self.assertEqual(stat.unit, "seconds")
+
+    def test_cast_time_splits_startup_and_recovery(self):
+        stat = parse_cast_time("0.24 + 0.75 seconds")
+
+        self.assertEqual(stat.confidence, "high")
+        self.assertEqual([component.label for component in stat.components], ["startup", "recovery"])
+        self.assertEqual([component.value for component in stat.components], [0.24, 0.75])
+
+    def test_headshot_fields_are_structured(self):
+        self.assertIs(parse_headshot("yes").value, True)
+        self.assertIs(parse_headshot("no").value, False)
+        self.assertEqual(parse_headshot_multiplier("2").value, 2)
+
+        conditional = parse_headshot_multiplier("1.5, damage only")
+        self.assertEqual(conditional.value, 1.5)
+        self.assertEqual(conditional.confidence, "medium")
+        self.assertEqual(conditional.components[0].notes, ["damage only"])
+
+    def test_radius_and_range_support_ranges_and_infinity(self):
+        radius = parse_radius("1.5 - 4 meters")
+        self.assertEqual((radius.min_value, radius.max_value), (1.5, 4))
+        self.assertEqual(radius.unit, "meters")
+
+        distance = parse_range_distance("40 meters")
+        self.assertEqual(distance.value, 40)
+        self.assertEqual(distance.unit, "meters")
+
+        self.assertEqual(parse_range_distance("∞").value, "infinite")
 
     def test_duration_seconds_without_unit_warns(self):
         stat = parse_duration("4")

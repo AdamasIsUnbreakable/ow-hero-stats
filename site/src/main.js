@@ -452,6 +452,8 @@ function renderAbilityRow(ability) {
 
 function renderAbilityDetailPanel(ability) {
   const keywords = abilityKeywords(ability);
+  const shotTypes = abilityShotTypes(ability);
+  const notes = abilityNotes(ability);
   const description = abilityDescription(ability);
   const cooldown = hasDisplayableStat(ability.stats?.cooldown) ? stripHtml(formatStatValue(ability.stats.cooldown)) : "";
   const stats = Object.values(ability.stats || {}).filter(hasDisplayableStat);
@@ -465,10 +467,12 @@ function renderAbilityDetailPanel(ability) {
         </div>
       </div>
       ${description ? `<p class="ability-detail-description">${escapeHtml(description)}</p>` : ""}
+      ${shotTypes.length ? `<div class="ability-shot-types"><strong>Shot type</strong> ${shotTypes.map((shotType) => `<span>${escapeHtml(shotType)}</span>`).join("")}</div>` : ""}
       ${keywords.length ? `<div class="keyword-chips">${keywords.map((keyword) => `<span>${escapeHtml(keyword)}</span>`).join("")}</div>` : ""}
       <div class="ability-detail-stats">
         ${stats.length ? stats.map(renderDetailStat).join("") : '<p class="ow-muted">No parsed stat fields.</p>'}
       </div>
+      ${notes.length ? renderAbilityNotes(notes) : ""}
       ${ability.parse_warnings?.length ? renderWarningList(ability.parse_warnings) : ""}
     </aside>
   `;
@@ -505,7 +509,34 @@ function abilityDescription(ability) {
 
 function abilityKeywords(ability) {
   const source = firstTextField(ability, ["ability_keywords", "ability keywords"]);
-  return String(source).split(/[;,]/).map((item) => item.trim()).filter(Boolean).slice(0, 8);
+  return uniqueTextItems(String(source).split(/::|;;|[;,]/));
+}
+
+function abilityShotTypes(ability) {
+  const source = firstTextField(ability, ["shot_type", "shot type"]);
+  const values = source ? String(source).split(/::|;;|[;,]/) : (ability.shot_type || []);
+  return uniqueTextItems(values);
+}
+
+function abilityNotes(ability) {
+  const source = firstTextField(ability, ["ability_details", "ability details"]);
+  if (!hasText(source)) {
+    return [];
+  }
+  return uniqueTextItems(String(source).split(/\s*\*\s+/));
+}
+
+function uniqueTextItems(items) {
+  return [...new Set(items.map((item) => String(item).trim()).filter(Boolean))];
+}
+
+function renderAbilityNotes(notes) {
+  return `
+    <section class="ability-gameplay-notes">
+      <h5>Gameplay notes</h5>
+      <ul>${notes.map((note) => `<li>${escapeHtml(note)}</li>`).join("")}</ul>
+    </section>
+  `;
 }
 
 function firstTextField(ability, keys) {
@@ -925,6 +956,9 @@ function formatHealth(health = {}) {
 function formatNumber(value) {
   if (value === null || value === undefined) {
     return "0";
+  }
+  if (typeof value === "boolean") {
+    return value ? "Yes" : "No";
   }
   return typeof value === "number" ? Number(value.toFixed(3)).toString() : String(value);
 }
