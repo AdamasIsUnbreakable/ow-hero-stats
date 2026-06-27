@@ -59,6 +59,8 @@ class WebExportTests(unittest.TestCase):
 
         self.assertEqual(detail["schema_version"], SCHEMA_VERSION)
         self.assertEqual(detail["slug"], "ashe")
+        self.assertEqual(detail["abilities"][0]["ability_index"], 0)
+        self.assertEqual(detail["abilities"][1]["ability_index"], 1)
         self.assertEqual(dynamite["raw"]["damage"], "50 direct + 25 splash")
         self.assertEqual(dynamite["raw_display"]["damage"], "50 direct + 25 splash")
         self.assertEqual(dynamite["stats"]["cooldown"]["value"], 12)
@@ -120,7 +122,7 @@ class WebExportTests(unittest.TestCase):
         manifest = build_manifest(hero_count=1, generated_at="2026-06-25T23:00:00Z")
 
         self.assertEqual(manifest["schema_version"], SCHEMA_VERSION)
-        self.assertEqual(manifest["schema_version"], "1.4.0")
+        self.assertEqual(manifest["schema_version"], "1.5.0")
         self.assertEqual(manifest["hero_count"], 1)
         self.assertEqual(manifest["data_files"]["hero_index"], "heroes.index.json")
         self.assertEqual(manifest["data_files"]["audit_summary"], "audit-summary.json")
@@ -215,6 +217,28 @@ class WebExportTests(unittest.TestCase):
         self.assertEqual(report["heroes_with_unexpected_minor_count"]["Ashe"]["count"], 3)
         self.assertEqual(report["heroes_with_unexpected_major_count"]["Ashe"]["count"], 3)
 
+    def test_removed_perks_do_not_affect_current_perk_counts(self):
+        rows = [
+            {"ability_name": "Minor One", "ability_type": "Minor Perk"},
+            {"ability_name": "Minor Two", "ability_type": "Minor Perk"},
+            {"ability_name": "Major One", "ability_type": "Major Perk"},
+            {"ability_name": "Major Two", "ability_type": "Major Perk"},
+            {"ability_name": "Old Minor", "ability_type": "Minor Perk", "removed": True},
+            {"ability_name": "Old Major", "ability_type": "Major Perk", "removed": "removed"},
+        ]
+        hero = normalize_hero({"Name": "Ashe", "Role": "Damage"}, rows)
+
+        report = build_perk_quality([hero])
+        self.assertNotIn("Ashe", report["heroes_with_unexpected_minor_count"])
+        self.assertNotIn("Ashe", report["heroes_with_unexpected_major_count"])
+
+        hero = normalize_hero(
+            {"Name": "Ashe", "Role": "Damage"},
+            rows + [{"ability_name": "Current Minor Three", "ability_type": "Minor Perk"}],
+        )
+        report = build_perk_quality([hero])
+        self.assertEqual(report["heroes_with_unexpected_minor_count"]["Ashe"]["count"], 3)
+
     def test_write_web_data_outputs_valid_json_files(self):
         heroes, validation = build_all_audit(["Ashe"], [self.fixture["hero"]], self.fixture["abilities"])
         audit_summary = build_audit_summary(["Ashe"], [self.fixture["hero"]], heroes, self.fixture["abilities"], validation)
@@ -250,6 +274,8 @@ class WebExportTests(unittest.TestCase):
         self.assertEqual(quality["coverage_flags"]["stats_missing_display_unit"], [])
         self.assertIn("Ashe", quality["coverage_flags"]["heroes_with_component_stats"])
         self.assertEqual(detail["name"], "Ashe")
+        self.assertEqual(detail["abilities"][0]["ability_index"], 0)
+        self.assertEqual(detail["abilities"][1]["ability_index"], 1)
         self.assertEqual(detail["abilities"][1]["stats"]["damage"]["value"], None)
         self.assertEqual(detail["abilities"][1]["stats"]["damage"]["components"][0]["label"], "direct")
         self.assertEqual(detail["abilities"][1]["stats"]["damage"]["components"][0]["display_unit"], "damage")

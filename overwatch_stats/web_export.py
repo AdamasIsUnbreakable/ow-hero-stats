@@ -16,7 +16,7 @@ from .models import AbilityStats, HeroStats, StatValue
 from .parse_stats import EMPTY_VALUES, clean_text
 
 
-SCHEMA_VERSION = "1.4.0"
+SCHEMA_VERSION = "1.5.0"
 DEFAULT_WEB_DATA_DIR = Path("site/public/data/v1")
 STAT_LABELS = {
     "damage": "Damage",
@@ -102,7 +102,10 @@ def build_hero_detail(hero: HeroStats) -> dict[str, Any]:
         "role": hero.role,
         "sub_role": hero.sub_role,
         "health": hero.health,
-        "abilities": [build_ability_detail(ability) for ability in hero.abilities],
+        "abilities": [
+            build_ability_detail(ability, ability_index)
+            for ability_index, ability in enumerate(hero.abilities)
+        ],
         "audit": {
             "warning_count": sum(len(ability.parse_warnings) for ability in hero.abilities),
             "confidence_counts": build_hero_index_entry(hero)["confidence_counts"],
@@ -111,8 +114,9 @@ def build_hero_detail(hero: HeroStats) -> dict[str, Any]:
     }
 
 
-def build_ability_detail(ability: AbilityStats) -> dict[str, Any]:
+def build_ability_detail(ability: AbilityStats, ability_index: int) -> dict[str, Any]:
     return {
+        "ability_index": ability_index,
         "name": ability.name,
         "slot": ability.slot,
         "type": ability.type,

@@ -558,7 +558,7 @@ def _load_needed_abilities(heroes_data_dir: Path) -> dict[str, list[dict[str, An
                 "ability_key": ability.get("slot") or ability_match_key(ability["name"]),
                 "slot": ability.get("slot") or "",
                 "type": ability.get("type") or "",
-                "ability_index": index,
+                "ability_index": ability.get("ability_index", index),
                 "icon_file": _raw_ability_image(ability),
             }
             for index, ability in enumerate(payload.get("abilities", []))
@@ -665,6 +665,7 @@ def find_ability_manifest_entry(
     slot: str | None = None,
     ability_type: str | None = None,
     ability_index: int | None = None,
+    allow_name_fallback: bool = True,
 ) -> dict[str, Any] | None:
     candidates = [entry for entry in entries if entry.get("hero_slug") == hero_slug_value]
     name_key = ability_match_key(ability_name)
@@ -691,6 +692,8 @@ def find_ability_manifest_entry(
         ]
         if len(key_matches) == 1:
             return key_matches[0]
+    if not allow_name_fallback:
+        return None
     name_matches = [
         entry
         for entry in candidates
@@ -738,6 +741,7 @@ def build_ability_icon_coverage(
                 )
 
         for ability in abilities:
+            duplicate_name = len(names[ability_match_key(ability["ability_name"])]) > 1
             entry = find_ability_manifest_entry(
                 available_entries,
                 hero_slug_value,
@@ -746,6 +750,7 @@ def build_ability_icon_coverage(
                 ability.get("slot"),
                 ability.get("type"),
                 ability.get("ability_index"),
+                allow_name_fallback=not duplicate_name,
             )
             if entry and entry.get("local_path"):
                 matched_count += 1

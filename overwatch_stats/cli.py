@@ -225,7 +225,7 @@ def _ability_icons(
     print(f"Found {result['category_file_count']} files in ability icon categories.")
     print(f"Scanned {result['hero_category_count']} hero ability icon categories.")
     print(f"Needed {result['needed_ability_count']} exported abilities.")
-    print(f"Selected {result['selected_count']} matched ability icons.")
+    print(f"Selected {result['selected_count']} source icon matches.")
     print(f"Downloaded {result['downloaded_count']} ability icons.")
     print(f"Skipped {result['skipped_existing_count']} existing ability icons.")
     print(f"Failed {result['failed_count']} ability icons.")
@@ -235,6 +235,7 @@ def _ability_icons(
             print(f"- {failure['file_title']}: {failure['error']}", file=sys.stderr)
     print(f"Wrote manifest to {result['manifest_path']}")
     coverage = result["coverage_report"]
+    print(f"Final matched icon coverage: {coverage['matched_icon_count']}.")
     print(f"Missing after download: {coverage['missing_after_download_count']}.")
     print(f"Duplicate name collisions: {coverage['duplicate_name_collision_count']}.")
     print(f"Wrote coverage report to {result['coverage_report_path']}")

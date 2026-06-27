@@ -284,7 +284,7 @@ async function selectHero(indexHero, options = {}) {
     const detail = await fetchJson(indexHero.detail_path);
     detail.abilities = (detail.abilities || []).map((ability, abilityIndex) => ({
       ...ability,
-      ability_index: abilityIndex,
+      ability_index: ability.ability_index ?? abilityIndex,
     }));
     state.selectedHero = detail;
     renderHeroDetail(detail);
@@ -975,7 +975,9 @@ function findAbilityIcon(ability) {
   }
 
   const nameMatches = candidates.filter((entry) => iconIdentity(entry.ability_name) === nameKey);
-  return nameMatches.length === 1 ? nameMatches[0] : null;
+  const duplicateName = (state.selectedHero?.abilities || [])
+    .filter((candidate) => iconIdentity(candidate.name) === nameKey).length > 1;
+  return nameMatches.length === 1 && !duplicateName ? nameMatches[0] : null;
 }
 
 function iconIdentity(value) {

@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+import json
 import unittest
+from pathlib import Path
 from tempfile import TemporaryDirectory
 from unittest.mock import patch
 
@@ -17,6 +19,7 @@ from overwatch_stats.images import (
     hero_name_from_file_title,
     match_ability_icon_titles,
     portrait_slug_from_file_title,
+    _load_needed_abilities,
 )
 
 
@@ -51,6 +54,23 @@ class FakeSession:
 
 
 class ImageTests(unittest.TestCase):
+    def test_load_needed_abilities_prefers_exported_index_with_legacy_fallback(self) -> None:
+        payload = {
+            "name": "Ashe",
+            "slug": "ashe",
+            "abilities": [
+                {"name": "The Viper", "slot": "primary fire", "type": "Weapon", "ability_index": 12},
+                {"name": "Coach Gun", "slot": "ability 1", "type": "Ability"},
+            ],
+        }
+        with TemporaryDirectory() as temp_dir:
+            path = Path(temp_dir) / "ashe.json"
+            path.write_text(json.dumps(payload), encoding="utf-8")
+            abilities = _load_needed_abilities(Path(temp_dir))["ashe"]
+
+        self.assertEqual(abilities[0]["ability_index"], 12)
+        self.assertEqual(abilities[1]["ability_index"], 1)
+
     def test_image_api_metadata_is_cached(self) -> None:
         payload = {"query": {"categorymembers": [{"title": "File:Ashe Hero.png"}]}}
         with TemporaryDirectory() as cache_dir:
@@ -330,6 +350,78 @@ class ImageTests(unittest.TestCase):
         self.assertEqual(report["matched_icon_count"], 0)
         self.assertEqual(report["missing_after_download_count"], 1)
         self.assertEqual(report["missing_after_download_by_hero"]["Ashe"][0]["ability"], "Coach Gun")
+
+    def test_coverage_uses_index_for_same_name_slot_and_type(self) -> None:
+        abilities = {
+            "mercy": [
+                {
+                    "hero_slug": "mercy",
+                    "hero_name": "Mercy",
+                    "ability_name": "Flash Heal",
+                    "ability_key": "ability 2",
+                    "slot": "ability 2",
+                    "type": "Major Perk",
+                    "ability_index": index,
+                }
+                for index in (4, 9)
+            ]
+        }
+        manifest = [
+            {
+                **ability,
+                "local_path": f"assets/abilities/mercy/flash-heal-{ability['ability_index']}.png",
+            }
+            for ability in abilities["mercy"]
+        ]
+
+        report = build_ability_icon_coverage(abilities, manifest)
+
+        self.assertEqual(report["matched_icon_count"], 2)
+        self.assertEqual(report["missing_after_download_count"], 0)
+        self.assertEqual(report["duplicate_name_collision_count"], 1)
+
+    def test_duplicate_name_only_manifest_match_is_not_guessed(self) -> None:
+        abilities = {
+            "mercy": [
+                {
+                    "hero_slug": "mercy",
+                    "hero_name": "Mercy",
+                    "ability_name": "Flash Heal",
+                    "ability_key": "",
+                    "slot": "",
+                    "type": "Major Perk",
+                    "ability_index": index,
+                }
+                for index in (4, 9)
+            ]
+        }
+        old_manifest = [
+            {
+                "hero_slug": "mercy",
+                "ability_name": "Flash Heal",
+                "local_path": "assets/abilities/mercy/flash-heal.png",
+            }
+        ]
+
+        report = build_ability_icon_coverage(abilities, old_manifest)
+
+        self.assertEqual(report["matched_icon_count"], 0)
+        self.assertEqual(report["missing_after_download_count"], 2)
+
+    def test_old_manifest_name_only_match_still_works_when_unambiguous(self) -> None:
+        entry = find_ability_manifest_entry(
+            [
+                {
+                    "hero_slug": "ashe",
+                    "ability_name": "Coach Gun",
+                    "local_path": "assets/abilities/ashe/coach-gun.png",
+                }
+            ],
+            "ashe",
+            "Coach Gun",
+        )
+
+        self.assertIsNotNone(entry)
 
 
 if __name__ == "__main__":
