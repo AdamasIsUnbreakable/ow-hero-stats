@@ -4,6 +4,8 @@ from pathlib import Path
 
 MAIN_JS = Path(__file__).parents[1] / "site" / "src" / "main.js"
 STYLES_CSS = Path(__file__).parents[1] / "site" / "src" / "styles.css"
+INDEX_HTML = Path(__file__).parents[1] / "site" / "index.html"
+GAMEPLAY_NOTES_CLEANUP_JS = Path(__file__).parents[1] / "site" / "src" / "gameplay-notes-cleanup.js"
 
 
 class StaticViewerTests(unittest.TestCase):
@@ -84,6 +86,15 @@ class StaticViewerTests(unittest.TestCase):
         self.assertIn('"ability_details"', notes_source)
         self.assertIn('"ability details"', notes_source)
         self.assertIn(r"/\s*\*\s+|;;|::/", notes_source)
+
+    def test_gameplay_notes_cleanup_script_is_loaded(self) -> None:
+        index = INDEX_HTML.read_text(encoding="utf-8")
+        cleanup_source = GAMEPLAY_NOTES_CLEANUP_JS.read_text(encoding="utf-8")
+
+        self.assertIn('./src/gameplay-notes-cleanup.js', index)
+        self.assertIn("window.abilityNotes", cleanup_source)
+        self.assertIn("function cleanGameplayNote", cleanup_source)
+        self.assertIn("uniqueCleanGameplayNotes", cleanup_source)
 
     def test_health_meter_hides_missing_types_and_shows_functional_pool_math(self) -> None:
         source = MAIN_JS.read_text(encoding="utf-8")
