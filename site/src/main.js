@@ -12,6 +12,10 @@ const state = {
   search: "",
   showRaw: false,
   copyLinkFeedbackTimer: null,
+  abilityDialog: null,
+  abilityDialogAbility: null,
+  abilityDialogSource: null,
+  bodyOverflowBeforeDialog: "",
 };
 
 const elements = {
@@ -106,6 +110,7 @@ function bindEvents() {
     elements.rawToggle.textContent = state.showRaw ? "Hide raw values" : "Show raw values";
     if (state.selectedHero) {
       renderHeroDetail(state.selectedHero);
+      refreshAbilityDialog();
     }
   });
 
@@ -114,12 +119,6 @@ function bindEvents() {
     elements.search.value = "";
     showHeroSelect("", { historyMode: "push" });
     elements.search.focus();
-  });
-
-  document.addEventListener("click", (event) => {
-    if (!event.target.closest("[data-ability-row]")) {
-      closeExpandedAbilityRows();
-    }
   });
 
   window.addEventListener("resize", positionOpenAbilityPanel);
@@ -436,7 +435,8 @@ function renderPerkSection(perks) {
 
 function renderAbilityRow(ability) {
   return `
-    <article class="ow-ability-row" tabindex="0" data-ability-row>
+    <article class="ow-ability-row" tabindex="0" role="button" aria-haspopup="dialog"
+      data-ability-row data-ability-index="${escapeHtml(ability.ability_index)}">
       ${renderAbilityVisual(ability, "ow-ability-icon")}
       <div class="ow-ability-summary">
         <div class="ow-ability-heading">
@@ -551,65 +551,216 @@ function firstTextField(ability, keys) {
 function bindAbilityRows() {
   elements.heroDetail.querySelectorAll("[data-ability-row]").forEach((row) => {
     row.addEventListener("pointerenter", () => {
-      if (hasExpandedAbilityRow()) {
-        return;
-      }
       row.classList.add("hovered");
       positionAbilityPanel(row);
     });
     row.addEventListener("pointerleave", () => row.classList.remove("hovered"));
     row.addEventListener("focusin", () => {
-      if (hasExpandedAbilityRow()) {
-        return;
-      }
       row.classList.add("keyboard-open");
       positionAbilityPanel(row);
     });
     row.addEventListener("focusout", () => row.classList.remove("keyboard-open"));
     row.addEventListener("click", (event) => {
       event.stopPropagation();
-      toggleExpandedAbilityRow(row);
+      openAbilityDialog(abilityForRow(row), row);
     });
     row.addEventListener("keydown", (event) => {
       if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
-        toggleExpandedAbilityRow(row);
-      }
-      if (event.key === "Escape") {
-        closeExpandedAbilityRows();
+        openAbilityDialog(abilityForRow(row), row);
       }
     });
   });
 }
 
-function toggleExpandedAbilityRow(row) {
-  const shouldOpen = !row.classList.contains("expanded");
-  closeExpandedAbilityRows();
-  if (!shouldOpen) {
+function abilityForRow(row) {
+  const abilityIndex = Number(row.dataset.abilityIndex);
+  return state.selectedHero?.abilities?.find((ability) => ability.ability_index === abilityIndex);
+}
+
+function openAbilityDialog(ability, sourceRow) {
+  if (!ability) {
     return;
   }
-  elements.heroDetail.querySelectorAll("[data-ability-row]").forEach((candidate) => {
-    candidate.classList.remove("hovered", "keyboard-open");
+  if (state.abilityDialog) {
+    closeAbilityDialog({ restoreFocus: false });
+  }
+
+  const host = document.createElement("div");
+  host.innerHTML = renderAbilityDialog(ability);
+  const dialog = host.firstElementChild;
+  document.body.append(dialog);
+  state.abilityDialog = dialog;
+  state.abilityDialogAbility = ability;
+  state.abilityDialogSource = sourceRow;
+  state.bodyOverflowBeforeDialog = document.body.style.overflow;
+  document.body.style.overflow = "hidden";
+
+  dialog.querySelector("[data-ability-dialog-close]").addEventListener("click", closeAbilityDialog);
+  dialog.addEventListener("click", (event) => {
+    if (event.target === dialog) {
+      closeAbilityDialog();
+    }
   });
-  row.classList.add("expanded");
-  elements.heroDetail.classList.add("has-pinned-tooltip");
-  positionAbilityPanel(row);
+  dialog.addEventListener("cancel", (event) => {
+    event.preventDefault();
+    closeAbilityDialog();
+  });
+  dialog.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      event.preventDefault();
+      closeAbilityDialog();
+    }
+  });
+  dialog.showModal();
+  dialog.querySelector("[data-ability-dialog-close]").focus();
 }
 
-function closeExpandedAbilityRows() {
-  elements.heroDetail.querySelectorAll("[data-ability-row].expanded").forEach((row) => {
-    row.classList.remove("expanded");
-  });
-  elements.heroDetail.classList.remove("has-pinned-tooltip");
+function closeAbilityDialog(options = {}) {
+  const { restoreFocus = true } = options;
+  const dialog = state.abilityDialog;
+  const sourceRow = state.abilityDialogSource;
+  if (!dialog) {
+    return;
+  }
+
+  state.abilityDialog = null;
+  state.abilityDialogAbility = null;
+  state.abilityDialogSource = null;
+  document.body.style.overflow = state.bodyOverflowBeforeDialog;
+  state.bodyOverflowBeforeDialog = "";
+  if (dialog.open) {
+    dialog.close();
+  }
+  dialog.remove();
+  if (restoreFocus && sourceRow?.isConnected) {
+    sourceRow.focus();
+  }
 }
 
-function hasExpandedAbilityRow() {
-  return Boolean(elements.heroDetail.querySelector("[data-ability-row].expanded"));
+function refreshAbilityDialog() {
+  const dialog = state.abilityDialog;
+  const ability = state.abilityDialogAbility;
+  if (!dialog || !ability) {
+    return;
+  }
+  dialog.querySelector(".ability-dialog-body").innerHTML = renderAbilityDialogContent(ability);
+  const matchingRow = elements.heroDetail.querySelector(`[data-ability-index="${ability.ability_index}"]`);
+  state.abilityDialogSource = matchingRow || state.abilityDialogSource;
+}
+
+function renderAbilityDialog(ability) {
+  const titleId = `ability-dialog-title-${ability.ability_index}`;
+  return `
+    <dialog class="ability-dialog-backdrop" aria-labelledby="${escapeHtml(titleId)}">
+      <article class="ability-dialog">
+        <header class="ability-dialog-header">
+          ${renderAbilityVisual(ability, "ability-dialog-icon")}
+          <div>
+            <h2 id="${escapeHtml(titleId)}">${escapeHtml(ability.name)}</h2>
+            <p>${[ability.slot, ability.type].filter(Boolean).map(escapeHtml).join(" | ")}</p>
+          </div>
+          <button class="ability-dialog-close" type="button" aria-label="Close ability details" data-ability-dialog-close>&times;</button>
+        </header>
+        <div class="ability-dialog-body">${renderAbilityDialogContent(ability)}</div>
+      </article>
+    </dialog>
+  `;
+}
+
+function renderAbilityDialogContent(ability) {
+  const description = abilityDescription(ability);
+  const shotTypes = abilityShotTypes(ability);
+  const keywords = abilityKeywords(ability);
+  const notes = abilityNotes(ability);
+  const stats = Object.values(ability.stats || {}).filter(hasDisplayableStat);
+  return `
+    ${description ? `<p class="ability-detail-description">${escapeHtml(description)}</p>` : ""}
+    ${shotTypes.length ? `<section class="ability-dialog-section"><h3>Shot type</h3><div class="ability-shot-types">${shotTypes.map((shotType) => `<span>${escapeHtml(shotType)}</span>`).join("")}</div></section>` : ""}
+    ${keywords.length ? `<section class="ability-dialog-section"><h3>Keywords</h3><div class="keyword-chips">${keywords.map((keyword) => `<span>${escapeHtml(keyword)}</span>`).join("")}</div></section>` : ""}
+    <section class="ability-dialog-section">
+      <h3>Parsed stats</h3>
+      <div class="ability-detail-stats">${stats.length ? stats.map(renderDetailStat).join("") : '<p class="ow-muted">No parsed stat fields.</p>'}</div>
+    </section>
+    ${renderDamageFalloffGraph(ability)}
+    ${notes.length ? renderAbilityNotes(notes) : ""}
+    ${ability.parse_warnings?.length ? `<section class="ability-dialog-section"><h3>Parser warnings</h3>${renderWarningList(ability.parse_warnings)}</section>` : ""}
+  `;
+}
+
+function hasSafeDamageFalloffRange(ability) {
+  const falloff = ability.stats?.damage_falloff_range;
+  return !falloff?.components?.length
+    && Number.isFinite(falloff?.min_value)
+    && Number.isFinite(falloff?.max_value)
+    && falloff.max_value > falloff.min_value;
+}
+
+function canRenderDamageFalloffGraph(ability) {
+  if (!hasSafeDamageFalloffRange(ability)) {
+    return false;
+  }
+  const damage = ability.stats?.damage;
+  if (!damage || damage.components?.length) {
+    return false;
+  }
+  const hasRange = Number.isFinite(damage.min_value) && Number.isFinite(damage.max_value);
+  const hasSingleValue = Number.isFinite(damage.value);
+  return hasRange || hasSingleValue;
+}
+
+function renderDamageFalloffGraph(ability) {
+  if (!hasSafeDamageFalloffRange(ability)) {
+    return "";
+  }
+  const falloff = ability.stats.damage_falloff_range;
+  const damage = ability.stats?.damage;
+  if (!canRenderDamageFalloffGraph(ability)) {
+    return `
+      <section class="ability-dialog-section damage-falloff-graph">
+        <h3>Damage falloff</h3>
+        <p class="damage-falloff-note">Damage falloff graph unavailable because damage is not a simple parsed value.</p>
+      </section>
+    `;
+  }
+
+  const start = falloff.min_value;
+  const end = falloff.max_value;
+  const xStart = 90;
+  const xEnd = 570;
+  const xAfter = 650;
+  const baseline = 235;
+  const hasDamageRange = Number.isFinite(damage.min_value) && Number.isFinite(damage.max_value);
+  const maximum = hasDamageRange ? damage.max_value : damage.value;
+  const minimum = hasDamageRange ? damage.min_value : damage.value;
+  const yMax = 58;
+  const yMin = hasDamageRange && maximum !== minimum
+    ? yMax + ((maximum - minimum) / Math.max(maximum, 1)) * 135
+    : yMax;
+  const line = hasDamageRange
+    ? `${30},${yMax} ${xStart},${yMax} ${xEnd},${yMin} ${xAfter},${yMin}`
+    : `${30},${yMax} ${xAfter},${yMax}`;
+  return `
+    <section class="ability-dialog-section damage-falloff-graph">
+      <h3>Damage falloff</h3>
+      <svg viewBox="0 0 700 280" role="img" aria-label="Damage falloff from ${escapeHtml(start)} to ${escapeHtml(end)} meters">
+        <line class="graph-axis" x1="30" y1="${baseline}" x2="670" y2="${baseline}"></line>
+        <line class="graph-marker" x1="${xStart}" y1="42" x2="${xStart}" y2="${baseline}"></line>
+        <line class="graph-marker" x1="${xEnd}" y1="42" x2="${xEnd}" y2="${baseline}"></line>
+        <polyline class="graph-damage-line" points="${line}"></polyline>
+        <text class="graph-label" x="${xStart}" y="258" text-anchor="middle">${escapeHtml(formatNumber(start))} m start</text>
+        <text class="graph-label" x="${xEnd}" y="258" text-anchor="middle">${escapeHtml(formatNumber(end))} m end</text>
+        <text class="graph-value" x="38" y="48">${escapeHtml(formatNumber(maximum))} damage</text>
+        ${hasDamageRange ? `<text class="graph-value" x="650" y="${Math.min(yMin + 24, baseline - 8)}" text-anchor="end">${escapeHtml(formatNumber(minimum))} damage</text>` : ""}
+      </svg>
+      ${hasDamageRange ? "" : '<p class="damage-falloff-note">Falloff range is known, but reduced damage was not safely parsed.</p>'}
+    </section>
+  `;
 }
 
 function positionOpenAbilityPanel() {
   const row = elements.heroDetail.querySelector(
-    "[data-ability-row].expanded, [data-ability-row].hovered, [data-ability-row].keyboard-open",
+    "[data-ability-row].hovered, [data-ability-row].keyboard-open",
   );
   if (row) {
     positionAbilityPanel(row);

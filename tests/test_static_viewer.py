@@ -14,16 +14,52 @@ class StaticViewerTests(unittest.TestCase):
         self.assertIn('class="missing-icon-glyph">?</span>', source)
         self.assertNotIn("heroInitials(ability.name)", source)
 
-    def test_ability_tooltips_share_managed_hover_and_click_state(self) -> None:
+    def test_ability_hover_preview_and_dialog_use_distinct_paths(self) -> None:
         source = MAIN_JS.read_text(encoding="utf-8")
         styles = STYLES_CSS.read_text(encoding="utf-8")
 
         self.assertIn('row.classList.add("hovered")', source)
-        self.assertIn("toggleExpandedAbilityRow(row)", source)
-        self.assertIn("closeExpandedAbilityRows()", source)
-        self.assertIn("if (hasExpandedAbilityRow())", source)
+        self.assertIn("openAbilityDialog(abilityForRow(row), row)", source)
+        self.assertNotIn("toggleExpandedAbilityRow(row)", source)
         self.assertIn(".ow-ability-row.hovered .ability-detail-panel", styles)
         self.assertNotIn(".ow-ability-row:hover .ability-detail-panel", styles)
+
+    def test_ability_dialog_is_accessible_and_closable(self) -> None:
+        source = MAIN_JS.read_text(encoding="utf-8")
+
+        self.assertIn('role="button" aria-haspopup="dialog"', source)
+        self.assertIn('<dialog class="ability-dialog-backdrop" aria-labelledby=', source)
+        self.assertIn('aria-label="Close ability details"', source)
+        self.assertIn('event.key === "Enter" || event.key === " "', source)
+        self.assertIn('dialog.addEventListener("cancel"', source)
+        self.assertIn('dialog.addEventListener("keydown"', source)
+        self.assertIn('event.key === "Escape"', source)
+        self.assertIn("if (event.target === dialog)", source)
+        self.assertIn("sourceRow?.isConnected", source)
+        self.assertIn("sourceRow.focus()", source)
+        self.assertIn('document.body.style.overflow = "hidden"', source)
+
+    def test_damage_falloff_graph_refuses_to_guess_complex_damage(self) -> None:
+        source = MAIN_JS.read_text(encoding="utf-8")
+        graph_source = source[
+            source.index("function canRenderDamageFalloffGraph"):source.index("function positionOpenAbilityPanel")
+        ]
+
+        self.assertIn("function renderDamageFalloffGraph(ability)", graph_source)
+        self.assertIn("damage.components?.length", graph_source)
+        self.assertIn("Number.isFinite(damage.value)", graph_source)
+        self.assertIn("reduced damage was not safely parsed", graph_source)
+        self.assertIn("damage is not a simple parsed value", graph_source)
+
+    def test_dialog_reuses_raw_aware_stat_renderers(self) -> None:
+        source = MAIN_JS.read_text(encoding="utf-8")
+        dialog_source = source[
+            source.index("function renderAbilityDialogContent"):source.index("function hasSafeDamageFalloffRange")
+        ]
+
+        self.assertIn("stats.map(renderDetailStat)", dialog_source)
+        self.assertIn("renderWarningList(ability.parse_warnings)", dialog_source)
+        self.assertIn("refreshAbilityDialog()", source)
 
     def test_player_facing_source_fields_are_rendered(self) -> None:
         source = MAIN_JS.read_text(encoding="utf-8")
