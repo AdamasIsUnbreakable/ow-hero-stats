@@ -116,6 +116,15 @@ function bindEvents() {
     elements.search.focus();
   });
 
+  document.addEventListener("click", (event) => {
+    if (!event.target.closest("[data-ability-row]")) {
+      closeExpandedAbilityRows();
+    }
+  });
+
+  window.addEventListener("resize", positionOpenAbilityPanel);
+  window.addEventListener("scroll", positionOpenAbilityPanel, true);
+
   window.addEventListener("popstate", () => {
     const requestedSlug = getHeroSlugFromUrl();
     const hero = getHeroFromUrl();
@@ -512,27 +521,70 @@ function firstTextField(ability, keys) {
 
 function bindAbilityRows() {
   elements.heroDetail.querySelectorAll("[data-ability-row]").forEach((row) => {
-    row.addEventListener("pointerenter", () => positionAbilityPanel(row));
-    row.addEventListener("focusin", () => positionAbilityPanel(row));
-    row.addEventListener("click", () => {
-      row.classList.toggle("expanded");
-      if (row.classList.contains("expanded")) {
-        positionAbilityPanel(row);
+    row.addEventListener("pointerenter", () => {
+      if (hasExpandedAbilityRow()) {
+        return;
       }
+      row.classList.add("hovered");
+      positionAbilityPanel(row);
+    });
+    row.addEventListener("pointerleave", () => row.classList.remove("hovered"));
+    row.addEventListener("focusin", () => {
+      if (hasExpandedAbilityRow()) {
+        return;
+      }
+      row.classList.add("keyboard-open");
+      positionAbilityPanel(row);
+    });
+    row.addEventListener("focusout", () => row.classList.remove("keyboard-open"));
+    row.addEventListener("click", (event) => {
+      event.stopPropagation();
+      toggleExpandedAbilityRow(row);
     });
     row.addEventListener("keydown", (event) => {
       if (event.key === "Enter" || event.key === " ") {
         event.preventDefault();
-        row.classList.toggle("expanded");
-        if (row.classList.contains("expanded")) {
-          positionAbilityPanel(row);
-        }
+        toggleExpandedAbilityRow(row);
       }
       if (event.key === "Escape") {
-        row.classList.remove("expanded");
+        closeExpandedAbilityRows();
       }
     });
   });
+}
+
+function toggleExpandedAbilityRow(row) {
+  const shouldOpen = !row.classList.contains("expanded");
+  closeExpandedAbilityRows();
+  if (!shouldOpen) {
+    return;
+  }
+  elements.heroDetail.querySelectorAll("[data-ability-row]").forEach((candidate) => {
+    candidate.classList.remove("hovered", "keyboard-open");
+  });
+  row.classList.add("expanded");
+  elements.heroDetail.classList.add("has-pinned-tooltip");
+  positionAbilityPanel(row);
+}
+
+function closeExpandedAbilityRows() {
+  elements.heroDetail.querySelectorAll("[data-ability-row].expanded").forEach((row) => {
+    row.classList.remove("expanded");
+  });
+  elements.heroDetail.classList.remove("has-pinned-tooltip");
+}
+
+function hasExpandedAbilityRow() {
+  return Boolean(elements.heroDetail.querySelector("[data-ability-row].expanded"));
+}
+
+function positionOpenAbilityPanel() {
+  const row = elements.heroDetail.querySelector(
+    "[data-ability-row].expanded, [data-ability-row].hovered, [data-ability-row].keyboard-open",
+  );
+  if (row) {
+    positionAbilityPanel(row);
+  }
 }
 
 function positionAbilityPanel(row) {
@@ -553,22 +605,30 @@ function positionAbilityPanel(row) {
   panel.style.setProperty("--panel-left", "0px");
   panel.style.setProperty("--panel-top", "0px");
   panel.style.setProperty("--panel-width", "min(520px, calc(100vw - 32px))");
+  panel.style.setProperty("--panel-max-height", "calc(100vh - 32px)");
 
   const gap = 12;
   const margin = 16;
   const topMargin = Math.max(document.querySelector(".site-header")?.getBoundingClientRect().bottom || 0, 0) + 12;
   const rowRect = row.getBoundingClientRect();
   const panelRect = panel.getBoundingClientRect();
-  const panelWidth = Math.min(520, Math.max(280, Math.min(panelRect.width || 520, window.innerWidth - margin * 2)));
-  const maxPanelHeight = Math.max(280, window.innerHeight - topMargin - margin);
+  const desiredPanelWidth = Math.min(
+    520,
+    Math.max(280, Math.min(panelRect.width || 520, window.innerWidth - margin * 2)),
+  );
+  const rightSpace = window.innerWidth - margin - rowRect.right - gap;
+  const leftSpace = rowRect.left - gap - margin;
+  const sideSpace = Math.max(rightSpace, leftSpace);
+  const panelWidth = sideSpace >= 280 ? Math.min(desiredPanelWidth, sideSpace) : desiredPanelWidth;
+  const maxPanelHeight = Math.max(120, window.innerHeight - topMargin - margin);
   const contentHeight = Math.max(panel.scrollHeight || 0, panelRect.height || 0);
   const isLongPanel = contentHeight > maxPanelHeight || panel.querySelectorAll(".detail-stat").length > 6;
   const panelHeight = isLongPanel ? maxPanelHeight : Math.min(contentHeight || 420, maxPanelHeight);
 
   let viewportLeft;
-  if (rowRect.right + gap + panelWidth <= window.innerWidth - margin) {
+  if (rightSpace >= panelWidth && rightSpace >= leftSpace) {
     viewportLeft = rowRect.right + gap;
-  } else if (rowRect.left - gap - panelWidth >= margin) {
+  } else if (leftSpace >= panelWidth) {
     viewportLeft = rowRect.left - gap - panelWidth;
   } else {
     viewportLeft = clamp(rowRect.left, margin, window.innerWidth - panelWidth - margin);
@@ -581,6 +641,7 @@ function positionAbilityPanel(row) {
   panel.style.setProperty("--panel-left", `${Math.round(relativeLeft)}px`);
   panel.style.setProperty("--panel-top", `${Math.round(relativeTop)}px`);
   panel.style.setProperty("--panel-width", `${Math.round(panelWidth)}px`);
+  panel.style.setProperty("--panel-max-height", `${Math.round(maxPanelHeight)}px`);
   panel.style.display = previousDisplay;
   panel.style.visibility = previousVisibility;
 }

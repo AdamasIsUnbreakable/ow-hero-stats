@@ -904,9 +904,8 @@ dd {
   transition: border-color 120ms ease, box-shadow 120ms ease, background 120ms ease;
 }
 
-.ow-ability-row:hover,
-.ow-ability-row:focus,
-.ow-ability-row:focus-within,
+.ow-ability-row.hovered,
+.ow-ability-row.keyboard-open,
 .ow-ability-row.expanded {
   z-index: 80;
   border-color: rgba(53, 227, 230, 0.82);
@@ -976,16 +975,15 @@ dd {
   z-index: 100;
   display: none;
   width: var(--panel-width, min(520px, calc(100vw - 32px)));
-  max-height: calc(100vh - 32px);
+  max-height: var(--panel-max-height, calc(100vh - 32px));
   overflow: auto;
   padding: 14px;
   border-radius: var(--radius);
   color: #edf6ff;
 }
 
-.ow-ability-row:hover .ability-detail-panel,
-.ow-ability-row:focus .ability-detail-panel,
-.ow-ability-row:focus-within .ability-detail-panel,
+.ow-ability-row.hovered .ability-detail-panel,
+.ow-ability-row.keyboard-open .ability-detail-panel,
 .ow-ability-row.expanded .ability-detail-panel {
   display: grid;
   gap: 12px;
@@ -1138,9 +1136,8 @@ dd {
     margin-top: 8px;
   }
 
-  .ow-ability-row:hover .ability-detail-panel,
-  .ow-ability-row:focus .ability-detail-panel,
-  .ow-ability-row:focus-within .ability-detail-panel {
+  .ow-ability-row.hovered .ability-detail-panel,
+  .ow-ability-row.keyboard-open .ability-detail-panel {
     display: none;
   }
 
