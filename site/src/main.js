@@ -62,7 +62,7 @@ async function init() {
     state.audit = audit;
     state.portraits = portraits;
     state.abilityIcons = abilityIcons;
-    state.selectedRuleset = getRulesetFromUrl(manifest);
+    removeStaleModeFromUrl();
     elements.selectView.setAttribute("aria-busy", "false");
     populateSubroles();
 
@@ -177,7 +177,7 @@ function bindEvents() {
   window.addEventListener("scroll", positionOpenAbilityPanel, true);
 
   window.addEventListener("popstate", () => {
-    state.selectedRuleset = getRulesetFromUrl(state.manifest);
+    removeStaleModeFromUrl();
     const requestedSlug = getHeroSlugFromUrl();
     const hero = getHeroFromUrl();
     if (hero) {
@@ -399,7 +399,6 @@ function renderHeroDetail(hero) {
                 <span class="role-pill ${roleClass(hero.role)}" tabindex="0" title="${escapeHtml(rolePassiveDescription(hero.role, state.selectedRuleset))}">${escapeHtml(hero.role || "Unknown")}</span>
                 ${hero.sub_role ? `<span class="ow-muted">${escapeHtml(hero.sub_role)}</span>` : ""}
               </p>
-              ${renderRulesetCoverageNote(hero)}
             </div>
           </header>
 
@@ -1105,19 +1104,6 @@ function renderGeneratedTag() {
   return `<time class="generated-tag" datetime="${escapeHtml(generatedAt)}">Updated ${escapeHtml(label)}</time>`;
 }
 
-function renderRulesetCoverageNote(hero) {
-  const defaultRuleset = state.manifest?.rulesets?.default;
-  if (state.selectedRuleset === defaultRuleset) return "";
-  if (heroHasRulesetOverrides(hero, state.selectedRuleset)) return "";
-  return `<p class="ruleset-coverage-note" role="note">No confirmed ${escapeHtml(state.selectedRuleset)}-specific overrides for this hero. Shared base values are shown; missing mode-specific values are not inferred.</p>`;
-}
-
-function heroHasRulesetOverrides(hero, ruleset) {
-  const patch = hero.ruleset_overrides?.[ruleset];
-  return Boolean(patch && Object.keys(patch).length > 0)
-    || Boolean(hero.overrides_applied?.some((item) => item.ruleset === ruleset));
-}
-
 function updateArmorHeadshotControl(attacker) {
   const abilitySelect = elements.heroDetail.querySelector("[data-armor-ability]");
   const checkbox = elements.heroDetail.querySelector("[data-armor-headshot]");
@@ -1137,7 +1123,7 @@ function getHeroSearchMatches(hero) {
 
 function renderLinkedMentions(text, currentAbility = "") {
   const candidates = [];
-  state.heroes.forEach((hero) => candidates.push({ name: hero.name, html: `<a href="?hero=${encodeURIComponent(hero.slug)}&mode=${encodeURIComponent(state.selectedRuleset)}">${escapeHtml(hero.name)}</a>` }));
+  state.heroes.forEach((hero) => candidates.push({ name: hero.name, html: `<a href="?hero=${encodeURIComponent(hero.slug)}">${escapeHtml(hero.name)}</a>` }));
   const abilityNames = new Map();
   state.searchIndex.flatMap((hero) => hero.abilities || []).forEach((ability) => {
     if (!abilityNames.has(ability.name)) abilityNames.set(ability.name, []);
@@ -1296,7 +1282,6 @@ async function renderComparison() {
   host.innerHTML = '<p class="ow-muted">Loading comparison...</p>';
   const selected = [...state.compareSlugs].map((slug) => state.heroes.find((hero) => hero.slug === slug)).filter(Boolean);
   const details = await Promise.all(selected.map(async (hero) => resolveHeroRuleset(await loadHeroDetail(hero), state.selectedRuleset)));
-  const coverageNote = renderCompareRulesetCoverage(details);
   const rows = details.map((hero) => {
     const weapons = hero.abilities.filter((ability) => abilityGroup(ability) === "weapons");
     const primary = [...weapons].sort((a, b) => primaryWeaponRank(a) - primaryWeaponRank(b)).find((ability) => OWDamageModel.classify(ability).supported);
@@ -1310,14 +1295,7 @@ async function renderComparison() {
     return `<tr><th>${escapeHtml(hero.name)}</th><td>${escapeHtml([hero.role, hero.sub_role].filter(Boolean).join(" / "))}</td><td>${escapeHtml(formatHealth(hero.health))}</td><td>${primary ? `${escapeHtml(primary.name)}: ${formatNumber(model.maximum)} damage` : `Unavailable: ${escapeHtml(primaryUnavailable)}`}</td><td>${model ? (model.hasFalloff ? `${formatNumber(model.start)}-${formatNumber(model.end)} m` : "No falloff") : "Unavailable"}</td><td>${cooldowns.length ? cooldowns.map(escapeHtml).join("<br>") : "Unavailable"}</td><td>${Number.isFinite(Number(ult?.value)) && ult.confidence === "high" ? formatNumber(Number(ult.value)) : "Unavailable in generated data"}</td><td>${perkCosts.length ? perkCosts.map(escapeHtml).join("<br>") : "Unavailable in generated data"}</td><td>${highConfidence.length ? highConfidence.map(escapeHtml).join("<br>") : "Unavailable"}</td></tr>`;
   });
   state.compareBuilt = true;
-  host.innerHTML = `${coverageNote}<div class="compare-table-wrap"><table><caption>${escapeHtml(state.selectedRuleset)} resolved comparison</caption><thead><tr><th>Hero</th><th>Role</th><th>Health pools</th><th>Primary damage</th><th>Falloff</th><th>Cooldowns</th><th>Ult cost</th><th>Perk costs</th><th>High-confidence weapon stats</th></tr></thead><tbody>${rows.join("")}</tbody></table></div>`;
-}
-
-function renderCompareRulesetCoverage(heroes) {
-  if (state.selectedRuleset === state.manifest?.rulesets?.default) return "";
-  const sharedHeroes = heroes.filter((hero) => !heroHasRulesetOverrides(hero, state.selectedRuleset));
-  if (!sharedHeroes.length) return "";
-  return `<p class="ruleset-coverage-note compare-ruleset-note" role="note">${escapeHtml(state.selectedRuleset)} comparison: no confirmed mode-specific overrides for ${sharedHeroes.map((hero) => escapeHtml(hero.name)).join(", ")}. Their shared base values are shown and are not inferred.</p>`;
+  host.innerHTML = `<div class="compare-table-wrap"><table><caption>${escapeHtml(state.selectedRuleset)} resolved comparison</caption><thead><tr><th>Hero</th><th>Role</th><th>Health pools</th><th>Primary damage</th><th>Falloff</th><th>Cooldowns</th><th>Ult cost</th><th>Perk costs</th><th>High-confidence weapon stats</th></tr></thead><tbody>${rows.join("")}</tbody></table></div>`;
 }
 
 function primaryWeaponRank(ability) {
@@ -1437,13 +1415,12 @@ function getHeroSlugFromUrl() {
   return slug ? slug.toLowerCase() : null;
 }
 
-function getRulesetFromUrl(manifest) {
-  const requested = new URLSearchParams(window.location.search).get("mode");
-  const available = (manifest?.rulesets?.available || []).map((item) => item.id);
-  const defaultRuleset = manifest?.rulesets?.default;
-  return available.includes(requested) ? requested : (available.includes(defaultRuleset) ? defaultRuleset : available[0]);
+function removeStaleModeFromUrl() {
+  const url = new URL(window.location.href);
+  if (!url.searchParams.has("mode")) return;
+  url.searchParams.delete("mode");
+  window.history.replaceState(window.history.state, "", url.href);
 }
-
 
 function updateHeroUrl(slug, historyMode) {
   if (historyMode === "none") {
@@ -1467,6 +1444,7 @@ function updateHeroUrl(slug, historyMode) {
 
 function buildHeroUrl(slug) {
   const url = new URL(window.location.href);
+  url.searchParams.delete("mode");
   url.searchParams.set("hero", slug);
   return url.href;
 }
@@ -1477,6 +1455,7 @@ function updateSelectorUrl(historyMode) {
   }
 
   const url = new URL(window.location.href);
+  url.searchParams.delete("mode");
   url.searchParams.delete("hero");
   if (url.href === window.location.href) {
     return;

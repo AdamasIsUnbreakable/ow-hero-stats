@@ -1,3 +1,5 @@
+import json
+import subprocess
 import unittest
 from pathlib import Path
 
@@ -162,7 +164,7 @@ class StaticViewerTests(unittest.TestCase):
 
         self.assertNotIn('id="ruleset-select"', html)
         self.assertNotIn("function populateRulesetSelector", source)
-        self.assertIn("manifest?.rulesets?.available", source)
+        self.assertNotIn("getRulesetFromUrl", source)
         self.assertIn("function resolveHeroRuleset", source)
         self.assertIn("detail.ruleset_overrides?.[ruleset]", source)
         self.assertIn("renderKeywordChip", source)
@@ -180,22 +182,43 @@ class StaticViewerTests(unittest.TestCase):
         self.assertIn("ability.ability_index === abilityPatch.ability_index", merge_source)
         self.assertIn("candidates.length === 1 ? candidates[0] : null", merge_source)
         self.assertNotIn("target.abilities?.find((item) => item.name === abilityPatch.name)", merge_source)
-        self.assertIn("getRulesetFromUrl", source)
         self.assertNotIn("updateRulesetUrl", source)
-        self.assertIn("state.selectedRuleset = getRulesetFromUrl(state.manifest)", source)
         self.assertNotIn('id="ruleset-select"', INDEX_HTML.read_text(encoding="utf-8"))
 
-    def test_mode_coverage_note_and_generated_tag_are_visible_in_hero_ui(self) -> None:
+    def test_stale_mode_urls_are_removed_and_generated_links_omit_mode(self) -> None:
         source = MAIN_JS.read_text(encoding="utf-8")
-        styles = STYLES_CSS.read_text(encoding="utf-8")
+        linked_mentions = source[
+            source.index("function renderLinkedMentions"):source.index("function bindDamageCalculator")
+        ]
 
-        self.assertIn("renderGeneratedTag()", source)
-        self.assertIn('class="generated-tag"', source)
-        self.assertIn("renderRulesetCoverageNote(hero)", source)
-        self.assertIn("No confirmed ${escapeHtml(state.selectedRuleset)}-specific overrides", source)
-        self.assertIn("missing mode-specific values are not inferred", source)
-        self.assertIn(".generated-tag", styles)
-        self.assertIn(".ruleset-coverage-note", styles)
+        self.assertIn("function removeStaleModeFromUrl", source)
+        self.assertEqual(source.count('url.searchParams.delete("mode")'), 3)
+        self.assertIn("removeStaleModeFromUrl();", source)
+        self.assertNotIn("mode=", linked_mentions)
+        self.assertIn('href="?hero=${encodeURIComponent(hero.slug)}"', linked_mentions)
+        self.assertNotIn("renderRulesetCoverageNote", source)
+        self.assertNotIn("renderCompareRulesetCoverage", source)
+
+    def test_stale_6v6_bookmark_is_replaced_with_a_mode_free_url(self) -> None:
+        source = MAIN_JS.read_text(encoding="utf-8")
+        cleanup_source = source[
+            source.index("function removeStaleModeFromUrl"):source.index("function updateHeroUrl")
+        ]
+        script = f"""
+          global.window = {{
+            location: {{ href: "https://example.test/?hero=ashe&mode=6v6" }},
+            history: {{
+              state: {{ hero: "ashe" }},
+              replaceState(state, title, href) {{ this.replaced = href; }}
+            }}
+          }};
+          {cleanup_source}
+          removeStaleModeFromUrl();
+          console.log(JSON.stringify(window.history.replaced));
+        """
+        result = subprocess.run(["node", "-e", script], check=True, capture_output=True, text=True)
+
+        self.assertEqual(json.loads(result.stdout), "https://example.test/?hero=ashe")
 
     def test_shared_calculator_consumers_and_search_compare_controls_exist(self) -> None:
         source = MAIN_JS.read_text(encoding="utf-8")
@@ -221,11 +244,9 @@ class StaticViewerTests(unittest.TestCase):
         self.assertIn("Unsupported: ${model.reason}", armor_source)
         self.assertIn('abilitySelect.value === ""', source)
 
-    def test_compare_reports_ruleset_coverage_and_rebuilds_on_history_navigation(self) -> None:
+    def test_compare_rebuilds_on_history_navigation(self) -> None:
         source = MAIN_JS.read_text(encoding="utf-8")
 
-        self.assertIn("function renderCompareRulesetCoverage", source)
-        self.assertIn("no confirmed mode-specific overrides", source)
         self.assertIn("state.compareMode && state.compareBuilt", source)
         self.assertIn("if (rebuildComparison) renderComparison()", source)
 

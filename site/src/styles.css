@@ -476,17 +476,6 @@ select {
   font-weight: 700;
 }
 
-.ruleset-coverage-note {
-  max-width: 48ch;
-  margin: 8px 0 0;
-  padding: 8px 10px;
-  border-left: 3px solid #f9a825;
-  color: #ffe3a8;
-  background: rgba(249, 168, 37, 0.1);
-  font-size: 0.78rem;
-  line-height: 1.35;
-}
-
 .hero-card-meta,
 .muted,
 .raw-value {
