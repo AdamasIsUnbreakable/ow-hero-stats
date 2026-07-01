@@ -25,7 +25,7 @@
     </header>
 
     <main>
-      <section id="hero-select-view" class="hero-select-view" aria-label="Hero select" hidden>
+      <section id="hero-select-view" class="hero-select-view" aria-label="Hero select" aria-busy="true">
         <div class="hero-select-intro">
           <div>
             <h2>Choose Your Hero</h2>
@@ -37,7 +37,13 @@
         </section>
         </div>
         <p id="select-message" class="select-message" aria-live="polite"></p>
-        <div id="role-sections" class="role-sections" aria-live="polite"></div>
+        <div id="role-sections" class="role-sections" aria-live="polite">
+          <div class="empty-state loading-state" role="status">
+            <span class="loading-spinner" aria-hidden="true"></span>
+            <h2>Loading hero data</h2>
+            <p>Preparing the hero roster and stat assets&hellip;</p>
+          </div>
+        </div>
       </section>
 
       <section id="stats-view" class="stats-view detail-pane" aria-label="Selected hero details" hidden>

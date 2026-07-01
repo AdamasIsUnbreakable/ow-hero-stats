@@ -11,7 +11,6 @@ const state = {
   selectedHero: null,
   search: "",
   showRaw: false,
-  copyLinkFeedbackTimer: null,
   abilityDialog: null,
   abilityDialogAbility: null,
   abilityDialogSource: null,
@@ -33,6 +32,7 @@ const elements = {
 document.addEventListener("DOMContentLoaded", init);
 
 async function init() {
+  showInitialLoadingState();
   try {
     const [manifest, heroes, audit, portraits, abilityIcons] = await Promise.all([
       fetchJson("manifest.json"),
@@ -46,6 +46,7 @@ async function init() {
     state.audit = audit;
     state.portraits = portraits;
     state.abilityIcons = abilityIcons;
+    elements.selectView.setAttribute("aria-busy", "false");
 
     bindEvents();
 
@@ -59,6 +60,7 @@ async function init() {
       showHeroSelect();
     }
   } catch (error) {
+    elements.selectView.setAttribute("aria-busy", "false");
     elements.selectView.hidden = true;
     elements.statsView.hidden = false;
     elements.heroDetail.innerHTML = `
@@ -68,6 +70,23 @@ async function init() {
       </div>
     `;
   }
+}
+
+function showInitialLoadingState() {
+  const requestedSlug = getHeroSlugFromUrl();
+  const title = requestedSlug ? "Loading hero" : "Loading hero data";
+  const message = requestedSlug
+    ? `Preparing ${titleCase(requestedSlug.replaceAll("-", " "))} and its ability data…`
+    : "Preparing the hero roster and stat assets…";
+  elements.selectView.hidden = false;
+  elements.statsView.hidden = true;
+  elements.roleSections.innerHTML = `
+    <div class="empty-state loading-state" role="status">
+      <span class="loading-spinner" aria-hidden="true"></span>
+      <h2>${escapeHtml(title)}</h2>
+      <p>${escapeHtml(message)}</p>
+    </div>
+  `;
 }
 
 async function fetchPortraitManifest() {
@@ -197,7 +216,6 @@ function showHeroSelect(message = "", options = {}) {
   const { historyMode = "none" } = options;
   state.selectedSlug = null;
   state.selectedHero = null;
-  clearCopyLinkFeedback();
   updateSelectorUrl(historyMode);
 
   elements.selectView.hidden = false;
@@ -319,13 +337,11 @@ function renderHeroDetail(hero) {
             <div>
               <div class="hero-title-row">
                 <h2>${escapeHtml(hero.name)}</h2>
-                <button class="copy-link-button" type="button" data-copy-link>Copy link</button>
               </div>
               <p>
                 <span class="role-pill ${roleClass(hero.role)}">${escapeHtml(hero.role || "Unknown")}</span>
                 ${hero.sub_role ? `<span class="ow-muted">${escapeHtml(hero.sub_role)}</span>` : ""}
               </p>
-              <p class="copy-link-feedback" aria-live="polite" data-copy-link-feedback></p>
             </div>
           </header>
 
@@ -356,8 +372,6 @@ function renderHeroDetail(hero) {
     </article>
   `;
 
-  const copyButton = elements.heroDetail.querySelector("[data-copy-link]");
-  copyButton?.addEventListener("click", () => copySelectedHeroLink(hero.slug));
   bindAbilityRows();
 }
 
@@ -449,7 +463,6 @@ function renderAbilityRow(ability) {
 function renderAbilityDetailPanel(ability) {
   const keywords = abilityKeywords(ability);
   const shotTypes = abilityShotTypes(ability);
-  const notes = abilityNotes(ability);
   const description = abilityDescription(ability);
   const cooldown = hasDisplayableStat(ability.stats?.cooldown) ? stripHtml(formatStatValue(ability.stats.cooldown)) : "";
   const stats = Object.values(ability.stats || {}).filter(hasDisplayableStat);
@@ -468,7 +481,6 @@ function renderAbilityDetailPanel(ability) {
       <div class="ability-detail-stats">
         ${stats.length ? stats.map(renderDetailStat).join("") : '<p class="ow-muted">No parsed stat fields.</p>'}
       </div>
-      ${notes.length ? renderAbilityNotes(notes) : ""}
       ${ability.parse_warnings?.length ? renderWarningList(ability.parse_warnings) : ""}
     </aside>
   `;
@@ -581,6 +593,7 @@ function openAbilityDialog(ability, sourceRow) {
   if (state.abilityDialog) {
     closeAbilityDialog({ restoreFocus: false });
   }
+  clearAbilityPreviewState();
 
   const host = document.createElement("div");
   host.innerHTML = renderAbilityDialog(ability);
@@ -610,6 +623,11 @@ function openAbilityDialog(ability, sourceRow) {
   });
   dialog.showModal();
   dialog.querySelector("[data-ability-dialog-close]").focus();
+}
+
+function clearAbilityPreviewState() {
+  elements.heroDetail.querySelectorAll("[data-ability-row].hovered, [data-ability-row].keyboard-open")
+    .forEach((row) => row.classList.remove("hovered", "keyboard-open"));
 }
 
 function closeAbilityDialog(options = {}) {
@@ -865,79 +883,6 @@ function resolvePublicAssetUrl(path) {
   return new URL(normalizedPath, new URL("./public/", window.location.href)).href;
 }
 
-async function copySelectedHeroLink(slug) {
-  const url = buildHeroUrl(slug);
-  const feedback = elements.heroDetail.querySelector("[data-copy-link-feedback]");
-
-  clearCopyLinkFeedback();
-
-  if (navigator.clipboard?.writeText) {
-    try {
-      await navigator.clipboard.writeText(url);
-      showCopyLinkFeedback("Copied link");
-      return;
-    } catch {
-      showCopyLinkFeedback(`Copy failed. Link: ${url}`);
-      return;
-    }
-  }
-
-  if (feedback) {
-    feedback.innerHTML = `Copy this link: <span>${escapeHtml(url)}</span>`;
-  }
-}
-
-function clearCopyLinkFeedback() {
-  if (state.copyLinkFeedbackTimer) {
-    window.clearTimeout(state.copyLinkFeedbackTimer);
-    state.copyLinkFeedbackTimer = null;
-  }
-}
-
-function showCopyLinkFeedback(message) {
-  const feedback = elements.heroDetail.querySelector("[data-copy-link-feedback]");
-  if (!feedback) {
-    return;
-  }
-
-  feedback.textContent = message;
-  state.copyLinkFeedbackTimer = window.setTimeout(() => {
-    feedback.textContent = "";
-    state.copyLinkFeedbackTimer = null;
-  }, 1800);
-}
-
-function renderAbilityCard(ability) {
-  const stats = Object.values(ability.stats || {});
-  return `
-    <article class="ability-card">
-      <header>
-        ${renderAbilityIcon(ability)}
-        <div>
-          <h3>${escapeHtml(ability.name)}</h3>
-          <p class="muted">
-            ${escapeHtml(ability.slot || "No slot")} &middot; ${escapeHtml(ability.type || "No type")}
-          </p>
-        </div>
-      </header>
-      ${ability.shot_type?.length ? `<p class="shot-type">${ability.shot_type.map(escapeHtml).join(", ")}</p>` : ""}
-      <div class="stat-table">
-        ${stats.map(renderStatRow).join("")}
-      </div>
-      ${ability.parse_warnings?.length ? renderWarningList(ability.parse_warnings) : ""}
-    </article>
-  `;
-}
-
-function renderAbilityIcon(ability) {
-  const icon = findAbilityIcon(ability);
-  if (!icon?.local_path) {
-    return renderMissingAbilityIcon("ability-icon");
-  }
-  const src = resolvePublicAssetUrl(icon.local_path);
-  return `<img class="ability-icon" src="${escapeHtml(src)}" alt="${escapeHtml(ability.name)} icon" loading="lazy">`;
-}
-
 function renderAbilityVisual(ability, className) {
   const icon = findAbilityIcon(ability);
   if (icon?.local_path) {
@@ -949,31 +894,6 @@ function renderAbilityVisual(ability, className) {
 
 function renderMissingAbilityIcon(className) {
   return `<span class="${className} ability-icon-fallback" aria-hidden="true"><span class="missing-icon-glyph">?</span></span>`;
-}
-
-function renderStatRow(stat) {
-  const formatted = formatStatValue(stat);
-  const componentsHtml = stat.components?.length ? renderStatComponents(stat.components) : "";
-  const rawText = displayRaw(stat);
-  const rawHtml = state.showRaw && hasText(rawText)
-    ? `<div class="raw-value">Raw: ${escapeHtml(rawText)}</div>`
-    : "";
-  const warningHtml = stat.warnings?.length
-    ? `<div class="stat-warnings">${stat.warnings.map((warning) => `Warning: ${escapeHtml(warning)}`).join("<br>")}</div>`
-    : "";
-
-  return `
-    <div class="stat-row">
-      <div class="stat-label">${escapeHtml(stat.label || stat.field)}</div>
-      <div class="stat-value">
-        <span>${formatted}</span>
-        ${componentsHtml}
-        ${rawHtml}
-        ${warningHtml}
-      </div>
-      <div><span class="confidence ${confidenceClass(stat.confidence)}">${escapeHtml(stat.confidence || "unparsed")}</span></div>
-    </div>
-  `;
 }
 
 function renderStatComponents(components) {

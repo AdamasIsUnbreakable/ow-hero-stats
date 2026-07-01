@@ -26,6 +26,34 @@ class StaticViewerTests(unittest.TestCase):
         self.assertIn(".ow-ability-row.hovered .ability-detail-panel", styles)
         self.assertNotIn(".ow-ability-row:hover .ability-detail-panel", styles)
 
+    def test_hover_preview_excludes_gameplay_notes(self) -> None:
+        source = MAIN_JS.read_text(encoding="utf-8")
+        preview_source = source[
+            source.index("function renderAbilityDetailPanel"):source.index("function renderDetailStat")
+        ]
+        dialog_source = source[
+            source.index("function renderAbilityDialogContent"):source.index("function hasSafeDamageFalloffRange")
+        ]
+
+        self.assertNotIn("abilityNotes(ability)", preview_source)
+        self.assertIn("abilityNotes(ability)", dialog_source)
+        self.assertIn("renderAbilityNotes(notes)", dialog_source)
+
+    def test_dialog_open_clears_tooltip_state(self) -> None:
+        source = MAIN_JS.read_text(encoding="utf-8")
+
+        self.assertIn("clearAbilityPreviewState();", source)
+        self.assertIn('row.classList.remove("hovered", "keyboard-open")', source)
+
+    def test_loading_state_and_copy_link_cleanup(self) -> None:
+        source = MAIN_JS.read_text(encoding="utf-8")
+        html = (MAIN_JS.parents[1] / "index.html").read_text(encoding="utf-8")
+
+        self.assertIn("showInitialLoadingState();", source)
+        self.assertIn('aria-busy="true"', html)
+        self.assertNotIn("Copy link", source)
+        self.assertNotIn("copySelectedHeroLink", source)
+
     def test_ability_dialog_is_accessible_and_closable(self) -> None:
         source = MAIN_JS.read_text(encoding="utf-8")
 
