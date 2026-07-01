@@ -7,6 +7,7 @@ from overwatch_stats.audit import build_all_audit
 from overwatch_stats.export_json import hero_slug
 from overwatch_stats.normalize import normalize_hero
 from overwatch_stats.parse_stats import COMPONENT_DAMAGE_WARNING
+from overwatch_stats.overrides import HERO_OVERRIDES, build_ruleset_data
 from overwatch_stats.web_export import (
     SCHEMA_VERSION,
     build_audit_summary,
@@ -122,12 +123,31 @@ class WebExportTests(unittest.TestCase):
         manifest = build_manifest(hero_count=1, generated_at="2026-06-25T23:00:00Z")
 
         self.assertEqual(manifest["schema_version"], SCHEMA_VERSION)
-        self.assertEqual(manifest["schema_version"], "1.6.0")
+        self.assertEqual(manifest["schema_version"], "2.0.0")
+        self.assertEqual(manifest["rulesets"]["default"], "5v5")
+        self.assertEqual([item["id"] for item in manifest["rulesets"]["available"]], ["5v5", "6v6"])
         self.assertEqual(manifest["hero_count"], 1)
         self.assertEqual(manifest["data_files"]["hero_index"], "heroes.index.json")
         self.assertEqual(manifest["data_files"]["audit_summary"], "audit-summary.json")
         self.assertEqual(manifest["data_files"]["quality_report"], "quality-report.json")
         self.assertEqual(manifest["data_files"]["hero_detail_dir"], "heroes/")
+
+    def test_override_layer_keeps_base_and_records_sparse_ruleset_patch(self):
+        HERO_OVERRIDES["test-hero"] = [{
+            "ruleset": "6v6",
+            "path": ["health", "armor"],
+            "value": 100,
+            "reason": "Fixture correction",
+            "source": "Fixture source",
+        }]
+        try:
+            result = build_ruleset_data("test-hero", {"health": {"health": 250, "armor": 0}})
+        finally:
+            HERO_OVERRIDES.pop("test-hero")
+
+        self.assertEqual(result["base"]["health"]["armor"], 0)
+        self.assertEqual(result["ruleset_overrides"]["6v6"]["health"]["armor"], 100)
+        self.assertEqual(result["overrides_applied"][0]["reason"], "Fixture correction")
 
     def test_quality_report_counts_fixture_hero(self):
         report = build_quality_report([self.hero], generated_at="2026-06-25T23:00:00Z")
@@ -274,6 +294,9 @@ class WebExportTests(unittest.TestCase):
         self.assertEqual(quality["coverage_flags"]["stats_missing_display_unit"], [])
         self.assertIn("Ashe", quality["coverage_flags"]["heroes_with_component_stats"])
         self.assertEqual(detail["name"], "Ashe")
+        self.assertEqual(detail["base"]["health"], detail["health"])
+        self.assertEqual(detail["ruleset_overrides"]["6v6"], {})
+        self.assertEqual(detail["overrides_applied"], [])
         self.assertEqual(detail["abilities"][0]["ability_index"], 0)
         self.assertEqual(detail["abilities"][1]["ability_index"], 1)
         self.assertEqual(detail["abilities"][1]["stats"]["damage"]["value"], None)

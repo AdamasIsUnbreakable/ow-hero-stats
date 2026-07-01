@@ -102,6 +102,21 @@ select {
   justify-content: flex-end;
 }
 
+.ruleset-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #dce7f2;
+}
+
+.ruleset-control select {
+  border: 1px solid #496175;
+  border-radius: var(--radius);
+  background: #223142;
+  color: #f7fbff;
+  padding: 9px 28px 9px 10px;
+}
+
 .secondary-button {
   min-width: 142px;
   border: 1px solid #496175;

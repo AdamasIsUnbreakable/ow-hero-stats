@@ -102,7 +102,7 @@ class StaticViewerTests(unittest.TestCase):
             source.index("function renderAbilityDialogContent"):source.index("function hasSafeDamageFalloffRange")
         ]
 
-        self.assertIn("stats.map(renderDetailStat)", dialog_source)
+        self.assertIn("renderDetailStat(stat, ability)", dialog_source)
         self.assertIn("renderWarningList(ability.parse_warnings)", dialog_source)
         self.assertIn("refreshAbilityDialog()", source)
 
@@ -153,6 +153,19 @@ class StaticViewerTests(unittest.TestCase):
         self.assertIn("armor / 0.7", health_source)
         self.assertIn("when d ≤ 14", health_source)
         self.assertIn("repeat(auto-fit", styles)
+
+    def test_ruleset_selector_resolves_base_and_sparse_overrides(self) -> None:
+        source = MAIN_JS.read_text(encoding="utf-8")
+        html = INDEX_HTML.read_text(encoding="utf-8")
+
+        self.assertIn('id="ruleset-select"', html)
+        self.assertIn('value="5v5"', html)
+        self.assertIn('value="6v6"', html)
+        self.assertIn("function resolveHeroRuleset", source)
+        self.assertIn("detail.ruleset_overrides?.[ruleset]", source)
+        self.assertIn("renderKeywordChip", source)
+        self.assertIn("rolePassiveDescription", source)
+        self.assertIn("formatHeadshot", source)
 
 
 if __name__ == "__main__":

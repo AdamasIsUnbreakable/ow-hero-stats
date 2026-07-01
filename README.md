@@ -153,7 +153,11 @@ site\public\data\v1\
 
 `manifest.json` includes the schema version, generation timestamp, source API endpoint, hero count, and paths to the other files.
 
-Current website schema version: `1.5.0`. Hero detail ability objects now include a zero-based `ability_index` used for deterministic icon matching. The schema retains icon/perk quality reporting, UI-readable `display_unit` fields, cleaned `raw_display` fields, stat `components`, and original `raw` values.
+Current website schema version: `2.0.0`. Hero detail files contain a shared `base`, sparse `ruleset_overrides` (currently 5v5 and 6v6), and `overrides_applied` provenance. The legacy top-level resolved base fields remain present for simple consumers. The schema retains UI-readable `display_unit` fields, cleaned `raw_display` fields, stat `components`, and original `raw` values.
+
+### Corrections and rulesets
+
+Programmatic corrections live in `overwatch_stats\overrides.py` and run only while website data is generated. Add a narrowly sourced entry to `HERO_OVERRIDES` with its ruleset, path, replacement value, reason, and source. Corrections never mutate Cargo `raw` rows; every applied item is copied to `overrides_applied`. Shared values belong in `base`, while only differences belong in a named `ruleset_overrides` patch. Empty patches are intentional: they mean the mode is supported but no distinct value has been confirmed. The viewer resolves the selected mode before rendering.
 
 `heroes.index.json` is lightweight for hero selector/search views. It includes hero identity, role, health, ability count, warning count, confidence counts, and each hero detail path. It does not include full raw ability rows.
 

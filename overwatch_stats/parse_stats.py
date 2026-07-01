@@ -7,7 +7,10 @@ from typing import Callable
 from .models import StatComponent, StatValue
 
 
-EMPTY_VALUES = {"", "-", "n/a", "na", "none", "unknown", "varies"}
+EMPTY_VALUES = {
+    "", "-", "--", "---", "n/a", "n.a.", "na", "none", "not applicable",
+    "unknown", "varies", "—", "–", "−", "{{n/a}}", "{{none}}",
+}
 COMPLEX_DAMAGE_WARNING = "Complex damage model: raw value contains multiple components; no single damage value was parsed."
 COMPONENT_DAMAGE_WARNING = "Complex damage model parsed into components; no single damage value was assigned."
 
@@ -46,7 +49,9 @@ def unparsed(raw: object, warning: str | None = None) -> StatValue:
 
 def _blank(raw: object) -> StatValue | None:
     text = clean_text(raw)
-    if text is None or text.lower() in EMPTY_VALUES:
+    normalized = (text or "").strip().casefold()
+    normalized = re.sub(r"^\{\{\s*(?:n/?a|none|not applicable)\s*\}\}$", "{{n/a}}", normalized)
+    if text is None or normalized in EMPTY_VALUES:
         return StatValue(raw=None if raw is None else str(raw), confidence="unparsed")
     return None
 
@@ -542,6 +547,14 @@ def parse_dps_hps(raw: object) -> StatValue:
     return StatValue(raw=str(raw), value=value, unit="per_second", confidence="high")
 
 
+def parse_points(raw: object) -> StatValue:
+    return _single_number_with_unit(raw, "points", "cost")
+
+
+def parse_health_amount(raw: object) -> StatValue:
+    return _single_number_with_unit(raw, "health", "health amount")
+
+
 def _is_complex_damage(text: str) -> bool:
     if re.search(r"\b(direct|splash|impact|explosion)\b|\+", text, re.IGNORECASE):
         return True
@@ -578,4 +591,10 @@ PARSERS: dict[str, Callable[[object], StatValue]] = {
     "heal": parse_healing,
     "dps": parse_dps_hps,
     "hps": parse_dps_hps,
+    "ult_cost": parse_points,
+    "ultimate_cost": parse_points,
+    "perk_cost": parse_points,
+    "barrier_health": parse_health_amount,
+    "overhealth": parse_health_amount,
+    "health_given": parse_health_amount,
 }

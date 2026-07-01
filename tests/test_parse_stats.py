@@ -20,6 +20,7 @@ from overwatch_stats.parse_stats import (
     parse_range_distance,
     parse_reload_time,
     parse_spread,
+    parse_points,
 )
 
 
@@ -194,6 +195,14 @@ class ParseStatsTests(unittest.TestCase):
         stat = parse_ammo("")
         self.assertIsNone(stat.value)
         self.assertEqual(stat.confidence, "unparsed")
+
+    def test_explicit_not_applicable_values_are_empty_without_warnings(self):
+        for value in ("None", "N/A", "n.a.", "not applicable", "-", "--", "—", "{{N/A}}", ""):
+            with self.subTest(value=value):
+                stat = parse_points(value)
+                self.assertEqual(stat.confidence, "unparsed")
+                self.assertIsNone(stat.value)
+                self.assertEqual(stat.warnings, [])
 
     def test_infinite_ammo_symbol(self):
         stat = parse_ammo("∞ (Blaster)")

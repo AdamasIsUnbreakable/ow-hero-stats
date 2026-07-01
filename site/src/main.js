@@ -9,6 +9,8 @@ const state = {
   abilityIcons: [],
   selectedSlug: null,
   selectedHero: null,
+  selectedHeroSource: null,
+  selectedRuleset: "5v5",
   search: "",
   showRaw: false,
   abilityDialog: null,
@@ -27,6 +29,7 @@ const elements = {
   auditStatus: document.querySelector("#audit-status"),
   rawToggle: document.querySelector("#raw-toggle"),
   allHeroes: document.querySelector("#all-heroes"),
+  rulesetSelect: document.querySelector("#ruleset-select"),
 };
 
 document.addEventListener("DOMContentLoaded", init);
@@ -46,6 +49,8 @@ async function init() {
     state.audit = audit;
     state.portraits = portraits;
     state.abilityIcons = abilityIcons;
+    state.selectedRuleset = getRulesetFromUrl(manifest);
+    elements.rulesetSelect.value = state.selectedRuleset;
     elements.selectView.setAttribute("aria-busy", "false");
 
     bindEvents();
@@ -118,6 +123,15 @@ async function fetchAbilityIconManifest() {
 }
 
 function bindEvents() {
+  elements.rulesetSelect.addEventListener("change", () => {
+    state.selectedRuleset = elements.rulesetSelect.value;
+    updateRulesetUrl();
+    if (state.selectedHeroSource) {
+      state.selectedHero = resolveHeroRuleset(state.selectedHeroSource, state.selectedRuleset);
+      renderHeroDetail(state.selectedHero);
+      closeAbilityDialog({ restoreFocus: false });
+    }
+  });
   elements.search.addEventListener("input", (event) => {
     state.search = event.target.value.trim().toLowerCase();
     renderHeroSelect();
@@ -216,6 +230,7 @@ function showHeroSelect(message = "", options = {}) {
   const { historyMode = "none" } = options;
   state.selectedSlug = null;
   state.selectedHero = null;
+  state.selectedHeroSource = null;
   updateSelectorUrl(historyMode);
 
   elements.selectView.hidden = false;
@@ -312,8 +327,9 @@ async function selectHero(indexHero, options = {}) {
       ...ability,
       ability_index: ability.ability_index ?? abilityIndex,
     }));
-    state.selectedHero = detail;
-    renderHeroDetail(detail);
+    state.selectedHeroSource = detail;
+    state.selectedHero = resolveHeroRuleset(detail, state.selectedRuleset);
+    renderHeroDetail(state.selectedHero);
   } catch (error) {
     elements.heroDetail.innerHTML = `
       <div class="empty-state error">
@@ -339,7 +355,7 @@ function renderHeroDetail(hero) {
                 <h2>${escapeHtml(hero.name)}</h2>
               </div>
               <p>
-                <span class="role-pill ${roleClass(hero.role)}">${escapeHtml(hero.role || "Unknown")}</span>
+                <span class="role-pill ${roleClass(hero.role)}" tabindex="0" title="${escapeHtml(rolePassiveDescription(hero.role))}">${escapeHtml(hero.role || "Unknown")}</span>
                 ${hero.sub_role ? `<span class="ow-muted">${escapeHtml(hero.sub_role)}</span>` : ""}
               </p>
             </div>
@@ -477,16 +493,16 @@ function renderAbilityDetailPanel(ability) {
       </div>
       ${description ? `<p class="ability-detail-description">${escapeHtml(description)}</p>` : ""}
       ${shotTypes.length ? `<div class="ability-shot-types"><strong>Shot type</strong> ${shotTypes.map((shotType) => `<span>${escapeHtml(shotType)}</span>`).join("")}</div>` : ""}
-      ${keywords.length ? `<div class="keyword-chips">${keywords.map((keyword) => `<span>${escapeHtml(keyword)}</span>`).join("")}</div>` : ""}
+      ${keywords.length ? `<div class="keyword-chips">${keywords.map(renderKeywordChip).join("")}</div>` : ""}
       <div class="ability-detail-stats">
-        ${stats.length ? stats.map(renderDetailStat).join("") : '<p class="ow-muted">No parsed stat fields.</p>'}
+        ${stats.length ? stats.filter((stat) => stat.field !== "headshot_mod").map((stat) => renderDetailStat(stat, ability)).join("") : '<p class="ow-muted">No parsed stat fields.</p>'}
       </div>
       ${ability.parse_warnings?.length ? renderWarningList(ability.parse_warnings) : ""}
     </aside>
   `;
 }
 
-function renderDetailStat(stat) {
+function renderDetailStat(stat, ability = null) {
   const rawText = displayRaw(stat);
   const rawHtml = state.showRaw && hasText(rawText) ? `<div class="raw-value">Raw: ${escapeHtml(rawText)}</div>` : "";
   const warnings = stat.warnings?.length ? `<div class="stat-warnings">${stat.warnings.map((warning) => `Warning: ${escapeHtml(warning)}`).join("<br>")}</div>` : "";
@@ -496,7 +512,7 @@ function renderDetailStat(stat) {
         <h5>${escapeHtml(stat.label || stat.field)}</h5>
         <span class="confidence ${confidenceClass(stat.confidence)}">${escapeHtml(stat.confidence || "unparsed")}</span>
       </div>
-      <div class="detail-stat-value">${formatStatValue(stat)}</div>
+      <div class="detail-stat-value">${stat.field === "headshot" ? formatHeadshot(stat, ability?.stats?.headshot_mod) : formatStatValue(stat)}</div>
       ${stat.components?.length ? renderStatComponents(stat.components) : ""}
       ${rawHtml}
       ${warnings}
@@ -691,10 +707,10 @@ function renderAbilityDialogContent(ability) {
   return `
     ${description ? `<p class="ability-detail-description">${escapeHtml(description)}</p>` : ""}
     ${shotTypes.length ? `<section class="ability-dialog-section"><h3>Shot type</h3><div class="ability-shot-types">${shotTypes.map((shotType) => `<span>${escapeHtml(shotType)}</span>`).join("")}</div></section>` : ""}
-    ${keywords.length ? `<section class="ability-dialog-section"><h3>Keywords</h3><div class="keyword-chips">${keywords.map((keyword) => `<span>${escapeHtml(keyword)}</span>`).join("")}</div></section>` : ""}
+    ${keywords.length ? `<section class="ability-dialog-section"><h3>Keywords</h3><div class="keyword-chips">${keywords.map(renderKeywordChip).join("")}</div></section>` : ""}
     <section class="ability-dialog-section">
       <h3>Parsed stats</h3>
-      <div class="ability-detail-stats">${stats.length ? stats.map(renderDetailStat).join("") : '<p class="ow-muted">No parsed stat fields.</p>'}</div>
+      <div class="ability-detail-stats">${stats.length ? stats.filter((stat) => stat.field !== "headshot_mod").map((stat) => renderDetailStat(stat, ability)).join("") : '<p class="ow-muted">No parsed stat fields.</p>'}</div>
     </section>
     ${renderDamageFalloffGraph(ability)}
     ${notes.length ? renderAbilityNotes(notes) : ""}
@@ -1099,6 +1115,67 @@ function confidenceClass(confidence) {
   return `confidence-${confidence || "unparsed"}`;
 }
 
+function resolveHeroRuleset(detail, ruleset) {
+  const base = detail.base || {
+    role: detail.role,
+    sub_role: detail.sub_role,
+    health: detail.health,
+    abilities: detail.abilities || [],
+  };
+  const patch = detail.ruleset_overrides?.[ruleset] || {};
+  const resolved = deepMergeRuleset(structuredClone(base), patch);
+  return { ...detail, ...resolved, selected_ruleset: ruleset };
+}
+
+function deepMergeRuleset(target, patch) {
+  for (const [key, value] of Object.entries(patch || {})) {
+    if (key === "abilities" && Array.isArray(value)) {
+      for (const abilityPatch of value) {
+        const ability = target.abilities?.find((item) => item.name === abilityPatch.name);
+        if (ability) deepMergeRuleset(ability, abilityPatch);
+      }
+    } else if (value && typeof value === "object" && !Array.isArray(value)) {
+      target[key] = deepMergeRuleset(target[key] || {}, value);
+    } else {
+      target[key] = value;
+    }
+  }
+  return target;
+}
+
+function formatHeadshot(stat, multiplier) {
+  if (stat.value === true) {
+    const suffix = Number.isFinite(multiplier?.value) ? ` (${formatNumber(multiplier.value)}x)` : "";
+    return `&#10003; Headshot${suffix}`;
+  }
+  if (stat.value === false) return "&#10005; Headshot";
+  return formatStatValue(stat);
+}
+
+const ROLE_PASSIVES = {
+  Tank: "Tank role passive: reduced knockback and reduced ultimate charge generated by damage and healing received.",
+  Damage: "Damage role passive: damaging an enemy temporarily reduces healing they receive.",
+  Support: "Support role passive: health regeneration begins sooner after avoiding damage.",
+};
+
+function rolePassiveDescription(role) {
+  return ROLE_PASSIVES[role] || "Role passive details are unavailable.";
+}
+
+const KEYWORD_DESCRIPTIONS = {
+  armor: "A health type that reduces incoming damage.",
+  barrier: "A deployable or projected obstacle that blocks eligible damage and effects.",
+  overhealth: "Temporary health that cannot be healed and usually decays or expires.",
+  stun: "Prevents the affected target from acting for a duration.",
+  transformation: "Temporarily changes the hero or ability state.",
+  "area of effect": "Affects targets within an area rather than only one direct target.",
+};
+
+function renderKeywordChip(keyword) {
+  const description = KEYWORD_DESCRIPTIONS[String(keyword).toLowerCase()] || `Ability keyword: ${keyword}`;
+  return `<span tabindex="0" title="${escapeHtml(description)}">${escapeHtml(keyword)}</span>`;
+}
+
 function roleClass(role) {
   return `role-${String(role || "unknown").toLowerCase()}`;
 }
@@ -1115,6 +1192,18 @@ function getHeroFromUrl() {
 function getHeroSlugFromUrl() {
   const slug = new URLSearchParams(window.location.search).get("hero");
   return slug ? slug.toLowerCase() : null;
+}
+
+function getRulesetFromUrl(manifest) {
+  const requested = new URLSearchParams(window.location.search).get("mode");
+  const available = (manifest?.rulesets?.available || []).map((item) => item.id);
+  return available.includes(requested) ? requested : (manifest?.rulesets?.default || "5v5");
+}
+
+function updateRulesetUrl() {
+  const url = new URL(window.location.href);
+  url.searchParams.set("mode", state.selectedRuleset);
+  window.history.replaceState({ hero: state.selectedSlug, mode: state.selectedRuleset }, "", url.href);
 }
 
 function updateHeroUrl(slug, historyMode) {

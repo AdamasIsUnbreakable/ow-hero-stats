@@ -14,9 +14,10 @@ from .export_json import hero_slug
 from .fandom_client import API_ENDPOINT
 from .models import AbilityStats, HeroStats, StatValue
 from .parse_stats import EMPTY_VALUES, clean_text
+from .overrides import RULESETS, build_ruleset_data
 
 
-SCHEMA_VERSION = "1.6.0"
+SCHEMA_VERSION = "2.0.0"
 DEFAULT_WEB_DATA_DIR = Path("site/public/data/v1")
 STAT_LABELS = {
     "damage": "Damage",
@@ -38,6 +39,12 @@ STAT_LABELS = {
     "range_distance": "Range",
     "dps": "DPS",
     "hps": "HPS",
+    "ult_cost": "Ultimate Cost",
+    "ultimate_cost": "Ultimate Cost",
+    "perk_cost": "Perk Level-up Cost",
+    "barrier_health": "Barrier Health",
+    "overhealth": "Overhealth",
+    "health_given": "Health Given",
 }
 DISPLAY_UNITS = {
     "shots_per_second": "shots/s",
@@ -51,6 +58,8 @@ DISPLAY_UNITS = {
     "rounds": "rounds",
     "charges": "charges",
     "percent": "%",
+    "points": "points",
+    "health": "health",
 }
 FIELD_DISPLAY_UNITS = {
     ("dps", "per_second"): "damage/s",
@@ -64,6 +73,7 @@ def build_manifest(hero_count: int, generated_at: str | None = None) -> dict[str
         "generated_at": generated_at or _utc_now(),
         "source": API_ENDPOINT,
         "hero_count": hero_count,
+        "rulesets": RULESETS,
         "data_files": {
             "hero_index": "heroes.index.json",
             "audit_summary": "audit-summary.json",
@@ -95,10 +105,7 @@ def build_hero_index_entry(hero: HeroStats) -> dict[str, Any]:
 
 def build_hero_detail(hero: HeroStats) -> dict[str, Any]:
     slug = hero_slug(hero.name)
-    return {
-        "schema_version": SCHEMA_VERSION,
-        "name": hero.name,
-        "slug": slug,
+    base = {
         "role": hero.role,
         "sub_role": hero.sub_role,
         "health": hero.health,
@@ -106,6 +113,15 @@ def build_hero_detail(hero: HeroStats) -> dict[str, Any]:
             build_ability_detail(ability, ability_index)
             for ability_index, ability in enumerate(hero.abilities)
         ],
+    }
+    ruleset_data = build_ruleset_data(slug, base)
+    return {
+        "schema_version": SCHEMA_VERSION,
+        "name": hero.name,
+        "slug": slug,
+        **base,
+        **ruleset_data,
+        "source_generated_at": hero.fetched_at or None,
         "audit": {
             "warning_count": sum(len(ability.parse_warnings) for ability in hero.abilities),
             "confidence_counts": build_hero_index_entry(hero)["confidence_counts"],
