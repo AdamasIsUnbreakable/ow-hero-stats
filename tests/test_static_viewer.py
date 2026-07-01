@@ -89,7 +89,7 @@ class StaticViewerTests(unittest.TestCase):
     def test_damage_falloff_graph_refuses_to_guess_complex_damage(self) -> None:
         source = MAIN_JS.read_text(encoding="utf-8")
         graph_source = source[
-            source.index("function renderDamageCalculatorGraph"):source.index("async function updateArmorResult")
+            source.index("function renderDamageCalculatorGraph"):source.index("function updateShotsToKillResult")
         ]
 
         self.assertIn("function renderDamageCalculatorGraph(ability)", graph_source)
@@ -143,7 +143,7 @@ class StaticViewerTests(unittest.TestCase):
         self.assertIn("function cleanGameplayNote", cleanup_source)
         self.assertIn("uniqueCleanGameplayNotes", cleanup_source)
 
-    def test_health_meter_hides_missing_types_and_shows_functional_pool_math(self) -> None:
+    def test_health_meter_hides_missing_types_and_shows_shots_calculator(self) -> None:
         source = MAIN_JS.read_text(encoding="utf-8")
         styles = STYLES_CSS.read_text(encoding="utf-8")
         health_source = source[
@@ -152,10 +152,11 @@ class StaticViewerTests(unittest.TestCase):
 
         self.assertIn("amount > 0", health_source)
         self.assertIn("function renderHealthStats", health_source)
-        self.assertIn("Total functional health pool", health_source)
-        self.assertIn("max(d − 7, d × 0.5)", health_source)
-        self.assertIn("armor / 0.7", health_source)
-        self.assertIn("when d ≤ 14", health_source)
+        self.assertIn("Shots to kill calculator", health_source)
+        self.assertIn("data-attacker-grid", health_source)
+        self.assertIn("data-shots-ability-list", health_source)
+        self.assertNotIn("Total functional health pool", health_source)
+        self.assertNotIn("max(d − 7, d × 0.5)", health_source)
         self.assertIn("repeat(auto-fit", styles)
 
     def test_single_ruleset_resolves_base_without_a_mode_control(self) -> None:
@@ -226,23 +227,24 @@ class StaticViewerTests(unittest.TestCase):
 
         self.assertIn("OWDamageModel.evaluate", source)
         self.assertIn("OWDamageModel.shotsToKill", source)
-        self.assertIn("data-armor-headshot", source)
+        self.assertIn("data-shots-headshot", source)
         self.assertIn("data-graph-selected", source)
         self.assertIn("renderLinkedMentions", source)
         self.assertIn('id="search-target"', html)
         self.assertIn('id="subrole-filter"', html)
         self.assertIn('id="compare-toggle"', html)
 
-    def test_armor_selector_filters_non_damage_and_labels_unsupported_damage(self) -> None:
+    def test_shots_selector_filters_non_damage_and_labels_unsupported_damage(self) -> None:
         source = MAIN_JS.read_text(encoding="utf-8")
-        armor_source = source[
-            source.index("function bindArmorCalculator"):source.index("function renderGeneratedTag")
+        calculator_source = source[
+            source.index("function damagingAbilityEntries"):source.index("function renderGeneratedTag")
         ]
 
-        self.assertIn("function renderArmorAbilityOptions", armor_source)
-        self.assertIn("abilities.filter(hasDamageSource)", armor_source)
-        self.assertIn("Unsupported: ${model.reason}", armor_source)
-        self.assertIn('abilitySelect.value === ""', source)
+        self.assertIn("function renderShotsAbilityChoices", calculator_source)
+        self.assertIn('["perks", "passive"]', calculator_source)
+        self.assertIn("hasDamageSource(ability)", calculator_source)
+        self.assertIn("Unsupported: ${escapeHtml(model.reason)}", calculator_source)
+        self.assertIn("OWDamageModel.shotsToKill", source)
 
     def test_compare_rebuilds_on_history_navigation(self) -> None:
         source = MAIN_JS.read_text(encoding="utf-8")

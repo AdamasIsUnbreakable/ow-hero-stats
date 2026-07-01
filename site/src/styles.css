@@ -122,8 +122,6 @@ select {
 
 .calculator-grid label { display: grid; gap: 0.35rem; }
 .calculator-result { margin-top: 0.8rem; padding: 0.75rem; border-radius: 7px; background: rgba(0, 0, 0, 0.22); }
-.armor-calculator { margin-top: 1rem; }
-.armor-calculator summary { cursor: pointer; font-weight: 700; }
 .hero-tile.selected { outline: 3px solid #f9a825; }
 .hero-tile-matches { display: block; font-size: 0.72rem; color: #ffe0a3; margin-top: 0.25rem; }
 .compare-tray { position: sticky; bottom: 0; z-index: 8; padding: 1rem; background: rgba(17, 22, 31, 0.97); border-top: 2px solid #f9a825; }
@@ -946,66 +944,128 @@ dd {
   background: rgba(238, 246, 255, 0.1);
 }
 
-.functional-health {
-  display: grid;
-  gap: 8px;
-  padding: 10px;
+.shots-calculator {
+  margin-top: 12px;
   border: 1px solid rgba(53, 227, 230, 0.22);
   border-radius: var(--radius);
   background: rgba(8, 20, 29, 0.38);
 }
 
-.functional-health h4,
-.functional-health p,
-.functional-health dl {
+.shots-calculator > summary {
+  padding: 10px;
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.shots-calculator-body {
+  display: grid;
+  gap: 12px;
+  padding: 10px;
+  border-top: 1px solid rgba(53, 227, 230, 0.18);
+}
+
+.shots-calculator-body p,
+.shots-calculator-body h4 {
   margin: 0;
 }
 
-.functional-health h4 {
-  color: #fff;
-  font-size: 0.9rem;
+.shots-calculator-context {
+  color: #c9d5e2;
+  font-size: 0.82rem;
 }
 
-.functional-health dl {
+.attacker-hero-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+  gap: 8px;
+  max-height: 280px;
+  overflow-y: auto;
+  padding: 2px;
+}
+
+.attacker-hero-tile {
+  display: grid;
+  gap: 5px;
+  justify-items: center;
+  min-width: 0;
+  padding: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 7px;
+  background: #141d28;
+  color: #f7fbff;
+  font-size: 0.72rem;
+  line-height: 1.15;
+  cursor: pointer;
+}
+
+.attacker-hero-tile .hero-tile-image-wrap,
+.attacker-hero-tile .hero-tile-fallback {
+  width: 52px;
+  height: 52px;
+}
+
+.attacker-hero-tile .hero-tile-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.attacker-hero-tile:hover,
+.attacker-hero-tile:focus-visible,
+.attacker-hero-tile[aria-pressed="true"] {
+  border-color: #35e3e6;
+  background: #203344;
+  outline: none;
+}
+
+.shots-ability-step {
+  display: grid;
+  gap: 8px;
+}
+
+.shots-ability-list {
   display: grid;
   gap: 7px;
 }
 
-.functional-health dl > div {
+.shots-ability-choice {
   display: grid;
-  gap: 3px;
-}
-
-.functional-health dt {
-  color: #35e3e6;
-  font-size: 0.76rem;
-  font-weight: 800;
-  text-transform: uppercase;
-}
-
-.functional-health dd {
-  margin: 0;
-}
-
-.functional-health code {
-  color: #f1f7ff;
-  font-family: inherit;
-  font-size: 0.82rem;
-  white-space: normal;
-}
-
-.functional-health-result {
-  display: block;
-  margin-top: 3px;
+  grid-template-columns: 38px minmax(0, 1fr);
+  gap: 9px;
+  align-items: center;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 7px;
+  background: #151e29;
   color: #fff;
-  font-size: 0.8rem;
-  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
 }
 
-.functional-health-note {
-  color: #b9c2ce;
-  font-size: 0.76rem;
-  line-height: 1.35;
+.shots-ability-choice:hover,
+.shots-ability-choice:focus-visible,
+.shots-ability-choice[aria-pressed="true"] {
+  border-color: #35e3e6;
+  outline: none;
+}
+
+.shots-ability-choice.unsupported { color: #c2cad3; }
+.shots-ability-choice small { display: block; margin-top: 2px; color: #f1bd75; }
+.shots-ability-icon { width: 38px; height: 38px; object-fit: contain; }
+.shots-options { display: grid; gap: 8px; }
+.shots-options label { display: grid; gap: 4px; }
+.shots-options input[type="range"] { width: 100%; }
+.shots-result { display: grid; gap: 3px; margin-top: 0; }
+.shots-result strong { color: #fff; font-size: 1rem; }
+.shots-result span { color: #b9c2ce; font-size: 0.78rem; }
+
+@media (max-width: 520px) {
+  .attacker-hero-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-height: 230px;
+  }
 }
 
 .ow-ability-list {
