@@ -108,7 +108,7 @@ async function fetchAbilityIconManifest() {
   try {
     const response = await fetch(url);
     if (!response.ok) {
-      return {};
+      return [];
     }
     const entries = await response.json();
     return Array.isArray(entries) ? entries : [];

@@ -47,12 +47,27 @@ class StaticViewerTests(unittest.TestCase):
 
     def test_loading_state_and_copy_link_cleanup(self) -> None:
         source = MAIN_JS.read_text(encoding="utf-8")
-        html = (MAIN_JS.parents[1] / "index.html").read_text(encoding="utf-8")
+        html = INDEX_HTML.read_text(encoding="utf-8")
+        styles = STYLES_CSS.read_text(encoding="utf-8")
+        viewer_source = "\n".join((source, html, styles))
 
         self.assertIn("showInitialLoadingState();", source)
         self.assertIn('aria-busy="true"', html)
-        self.assertNotIn("Copy link", source)
-        self.assertNotIn("copySelectedHeroLink", source)
+        self.assertNotIn("Copy link", viewer_source)
+        self.assertNotIn("copySelectedHeroLink", viewer_source)
+        self.assertNotIn("copyLinkFeedbackTimer", viewer_source)
+        self.assertNotIn("data-copy-link", viewer_source)
+        self.assertNotIn("data-copy-link-feedback", viewer_source)
+
+    def test_ability_icon_manifest_fallback_is_always_an_array(self) -> None:
+        source = MAIN_JS.read_text(encoding="utf-8")
+        manifest_source = source[
+            source.index("async function fetchAbilityIconManifest"):source.index("function bindEvents")
+        ]
+
+        self.assertNotIn("return {};", manifest_source)
+        self.assertEqual(manifest_source.count("return [];"), 2)
+        self.assertIn("return Array.isArray(entries) ? entries : [];", manifest_source)
 
     def test_ability_dialog_is_accessible_and_closable(self) -> None:
         source = MAIN_JS.read_text(encoding="utf-8")
