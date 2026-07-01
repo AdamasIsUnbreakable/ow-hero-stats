@@ -1,8 +1,7 @@
 """Programmatic corrections applied to generated website data.
 
-Raw Cargo rows and the caller's source-derived base are never mutated. Overrides
-for the default ruleset patch a generated copy of ``base``; non-default overrides
-remain sparse ruleset patches. Every correction is recorded in
+Raw Cargo rows and the caller's source-derived base are never mutated. Corrections
+patch a generated copy of ``base``. Every correction is recorded in
 ``overrides_applied`` for source inspection.
 Add narrowly sourced corrections to ``HERO_OVERRIDES``; do not add display-only
 hero checks to the frontend.
@@ -18,17 +17,11 @@ RULESETS = {
     "default": "5v5",
     "available": [
         {"id": "5v5", "label": "5v5", "status": "active"},
-        {
-            "id": "6v6",
-            "label": "6v6",
-            "status": "partial",
-            "note": "Uses shared base values unless confirmed hero-specific overrides are present.",
-        },
     ],
 }
 
 # Shape:
-# "hero-slug": [{"ruleset": "6v6", "path": ["health", "armor"],
+# "hero-slug": [{"ruleset": "5v5", "path": ["health", "armor"],
 #                 "value": 100, "reason": "...", "source": "..."}]
 # Prefer ability_index for ability stats. A readable name/slot/type selector is
 # also supported: ["abilities", {"ability_index": 0}, "stats", "damage", ...].

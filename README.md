@@ -153,13 +153,13 @@ site\public\data\v1\
 
 `manifest.json` includes the schema version, generation timestamp, source API endpoint, hero count, and paths to the other files.
 
-Current website schema version: `3.0.0`. Hero detail files contain a shared `base`, sparse `ruleset_overrides` (currently 5v5 and 6v6), and `overrides_applied` provenance. The legacy top-level resolved base fields remain present for simple consumers. The schema retains UI-readable `display_unit` fields, cleaned `raw_display` fields, stat `components`, and original `raw` values.
+Current website schema version: `3.0.0`. Hero detail files contain a corrected `base`, an empty `ruleset_overrides` object reserved for schema compatibility, and `overrides_applied` provenance. The legacy top-level resolved base fields remain present for simple consumers. The schema retains UI-readable `display_unit` fields, cleaned `raw_display` fields, stat `components`, and original `raw` values.
 
 Schema 3 adds `search.index.json`, a lightweight hero/ability/perk/tag index used by roster search without fetching every hero detail. The standalone `site/src/damage-model.js` calculation model consumes already-resolved ruleset data and is shared by armor, damage/DPS-at-distance, falloff, headshot, breakpoint, and compare features. It intentionally refuses component, pellet, splash, damage-over-time, charge-scaled, and deployable damage.
 
-### Corrections and rulesets
+### Corrections
 
-Programmatic corrections live in `overwatch_stats\overrides.py` and run only while website data is generated. Add a narrowly sourced entry to `HERO_OVERRIDES` with its ruleset, path, replacement value, reason, and source. Corrections never mutate Cargo `raw` rows or the caller's source-derived object; every applied item is copied to `overrides_applied`. The generated `base` is a copy of source data with confirmed corrections for the default ruleset applied. Non-default differences live in sparse named `ruleset_overrides` patches. Empty patches are intentional: they mean the mode is selectable but no distinct value has been confirmed, and the viewer says when it is showing shared base values rather than inferred mode-specific values.
+Programmatic corrections live in `overwatch_stats\overrides.py` and run only while website data is generated. Add a narrowly sourced entry to `HERO_OVERRIDES` with its ruleset, path, replacement value, reason, and source. Corrections never mutate Cargo `raw` rows or the caller's source-derived object; every applied item is copied to `overrides_applied`. The generated `base` is a copy of source data with confirmed corrections for the active ruleset applied.
 
 Ability override selectors must resolve to exactly one existing source ability. Prefer `ability_index`; a name selector may include `slot` and `type` to disambiguate. Generation raises an error for missing or ambiguous selectors, so overrides cannot create abilities and typos cannot become silent frontend no-ops. The viewer resolves the selected mode before rendering.
 
@@ -167,10 +167,10 @@ Ability-level corrections should prefer the stable `ability_index`; `name` with 
 
 ```python
 {
-    "ruleset": "6v6",
+    "ruleset": "5v5",
     "path": ["abilities", {"ability_index": 0}, "stats", "damage", "value"],
     "value": 45,
-    "reason": "Confirmed mode-specific correction",
+    "reason": "Confirmed correction",
     "source": "Source reference",
 }
 ```

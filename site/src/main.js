@@ -37,7 +37,6 @@ const elements = {
   auditStatus: document.querySelector("#audit-status"),
   rawToggle: document.querySelector("#raw-toggle"),
   allHeroes: document.querySelector("#all-heroes"),
-  rulesetSelect: document.querySelector("#ruleset-select"),
   searchTarget: document.querySelector("#search-target"),
   subroleFilter: document.querySelector("#subrole-filter"),
   heroSort: document.querySelector("#hero-sort"),
@@ -63,9 +62,7 @@ async function init() {
     state.audit = audit;
     state.portraits = portraits;
     state.abilityIcons = abilityIcons;
-    populateRulesetSelector(manifest);
     state.selectedRuleset = getRulesetFromUrl(manifest);
-    elements.rulesetSelect.value = state.selectedRuleset;
     elements.selectView.setAttribute("aria-busy", "false");
     populateSubroles();
 
@@ -141,19 +138,6 @@ async function fetchAbilityIconManifest() {
 }
 
 function bindEvents() {
-  elements.rulesetSelect.addEventListener("change", () => {
-    state.selectedRuleset = elements.rulesetSelect.value;
-    updateRulesetUrl();
-    if (state.selectedHeroSource) {
-      state.selectedHero = resolveHeroRuleset(state.selectedHeroSource, state.selectedRuleset);
-      renderHeroDetail(state.selectedHero);
-      closeAbilityDialog({ restoreFocus: false });
-    } else if (state.compareMode) {
-      const rebuild = state.compareBuilt;
-      renderHeroSelect();
-      if (rebuild) renderComparison();
-    }
-  });
   elements.search.addEventListener("input", (event) => {
     state.search = event.target.value.trim().toLowerCase();
     renderHeroSelect();
@@ -194,7 +178,6 @@ function bindEvents() {
 
   window.addEventListener("popstate", () => {
     state.selectedRuleset = getRulesetFromUrl(state.manifest);
-    elements.rulesetSelect.value = state.selectedRuleset;
     const requestedSlug = getHeroSlugFromUrl();
     const hero = getHeroFromUrl();
     if (hero) {
@@ -1461,23 +1444,6 @@ function getRulesetFromUrl(manifest) {
   return available.includes(requested) ? requested : (available.includes(defaultRuleset) ? defaultRuleset : available[0]);
 }
 
-function populateRulesetSelector(manifest) {
-  const available = manifest?.rulesets?.available;
-  if (!Array.isArray(available) || !available.length) {
-    throw new Error("Manifest does not declare any available rulesets.");
-  }
-  const ids = available.map((item) => item.id).filter(Boolean);
-  if (!ids.includes(manifest.rulesets.default)) {
-    throw new Error("Manifest default ruleset is not present in rulesets.available.");
-  }
-  elements.rulesetSelect.innerHTML = available.map((item) => `<option value="${escapeHtml(item.id)}">${escapeHtml(item.label || item.id)}</option>`).join("");
-}
-
-function updateRulesetUrl() {
-  const url = new URL(window.location.href);
-  url.searchParams.set("mode", state.selectedRuleset);
-  window.history.replaceState({ hero: state.selectedSlug, mode: state.selectedRuleset }, "", url.href);
-}
 
 function updateHeroUrl(slug, historyMode) {
   if (historyMode === "none") {

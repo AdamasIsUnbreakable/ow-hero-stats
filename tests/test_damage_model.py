@@ -15,10 +15,10 @@ class DamageModelTests(unittest.TestCase):
 
     def test_falloff_headshot_and_dps_share_one_evaluation(self):
         ability = {"stats": {"damage": {"min_value": 20, "max_value": 60, "components": []}, "damage_falloff_range": {"min_value": 10, "max_value": 30}, "fire_rate": {"value": 2}, "headshot_mod": {"value": 2}, "headshot": {"value": True}}}
-        result = self.run_model(f"OWDamageModel.evaluate({{ruleset:'6v6', ability:{json.dumps(ability)}, distance:20, headshot:true}})")
+        result = self.run_model(f"OWDamageModel.evaluate({{ruleset:'5v5', ability:{json.dumps(ability)}, distance:20, headshot:true}})")
         self.assertEqual(result["damage"], 80)
         self.assertEqual(result["dps"], 160)
-        self.assertEqual(result["ruleset"], "6v6")
+        self.assertEqual(result["ruleset"], "5v5")
 
     def test_armor_rules(self):
         result = self.run_model("[OWDamageModel.damageToArmor(10, 'normal'), OWDamageModel.damageToArmor(10, 'beam')]")

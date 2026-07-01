@@ -145,30 +145,26 @@ class WebExportTests(unittest.TestCase):
         self.assertEqual(manifest["schema_version"], "3.0.0")
         self.assertEqual(manifest["data_files"]["search_index"], "search.index.json")
         self.assertEqual(manifest["rulesets"]["default"], "5v5")
-        self.assertEqual([item["id"] for item in manifest["rulesets"]["available"]], ["5v5", "6v6"])
-        self.assertEqual(manifest["rulesets"]["available"][1]["status"], "partial")
+        self.assertEqual([item["id"] for item in manifest["rulesets"]["available"]], ["5v5"])
         self.assertEqual(manifest["hero_count"], 1)
         self.assertEqual(manifest["data_files"]["hero_index"], "heroes.index.json")
         self.assertEqual(manifest["data_files"]["audit_summary"], "audit-summary.json")
         self.assertEqual(manifest["data_files"]["quality_report"], "quality-report.json")
         self.assertEqual(manifest["data_files"]["hero_detail_dir"], "heroes/")
 
-    def test_override_layer_keeps_base_and_records_sparse_ruleset_patch(self):
+    def test_override_layer_rejects_retired_rulesets(self):
         HERO_OVERRIDES["test-hero"] = [{
-            "ruleset": "6v6",
+            "ruleset": "retired-mode",
             "path": ["health", "armor"],
             "value": 100,
             "reason": "Fixture correction",
             "source": "Fixture source",
         }]
         try:
-            result = build_ruleset_data("test-hero", {"health": {"health": 250, "armor": 0}})
+            with self.assertRaisesRegex(ValueError, "Unknown ruleset"):
+                build_ruleset_data("test-hero", {"health": {"health": 250, "armor": 0}})
         finally:
             HERO_OVERRIDES.pop("test-hero")
-
-        self.assertEqual(result["base"]["health"]["armor"], 0)
-        self.assertEqual(result["ruleset_overrides"]["6v6"]["health"]["armor"], 100)
-        self.assertEqual(result["overrides_applied"][0]["reason"], "Fixture correction")
 
     def test_override_layer_supports_ability_index_patch(self):
         base = {
@@ -182,7 +178,7 @@ class WebExportTests(unittest.TestCase):
         }
         path = ["abilities", {"ability_index": 0}, "stats", "damage", "value"]
         HERO_OVERRIDES["ashe"] = [{
-            "ruleset": "6v6",
+            "ruleset": "5v5",
             "path": path,
             "value": 45,
             "reason": "Fixture correction",
@@ -193,14 +189,14 @@ class WebExportTests(unittest.TestCase):
         finally:
             HERO_OVERRIDES.pop("ashe")
 
-        abilities = result["ruleset_overrides"]["6v6"]["abilities"]
+        abilities = result["base"]["abilities"]
         self.assertIsInstance(abilities, list)
         self.assertNotIn("abilities", abilities[0])
         self.assertEqual(abilities[0]["ability_index"], 0)
         self.assertEqual(abilities[0]["stats"]["damage"]["value"], 45)
         self.assertEqual(base["abilities"][0]["stats"]["damage"]["value"], 40)
         self.assertEqual(result["overrides_applied"], [{
-            "ruleset": "6v6",
+            "ruleset": "5v5",
             "path": path,
             "value": 45,
             "reason": "Fixture correction",
@@ -211,7 +207,7 @@ class WebExportTests(unittest.TestCase):
         selector = {"name": "The Viper", "slot": "Primary Fire", "type": "Weapon"}
         base = {"abilities": [{**selector, "ability_index": 0, "stats": {"damage": {"value": 40}}}]}
         HERO_OVERRIDES["ashe"] = [{
-            "ruleset": "6v6",
+            "ruleset": "5v5",
             "path": ["abilities", selector, "stats", "damage", "value"],
             "value": 45,
             "reason": "Fixture correction",
@@ -222,7 +218,7 @@ class WebExportTests(unittest.TestCase):
         finally:
             HERO_OVERRIDES.pop("ashe")
 
-        patch = result["ruleset_overrides"]["6v6"]["abilities"][0]
+        patch = result["base"]["abilities"][0]
         self.assertEqual({key: patch[key] for key in selector}, selector)
         self.assertEqual(patch["stats"]["damage"]["value"], 45)
 
@@ -252,7 +248,7 @@ class WebExportTests(unittest.TestCase):
         for selector, expected in [({"name": "Typo"}, "missing"), ({"name": "Pulse"}, "ambiguous")]:
             with self.subTest(selector=selector):
                 HERO_OVERRIDES["test-hero"] = [{
-                    "ruleset": "6v6",
+                    "ruleset": "5v5",
                     "path": ["abilities", selector, "stats", "damage", "value"],
                     "value": 45,
                 }]
@@ -408,7 +404,7 @@ class WebExportTests(unittest.TestCase):
         self.assertIn("Ashe", quality["coverage_flags"]["heroes_with_component_stats"])
         self.assertEqual(detail["name"], "Ashe")
         self.assertEqual(detail["base"]["health"], detail["health"])
-        self.assertEqual(detail["ruleset_overrides"]["6v6"], {})
+        self.assertEqual(detail["ruleset_overrides"], {})
         self.assertEqual(detail["overrides_applied"], [])
         self.assertEqual(detail["abilities"][0]["ability_index"], 0)
         self.assertEqual(detail["abilities"][1]["ability_index"], 1)

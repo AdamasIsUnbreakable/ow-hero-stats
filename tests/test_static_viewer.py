@@ -156,16 +156,13 @@ class StaticViewerTests(unittest.TestCase):
         self.assertIn("when d ≤ 14", health_source)
         self.assertIn("repeat(auto-fit", styles)
 
-    def test_ruleset_selector_resolves_base_and_sparse_overrides(self) -> None:
+    def test_single_ruleset_resolves_base_without_a_mode_control(self) -> None:
         source = MAIN_JS.read_text(encoding="utf-8")
         html = INDEX_HTML.read_text(encoding="utf-8")
 
-        self.assertIn('id="ruleset-select"', html)
-        self.assertNotIn('value="5v5"', html)
-        self.assertNotIn('value="6v6"', html)
-        self.assertIn("function populateRulesetSelector", source)
+        self.assertNotIn('id="ruleset-select"', html)
+        self.assertNotIn("function populateRulesetSelector", source)
         self.assertIn("manifest?.rulesets?.available", source)
-        self.assertIn("Manifest default ruleset is not present", source)
         self.assertIn("function resolveHeroRuleset", source)
         self.assertIn("detail.ruleset_overrides?.[ruleset]", source)
         self.assertIn("renderKeywordChip", source)
@@ -184,9 +181,9 @@ class StaticViewerTests(unittest.TestCase):
         self.assertIn("candidates.length === 1 ? candidates[0] : null", merge_source)
         self.assertNotIn("target.abilities?.find((item) => item.name === abilityPatch.name)", merge_source)
         self.assertIn("getRulesetFromUrl", source)
-        self.assertIn("updateRulesetUrl", source)
+        self.assertNotIn("updateRulesetUrl", source)
         self.assertIn("state.selectedRuleset = getRulesetFromUrl(state.manifest)", source)
-        self.assertIn('id="ruleset-select"', INDEX_HTML.read_text(encoding="utf-8"))
+        self.assertNotIn('id="ruleset-select"', INDEX_HTML.read_text(encoding="utf-8"))
 
     def test_mode_coverage_note_and_generated_tag_are_visible_in_hero_ui(self) -> None:
         source = MAIN_JS.read_text(encoding="utf-8")

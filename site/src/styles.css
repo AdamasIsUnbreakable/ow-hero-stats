@@ -134,21 +134,6 @@ select {
 .ability-mention { border-bottom: 1px dotted currentColor; cursor: help; }
 .graph-selected-marker { stroke: #f9a825; stroke-width: 2; stroke-dasharray: 5 4; }
 
-.ruleset-control {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: #dce7f2;
-}
-
-.ruleset-control select {
-  border: 1px solid #496175;
-  border-radius: var(--radius);
-  background: #223142;
-  color: #f7fbff;
-  padding: 9px 28px 9px 10px;
-}
-
 .secondary-button {
   min-width: 142px;
   border: 1px solid #496175;
