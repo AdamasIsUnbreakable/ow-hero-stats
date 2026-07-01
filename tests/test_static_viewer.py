@@ -32,7 +32,7 @@ class StaticViewerTests(unittest.TestCase):
             source.index("function renderAbilityDetailPanel"):source.index("function renderDetailStat")
         ]
         dialog_source = source[
-            source.index("function renderAbilityDialogContent"):source.index("function hasSafeDamageFalloffRange")
+            source.index("function renderAbilityDialogContent"):source.index("function positionOpenAbilityPanel")
         ]
 
         self.assertNotIn("abilityNotes(ability)", preview_source)
@@ -87,19 +87,21 @@ class StaticViewerTests(unittest.TestCase):
     def test_damage_falloff_graph_refuses_to_guess_complex_damage(self) -> None:
         source = MAIN_JS.read_text(encoding="utf-8")
         graph_source = source[
-            source.index("function canRenderDamageFalloffGraph"):source.index("function positionOpenAbilityPanel")
+            source.index("function renderDamageCalculatorGraph"):source.index("async function updateArmorResult")
         ]
 
-        self.assertIn("function renderDamageFalloffGraph(ability)", graph_source)
-        self.assertIn("damage.components?.length", graph_source)
-        self.assertIn("Number.isFinite(damage.value)", graph_source)
+        self.assertIn("function renderDamageCalculatorGraph(ability)", graph_source)
+        self.assertIn("OWDamageModel.classify(ability)", graph_source)
+        self.assertIn("Unavailable: ${escapeHtml(model.reason)}", graph_source)
         self.assertIn("reduced damage was not safely parsed", graph_source)
-        self.assertIn("damage is not a simple parsed value", graph_source)
+        self.assertNotIn("function hasSafeDamageFalloffRange", source)
+        self.assertNotIn("function canRenderDamageFalloffGraph", source)
+        self.assertNotIn("function renderDamageFalloffGraph", source)
 
     def test_dialog_reuses_raw_aware_stat_renderers(self) -> None:
         source = MAIN_JS.read_text(encoding="utf-8")
         dialog_source = source[
-            source.index("function renderAbilityDialogContent"):source.index("function hasSafeDamageFalloffRange")
+            source.index("function renderAbilityDialogContent"):source.index("function positionOpenAbilityPanel")
         ]
 
         self.assertIn("renderDetailStat(stat, ability)", dialog_source)
@@ -210,6 +212,25 @@ class StaticViewerTests(unittest.TestCase):
         self.assertIn('id="search-target"', html)
         self.assertIn('id="subrole-filter"', html)
         self.assertIn('id="compare-toggle"', html)
+
+    def test_armor_selector_filters_non_damage_and_labels_unsupported_damage(self) -> None:
+        source = MAIN_JS.read_text(encoding="utf-8")
+        armor_source = source[
+            source.index("function bindArmorCalculator"):source.index("function renderGeneratedTag")
+        ]
+
+        self.assertIn("function renderArmorAbilityOptions", armor_source)
+        self.assertIn("abilities.filter(hasDamageSource)", armor_source)
+        self.assertIn("Unsupported: ${model.reason}", armor_source)
+        self.assertIn('abilitySelect.value === ""', source)
+
+    def test_compare_reports_ruleset_coverage_and_rebuilds_on_history_navigation(self) -> None:
+        source = MAIN_JS.read_text(encoding="utf-8")
+
+        self.assertIn("function renderCompareRulesetCoverage", source)
+        self.assertIn("no confirmed mode-specific overrides", source)
+        self.assertIn("state.compareMode && state.compareBuilt", source)
+        self.assertIn("if (rebuildComparison) renderComparison()", source)
 
 
 if __name__ == "__main__":

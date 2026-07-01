@@ -24,6 +24,18 @@ class DamageModelTests(unittest.TestCase):
         result = self.run_model("[OWDamageModel.damageToArmor(10, 'normal'), OWDamageModel.damageToArmor(10, 'beam')]")
         self.assertEqual(result, [5, 7])
 
+    def test_normal_armor_exact_threshold_around_fourteen_damage(self):
+        result = self.run_model(
+            "[13, 14, 15].map(damage => OWDamageModel.damageToArmor(damage, 'normal'))"
+        )
+        self.assertEqual(result, [6.5, 7, 8])
+
+    def test_low_and_high_normal_damage_armor_hits(self):
+        result = self.run_model(
+            "[OWDamageModel.damageToArmor(1, 'normal'), OWDamageModel.damageToArmor(100, 'normal')]"
+        )
+        self.assertEqual(result, [0.5, 93])
+
     def test_shot_overflow_uses_exact_normal_armor_inverse(self):
         ability = {"stats": {"damage": {"value": 20, "components": []}}}
         target = {"health": 11, "armor": 5, "shield": 0}
@@ -31,6 +43,35 @@ class DamageModelTests(unittest.TestCase):
             f"OWDamageModel.shotsToKill({{ability:{json.dumps(ability)}, target:{json.dumps(target)}}})"
         )
         self.assertEqual(result["shots"], 2)
+
+    def test_shield_armor_and_health_are_consumed_in_order(self):
+        ability = {"stats": {"damage": {"value": 20, "components": []}}}
+        target = {"health": 11, "armor": 5, "shield": 10}
+        result = self.run_model(
+            f"OWDamageModel.shotsToKill({{ability:{json.dumps(ability)}, target:{json.dumps(target)}}})"
+        )
+        self.assertEqual(result["shots"], 2)
+        self.assertEqual(result["targetTotal"], 26)
+
+    def test_beam_damage_breaks_armor_before_health(self):
+        ability = {
+            "shot_type": ["Beam"],
+            "stats": {"damage": {"value": 10, "components": []}},
+        }
+        target = {"health": 10, "armor": 7, "shield": 0}
+        result = self.run_model(
+            f"OWDamageModel.shotsToKill({{ability:{json.dumps(ability)}, target:{json.dumps(target)}}})"
+        )
+        self.assertEqual(result["damageType"], "beam")
+        self.assertEqual(result["shots"], 2)
+
+    def test_target_without_armor_uses_raw_damage(self):
+        ability = {"stats": {"damage": {"value": 40, "components": []}}}
+        target = {"health": 100, "armor": 0, "shield": 0}
+        result = self.run_model(
+            f"OWDamageModel.shotsToKill({{ability:{json.dumps(ability)}, target:{json.dumps(target)}}})"
+        )
+        self.assertEqual(result["shots"], 3)
 
     def test_gameplay_note_mention_does_not_make_simple_damage_unsupported(self):
         ability = {

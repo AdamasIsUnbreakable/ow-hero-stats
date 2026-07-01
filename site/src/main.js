@@ -78,7 +78,9 @@ async function init() {
     } else if (requestedSlug) {
       showHeroSelect("Hero not found. Choose a hero below.");
     } else {
+      const rebuildComparison = state.compareMode && state.compareBuilt;
       showHeroSelect();
+      if (rebuildComparison) renderComparison();
     }
   } catch (error) {
     elements.selectView.setAttribute("aria-busy", "false");
@@ -778,76 +780,6 @@ function renderAbilityDialogContent(ability) {
   `;
 }
 
-function hasSafeDamageFalloffRange(ability) {
-  const falloff = ability.stats?.damage_falloff_range;
-  return !falloff?.components?.length
-    && Number.isFinite(falloff?.min_value)
-    && Number.isFinite(falloff?.max_value)
-    && falloff.max_value > falloff.min_value;
-}
-
-function canRenderDamageFalloffGraph(ability) {
-  if (!hasSafeDamageFalloffRange(ability)) {
-    return false;
-  }
-  const damage = ability.stats?.damage;
-  if (!damage || damage.components?.length) {
-    return false;
-  }
-  const hasRange = Number.isFinite(damage.min_value) && Number.isFinite(damage.max_value);
-  const hasSingleValue = Number.isFinite(damage.value);
-  return hasRange || hasSingleValue;
-}
-
-function renderDamageFalloffGraph(ability) {
-  if (!hasSafeDamageFalloffRange(ability)) {
-    return "";
-  }
-  const falloff = ability.stats.damage_falloff_range;
-  const damage = ability.stats?.damage;
-  if (!canRenderDamageFalloffGraph(ability)) {
-    return `
-      <section class="ability-dialog-section damage-falloff-graph">
-        <h3>Damage falloff</h3>
-        <p class="damage-falloff-note">Damage falloff graph unavailable because damage is not a simple parsed value.</p>
-      </section>
-    `;
-  }
-
-  const start = falloff.min_value;
-  const end = falloff.max_value;
-  const xStart = 90;
-  const xEnd = 570;
-  const xAfter = 650;
-  const baseline = 235;
-  const hasDamageRange = Number.isFinite(damage.min_value) && Number.isFinite(damage.max_value);
-  const maximum = hasDamageRange ? damage.max_value : damage.value;
-  const minimum = hasDamageRange ? damage.min_value : damage.value;
-  const yMax = 58;
-  const yMin = hasDamageRange && maximum !== minimum
-    ? yMax + ((maximum - minimum) / Math.max(maximum, 1)) * 135
-    : yMax;
-  const line = hasDamageRange
-    ? `${30},${yMax} ${xStart},${yMax} ${xEnd},${yMin} ${xAfter},${yMin}`
-    : `${30},${yMax} ${xAfter},${yMax}`;
-  return `
-    <section class="ability-dialog-section damage-falloff-graph">
-      <h3>Damage falloff</h3>
-      <svg viewBox="0 0 700 280" role="img" aria-label="Damage falloff from ${escapeHtml(start)} to ${escapeHtml(end)} meters">
-        <line class="graph-axis" x1="30" y1="${baseline}" x2="670" y2="${baseline}"></line>
-        <line class="graph-marker" x1="${xStart}" y1="42" x2="${xStart}" y2="${baseline}"></line>
-        <line class="graph-marker" x1="${xEnd}" y1="42" x2="${xEnd}" y2="${baseline}"></line>
-        <polyline class="graph-damage-line" points="${line}"></polyline>
-        <text class="graph-label" x="${xStart}" y="258" text-anchor="middle">${escapeHtml(formatNumber(start))} m start</text>
-        <text class="graph-label" x="${xEnd}" y="258" text-anchor="middle">${escapeHtml(formatNumber(end))} m end</text>
-        <text class="graph-value" x="38" y="48">${escapeHtml(formatNumber(maximum))} damage</text>
-        ${hasDamageRange ? `<text class="graph-value" x="650" y="${Math.min(yMin + 24, baseline - 8)}" text-anchor="end">${escapeHtml(formatNumber(minimum))} damage</text>` : ""}
-      </svg>
-      ${hasDamageRange ? "" : '<p class="damage-falloff-note">Falloff range is known, but reduced damage was not safely parsed.</p>'}
-    </section>
-  `;
-}
-
 function positionOpenAbilityPanel() {
   const row = elements.heroDetail.querySelector(
     "[data-ability-row].hovered, [data-ability-row].keyboard-open",
@@ -1147,10 +1079,10 @@ function bindArmorCalculator() {
     if (!indexHero) return;
     const detail = resolveHeroRuleset(await loadHeroDetail(indexHero), state.selectedRuleset);
     abilitySelect.disabled = false;
-    abilitySelect.innerHTML = detail.abilities.map((ability) => `<option value="${ability.ability_index}">${escapeHtml(ability.name)}</option>`).join("");
+    abilitySelect.innerHTML = renderArmorAbilityOptions(detail.abilities);
     abilitySelect.dataset.heroSlug = indexHero.slug;
     updateArmorHeadshotControl(detail);
-    updateArmorResult();
+    elements.heroDetail.querySelector("[data-armor-result]").textContent = "Choose a modeled or explicitly unsupported damaging ability.";
   });
   abilitySelect.addEventListener("change", async () => {
     const indexHero = state.heroes.find((hero) => hero.slug === abilitySelect.dataset.heroSlug);
@@ -1160,6 +1092,26 @@ function bindArmorCalculator() {
   elements.heroDetail.querySelector("[data-armor-distance]").addEventListener("input", updateArmorResult);
   elements.heroDetail.querySelector("[data-armor-headshot]").addEventListener("change", updateArmorResult);
   elements.heroDetail.querySelector("[data-armor-target]").addEventListener("change", updateArmorResult);
+}
+
+function renderArmorAbilityOptions(abilities) {
+  const entries = abilities.filter(hasDamageSource).map((ability) => ({ ability, model: OWDamageModel.classify(ability) }));
+  entries.sort((left, right) => Number(right.model.supported) - Number(left.model.supported) || left.ability.name.localeCompare(right.ability.name));
+  if (!entries.length) return '<option value="">No damaging abilities found</option>';
+  return `<option value="">Choose a weapon or ability</option>${entries.map(({ ability, model }) => {
+    const suffix = model.supported ? "" : ` — Unsupported: ${model.reason}`;
+    return `<option value="${ability.ability_index}" data-supported="${model.supported}">${escapeHtml(ability.name + suffix)}</option>`;
+  }).join("")}`;
+}
+
+function hasDamageSource(ability) {
+  const damage = ability.stats?.damage;
+  const raw = String(damage?.raw_display ?? damage?.raw ?? "").trim().toLowerCase();
+  return Number.isFinite(damage?.value)
+    || Number.isFinite(damage?.min_value)
+    || Number.isFinite(damage?.max_value)
+    || Boolean(damage?.components?.length)
+    || (raw !== "" && raw !== "none" && raw !== "n/a");
 }
 
 function renderGeneratedTag() {
@@ -1173,17 +1125,21 @@ function renderGeneratedTag() {
 function renderRulesetCoverageNote(hero) {
   const defaultRuleset = state.manifest?.rulesets?.default;
   if (state.selectedRuleset === defaultRuleset) return "";
-  const patch = hero.ruleset_overrides?.[state.selectedRuleset];
-  const hasPatch = patch && Object.keys(patch).length > 0;
-  const hasProvenance = hero.overrides_applied?.some((item) => item.ruleset === state.selectedRuleset);
-  if (hasPatch || hasProvenance) return "";
+  if (heroHasRulesetOverrides(hero, state.selectedRuleset)) return "";
   return `<p class="ruleset-coverage-note" role="note">No confirmed ${escapeHtml(state.selectedRuleset)}-specific overrides for this hero. Shared base values are shown; missing mode-specific values are not inferred.</p>`;
+}
+
+function heroHasRulesetOverrides(hero, ruleset) {
+  const patch = hero.ruleset_overrides?.[ruleset];
+  return Boolean(patch && Object.keys(patch).length > 0)
+    || Boolean(hero.overrides_applied?.some((item) => item.ruleset === ruleset));
 }
 
 function updateArmorHeadshotControl(attacker) {
   const abilitySelect = elements.heroDetail.querySelector("[data-armor-ability]");
   const checkbox = elements.heroDetail.querySelector("[data-armor-headshot]");
-  const model = OWDamageModel.classify(attacker.abilities.find((item) => item.ability_index === Number(abilitySelect.value)));
+  const ability = abilitySelect.value === "" ? null : attacker.abilities.find((item) => item.ability_index === Number(abilitySelect.value));
+  const model = OWDamageModel.classify(ability);
   checkbox.closest("[data-armor-headshot-label]").hidden = !model.canHeadshot;
   if (!model.canHeadshot) checkbox.checked = false;
 }
@@ -1273,6 +1229,10 @@ async function updateArmorResult() {
   const abilitySelect = elements.heroDetail.querySelector("[data-armor-ability]");
   const result = elements.heroDetail.querySelector("[data-armor-result]");
   if (!abilitySelect?.dataset.heroSlug || !result) return;
+  if (abilitySelect.value === "") {
+    result.textContent = "Choose a weapon or ability.";
+    return;
+  }
   const attackerIndex = state.heroes.find((hero) => hero.slug === abilitySelect.dataset.heroSlug);
   const targetIndex = state.heroes.find((hero) => hero.slug === elements.heroDetail.querySelector("[data-armor-target]").value);
   const [attacker, target] = await Promise.all([loadHeroDetail(attackerIndex), loadHeroDetail(targetIndex)]);
@@ -1353,6 +1313,7 @@ async function renderComparison() {
   host.innerHTML = '<p class="ow-muted">Loading comparison...</p>';
   const selected = [...state.compareSlugs].map((slug) => state.heroes.find((hero) => hero.slug === slug)).filter(Boolean);
   const details = await Promise.all(selected.map(async (hero) => resolveHeroRuleset(await loadHeroDetail(hero), state.selectedRuleset)));
+  const coverageNote = renderCompareRulesetCoverage(details);
   const rows = details.map((hero) => {
     const weapons = hero.abilities.filter((ability) => abilityGroup(ability) === "weapons");
     const primary = [...weapons].sort((a, b) => primaryWeaponRank(a) - primaryWeaponRank(b)).find((ability) => OWDamageModel.classify(ability).supported);
@@ -1366,7 +1327,14 @@ async function renderComparison() {
     return `<tr><th>${escapeHtml(hero.name)}</th><td>${escapeHtml([hero.role, hero.sub_role].filter(Boolean).join(" / "))}</td><td>${escapeHtml(formatHealth(hero.health))}</td><td>${primary ? `${escapeHtml(primary.name)}: ${formatNumber(model.maximum)} damage` : `Unavailable: ${escapeHtml(primaryUnavailable)}`}</td><td>${model ? (model.hasFalloff ? `${formatNumber(model.start)}-${formatNumber(model.end)} m` : "No falloff") : "Unavailable"}</td><td>${cooldowns.length ? cooldowns.map(escapeHtml).join("<br>") : "Unavailable"}</td><td>${Number.isFinite(Number(ult?.value)) && ult.confidence === "high" ? formatNumber(Number(ult.value)) : "Unavailable in generated data"}</td><td>${perkCosts.length ? perkCosts.map(escapeHtml).join("<br>") : "Unavailable in generated data"}</td><td>${highConfidence.length ? highConfidence.map(escapeHtml).join("<br>") : "Unavailable"}</td></tr>`;
   });
   state.compareBuilt = true;
-  host.innerHTML = `<div class="compare-table-wrap"><table><caption>${escapeHtml(state.selectedRuleset)} resolved comparison</caption><thead><tr><th>Hero</th><th>Role</th><th>Health pools</th><th>Primary damage</th><th>Falloff</th><th>Cooldowns</th><th>Ult cost</th><th>Perk costs</th><th>High-confidence weapon stats</th></tr></thead><tbody>${rows.join("")}</tbody></table></div>`;
+  host.innerHTML = `${coverageNote}<div class="compare-table-wrap"><table><caption>${escapeHtml(state.selectedRuleset)} resolved comparison</caption><thead><tr><th>Hero</th><th>Role</th><th>Health pools</th><th>Primary damage</th><th>Falloff</th><th>Cooldowns</th><th>Ult cost</th><th>Perk costs</th><th>High-confidence weapon stats</th></tr></thead><tbody>${rows.join("")}</tbody></table></div>`;
+}
+
+function renderCompareRulesetCoverage(heroes) {
+  if (state.selectedRuleset === state.manifest?.rulesets?.default) return "";
+  const sharedHeroes = heroes.filter((hero) => !heroHasRulesetOverrides(hero, state.selectedRuleset));
+  if (!sharedHeroes.length) return "";
+  return `<p class="ruleset-coverage-note compare-ruleset-note" role="note">${escapeHtml(state.selectedRuleset)} comparison: no confirmed mode-specific overrides for ${sharedHeroes.map((hero) => escapeHtml(hero.name)).join(", ")}. Their shared base values are shown and are not inferred.</p>`;
 }
 
 function primaryWeaponRank(ability) {

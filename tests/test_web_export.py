@@ -1,5 +1,6 @@
 import json
 import unittest
+from copy import deepcopy
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
@@ -55,10 +56,21 @@ class WebExportTests(unittest.TestCase):
         self.assertNotIn("raw", entry)
 
     def test_search_index_contains_ability_perk_and_tag_metadata(self):
-        index = build_search_index([self.hero])
+        hero = deepcopy(self.hero)
+        hero.abilities[0].raw["ability_keywords"] = "hitscan; critical"
+        hero.abilities[1].type = "Minor Perk"
+        index = build_search_index([hero])
         self.assertEqual(index[0]["slug"], "ashe")
-        self.assertIn("The Viper", [ability["name"] for ability in index[0]["abilities"]])
-        self.assertTrue(all("description" in ability and "tags" in ability for ability in index[0]["abilities"]))
+        self.assertEqual([ability["ability_index"] for ability in index[0]["abilities"]], [0, 1])
+        self.assertEqual(index[0]["abilities"][0]["tags"], ["hitscan", "critical"])
+        self.assertTrue(index[0]["abilities"][1]["is_perk"])
+        self.assertEqual(index[0]["abilities"][0]["description"], "Semi-automatic rifle.")
+        self.assertEqual(
+            set(index[0]["abilities"][0]),
+            {"ability_index", "name", "type", "is_perk", "tags", "description"},
+        )
+        self.assertNotIn("raw", json.dumps(index))
+        self.assertNotIn("stats", json.dumps(index))
 
     def test_hero_detail_includes_raw_and_parsed_stats(self):
         detail = build_hero_detail(self.hero)
