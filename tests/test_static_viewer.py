@@ -154,7 +154,8 @@ class StaticViewerTests(unittest.TestCase):
         self.assertIn("function renderHealthStats", health_source)
         self.assertIn("Shots to kill calculator", health_source)
         self.assertIn("data-attacker-grid", health_source)
-        self.assertIn("data-shots-ability-list", health_source)
+        self.assertIn("data-shots-weapon-list", health_source)
+        self.assertIn("data-shots-limited-list", health_source)
         self.assertNotIn("Total functional health pool", health_source)
         self.assertNotIn("max(d − 7, d × 0.5)", health_source)
         self.assertIn("repeat(auto-fit", styles)
@@ -227,7 +228,8 @@ class StaticViewerTests(unittest.TestCase):
 
         self.assertIn("OWDamageModel.evaluate", source)
         self.assertIn("OWDamageModel.shotsToKill", source)
-        self.assertIn("data-shots-headshot", source)
+        self.assertIn("data-damage-headshot", source)
+        self.assertIn("OWDamageModel.calculateCombo", source)
         self.assertIn("data-graph-selected", source)
         self.assertIn("renderLinkedMentions", source)
         self.assertIn('id="search-target"', html)
@@ -240,11 +242,37 @@ class StaticViewerTests(unittest.TestCase):
             source.index("function damagingAbilityEntries"):source.index("function renderGeneratedTag")
         ]
 
-        self.assertIn("function renderShotsAbilityChoices", calculator_source)
+        self.assertIn("function renderRepeatableChoices", calculator_source)
+        self.assertIn("function renderLimitedChoices", calculator_source)
         self.assertIn('["perks", "passive"]', calculator_source)
         self.assertIn("hasDamageSource(ability)", calculator_source)
         self.assertIn("Unsupported: ${escapeHtml(model.reason)}", calculator_source)
-        self.assertIn("OWDamageModel.shotsToKill", source)
+        self.assertIn("OWDamageModel.calculateCombo", source)
+
+    def test_combo_ui_separates_repeatable_weapons_and_limited_events(self) -> None:
+        source = MAIN_JS.read_text(encoding="utf-8")
+        calculator_source = source[
+            source.index("function renderHealthStats"):source.index("function getHeroSearchMatches")
+        ]
+
+        self.assertIn("Repeatable weapons", calculator_source)
+        self.assertIn("Limited abilities", calculator_source)
+        self.assertIn('data-shots-weapon="${ability.ability_index}"', calculator_source)
+        self.assertIn("data-limited-use", calculator_source)
+        self.assertIn("Array.from({ length: model.useCount }", calculator_source)
+        self.assertNotIn("data-weapon-use", calculator_source)
+
+    def test_damage_controls_and_role_sorted_attacker_picker_exist(self) -> None:
+        source = MAIN_JS.read_text(encoding="utf-8")
+        calculator_source = source[
+            source.index("function renderAttackerHeroChoices"):source.index("function getHeroSearchMatches")
+        ]
+
+        self.assertIn('[["Tank", 0], ["Damage", 1], ["Support", 2], ["Unknown", 3]]', calculator_source)
+        self.assertIn("Explosion distance from center", calculator_source)
+        self.assertIn("data-damage-pellets", calculator_source)
+        self.assertIn("data-damage-energy", calculator_source)
+        self.assertIn("data-damage-headshot", calculator_source)
 
     def test_compare_rebuilds_on_history_navigation(self) -> None:
         source = MAIN_JS.read_text(encoding="utf-8")

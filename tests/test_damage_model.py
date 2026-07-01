@@ -108,10 +108,98 @@ class DamageModelTests(unittest.TestCase):
         self.assertIn("armor rule", armor_result["reason"])
 
     def test_complex_damage_is_refused(self):
-        ability = {"stats": {"damage": {"value": None, "components": [{"label": "splash", "value": 50}]}}}
+        ability = {"stats": {"damage": {"value": None, "components": [{"label": "stage one", "value": 50}]}}}
         result = self.run_model(f"OWDamageModel.classify({json.dumps(ability)})")
         self.assertFalse(result["supported"])
         self.assertIn("Multi-component", result["reason"])
+
+    def test_repeatable_weapon_calculates_shots_without_per_shot_events(self):
+        weapon = {"type": "Weapon", "slot": "primary fire", "stats": {"damage": {"value": 40, "components": []}}}
+        result = self.run_model(
+            f"OWDamageModel.calculateCombo({{weapon:{json.dumps(weapon)}, target:{{health:100}}}})"
+        )
+        self.assertEqual(result["weaponShots"], 3)
+        model = self.run_model(f"OWDamageModel.classify({json.dumps(weapon)})")
+        self.assertEqual(model["category"], "repeatable")
+        self.assertIsNone(model["useCount"])
+
+    def test_limited_ability_combo_reduces_remaining_weapon_shots(self):
+        weapon = {"type": "Weapon", "stats": {"damage": {"value": 40, "components": []}}}
+        ability = {"type": "Ability", "name": "Burst", "stats": {"damage": {"value": 50, "components": []}}}
+        expression = (
+            "OWDamageModel.calculateCombo({"
+            f"weapon:{json.dumps(weapon)}, abilities:[{{ability:{json.dumps(ability)},label:'Burst'}}],"
+            "target:{health:100}})"
+        )
+        result = self.run_model(expression)
+        self.assertEqual(result["comboDamage"], 50)
+        self.assertEqual(result["remainingAfterCombo"], 50)
+        self.assertEqual(result["weaponShots"], 2)
+        self.assertEqual(result["included"], ["Burst"])
+
+    def test_two_charge_limited_ability_exposes_two_uses(self):
+        ability = {"type": "Ability", "stats": {"charges": {"value": 2}, "damage": {"value": 30, "components": []}}}
+        result = self.run_model(f"OWDamageModel.classify({json.dumps(ability)})")
+        self.assertEqual(result["category"], "limited")
+        self.assertEqual(result["useCount"], 2)
+
+    def test_explosion_distance_scales_from_center_to_edge(self):
+        ability = {
+            "type": "Ability",
+            "stats": {
+                "damage": {"components": [{"label": "explosion, enemy", "min_value": 20, "max_value": 50}]},
+                "radius": {"min_value": 1.5, "max_value": 5},
+            },
+        }
+        expression = (
+            f"[0,3.25,5].map(explosionDistance=>OWDamageModel.evaluate({{ability:{json.dumps(ability)},explosionDistance}}).damage)"
+        )
+        self.assertEqual(self.run_model(expression), [50, 35, 20])
+
+    def test_dot_uses_tick_damage_when_available(self):
+        ability = {
+            "type": "Ability",
+            "stats": {"damage": {"components": [{
+                "label": "burn, enemy",
+                "value": 20,
+                "raw": "Deals 5 damage every 0.5 seconds; 20 over 2 seconds",
+            }]}}
+        }
+        result = self.run_model(f"OWDamageModel.evaluate({{ability:{json.dumps(ability)}}})")
+        self.assertEqual(result["kind"], "dot")
+        self.assertEqual(len(result["damageParts"]), 4)
+        self.assertTrue(all(part["label"] == "DoT tick" for part in result["damageParts"]))
+
+    def test_deployable_exposes_only_safe_damage_event(self):
+        ability = {"name": "Deploy Turret", "type": "Ability", "stats": {"damage": {"value": 12, "components": []}}}
+        result = self.run_model(f"OWDamageModel.classify({json.dumps(ability)})")
+        self.assertTrue(result["supported"])
+        self.assertEqual(result["kind"], "deployable")
+        self.assertTrue(result["safePartOnly"])
+
+    def test_shotgun_pellet_accuracy_changes_shots_needed(self):
+        weapon = {
+            "type": "Weapon", "shot_type": ["Shotgun"],
+            "stats": {"damage": {"components": [
+                {"label": "per pellet", "value": 10}, {"label": "per shot", "value": 100},
+            ]}},
+        }
+        expression = (
+            f"[10,5].map(pelletsHit=>OWDamageModel.shotsToKill({{ability:{json.dumps(weapon)},target:{{health:200}},pelletsHit}}).shots)"
+        )
+        self.assertEqual(self.run_model(expression), [2, 4])
+
+    def test_zarya_energy_scales_between_explicit_endpoints(self):
+        weapon = {
+            "name": "Particle Cannon", "type": "Weapon", "shot_type": ["Beam"],
+            "stats": {"damage": {"components": [
+                {"label": "at 0%", "value": 95}, {"label": "100% Energy", "value": 175},
+            ]}},
+        }
+        expression = (
+            f"[0,50,100].map(energy=>OWDamageModel.evaluate({{ability:{json.dumps(weapon)},energy}}).damage)"
+        )
+        self.assertEqual(self.run_model(expression), [95, 135, 175])
 
 
 if __name__ == "__main__":

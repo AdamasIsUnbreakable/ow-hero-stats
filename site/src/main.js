@@ -1025,18 +1025,24 @@ function renderHealthStats(hero = {}) {
       <div class="shots-calculator-body">
         <p class="shots-calculator-context"><strong>Target: ${escapeHtml(hero.name)}</strong> (${formatNumber(total)} total health). Choose the attacking hero.</p>
         <div class="attacker-hero-grid" data-attacker-grid>
-          ${state.heroes.map((item) => `<button class="attacker-hero-tile" type="button" data-attacker-slug="${escapeHtml(item.slug)}" aria-pressed="false">${renderHeroTilePortrait(item)}<span>${escapeHtml(item.name)}</span></button>`).join("")}
+          ${renderAttackerHeroChoices()}
         </div>
         <section class="shots-ability-step" data-shots-ability-step hidden>
-          <h4 data-attacker-heading>Choose a damaging weapon or ability</h4>
-          <div class="shots-ability-list" data-shots-ability-list></div>
+          <h4 data-attacker-heading>Choose an attacker</h4>
+          <div class="damage-source-group">
+            <h5>Repeatable weapons</h5>
+            <p class="ow-muted">Choose one weapon. It can fire as many times as needed.</p>
+            <div class="shots-ability-list" data-shots-weapon-list></div>
+          </div>
+          <div class="damage-source-group">
+            <h5>Limited abilities</h5>
+            <p class="ow-muted">Check abilities to include them before the weapon shots.</p>
+            <div class="shots-limited-list" data-shots-limited-list></div>
+          </div>
         </section>
-        <section class="shots-options" data-shots-options hidden>
-          <label data-shots-distance-label hidden>Distance
-            <input data-shots-distance type="range" min="0" max="50" step="0.5" value="0">
-            <output data-shots-distance-output>0 m</output>
-          </label>
-          <label data-shots-headshot-label hidden><span><input data-shots-headshot type="checkbox"> Headshot</span></label>
+        <section class="shots-options" data-shots-weapon-options hidden>
+          <h5 data-shots-options-heading>Weapon settings</h5>
+          <div data-shots-weapon-controls></div>
         </section>
         <div class="calculator-result shots-result" data-shots-result aria-live="polite">Choose an attacking hero.</div>
       </div>
@@ -1051,14 +1057,58 @@ function damagingAbilityEntries(abilities) {
   return entries;
 }
 
-function renderShotsAbilityChoices(abilities, attackerSlug) {
-  const entries = damagingAbilityEntries(abilities);
-  if (!entries.length) return '<p class="ow-muted">No damaging weapons or abilities were found.</p>';
-  return entries.map(({ ability, model }) => `
-    <button class="shots-ability-choice ${model.supported ? "" : "unsupported"}" type="button" data-shots-ability="${ability.ability_index}" aria-pressed="false">
+function renderAttackerHeroChoices() {
+  const roleOrder = new Map([["Tank", 0], ["Damage", 1], ["Support", 2], ["Unknown", 3]]);
+  const heroes = [...state.heroes].sort((left, right) => (
+    (roleOrder.get(left.role) ?? 3) - (roleOrder.get(right.role) ?? 3) || left.name.localeCompare(right.name)
+  ));
+  let currentRole = "";
+  return heroes.map((hero) => {
+    const role = roleOrder.has(hero.role) ? hero.role : "Unknown";
+    const heading = role === currentRole ? "" : `<div class="attacker-role-heading">${escapeHtml(role)}</div>`;
+    currentRole = role;
+    return `${heading}<button class="attacker-hero-tile" type="button" data-attacker-slug="${escapeHtml(hero.slug)}" aria-pressed="false">${renderHeroTilePortrait(hero)}<span>${escapeHtml(hero.name)}</span></button>`;
+  }).join("");
+}
+
+function renderDamageControls(model) {
+  if (!model.supported) return "";
+  return `
+    ${model.controls.includes("distance") ? `<label>Attack distance <input data-damage-distance type="range" min="0" max="${Math.ceil(model.end + 10)}" step="0.5" value="0"><output data-damage-distance-output>0 m</output></label>` : ""}
+    ${model.controls.includes("explosionDistance") ? `<label>Explosion distance from center <input data-damage-explosion-distance type="range" min="0" max="${model.explosionEnd}" step="0.1" value="0"><output data-damage-explosion-output>0 m</output></label>` : ""}
+    ${model.controls.includes("pelletsHit") ? `<label>Pellets hit <input data-damage-pellets type="range" min="1" max="${model.pelletCount}" step="1" value="${model.pelletCount}"><output data-damage-pellets-output>${model.pelletCount} of ${model.pelletCount}</output></label>` : ""}
+    ${model.controls.includes("energy") ? '<label>Energy charge <input data-damage-energy type="range" min="0" max="100" step="1" value="0"><output data-damage-energy-output>0%</output></label>' : ""}
+    ${model.controls.includes("headshot") ? '<label class="damage-checkbox"><input data-damage-headshot type="checkbox"> Headshot</label>' : ""}
+  `;
+}
+
+function damageKindLabel(model) {
+  const labels = { direct: "Direct damage", explosion: "Explosion", explosion_dot: "Explosion + DoT", dot: "Damage over time", deployable: "Deployable", shotgun: "Shotgun", beam: "Beam", melee: "Melee" };
+  return labels[model.kind] || "Complex damage";
+}
+
+function renderRepeatableChoices(entries, attackerSlug) {
+  const weapons = entries.filter(({ model }) => model.category === "repeatable");
+  if (!weapons.length) return '<p class="ow-muted">No repeatable damaging weapons found.</p>';
+  return weapons.map(({ ability, model }) => `
+    <button class="shots-ability-choice ${model.supported ? "" : "unsupported"}" type="button" data-shots-weapon="${ability.ability_index}" aria-pressed="false" ${model.supported ? "" : "disabled"}>
       ${renderAbilityVisual(ability, "shots-ability-icon", attackerSlug)}
-      <span><strong>${escapeHtml(ability.name)}</strong>${model.supported ? "" : `<small>Unsupported: ${escapeHtml(model.reason)}</small>`}</span>
+      <span><strong>${escapeHtml(ability.name)}</strong><small>${escapeHtml(damageKindLabel(model))}${model.supported ? ` · repeatable ${escapeHtml(model.unit)}` : ` · Unsupported: ${escapeHtml(model.reason)}`}</small></span>
     </button>
+  `).join("");
+}
+
+function renderLimitedChoices(entries, attackerSlug) {
+  const abilities = entries.filter(({ model }) => model.category === "limited");
+  if (!abilities.length) return '<p class="ow-muted">No limited damaging abilities found.</p>';
+  return abilities.map(({ ability, model }) => `
+    <article class="limited-damage-event ${model.supported ? "" : "unsupported"}" data-limited-ability="${ability.ability_index}">
+      <div class="limited-damage-heading">
+        ${renderAbilityVisual(ability, "shots-ability-icon", attackerSlug)}
+        <span><strong>${escapeHtml(ability.name)}</strong><small>${escapeHtml(damageKindLabel(model))}${model.safePartOnly ? " · safe modeled part only" : ""}</small></span>
+      </div>
+      ${model.supported ? `<div class="limited-use-list">${Array.from({ length: model.useCount }, (_, index) => `<label><input type="checkbox" data-limited-use data-use-index="${index}"> ${escapeHtml(ability.name)}${model.useCount > 1 ? ` — use ${index + 1}` : ""}</label>`).join("")}</div><div class="event-controls">${renderDamageControls(model)}</div>` : `<p class="unsupported-reason">Unsupported: ${escapeHtml(model.reason)}</p>`}
+    </article>
   `).join("");
 }
 
@@ -1085,9 +1135,9 @@ function bindShotsToKillCalculator() {
   if (!calculator) return;
   const result = calculator.querySelector("[data-shots-result]");
   let attacker = null;
-  let ability = null;
+  let selectedWeapon = null;
 
-  const update = () => updateShotsToKillResult(calculator, ability);
+  const update = () => updateShotsToKillResult(calculator, attacker, selectedWeapon);
   calculator.querySelectorAll("[data-attacker-slug]").forEach((button) => {
     button.addEventListener("click", async () => {
       const indexHero = state.heroes.find((hero) => hero.slug === button.dataset.attackerSlug);
@@ -1095,42 +1145,67 @@ function bindShotsToKillCalculator() {
       calculator.querySelectorAll("[data-attacker-slug]").forEach((tile) => tile.setAttribute("aria-pressed", String(tile === button)));
       result.textContent = `Loading ${indexHero.name}'s damaging abilities…`;
       attacker = resolveHeroRuleset(await loadHeroDetail(indexHero), state.selectedRuleset);
-      ability = null;
+      attacker.abilities = attacker.abilities.map((ability) => ({ ...ability, hero_slug: attacker.slug }));
+      selectedWeapon = null;
       calculator.querySelector("[data-attacker-heading]").textContent = `${attacker.name}'s damaging weapons and abilities`;
-      const list = calculator.querySelector("[data-shots-ability-list]");
-      list.innerHTML = renderShotsAbilityChoices(attacker.abilities, attacker.slug);
+      const entries = damagingAbilityEntries(attacker.abilities);
+      const weaponList = calculator.querySelector("[data-shots-weapon-list]");
+      const limitedList = calculator.querySelector("[data-shots-limited-list]");
+      weaponList.innerHTML = renderRepeatableChoices(entries, attacker.slug);
+      limitedList.innerHTML = renderLimitedChoices(entries, attacker.slug);
       calculator.querySelector("[data-shots-ability-step]").hidden = false;
-      calculator.querySelector("[data-shots-options]").hidden = true;
-      result.textContent = damagingAbilityEntries(attacker.abilities).length
-        ? `Choose one of ${attacker.name}'s damaging weapons or abilities.`
+      calculator.querySelector("[data-shots-weapon-options]").hidden = true;
+      result.textContent = entries.length
+        ? `Choose a repeatable weapon, or include limited abilities in the combo.`
         : `No damaging weapons or abilities were found for ${attacker.name}.`;
-      list.querySelectorAll("[data-shots-ability]").forEach((choice) => {
+      weaponList.querySelectorAll("[data-shots-weapon]").forEach((choice) => {
         choice.addEventListener("click", () => {
-          list.querySelectorAll("[data-shots-ability]").forEach((item) => item.setAttribute("aria-pressed", String(item === choice)));
-          ability = attacker.abilities.find((item) => item.ability_index === Number(choice.dataset.shotsAbility));
-          configureShotsOptions(calculator, ability);
+          weaponList.querySelectorAll("[data-shots-weapon]").forEach((item) => item.setAttribute("aria-pressed", String(item === choice)));
+          selectedWeapon = attacker.abilities.find((item) => item.ability_index === Number(choice.dataset.shotsWeapon));
+          configureWeaponOptions(calculator, selectedWeapon);
           update();
         });
       });
+      calculator.querySelectorAll("[data-limited-use], .event-controls input").forEach((control) => control.addEventListener("input", update));
     });
   });
-  calculator.querySelector("[data-shots-distance]").addEventListener("input", update);
-  calculator.querySelector("[data-shots-headshot]").addEventListener("change", update);
+  calculator.querySelector("[data-shots-weapon-controls]").addEventListener("input", update);
 }
 
-function configureShotsOptions(calculator, ability) {
+function configureWeaponOptions(calculator, ability) {
   const model = OWDamageModel.classify(ability);
-  const options = calculator.querySelector("[data-shots-options]");
-  const distanceLabel = calculator.querySelector("[data-shots-distance-label]");
-  const distance = calculator.querySelector("[data-shots-distance]");
-  const headshotLabel = calculator.querySelector("[data-shots-headshot-label]");
-  const headshot = calculator.querySelector("[data-shots-headshot]");
-  options.hidden = !model.supported;
-  distanceLabel.hidden = !(model.hasFalloff || model.partialFalloff);
-  if (!distanceLabel.hidden) distance.max = String(Math.ceil(model.end + 10));
-  distance.value = "0";
-  headshotLabel.hidden = !model.canHeadshot;
-  headshot.checked = false;
+  const options = calculator.querySelector("[data-shots-weapon-options]");
+  calculator.querySelector("[data-shots-options-heading]").textContent = `${ability.name} settings`;
+  calculator.querySelector("[data-shots-weapon-controls]").innerHTML = renderDamageControls(model);
+  options.hidden = !model.supported || !model.controls.length;
+}
+
+function readDamageOptions(container) {
+  return {
+    distance: Number(container.querySelector("[data-damage-distance]")?.value || 0),
+    explosionDistance: Number(container.querySelector("[data-damage-explosion-distance]")?.value || 0),
+    pelletsHit: Number(container.querySelector("[data-damage-pellets]")?.value || 0) || undefined,
+    energy: Number(container.querySelector("[data-damage-energy]")?.value || 0),
+    headshot: Boolean(container.querySelector("[data-damage-headshot]")?.checked),
+  };
+}
+
+function updateDamageControlOutputs(container) {
+  const pairs = [
+    ["[data-damage-distance]", "[data-damage-distance-output]", (value) => `${formatNumber(value)} m`],
+    ["[data-damage-explosion-distance]", "[data-damage-explosion-output]", (value) => `${formatNumber(value)} m`],
+    ["[data-damage-energy]", "[data-damage-energy-output]", (value) => `${formatNumber(value)}%`],
+  ];
+  pairs.forEach(([inputSelector, outputSelector, format]) => {
+    container.querySelectorAll(inputSelector).forEach((input) => {
+      const output = input.closest("label")?.querySelector(outputSelector);
+      if (output) output.textContent = format(Number(input.value));
+    });
+  });
+  container.querySelectorAll("[data-damage-pellets]").forEach((pellets) => {
+    const pelletOutput = pellets.closest("label")?.querySelector("[data-damage-pellets-output]");
+    if (pelletOutput) pelletOutput.textContent = `${pellets.value} of ${pellets.max}`;
+  });
 }
 
 function getHeroSearchMatches(hero) {
@@ -1203,6 +1278,7 @@ function bindDamageCalculator(dialog) {
 function renderDamageCalculatorGraph(ability) {
   const model = OWDamageModel.classify(ability);
   if (!model.supported) return `<section class="ability-dialog-section damage-falloff-graph"><h3>Damage calculator</h3><p class="damage-falloff-note">Unavailable: ${escapeHtml(model.reason)}</p></section>`;
+  if (!["direct", "melee"].includes(model.kind)) return `<section class="ability-dialog-section damage-falloff-graph"><h3>Damage calculator</h3><p class="damage-falloff-note">Use the target hero's Shots to kill calculator for ${escapeHtml(damageKindLabel(model).toLowerCase())} controls.</p></section>`;
   const maxDistance = model.hasFalloff ? Math.ceil(model.end + 10) : 50;
   const points = Array.from({ length: 51 }, (_, index) => {
     const distance = (maxDistance * index) / 50;
@@ -1214,25 +1290,41 @@ function renderDamageCalculatorGraph(ability) {
   return `<section class="ability-dialog-section damage-falloff-graph" data-damage-calculator data-ability-index="${ability.ability_index}" data-max-distance="${maxDistance}"><h3>Damage, DPS, and breakpoints</h3><svg viewBox="0 0 700 280" role="img" aria-label="Programmatic damage by distance"><line class="graph-axis" x1="30" y1="225" x2="670" y2="225"></line><polyline class="graph-damage-line" data-graph-line points="${points}"></polyline><line class="graph-selected-marker" data-graph-selected x1="30" y1="45" x2="30" y2="225"></line><text class="graph-value" data-graph-maximum x="38" y="48">${formatNumber(model.maximum)} max damage</text><text class="graph-label" x="670" y="258" text-anchor="end">${maxDistance} m</text></svg>${model.partialFalloff ? '<p class="damage-falloff-note">Partial graph: falloff start/end are known, but reduced damage was not safely parsed. The curve stops where reliable calculation ends.</p>' : ""}<div class="calculator-grid"><label>Distance <input type="range" min="0" max="${maxDistance}" step="0.5" value="0" data-calc-distance><output data-calc-distance-output>0 m</output></label>${model.canHeadshot ? '<label><input type="checkbox" data-calc-headshot> Headshot</label>' : ""}<label>Target hero<select data-calc-target><option value="">No target</option>${state.heroes.map((hero) => `<option value="${escapeHtml(hero.slug)}">${escapeHtml(hero.name)}</option>`).join("")}</select></label></div><div class="calculator-result" data-calc-result aria-live="polite"></div></section>`;
 }
 
-function updateShotsToKillResult(calculator, ability) {
+function updateShotsToKillResult(calculator, attacker, weapon) {
   const result = calculator.querySelector("[data-shots-result]");
-  const model = OWDamageModel.classify(ability);
-  if (!model.supported) {
-    result.textContent = `Unavailable: ${model.reason}`;
-    return;
-  }
-  const distance = Number(calculator.querySelector("[data-shots-distance]").value);
-  const headshot = calculator.querySelector("[data-shots-headshot]").checked;
-  calculator.querySelector("[data-shots-distance-output]").textContent = `${formatNumber(distance)} m`;
-  const hit = OWDamageModel.evaluate({ ruleset: state.selectedRuleset, ability, distance, headshot });
-  if (!hit.supported) { result.textContent = `Unavailable: ${hit.reason}`; return; }
-  const stk = OWDamageModel.shotsToKill({ ruleset: state.selectedRuleset, ability, target: state.selectedHero.health, distance, headshot });
-  if (!stk.supported) { result.textContent = `Shots unavailable: ${stk.reason}`; return; }
-  const support = [`${formatNumber(hit.damage)} damage per hit`];
-  if (hit.dps !== null) support.push(`${formatNumber(hit.dps)} firing DPS`);
-  if (headshot) support.push("headshots");
-  if (model.hasFalloff || model.partialFalloff) support.push(`${formatNumber(distance)} m`);
-  result.innerHTML = `<strong>${stk.shots} ${stk.shots === 1 ? "shot" : "shots"} to defeat ${escapeHtml(state.selectedHero.name)}</strong><span>${escapeHtml(support.join(" · "))}</span>`;
+  if (!attacker) return;
+  updateDamageControlOutputs(calculator);
+  const abilities = [...calculator.querySelectorAll("[data-limited-use]:checked")].map((checkbox) => {
+    const card = checkbox.closest("[data-limited-ability]");
+    const ability = attacker.abilities.find((item) => item.ability_index === Number(card.dataset.limitedAbility));
+    return { ability, label: `${ability.name}${OWDamageModel.classify(ability).useCount > 1 ? ` — use ${Number(checkbox.dataset.useIndex) + 1}` : ""}`, options: readDamageOptions(card) };
+  });
+  const combo = OWDamageModel.calculateCombo({
+    ruleset: state.selectedRuleset,
+    weapon,
+    weaponOptions: readDamageOptions(calculator.querySelector("[data-shots-weapon-controls]")),
+    abilities,
+    target: state.selectedHero.health,
+  });
+  if (!combo.supported) { result.textContent = `Unavailable: ${combo.reason}`; return; }
+  const weaponModel = weapon ? OWDamageModel.classify(weapon) : null;
+  const weaponUnit = weaponModel?.unit === "seconds"
+    ? `damage ${combo.weaponShots === 1 ? "second" : "seconds"}`
+    : (weaponModel?.unit === "hits" ? (combo.weaponShots === 1 ? "hit" : "hits") : (combo.weaponShots === 1 ? "shot" : "shots"));
+  const abilityHits = combo.included.length;
+  const totalResult = combo.defeatedByCombo
+    ? `${abilityHits} ability ${abilityHits === 1 ? "hit" : "hits"}`
+    : `${abilityHits} ability ${abilityHits === 1 ? "hit" : "hits"}${weapon ? ` + ${combo.weaponShots} weapon ${weaponUnit}` : ""}`;
+  result.innerHTML = `
+    <strong>${combo.defeatedByCombo ? `Combo defeats ${escapeHtml(state.selectedHero.name)}` : (weapon ? `${combo.weaponShots} ${escapeHtml(weaponUnit)} needed after the combo` : `${formatNumber(combo.remainingAfterCombo)} health remains`)}</strong>
+    <dl class="combo-result-details">
+      <div><dt>Selected weapon</dt><dd>${weapon ? escapeHtml(weapon.name) : "None"}</dd></div>
+      <div><dt>Included abilities</dt><dd>${combo.included.length ? combo.included.map(escapeHtml).join(", ") : "None"}</dd></div>
+      <div><dt>Combo damage</dt><dd>${formatNumber(combo.comboDamage)}</dd></div>
+      <div><dt>Remaining health after combo</dt><dd>${formatNumber(combo.remainingAfterCombo)}</dd></div>
+      <div><dt>Weapon ${escapeHtml(weaponUnit)} needed</dt><dd>${combo.weaponShots === null ? "Choose a weapon" : combo.weaponShots}</dd></div>
+      <div><dt>Total result</dt><dd>${escapeHtml(totalResult)}</dd></div>
+    </dl>`;
 }
 
 function positiveHealthValue(value) {
@@ -1288,7 +1380,10 @@ async function renderComparison() {
   const details = await Promise.all(selected.map(async (hero) => resolveHeroRuleset(await loadHeroDetail(hero), state.selectedRuleset)));
   const rows = details.map((hero) => {
     const weapons = hero.abilities.filter((ability) => abilityGroup(ability) === "weapons");
-    const primary = [...weapons].sort((a, b) => primaryWeaponRank(a) - primaryWeaponRank(b)).find((ability) => OWDamageModel.classify(ability).supported);
+    const primary = [...weapons].sort((a, b) => primaryWeaponRank(a) - primaryWeaponRank(b)).find((ability) => {
+      const candidate = OWDamageModel.classify(ability);
+      return candidate.supported && ["direct", "melee"].includes(candidate.kind);
+    });
     const model = primary ? OWDamageModel.classify(primary) : null;
     const cooldowns = hero.abilities.filter((ability) => ability.stats?.cooldown?.confidence === "high" && Number.isFinite(Number(ability.stats.cooldown.value)) && Number(ability.stats.cooldown.value) > 0).map((ability) => `${ability.name}: ${formatNumber(Number(ability.stats.cooldown.value))}s`);
     const ultimate = hero.abilities.find((ability) => abilityGroup(ability) === "ultimate");
