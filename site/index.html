@@ -37,10 +37,17 @@
             <h2>Choose Your Hero</h2>
             <p>Browse by role, then open a hero page to inspect parsed stats, raw values, warnings, and confidence.</p>
           </div>
-          <section class="controls" aria-label="Search heroes">
-          <label for="hero-search">Search heroes</label>
-          <input id="hero-search" type="search" placeholder="Search by name">
-        </section>
+          <section class="controls" aria-label="Search and filter heroes">
+            <label for="hero-search">Search</label>
+            <input id="hero-search" type="search" placeholder="Hero, ability, perk, or tag">
+            <label for="search-target">Search in</label>
+            <select id="search-target"><option value="both">Heroes and abilities/perks</option><option value="heroes">Heroes</option><option value="abilities">Abilities/perks</option></select>
+            <label for="subrole-filter">Subrole</label>
+            <select id="subrole-filter"><option value="">All subroles</option></select>
+            <label for="hero-sort">Sort</label>
+            <select id="hero-sort"><option value="name">Name</option><option value="subrole">Subrole</option></select>
+            <button id="compare-toggle" class="secondary-button" type="button" aria-pressed="false">Compare heroes</button>
+          </section>
         </div>
         <p id="select-message" class="select-message" aria-live="polite"></p>
         <div id="role-sections" class="role-sections" aria-live="polite">
@@ -63,6 +70,7 @@
       </section>
     </main>
 
+    <script src="./src/damage-model.js"></script>
     <script src="./src/main.js"></script>
     <script src="./src/gameplay-notes-cleanup.js"></script>
   </body>

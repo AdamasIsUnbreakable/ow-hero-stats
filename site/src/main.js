@@ -4,6 +4,8 @@ const ABILITY_ASSET_ROOT = new URL("./public/assets/abilities/", window.location
 const state = {
   manifest: null,
   heroes: [],
+  searchIndex: [],
+  heroDetails: new Map(),
   audit: null,
   portraits: {},
   abilityIcons: [],
@@ -12,6 +14,12 @@ const state = {
   selectedHeroSource: null,
   selectedRuleset: "5v5",
   search: "",
+  searchTarget: "both",
+  subrole: "",
+  sort: "name",
+  compareMode: false,
+  compareSlugs: new Set(),
+  compareBuilt: false,
   showRaw: false,
   abilityDialog: null,
   abilityDialogAbility: null,
@@ -30,6 +38,10 @@ const elements = {
   rawToggle: document.querySelector("#raw-toggle"),
   allHeroes: document.querySelector("#all-heroes"),
   rulesetSelect: document.querySelector("#ruleset-select"),
+  searchTarget: document.querySelector("#search-target"),
+  subroleFilter: document.querySelector("#subrole-filter"),
+  heroSort: document.querySelector("#hero-sort"),
+  compareToggle: document.querySelector("#compare-toggle"),
 };
 
 document.addEventListener("DOMContentLoaded", init);
@@ -37,21 +49,24 @@ document.addEventListener("DOMContentLoaded", init);
 async function init() {
   showInitialLoadingState();
   try {
-    const [manifest, heroes, audit, portraits, abilityIcons] = await Promise.all([
+    const [manifest, heroes, searchIndex, audit, portraits, abilityIcons] = await Promise.all([
       fetchJson("manifest.json"),
       fetchJson("heroes.index.json"),
+      fetchJson("search.index.json").catch(() => []),
       fetchJson("audit-summary.json"),
       fetchPortraitManifest(),
       fetchAbilityIconManifest(),
     ]);
     state.manifest = manifest;
     state.heroes = heroes;
+    state.searchIndex = searchIndex;
     state.audit = audit;
     state.portraits = portraits;
     state.abilityIcons = abilityIcons;
     state.selectedRuleset = getRulesetFromUrl(manifest);
     elements.rulesetSelect.value = state.selectedRuleset;
     elements.selectView.setAttribute("aria-busy", "false");
+    populateSubroles();
 
     bindEvents();
 
@@ -130,10 +145,27 @@ function bindEvents() {
       state.selectedHero = resolveHeroRuleset(state.selectedHeroSource, state.selectedRuleset);
       renderHeroDetail(state.selectedHero);
       closeAbilityDialog({ restoreFocus: false });
+    } else if (state.compareMode) {
+      const rebuild = state.compareBuilt;
+      renderHeroSelect();
+      if (rebuild) renderComparison();
     }
   });
   elements.search.addEventListener("input", (event) => {
     state.search = event.target.value.trim().toLowerCase();
+    renderHeroSelect();
+  });
+  elements.searchTarget.addEventListener("change", (event) => { state.searchTarget = event.target.value; renderHeroSelect(); });
+  elements.subroleFilter.addEventListener("change", (event) => { state.subrole = event.target.value; renderHeroSelect(); });
+  elements.heroSort.addEventListener("change", (event) => { state.sort = event.target.value; renderHeroSelect(); });
+  elements.compareToggle.addEventListener("click", () => {
+    state.compareMode = !state.compareMode;
+    if (!state.compareMode) {
+      state.compareSlugs.clear();
+      state.compareBuilt = false;
+    }
+    elements.compareToggle.setAttribute("aria-pressed", String(state.compareMode));
+    elements.compareToggle.textContent = state.compareMode ? "Exit compare" : "Compare heroes";
     renderHeroSelect();
   });
 
@@ -242,24 +274,46 @@ function showHeroSelect(message = "", options = {}) {
 }
 
 function renderHeroSelect() {
-  const filtered = state.heroes.filter((hero) => hero.name.toLowerCase().includes(state.search));
+  const filtered = state.heroes.filter(heroMatchesSearch)
+    .filter((hero) => !state.subrole || hero.sub_role === state.subrole)
+    .sort((a, b) => state.sort === "subrole"
+      ? String(a.sub_role || "").localeCompare(String(b.sub_role || "")) || a.name.localeCompare(b.name)
+      : a.name.localeCompare(b.name));
   const grouped = groupHeroesByRole(filtered);
   const sections = ["Tank", "Damage", "Support", "Unknown"]
     .filter((role) => grouped[role]?.length)
     .map((role) => renderRoleSection(role, grouped[role]));
 
   elements.roleSections.innerHTML = sections.length
-    ? sections.join("")
+    ? `${sections.join("")}${state.compareMode ? renderCompareTray() : ""}`
     : `<div class="empty-state selector-empty"><h2>No matches</h2><p>Try a different hero name.</p></div>`;
 
   elements.roleSections.querySelectorAll("[data-hero-slug]").forEach((button) => {
     button.addEventListener("click", () => {
       const hero = state.heroes.find((item) => item.slug === button.dataset.heroSlug);
       if (hero) {
-        selectHero(hero, { historyMode: "push" });
+        if (state.compareMode) toggleCompareHero(hero.slug);
+        else selectHero(hero, { historyMode: "push" });
       }
     });
   });
+  elements.roleSections.querySelector("[data-run-compare]")?.addEventListener("click", renderComparison);
+}
+
+function populateSubroles() {
+  const values = [...new Set(state.heroes.map((hero) => hero.sub_role).filter(Boolean))].sort();
+  elements.subroleFilter.insertAdjacentHTML("beforeend", values.map((value) => `<option value="${escapeHtml(value)}">${escapeHtml(value)}</option>`).join(""));
+}
+
+function heroMatchesSearch(hero) {
+  if (!state.search) return true;
+  const heroMatch = hero.name.toLowerCase().includes(state.search);
+  const entry = state.searchIndex.find((item) => item.slug === hero.slug);
+  const abilityMatch = entry?.abilities?.some((ability) => [ability.name, ability.type, ...(ability.tags || [])]
+    .some((value) => String(value || "").toLowerCase().includes(state.search)));
+  if (state.searchTarget === "heroes") return heroMatch;
+  if (state.searchTarget === "abilities") return Boolean(abilityMatch);
+  return heroMatch || Boolean(abilityMatch);
 }
 
 function groupHeroesByRole(heroes) {
@@ -287,10 +341,12 @@ function renderRoleSection(role, heroes) {
 
 function renderHeroTile(hero) {
   const portrait = renderHeroTilePortrait(hero);
+  const matches = getHeroSearchMatches(hero);
   return `
-    <button class="hero-tile" type="button" data-hero-slug="${escapeHtml(hero.slug)}">
+    <button class="hero-tile ${state.compareSlugs.has(hero.slug) ? "selected" : ""}" type="button" data-hero-slug="${escapeHtml(hero.slug)}" aria-pressed="${state.compareMode ? state.compareSlugs.has(hero.slug) : "false"}">
       ${portrait}
       <span class="hero-tile-name">${escapeHtml(hero.name)}</span>
+      ${matches.length ? `<span class="hero-tile-matches">Matched: ${matches.map(escapeHtml).join(", ")}</span>` : ""}
     </button>
   `;
 }
@@ -322,11 +378,7 @@ async function selectHero(indexHero, options = {}) {
   updateHeroUrl(indexHero.slug, historyMode);
 
   try {
-    const detail = await fetchJson(indexHero.detail_path);
-    detail.abilities = (detail.abilities || []).map((ability, abilityIndex) => ({
-      ...ability,
-      ability_index: ability.ability_index ?? abilityIndex,
-    }));
+    const detail = await loadHeroDetail(indexHero);
     state.selectedHeroSource = detail;
     state.selectedHero = resolveHeroRuleset(detail, state.selectedRuleset);
     renderHeroDetail(state.selectedHero);
@@ -363,7 +415,7 @@ function renderHeroDetail(hero) {
 
           <section class="ow-panel">
             <h3>Hero Stats</h3>
-            ${renderHealthStats(hero.health)}
+            ${renderHealthStats(hero)}
             <div class="confidence-summary">${renderConfidenceSummary(hero.audit?.confidence_counts || {})}</div>
             <p class="ow-muted">${hero.audit?.warning_count || 0} parser warnings</p>
           </section>
@@ -389,6 +441,7 @@ function renderHeroDetail(hero) {
   `;
 
   bindAbilityRows();
+  bindArmorCalculator();
 }
 
 function renderHeroBackdrop(hero) {
@@ -469,7 +522,7 @@ function renderAbilityRow(ability) {
           <h3>${escapeHtml(ability.name)}</h3>
           ${ability.slot ? `<span class="slot-badge">${escapeHtml(ability.slot)}</span>` : ""}
         </div>
-        ${abilityDescription(ability) ? `<p>${escapeHtml(abilityDescription(ability))}</p>` : ""}
+        ${abilityDescription(ability) ? `<p>${renderLinkedMentions(abilityDescription(ability), ability.name)}</p>` : ""}
       </div>
       ${renderAbilityDetailPanel(ability)}
     </article>
@@ -491,7 +544,7 @@ function renderAbilityDetailPanel(ability) {
           <p>${[cooldown, ability.slot].filter(Boolean).map(escapeHtml).join(" | ")}</p>
         </div>
       </div>
-      ${description ? `<p class="ability-detail-description">${escapeHtml(description)}</p>` : ""}
+      ${description ? `<p class="ability-detail-description">${renderLinkedMentions(description, ability.name)}</p>` : ""}
       ${shotTypes.length ? `<div class="ability-shot-types"><strong>Shot type</strong> ${shotTypes.map((shotType) => `<span>${escapeHtml(shotType)}</span>`).join("")}</div>` : ""}
       ${keywords.length ? `<div class="keyword-chips">${keywords.map(renderKeywordChip).join("")}</div>` : ""}
       <div class="ability-detail-stats">
@@ -552,11 +605,11 @@ function uniqueTextItems(items) {
   return [...new Set(items.map((item) => String(item).trim()).filter(Boolean))];
 }
 
-function renderAbilityNotes(notes) {
+function renderAbilityNotes(notes, ability = null) {
   return `
     <section class="ability-gameplay-notes">
       <h5>Gameplay notes</h5>
-      <ul>${notes.map((note) => `<li>${escapeHtml(note)}</li>`).join("")}</ul>
+      <ul>${notes.map((note) => `<li>${renderLinkedMentions(note, ability?.name || "")}</li>`).join("")}</ul>
     </section>
   `;
 }
@@ -638,6 +691,7 @@ function openAbilityDialog(ability, sourceRow) {
     }
   });
   dialog.showModal();
+  bindDamageCalculator(dialog);
   dialog.querySelector("[data-ability-dialog-close]").focus();
 }
 
@@ -675,6 +729,7 @@ function refreshAbilityDialog() {
     return;
   }
   dialog.querySelector(".ability-dialog-body").innerHTML = renderAbilityDialogContent(ability);
+  bindDamageCalculator(dialog);
   const matchingRow = elements.heroDetail.querySelector(`[data-ability-index="${ability.ability_index}"]`);
   state.abilityDialogSource = matchingRow || state.abilityDialogSource;
 }
@@ -705,15 +760,15 @@ function renderAbilityDialogContent(ability) {
   const notes = abilityNotes(ability);
   const stats = Object.values(ability.stats || {}).filter(hasDisplayableStat);
   return `
-    ${description ? `<p class="ability-detail-description">${escapeHtml(description)}</p>` : ""}
+    ${description ? `<p class="ability-detail-description">${renderLinkedMentions(description, ability.name)}</p>` : ""}
     ${shotTypes.length ? `<section class="ability-dialog-section"><h3>Shot type</h3><div class="ability-shot-types">${shotTypes.map((shotType) => `<span>${escapeHtml(shotType)}</span>`).join("")}</div></section>` : ""}
     ${keywords.length ? `<section class="ability-dialog-section"><h3>Keywords</h3><div class="keyword-chips">${keywords.map(renderKeywordChip).join("")}</div></section>` : ""}
     <section class="ability-dialog-section">
       <h3>Parsed stats</h3>
       <div class="ability-detail-stats">${stats.length ? stats.filter((stat) => stat.field !== "headshot_mod").map((stat) => renderDetailStat(stat, ability)).join("") : '<p class="ow-muted">No parsed stat fields.</p>'}</div>
     </section>
-    ${renderDamageFalloffGraph(ability)}
-    ${notes.length ? renderAbilityNotes(notes) : ""}
+    ${renderDamageCalculatorGraph(ability)}
+    ${notes.length ? renderAbilityNotes(notes, ability) : ""}
     ${ability.parse_warnings?.length ? `<section class="ability-dialog-section"><h3>Parser warnings</h3>${renderWarningList(ability.parse_warnings)}</section>` : ""}
   `;
 }
@@ -1029,7 +1084,8 @@ function renderHealthCell(label, value) {
     : "";
 }
 
-function renderHealthStats(health = {}) {
+function renderHealthStats(hero = {}) {
+  const health = hero.health || {};
   const healthAmount = positiveHealthValue(health.health);
   const armor = positiveHealthValue(health.armor);
   const shield = positiveHealthValue(health.shield);
@@ -1058,7 +1114,7 @@ function renderHealthStats(health = {}) {
       ${renderHealthCell("Armor", armor)}
       ${renderHealthCell("Shield", shield)}
     </dl>
-    <div class="functional-health">
+    <div class="functional-health" ${armor ? "" : "hidden"}>
       <h4>Total functional health pool</h4>
       <p class="functional-health-total">${rawTerms.join(" + ")} = <strong>${formatNumber(total)} HP</strong></p>
       <dl>
@@ -1071,9 +1127,144 @@ function renderHealthStats(health = {}) {
           <dd><code>${beamMath}</code></dd>
         </div>
       </dl>
+      <details class="armor-calculator"><summary>Armor damage calculator</summary><div class="calculator-grid"><label>Attacking hero<select data-armor-attacker><option value="">Choose a hero</option>${state.heroes.map((item) => `<option value="${escapeHtml(item.slug)}">${escapeHtml(item.name)}</option>`).join("")}</select></label><label>Weapon or ability<select data-armor-ability disabled><option>Choose an attacker first</option></select></label><label>Distance (m)<input data-armor-distance type="number" min="0" value="0"></label><label data-armor-headshot-label hidden><span><input data-armor-headshot type="checkbox"> Headshot</span></label><label>Target hero<select data-armor-target><option value="${escapeHtml(hero.slug)}">${escapeHtml(hero.name)}</option>${state.heroes.filter((item) => item.slug !== hero.slug).map((item) => `<option value="${escapeHtml(item.slug)}">${escapeHtml(item.name)}</option>`).join("")}</select></label></div><div class="calculator-result" data-armor-result aria-live="polite">Select an attacker and ability.</div></details>
       ${armor ? '<p class="functional-health-note"><var>d</var> is incoming damage per hit. Armor takes max(d − 7, d × 0.5) from normal hits and d × 0.7 from beams.</p>' : ""}
     </div>
   `;
+}
+
+function bindArmorCalculator() {
+  const attacker = elements.heroDetail.querySelector("[data-armor-attacker]");
+  if (!attacker) return;
+  const abilitySelect = elements.heroDetail.querySelector("[data-armor-ability]");
+  attacker.addEventListener("change", async () => {
+    const indexHero = state.heroes.find((hero) => hero.slug === attacker.value);
+    if (!indexHero) return;
+    const detail = resolveHeroRuleset(await loadHeroDetail(indexHero), state.selectedRuleset);
+    abilitySelect.disabled = false;
+    abilitySelect.innerHTML = detail.abilities.map((ability) => `<option value="${ability.ability_index}">${escapeHtml(ability.name)}</option>`).join("");
+    abilitySelect.dataset.heroSlug = indexHero.slug;
+    updateArmorHeadshotControl(detail);
+    updateArmorResult();
+  });
+  abilitySelect.addEventListener("change", async () => {
+    const indexHero = state.heroes.find((hero) => hero.slug === abilitySelect.dataset.heroSlug);
+    updateArmorHeadshotControl(resolveHeroRuleset(await loadHeroDetail(indexHero), state.selectedRuleset));
+    updateArmorResult();
+  });
+  elements.heroDetail.querySelector("[data-armor-distance]").addEventListener("input", updateArmorResult);
+  elements.heroDetail.querySelector("[data-armor-headshot]").addEventListener("change", updateArmorResult);
+  elements.heroDetail.querySelector("[data-armor-target]").addEventListener("change", updateArmorResult);
+}
+
+function updateArmorHeadshotControl(attacker) {
+  const abilitySelect = elements.heroDetail.querySelector("[data-armor-ability]");
+  const checkbox = elements.heroDetail.querySelector("[data-armor-headshot]");
+  const model = OWDamageModel.classify(attacker.abilities.find((item) => item.ability_index === Number(abilitySelect.value)));
+  checkbox.closest("[data-armor-headshot-label]").hidden = !model.canHeadshot;
+  if (!model.canHeadshot) checkbox.checked = false;
+}
+
+function getHeroSearchMatches(hero) {
+  if (!state.search || state.searchTarget === "heroes") return [];
+  const entry = state.searchIndex.find((item) => item.slug === hero.slug);
+  return (entry?.abilities || []).filter((ability) => [ability.name, ability.type, ...(ability.tags || [])]
+    .some((value) => String(value || "").toLowerCase().includes(state.search)))
+    .slice(0, 3).map((ability) => ability.name);
+}
+
+function renderLinkedMentions(text, currentAbility = "") {
+  const candidates = [];
+  state.heroes.forEach((hero) => candidates.push({ name: hero.name, html: `<a href="?hero=${encodeURIComponent(hero.slug)}&mode=${encodeURIComponent(state.selectedRuleset)}">${escapeHtml(hero.name)}</a>` }));
+  const abilityNames = new Map();
+  state.searchIndex.flatMap((hero) => hero.abilities || []).forEach((ability) => {
+    if (!abilityNames.has(ability.name)) abilityNames.set(ability.name, []);
+    abilityNames.get(ability.name).push(ability);
+  });
+  abilityNames.forEach((abilities, name) => {
+    if (abilities.length === 1 && name !== currentAbility && abilities[0].description) candidates.push({ name, html: `<span class="ability-mention" tabindex="0" title="${escapeHtml(abilities[0].description)}">${escapeHtml(name)}</span>` });
+  });
+  candidates.sort((a, b) => b.name.length - a.name.length);
+  const pattern = candidates.filter((item) => item.name.length >= 3).map((item) => item.name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|");
+  if (!pattern) return escapeHtml(text);
+  const lookup = new Map(candidates.map((item) => [item.name.toLowerCase(), item.html]));
+  return String(text).split(new RegExp(`\\b(${pattern})\\b`, "gi")).map((part) => lookup.get(part.toLowerCase()) || escapeHtml(part)).join("");
+}
+
+function bindDamageCalculator(dialog) {
+  const calculator = dialog.querySelector("[data-damage-calculator]");
+  if (!calculator) return;
+  const distance = calculator.querySelector("[data-calc-distance]");
+  const headshot = calculator.querySelector("[data-calc-headshot]");
+  const target = calculator.querySelector("[data-calc-target]");
+  const update = async () => {
+    const ability = state.abilityDialogAbility;
+    const meters = Number(distance.value);
+    calculator.querySelector("[data-calc-distance-output]").textContent = `${formatNumber(meters)} m`;
+    const hit = OWDamageModel.evaluate({ ruleset: state.selectedRuleset, ability, distance: meters, headshot: Boolean(headshot?.checked) });
+    const maxDistance = Number(calculator.dataset.maxDistance);
+    const maximum = OWDamageModel.evaluate({ ruleset: state.selectedRuleset, ability, distance: 0, headshot: Boolean(headshot?.checked) }).damage;
+    calculator.querySelector("[data-graph-line]").setAttribute("points", Array.from({ length: 51 }, (_, index) => {
+      const sampleDistance = (maxDistance * index) / 50;
+      const sample = OWDamageModel.evaluate({ ruleset: state.selectedRuleset, ability, distance: sampleDistance, headshot: Boolean(headshot?.checked) });
+      return sample.supported ? `${30 + index * 12.8},${225 - (sample.damage / Math.max(maximum, 1)) * 165}` : "";
+    }).filter(Boolean).join(" "));
+    calculator.querySelector("[data-graph-maximum]").textContent = `${formatNumber(maximum)} max damage`;
+    const markerX = 30 + (Math.min(meters, maxDistance) / maxDistance) * 640;
+    calculator.querySelector("[data-graph-selected]").setAttribute("x1", markerX);
+    calculator.querySelector("[data-graph-selected]").setAttribute("x2", markerX);
+    if (!hit.supported) {
+      calculator.querySelector("[data-calc-result]").textContent = `Unavailable at ${formatNumber(meters)} m: ${hit.reason}`;
+      return;
+    }
+    let targetText = "";
+    if (target.value) {
+      const indexHero = state.heroes.find((hero) => hero.slug === target.value);
+      const resolved = resolveHeroRuleset(await loadHeroDetail(indexHero), state.selectedRuleset);
+      const stk = OWDamageModel.shotsToKill({ ruleset: state.selectedRuleset, ability, target: resolved.health, distance: meters, headshot: Boolean(headshot?.checked) });
+      targetText = stk.supported ? ` · ${stk.shots} shots to defeat ${resolved.name}` : ` · Breakpoint unavailable: ${stk.reason}`;
+    }
+    calculator.querySelector("[data-calc-result]").textContent = `${formatNumber(hit.damage)} damage${hit.dps === null ? " · DPS unavailable" : ` · ${formatNumber(hit.dps)} firing DPS`}${targetText}`;
+  };
+  distance.addEventListener("input", update);
+  headshot?.addEventListener("change", update);
+  target.addEventListener("change", update);
+  update();
+}
+
+function renderDamageCalculatorGraph(ability) {
+  const model = OWDamageModel.classify(ability);
+  if (!model.supported) return `<section class="ability-dialog-section damage-falloff-graph"><h3>Damage calculator</h3><p class="damage-falloff-note">Unavailable: ${escapeHtml(model.reason)}</p></section>`;
+  const maxDistance = model.hasFalloff ? Math.ceil(model.end + 10) : 50;
+  const points = Array.from({ length: 51 }, (_, index) => {
+    const distance = (maxDistance * index) / 50;
+    const hit = OWDamageModel.evaluate({ ruleset: state.selectedRuleset, ability, distance });
+    const x = 30 + index * 12.8;
+    const y = hit.supported ? 225 - (hit.damage / Math.max(model.maximum, 1)) * 165 : null;
+    return y === null ? "" : `${x},${y}`;
+  }).filter(Boolean).join(" ");
+  return `<section class="ability-dialog-section damage-falloff-graph" data-damage-calculator data-ability-index="${ability.ability_index}" data-max-distance="${maxDistance}"><h3>Damage, DPS, and breakpoints</h3><svg viewBox="0 0 700 280" role="img" aria-label="Programmatic damage by distance"><line class="graph-axis" x1="30" y1="225" x2="670" y2="225"></line><polyline class="graph-damage-line" data-graph-line points="${points}"></polyline><line class="graph-selected-marker" data-graph-selected x1="30" y1="45" x2="30" y2="225"></line><text class="graph-value" data-graph-maximum x="38" y="48">${formatNumber(model.maximum)} max damage</text><text class="graph-label" x="670" y="258" text-anchor="end">${maxDistance} m</text></svg>${model.partialFalloff ? '<p class="damage-falloff-note">Partial graph: falloff start/end are known, but reduced damage was not safely parsed. The curve stops where reliable calculation ends.</p>' : ""}<div class="calculator-grid"><label>Distance <input type="range" min="0" max="${maxDistance}" step="0.5" value="0" data-calc-distance><output data-calc-distance-output>0 m</output></label>${model.canHeadshot ? '<label><input type="checkbox" data-calc-headshot> Headshot</label>' : ""}<label>Target hero<select data-calc-target><option value="">No target</option>${state.heroes.map((hero) => `<option value="${escapeHtml(hero.slug)}">${escapeHtml(hero.name)}</option>`).join("")}</select></label></div><div class="calculator-result" data-calc-result aria-live="polite"></div></section>`;
+}
+
+async function updateArmorResult() {
+  const abilitySelect = elements.heroDetail.querySelector("[data-armor-ability]");
+  const result = elements.heroDetail.querySelector("[data-armor-result]");
+  if (!abilitySelect?.dataset.heroSlug || !result) return;
+  const attackerIndex = state.heroes.find((hero) => hero.slug === abilitySelect.dataset.heroSlug);
+  const targetIndex = state.heroes.find((hero) => hero.slug === elements.heroDetail.querySelector("[data-armor-target]").value);
+  const [attacker, target] = await Promise.all([loadHeroDetail(attackerIndex), loadHeroDetail(targetIndex)]);
+  const resolvedAttacker = resolveHeroRuleset(attacker, state.selectedRuleset);
+  const resolvedTarget = resolveHeroRuleset(target, state.selectedRuleset);
+  const ability = resolvedAttacker.abilities.find((item) => item.ability_index === Number(abilitySelect.value));
+  const distance = Number(elements.heroDetail.querySelector("[data-armor-distance]").value);
+  const headshot = elements.heroDetail.querySelector("[data-armor-headshot]").checked;
+  const hit = OWDamageModel.evaluate({ ruleset: state.selectedRuleset, ability, distance, headshot });
+  if (!hit.supported) { result.textContent = `Unavailable: ${hit.reason}`; return; }
+  const armorDamage = OWDamageModel.damageToArmor(hit.damage, hit.damageType);
+  if (armorDamage === null) { result.textContent = "Unavailable: this damage type does not have a verified armor rule."; return; }
+  const stk = OWDamageModel.shotsToKill({ ruleset: state.selectedRuleset, ability, target: resolvedTarget.health, distance, headshot });
+  const targetArmorNote = positiveHealthValue(resolvedTarget.health?.armor) ? "" : `<br><span class="ow-muted">${escapeHtml(resolvedTarget.name)} has no armor in this mode; the armor figure is the per-hit rule preview.</span>`;
+  result.innerHTML = `<strong>${formatNumber(hit.damage)} raw damage → ${formatNumber(armorDamage)} damage to armor</strong><br>${stk.supported ? `${stk.shots} shots to defeat ${escapeHtml(resolvedTarget.name)}` : `Shots to kill unavailable: ${escapeHtml(stk.reason)}`}<br><span class="ow-muted">${headshot ? "Headshot; " : ""}${escapeHtml(hit.damageType)} armor rule, ${escapeHtml(state.selectedRuleset)} stats</span>${targetArmorNote}`;
 }
 
 function positiveHealthValue(value) {
@@ -1113,6 +1304,60 @@ function formatNumber(value) {
 
 function confidenceClass(confidence) {
   return `confidence-${confidence || "unparsed"}`;
+}
+
+function toggleCompareHero(slug) {
+  if (state.compareSlugs.has(slug)) state.compareSlugs.delete(slug);
+  else state.compareSlugs.add(slug);
+  state.compareBuilt = false;
+  renderHeroSelect();
+}
+
+function renderCompareTray() {
+  return `<section class="compare-tray"><h2>Compare (${state.compareSlugs.size})</h2><p>Select at least two heroes. Values use ${escapeHtml(state.selectedRuleset)} resolved data. Only narrow, high-confidence fields are included; missing costs and complex damage stay unavailable.</p><button type="button" data-run-compare ${state.compareSlugs.size < 2 ? "disabled" : ""}>Build comparison</button><div class="compare-results" data-compare-results aria-live="polite"></div></section>`;
+}
+
+async function loadHeroDetail(indexHero) {
+  if (state.heroDetails.has(indexHero.slug)) return state.heroDetails.get(indexHero.slug);
+  const detail = await fetchJson(indexHero.detail_path);
+  detail.abilities = (detail.abilities || []).map((ability, abilityIndex) => ({ ...ability, ability_index: ability.ability_index ?? abilityIndex }));
+  state.heroDetails.set(indexHero.slug, detail);
+  return detail;
+}
+
+async function renderComparison() {
+  const host = elements.roleSections.querySelector("[data-compare-results]");
+  host.innerHTML = '<p class="ow-muted">Loading comparison...</p>';
+  const selected = [...state.compareSlugs].map((slug) => state.heroes.find((hero) => hero.slug === slug)).filter(Boolean);
+  const details = await Promise.all(selected.map(async (hero) => resolveHeroRuleset(await loadHeroDetail(hero), state.selectedRuleset)));
+  const rows = details.map((hero) => {
+    const weapons = hero.abilities.filter((ability) => abilityGroup(ability) === "weapons");
+    const primary = [...weapons].sort((a, b) => primaryWeaponRank(a) - primaryWeaponRank(b)).find((ability) => OWDamageModel.classify(ability).supported);
+    const model = primary ? OWDamageModel.classify(primary) : null;
+    const cooldowns = hero.abilities.filter((ability) => ability.stats?.cooldown?.confidence === "high" && Number.isFinite(Number(ability.stats.cooldown.value)) && Number(ability.stats.cooldown.value) > 0).map((ability) => `${ability.name}: ${formatNumber(Number(ability.stats.cooldown.value))}s`);
+    const ultimate = hero.abilities.find((ability) => abilityGroup(ability) === "ultimate");
+    const ult = ultimate?.stats?.ult_cost || ultimate?.stats?.ultimate_cost;
+    const perkCosts = hero.abilities.filter((ability) => abilityGroup(ability) === "perks" && ability.stats?.perk_cost?.confidence === "high" && Number.isFinite(Number(ability.stats.perk_cost.value))).map((ability) => `${ability.name}: ${formatNumber(Number(ability.stats.perk_cost.value))}`);
+    const primaryUnavailable = weapons.length ? OWDamageModel.classify(weapons.sort((a, b) => primaryWeaponRank(a) - primaryWeaponRank(b))[0]).reason : "No weapon data";
+    const highConfidence = primary ? comparePrimaryStats(primary) : [];
+    return `<tr><th>${escapeHtml(hero.name)}</th><td>${escapeHtml([hero.role, hero.sub_role].filter(Boolean).join(" / "))}</td><td>${escapeHtml(formatHealth(hero.health))}</td><td>${primary ? `${escapeHtml(primary.name)}: ${formatNumber(model.maximum)} damage` : `Unavailable: ${escapeHtml(primaryUnavailable)}`}</td><td>${model ? (model.hasFalloff ? `${formatNumber(model.start)}-${formatNumber(model.end)} m` : "No falloff") : "Unavailable"}</td><td>${cooldowns.length ? cooldowns.map(escapeHtml).join("<br>") : "Unavailable"}</td><td>${Number.isFinite(Number(ult?.value)) && ult.confidence === "high" ? formatNumber(Number(ult.value)) : "Unavailable in generated data"}</td><td>${perkCosts.length ? perkCosts.map(escapeHtml).join("<br>") : "Unavailable in generated data"}</td><td>${highConfidence.length ? highConfidence.map(escapeHtml).join("<br>") : "Unavailable"}</td></tr>`;
+  });
+  state.compareBuilt = true;
+  host.innerHTML = `<div class="compare-table-wrap"><table><caption>${escapeHtml(state.selectedRuleset)} resolved comparison</caption><thead><tr><th>Hero</th><th>Role</th><th>Health pools</th><th>Primary damage</th><th>Falloff</th><th>Cooldowns</th><th>Ult cost</th><th>Perk costs</th><th>High-confidence weapon stats</th></tr></thead><tbody>${rows.join("")}</tbody></table></div>`;
+}
+
+function primaryWeaponRank(ability) {
+  const slot = String(ability.slot || "").toLowerCase();
+  const type = String(ability.type || "").toLowerCase();
+  if (slot.includes("primary") || type.includes("primary")) return 0;
+  if (slot.includes("secondary") || type.includes("secondary")) return 2;
+  return 1;
+}
+
+function comparePrimaryStats(ability) {
+  const wanted = ["ammo", "reload_time", "fire_rate", "dps"];
+  return wanted.map((field) => ability.stats?.[field]).filter((stat) => stat?.confidence === "high" && hasDisplayableStat(stat))
+    .map((stat) => `${stat.label}: ${stripHtml(formatStatValue(stat))}`);
 }
 
 function resolveHeroRuleset(detail, ruleset) {

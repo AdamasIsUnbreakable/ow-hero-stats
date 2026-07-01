@@ -14,6 +14,7 @@ from overwatch_stats.web_export import (
     build_hero_detail,
     build_hero_index,
     build_quality_report,
+    build_search_index,
     build_icon_quality,
     build_perk_quality,
     build_manifest,
@@ -52,6 +53,12 @@ class WebExportTests(unittest.TestCase):
         self.assertEqual(entry["detail_path"], "heroes/ashe.json")
         self.assertNotIn("abilities", entry)
         self.assertNotIn("raw", entry)
+
+    def test_search_index_contains_ability_perk_and_tag_metadata(self):
+        index = build_search_index([self.hero])
+        self.assertEqual(index[0]["slug"], "ashe")
+        self.assertIn("The Viper", [ability["name"] for ability in index[0]["abilities"]])
+        self.assertTrue(all("description" in ability and "tags" in ability for ability in index[0]["abilities"]))
 
     def test_hero_detail_includes_raw_and_parsed_stats(self):
         detail = build_hero_detail(self.hero)
@@ -123,7 +130,8 @@ class WebExportTests(unittest.TestCase):
         manifest = build_manifest(hero_count=1, generated_at="2026-06-25T23:00:00Z")
 
         self.assertEqual(manifest["schema_version"], SCHEMA_VERSION)
-        self.assertEqual(manifest["schema_version"], "2.0.0")
+        self.assertEqual(manifest["schema_version"], "3.0.0")
+        self.assertEqual(manifest["data_files"]["search_index"], "search.index.json")
         self.assertEqual(manifest["rulesets"]["default"], "5v5")
         self.assertEqual([item["id"] for item in manifest["rulesets"]["available"]], ["5v5", "6v6"])
         self.assertEqual(manifest["hero_count"], 1)

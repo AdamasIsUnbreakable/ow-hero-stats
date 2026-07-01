@@ -37,7 +37,7 @@ class StaticViewerTests(unittest.TestCase):
 
         self.assertNotIn("abilityNotes(ability)", preview_source)
         self.assertIn("abilityNotes(ability)", dialog_source)
-        self.assertIn("renderAbilityNotes(notes)", dialog_source)
+        self.assertIn("renderAbilityNotes(notes, ability)", dialog_source)
 
     def test_dialog_open_clears_tooltip_state(self) -> None:
         source = MAIN_JS.read_text(encoding="utf-8")
@@ -181,6 +181,19 @@ class StaticViewerTests(unittest.TestCase):
         self.assertIn("getRulesetFromUrl", source)
         self.assertIn("updateRulesetUrl", source)
         self.assertIn('id="ruleset-select"', INDEX_HTML.read_text(encoding="utf-8"))
+
+    def test_shared_calculator_consumers_and_search_compare_controls_exist(self) -> None:
+        source = MAIN_JS.read_text(encoding="utf-8")
+        html = INDEX_HTML.read_text(encoding="utf-8")
+
+        self.assertIn("OWDamageModel.evaluate", source)
+        self.assertIn("OWDamageModel.shotsToKill", source)
+        self.assertIn("data-armor-headshot", source)
+        self.assertIn("data-graph-selected", source)
+        self.assertIn("renderLinkedMentions", source)
+        self.assertIn('id="search-target"', html)
+        self.assertIn('id="subrole-filter"', html)
+        self.assertIn('id="compare-toggle"', html)
 
 
 if __name__ == "__main__":

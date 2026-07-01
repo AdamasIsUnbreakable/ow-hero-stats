@@ -153,7 +153,9 @@ site\public\data\v1\
 
 `manifest.json` includes the schema version, generation timestamp, source API endpoint, hero count, and paths to the other files.
 
-Current website schema version: `2.0.0`. Hero detail files contain a shared `base`, sparse `ruleset_overrides` (currently 5v5 and 6v6), and `overrides_applied` provenance. The legacy top-level resolved base fields remain present for simple consumers. The schema retains UI-readable `display_unit` fields, cleaned `raw_display` fields, stat `components`, and original `raw` values.
+Current website schema version: `3.0.0`. Hero detail files contain a shared `base`, sparse `ruleset_overrides` (currently 5v5 and 6v6), and `overrides_applied` provenance. The legacy top-level resolved base fields remain present for simple consumers. The schema retains UI-readable `display_unit` fields, cleaned `raw_display` fields, stat `components`, and original `raw` values.
+
+Schema 3 adds `search.index.json`, a lightweight hero/ability/perk/tag index used by roster search without fetching every hero detail. The standalone `site/src/damage-model.js` calculation model consumes already-resolved ruleset data and is shared by armor, damage/DPS-at-distance, falloff, headshot, breakpoint, and compare features. It intentionally refuses component, pellet, splash, damage-over-time, charge-scaled, and deployable damage.
 
 ### Corrections and rulesets
 

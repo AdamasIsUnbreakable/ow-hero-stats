@@ -17,7 +17,7 @@ from .parse_stats import EMPTY_VALUES, clean_text
 from .overrides import RULESETS, build_ruleset_data
 
 
-SCHEMA_VERSION = "2.0.0"
+SCHEMA_VERSION = "3.0.0"
 DEFAULT_WEB_DATA_DIR = Path("site/public/data/v1")
 STAT_LABELS = {
     "damage": "Damage",
@@ -76,6 +76,7 @@ def build_manifest(hero_count: int, generated_at: str | None = None) -> dict[str
         "rulesets": RULESETS,
         "data_files": {
             "hero_index": "heroes.index.json",
+            "search_index": "search.index.json",
             "audit_summary": "audit-summary.json",
             "quality_report": "quality-report.json",
             "hero_detail_dir": "heroes/",
@@ -85,6 +86,27 @@ def build_manifest(hero_count: int, generated_at: str | None = None) -> dict[str
 
 def build_hero_index(heroes: list[HeroStats]) -> list[dict[str, Any]]:
     return [build_hero_index_entry(hero) for hero in heroes]
+
+
+def build_search_index(heroes: list[HeroStats]) -> list[dict[str, Any]]:
+    """Build compact ability, perk, and tag search data for the roster."""
+    entries: list[dict[str, Any]] = []
+    for hero in heroes:
+        abilities = []
+        for ability_index, ability in enumerate(hero.abilities):
+            raw = {str(key).casefold(): clean_display_text(value) for key, value in ability.raw.items()}
+            keywords = raw.get("ability keywords") or raw.get("ability_keywords") or ""
+            description = raw.get("official description") or raw.get("official_description") or raw.get("description") or ""
+            abilities.append({
+                "ability_index": ability_index,
+                "name": ability.name,
+                "type": ability.type,
+                "is_perk": "perk" in (ability.type or "").casefold(),
+                "tags": [item.strip() for item in re.split(r"::|;;|[;,]", keywords) if item.strip()],
+                "description": description,
+            })
+        entries.append({"slug": hero_slug(hero.name), "name": hero.name, "sub_role": hero.sub_role, "abilities": abilities})
+    return entries
 
 
 def build_hero_index_entry(hero: HeroStats) -> dict[str, Any]:
@@ -496,16 +518,19 @@ def write_web_data(
     generated_at = _utc_now()
     manifest = build_manifest(hero_count=len(heroes), generated_at=generated_at)
     hero_index = build_hero_index(heroes)
+    search_index = build_search_index(heroes)
     quality_report = build_quality_report(heroes, generated_at=generated_at)
 
     paths = {
         "manifest": base_dir / "manifest.json",
         "hero_index": base_dir / "heroes.index.json",
+        "search_index": base_dir / "search.index.json",
         "audit_summary": base_dir / "audit-summary.json",
         "quality_report": base_dir / "quality-report.json",
     }
     _write_json(paths["manifest"], manifest)
     _write_json(paths["hero_index"], hero_index)
+    _write_json(paths["search_index"], search_index)
     _write_json(paths["audit_summary"], audit_summary)
     _write_json(paths["quality_report"], quality_report)
 
