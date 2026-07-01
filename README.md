@@ -159,7 +159,9 @@ Schema 3 adds `search.index.json`, a lightweight hero/ability/perk/tag index use
 
 ### Corrections and rulesets
 
-Programmatic corrections live in `overwatch_stats\overrides.py` and run only while website data is generated. Add a narrowly sourced entry to `HERO_OVERRIDES` with its ruleset, path, replacement value, reason, and source. Corrections never mutate Cargo `raw` rows; every applied item is copied to `overrides_applied`. Shared values belong in `base`, while only differences belong in a named `ruleset_overrides` patch. Empty patches are intentional: they mean the mode is supported but no distinct value has been confirmed. The viewer resolves the selected mode before rendering.
+Programmatic corrections live in `overwatch_stats\overrides.py` and run only while website data is generated. Add a narrowly sourced entry to `HERO_OVERRIDES` with its ruleset, path, replacement value, reason, and source. Corrections never mutate Cargo `raw` rows or the caller's source-derived object; every applied item is copied to `overrides_applied`. The generated `base` is a copy of source data with confirmed corrections for the default ruleset applied. Non-default differences live in sparse named `ruleset_overrides` patches. Empty patches are intentional: they mean the mode is selectable but no distinct value has been confirmed, and the viewer says when it is showing shared base values rather than inferred mode-specific values.
+
+Ability override selectors must resolve to exactly one existing source ability. Prefer `ability_index`; a name selector may include `slot` and `type` to disambiguate. Generation raises an error for missing or ambiguous selectors, so overrides cannot create abilities and typos cannot become silent frontend no-ops. The viewer resolves the selected mode before rendering.
 
 Ability-level corrections should prefer the stable `ability_index`; `name` with `slot` and `type` is the readable fallback when an index is unavailable:
 

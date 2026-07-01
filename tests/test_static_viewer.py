@@ -159,8 +159,11 @@ class StaticViewerTests(unittest.TestCase):
         html = INDEX_HTML.read_text(encoding="utf-8")
 
         self.assertIn('id="ruleset-select"', html)
-        self.assertIn('value="5v5"', html)
-        self.assertIn('value="6v6"', html)
+        self.assertNotIn('value="5v5"', html)
+        self.assertNotIn('value="6v6"', html)
+        self.assertIn("function populateRulesetSelector", source)
+        self.assertIn("manifest?.rulesets?.available", source)
+        self.assertIn("Manifest default ruleset is not present", source)
         self.assertIn("function resolveHeroRuleset", source)
         self.assertIn("detail.ruleset_overrides?.[ruleset]", source)
         self.assertIn("renderKeywordChip", source)
@@ -180,7 +183,20 @@ class StaticViewerTests(unittest.TestCase):
         self.assertNotIn("target.abilities?.find((item) => item.name === abilityPatch.name)", merge_source)
         self.assertIn("getRulesetFromUrl", source)
         self.assertIn("updateRulesetUrl", source)
+        self.assertIn("state.selectedRuleset = getRulesetFromUrl(state.manifest)", source)
         self.assertIn('id="ruleset-select"', INDEX_HTML.read_text(encoding="utf-8"))
+
+    def test_mode_coverage_note_and_generated_tag_are_visible_in_hero_ui(self) -> None:
+        source = MAIN_JS.read_text(encoding="utf-8")
+        styles = STYLES_CSS.read_text(encoding="utf-8")
+
+        self.assertIn("renderGeneratedTag()", source)
+        self.assertIn('class="generated-tag"', source)
+        self.assertIn("renderRulesetCoverageNote(hero)", source)
+        self.assertIn("No confirmed ${escapeHtml(state.selectedRuleset)}-specific overrides", source)
+        self.assertIn("missing mode-specific values are not inferred", source)
+        self.assertIn(".generated-tag", styles)
+        self.assertIn(".ruleset-coverage-note", styles)
 
     def test_shared_calculator_consumers_and_search_compare_controls_exist(self) -> None:
         source = MAIN_JS.read_text(encoding="utf-8")

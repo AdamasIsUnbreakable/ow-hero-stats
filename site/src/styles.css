@@ -478,6 +478,30 @@ select {
   gap: 10px;
 }
 
+.generated-tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 3px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  color: #dbe7f4;
+  background: rgba(8, 13, 20, 0.72);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.ruleset-coverage-note {
+  max-width: 48ch;
+  margin: 8px 0 0;
+  padding: 8px 10px;
+  border-left: 3px solid #f9a825;
+  color: #ffe3a8;
+  background: rgba(249, 168, 37, 0.1);
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
 .hero-card-meta,
 .muted,
 .raw-value {

@@ -134,6 +134,7 @@ class WebExportTests(unittest.TestCase):
         self.assertEqual(manifest["data_files"]["search_index"], "search.index.json")
         self.assertEqual(manifest["rulesets"]["default"], "5v5")
         self.assertEqual([item["id"] for item in manifest["rulesets"]["available"]], ["5v5", "6v6"])
+        self.assertEqual(manifest["rulesets"]["available"][1]["status"], "partial")
         self.assertEqual(manifest["hero_count"], 1)
         self.assertEqual(manifest["data_files"]["hero_index"], "heroes.index.json")
         self.assertEqual(manifest["data_files"]["audit_summary"], "audit-summary.json")
@@ -196,6 +197,7 @@ class WebExportTests(unittest.TestCase):
 
     def test_override_layer_supports_name_slot_type_patch(self):
         selector = {"name": "The Viper", "slot": "Primary Fire", "type": "Weapon"}
+        base = {"abilities": [{**selector, "ability_index": 0, "stats": {"damage": {"value": 40}}}]}
         HERO_OVERRIDES["ashe"] = [{
             "ruleset": "6v6",
             "path": ["abilities", selector, "stats", "damage", "value"],
@@ -204,13 +206,49 @@ class WebExportTests(unittest.TestCase):
             "source": "Fixture source",
         }]
         try:
-            result = build_ruleset_data("ashe", {"abilities": []})
+            result = build_ruleset_data("ashe", base)
         finally:
             HERO_OVERRIDES.pop("ashe")
 
         patch = result["ruleset_overrides"]["6v6"]["abilities"][0]
         self.assertEqual({key: patch[key] for key in selector}, selector)
         self.assertEqual(patch["stats"]["damage"]["value"], 45)
+
+    def test_default_ruleset_correction_updates_generated_base_without_mutating_source(self):
+        source_base = {"health": {"health": 250, "armor": 0}}
+        HERO_OVERRIDES["test-hero"] = [{
+            "ruleset": "5v5",
+            "path": ["health", "armor"],
+            "value": 25,
+            "reason": "Fixture correction",
+            "source": "Fixture source",
+        }]
+        try:
+            result = build_ruleset_data("test-hero", source_base)
+        finally:
+            HERO_OVERRIDES.pop("test-hero")
+
+        self.assertEqual(source_base["health"]["armor"], 0)
+        self.assertEqual(result["base"]["health"]["armor"], 25)
+        self.assertEqual(result["overrides_applied"][0]["ruleset"], "5v5")
+
+    def test_override_rejects_missing_or_ambiguous_ability_selector(self):
+        base = {"abilities": [
+            {"ability_index": 0, "name": "Pulse", "slot": "Primary"},
+            {"ability_index": 1, "name": "Pulse", "slot": "Secondary"},
+        ]}
+        for selector, expected in [({"name": "Typo"}, "missing"), ({"name": "Pulse"}, "ambiguous")]:
+            with self.subTest(selector=selector):
+                HERO_OVERRIDES["test-hero"] = [{
+                    "ruleset": "6v6",
+                    "path": ["abilities", selector, "stats", "damage", "value"],
+                    "value": 45,
+                }]
+                try:
+                    with self.assertRaisesRegex(ValueError, expected):
+                        build_ruleset_data("test-hero", base)
+                finally:
+                    HERO_OVERRIDES.pop("test-hero")
 
     def test_quality_report_counts_fixture_hero(self):
         report = build_quality_report([self.hero], generated_at="2026-06-25T23:00:00Z")
