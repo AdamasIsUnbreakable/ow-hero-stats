@@ -159,6 +159,18 @@ Current website schema version: `2.0.0`. Hero detail files contain a shared `bas
 
 Programmatic corrections live in `overwatch_stats\overrides.py` and run only while website data is generated. Add a narrowly sourced entry to `HERO_OVERRIDES` with its ruleset, path, replacement value, reason, and source. Corrections never mutate Cargo `raw` rows; every applied item is copied to `overrides_applied`. Shared values belong in `base`, while only differences belong in a named `ruleset_overrides` patch. Empty patches are intentional: they mean the mode is supported but no distinct value has been confirmed. The viewer resolves the selected mode before rendering.
 
+Ability-level corrections should prefer the stable `ability_index`; `name` with `slot` and `type` is the readable fallback when an index is unavailable:
+
+```python
+{
+    "ruleset": "6v6",
+    "path": ["abilities", {"ability_index": 0}, "stats", "damage", "value"],
+    "value": 45,
+    "reason": "Confirmed mode-specific correction",
+    "source": "Source reference",
+}
+```
+
 `heroes.index.json` is lightweight for hero selector/search views. It includes hero identity, role, health, ability count, warning count, confidence counts, and each hero detail path. It does not include full raw ability rows.
 
 Each `heroes\{slug}.json` detail file includes raw and parsed stats for that hero, so a future website can support raw/parsed toggles and warning-aware displays.

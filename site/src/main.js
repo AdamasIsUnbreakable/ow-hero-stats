@@ -1131,7 +1131,7 @@ function deepMergeRuleset(target, patch) {
   for (const [key, value] of Object.entries(patch || {})) {
     if (key === "abilities" && Array.isArray(value)) {
       for (const abilityPatch of value) {
-        const ability = target.abilities?.find((item) => item.name === abilityPatch.name);
+        const ability = findAbilityForPatch(target.abilities || [], abilityPatch);
         if (ability) deepMergeRuleset(ability, abilityPatch);
       }
     } else if (value && typeof value === "object" && !Array.isArray(value)) {
@@ -1141,6 +1141,21 @@ function deepMergeRuleset(target, patch) {
     }
   }
   return target;
+}
+
+function findAbilityForPatch(abilities, abilityPatch) {
+  if (Number.isFinite(abilityPatch.ability_index)) {
+    return abilities.find((ability) => ability.ability_index === abilityPatch.ability_index) || null;
+  }
+
+  let candidates = abilities.filter((ability) => ability.name === abilityPatch.name);
+  if (hasText(abilityPatch.slot)) {
+    candidates = candidates.filter((ability) => ability.slot === abilityPatch.slot);
+  }
+  if (hasText(abilityPatch.type)) {
+    candidates = candidates.filter((ability) => ability.type === abilityPatch.type);
+  }
+  return candidates.length === 1 ? candidates[0] : null;
 }
 
 function formatHeadshot(stat, multiplier) {

@@ -149,6 +149,61 @@ class WebExportTests(unittest.TestCase):
         self.assertEqual(result["ruleset_overrides"]["6v6"]["health"]["armor"], 100)
         self.assertEqual(result["overrides_applied"][0]["reason"], "Fixture correction")
 
+    def test_override_layer_supports_ability_index_patch(self):
+        base = {
+            "abilities": [{
+                "ability_index": 0,
+                "name": "The Viper",
+                "slot": "Primary Fire",
+                "type": "Weapon",
+                "stats": {"damage": {"value": 40}},
+            }],
+        }
+        path = ["abilities", {"ability_index": 0}, "stats", "damage", "value"]
+        HERO_OVERRIDES["ashe"] = [{
+            "ruleset": "6v6",
+            "path": path,
+            "value": 45,
+            "reason": "Fixture correction",
+            "source": "Fixture source",
+        }]
+        try:
+            result = build_ruleset_data("ashe", base)
+        finally:
+            HERO_OVERRIDES.pop("ashe")
+
+        abilities = result["ruleset_overrides"]["6v6"]["abilities"]
+        self.assertIsInstance(abilities, list)
+        self.assertNotIn("abilities", abilities[0])
+        self.assertEqual(abilities[0]["ability_index"], 0)
+        self.assertEqual(abilities[0]["stats"]["damage"]["value"], 45)
+        self.assertEqual(base["abilities"][0]["stats"]["damage"]["value"], 40)
+        self.assertEqual(result["overrides_applied"], [{
+            "ruleset": "6v6",
+            "path": path,
+            "value": 45,
+            "reason": "Fixture correction",
+            "source": "Fixture source",
+        }])
+
+    def test_override_layer_supports_name_slot_type_patch(self):
+        selector = {"name": "The Viper", "slot": "Primary Fire", "type": "Weapon"}
+        HERO_OVERRIDES["ashe"] = [{
+            "ruleset": "6v6",
+            "path": ["abilities", selector, "stats", "damage", "value"],
+            "value": 45,
+            "reason": "Fixture correction",
+            "source": "Fixture source",
+        }]
+        try:
+            result = build_ruleset_data("ashe", {"abilities": []})
+        finally:
+            HERO_OVERRIDES.pop("ashe")
+
+        patch = result["ruleset_overrides"]["6v6"]["abilities"][0]
+        self.assertEqual({key: patch[key] for key in selector}, selector)
+        self.assertEqual(patch["stats"]["damage"]["value"], 45)
+
     def test_quality_report_counts_fixture_hero(self):
         report = build_quality_report([self.hero], generated_at="2026-06-25T23:00:00Z")
 

@@ -167,6 +167,21 @@ class StaticViewerTests(unittest.TestCase):
         self.assertIn("rolePassiveDescription", source)
         self.assertIn("formatHeadshot", source)
 
+    def test_ruleset_ability_patches_match_safely(self) -> None:
+        source = MAIN_JS.read_text(encoding="utf-8")
+        merge_source = source[
+            source.index("function deepMergeRuleset"):source.index("function formatHeadshot")
+        ]
+
+        self.assertIn("function findAbilityForPatch", merge_source)
+        self.assertIn("Number.isFinite(abilityPatch.ability_index)", merge_source)
+        self.assertIn("ability.ability_index === abilityPatch.ability_index", merge_source)
+        self.assertIn("candidates.length === 1 ? candidates[0] : null", merge_source)
+        self.assertNotIn("target.abilities?.find((item) => item.name === abilityPatch.name)", merge_source)
+        self.assertIn("getRulesetFromUrl", source)
+        self.assertIn("updateRulesetUrl", source)
+        self.assertIn('id="ruleset-select"', INDEX_HTML.read_text(encoding="utf-8"))
+
 
 if __name__ == "__main__":
     unittest.main()
