@@ -1,0 +1,45 @@
+{
+  "name": "Zarya",
+  "slug": "zarya",
+  "health": {"health": 250, "armor": null, "shield": 225},
+  "abilities": [
+    {
+      "name": "Particle Cannon",
+      "slot": "primary fire",
+      "type": "Weapon; Primary Fire",
+      "shot_type": ["Beam"],
+      "stats": {
+        "damage": {
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "raw_display": "95 per second (at 0%); 175 per second (100% Energy)",
+          "components": [
+            {"label": "at 0%", "value": 95, "min_value": null, "max_value": null},
+            {"label": "100% Energy", "value": 175, "min_value": null, "max_value": null}
+          ]
+        }
+      }
+    },
+    {
+      "name": "Particle Cannon Alt Fire",
+      "slot": "secondary fire",
+      "type": "Weapon; Secondary Fire",
+      "stats": {
+        "damage": {
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "raw_display": "55 â€“ 11 (enemy, 0% Energy); 110 â€“ 22 (enemy, 100% Energy); 27.5 â€“ 5.5 (self, 0% Energy); 55 â€“ 11 (self, 100% Energy)",
+          "components": [
+            {"label": "enemy, 0% Energy", "value": 55, "min_value": null, "max_value": null},
+            {"label": "enemy, 100% Energy", "value": 110, "min_value": null, "max_value": null},
+            {"label": "self, 0% Energy", "value": 27.5, "min_value": null, "max_value": null},
+            {"label": "self, 100% Energy", "value": 55, "min_value": null, "max_value": null}
+          ]
+        },
+        "radius": {"value": null, "min_value": 0.5, "max_value": 2.5, "raw_display": "0.5 - 2.5 meters"}
+      }
+    }
+  ]
+}

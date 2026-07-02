@@ -1,0 +1,36 @@
+{
+  "name": "Torbjorn",
+  "slug": "torbj-rn",
+  "health": {"health": 250, "armor": 50, "shield": null},
+  "abilities": [
+    {
+      "name": "Deploy Turret",
+      "slot": "ability 1",
+      "type": "Ability",
+      "stats": {
+        "damage": {"value": 12, "min_value": null, "max_value": null, "raw_display": "12", "components": []},
+        "duration": {"value": "until_destroyed_or_replaced", "raw_display": "Until destroyed or replaced"},
+        "fire_rate": {"value": 4, "raw_display": "4 shots/s"}
+      }
+    },
+    {
+      "name": "Molten Core",
+      "slot": "ultimate",
+      "type": "Ultimate Ability",
+      "stats": {
+        "damage": {
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "raw_display": "25 (impact); 190 per second (pools, base); +100 (pools, bonus against armor)",
+          "components": [
+            {"label": "impact", "value": 25, "min_value": null, "max_value": null},
+            {"label": "pools, base", "value": 190, "min_value": null, "max_value": null},
+            {"label": "pools, bonus against armor", "value": 100, "min_value": null, "max_value": null}
+          ]
+        },
+        "duration": {"value": null, "raw_display": "5.5 seconds (max transformation); 10 seconds (pools)"}
+      }
+    }
+  ]
+}

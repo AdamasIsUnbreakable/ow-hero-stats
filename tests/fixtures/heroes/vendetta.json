@@ -1,0 +1,48 @@
+{
+  "name": "Vendetta",
+  "slug": "vendetta",
+  "health": {"health": 300, "armor": null, "shield": null},
+  "abilities": [
+    {
+      "name": "Palatine Fang",
+      "slot": "primary fire",
+      "type": "Weapon",
+      "stats": {
+        "damage": {
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "raw_display": "45 (swing); 120 (overhead strike)",
+          "components": [
+            {"label": "swing", "value": 45, "min_value": null, "max_value": null},
+            {"label": "overhead strike", "value": 120, "min_value": null, "max_value": null}
+          ]
+        }
+      }
+    },
+    {
+      "name": "Projected Edge",
+      "slot": "primary fire",
+      "type": "Ability",
+      "stats": {"damage": {"value": 70, "min_value": null, "max_value": null, "raw_display": "70", "components": []}}
+    },
+    {
+      "name": "Sundering Blade",
+      "slot": "ultimate",
+      "type": "Ultimate Ability",
+      "stats": {
+        "damage": {
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "raw_display": "100/50 (direct/indirect stage 1); 200/100 (direct/indirect stage 2); 400/200 (direct/indirect stage 3)",
+          "components": [
+            {"label": "direct/indirect stage 1", "value": 100, "min_value": null, "max_value": null, "raw_display": "100/50 (direct/indirect stage 1)"},
+            {"label": "direct/indirect stage 2", "value": 200, "min_value": null, "max_value": null, "raw_display": "200/100 (direct/indirect stage 2)"},
+            {"label": "direct/indirect stage 3", "value": 400, "min_value": null, "max_value": null, "raw_display": "400/200 (direct/indirect stage 3)"}
+          ]
+        }
+      }
+    }
+  ]
+}

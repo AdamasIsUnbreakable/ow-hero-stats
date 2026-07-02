@@ -115,13 +115,17 @@ class DamageModelTests(unittest.TestCase):
 
     def test_vendetta_complex_entries_expose_stage_selection(self):
         fang = {"name": "Palatine Fang", "type": "Weapon", "stats": {"damage": {"components": [{"label": "swing", "value": 45}, {"label": "overhead strike", "value": 120}]}}}
-        blade = {"name": "Sundering Blade", "type": "Ability", "stats": {"damage": {"components": [{"label": "direct/indirect stage 1", "value": 100}]}}}
+        blade = {"name": "Sundering Blade", "type": "Ability", "stats": {"damage": {"components": [{"label": "direct/indirect stage 1", "value": 100, "raw_display": "100/50 (direct/indirect stage 1)"}]}}}
         result = self.run_model(
             f"[{json.dumps(fang)},{json.dumps(blade)}].map(ability=>OWDamageModel.classify(ability))"
         )
         self.assertTrue(all(item["supported"] for item in result))
         self.assertTrue(all(item["kind"] == "staged" for item in result))
         self.assertEqual(result[0]["controls"], ["stage"])
+        self.assertEqual(
+            [(stage["label"], stage["damage"]) for stage in result[1]["stages"]],
+            [("Stage 1 (direct)", 100), ("Stage 1 (indirect)", 50)],
+        )
 
     def test_repeatable_weapon_calculates_shots_without_per_shot_events(self):
         weapon = {"type": "Weapon", "slot": "primary fire", "stats": {"damage": {"value": 40, "components": []}}}

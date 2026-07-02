@@ -1,0 +1,25 @@
+{
+  "name": "Sojourn",
+  "slug": "sojourn",
+  "health": {"health": 250, "armor": null, "shield": null},
+  "abilities": [
+    {
+      "name": "Disruptor Shot",
+      "slot": "ability 2",
+      "type": "Ability",
+      "stats": {
+        "damage": {
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "raw_display": "90 per second; 315 total",
+          "components": [
+            {"label": "per second", "value": 90, "min_value": null, "max_value": null},
+            {"label": "total", "value": 315, "min_value": null, "max_value": null}
+          ]
+        },
+        "duration": {"value": 3.5, "raw_display": "3.5 seconds"}
+      }
+    }
+  ]
+}

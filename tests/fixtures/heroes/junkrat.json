@@ -1,0 +1,43 @@
+{
+  "name": "Junkrat",
+  "slug": "junkrat",
+  "health": {"health": 250, "armor": null, "shield": null},
+  "abilities": [
+    {
+      "name": "Concussion Mine",
+      "slot": "ability 1",
+      "type": "Ability",
+      "shot_type": ["Arcing projectile", "Area of effect"],
+      "stats": {
+        "damage": {"value": null, "min_value": null, "max_value": null, "raw_display": "120 â€“ 55", "components": []},
+        "radius": {"value": null, "min_value": 1, "max_value": 3, "raw_display": "1 - 3 meters"},
+        "charges": {"value": 2, "min_value": null, "max_value": null, "raw_display": "2"}
+      }
+    },
+    {
+      "name": "Steel Trap",
+      "slot": "ability 2",
+      "type": "Ability",
+      "stats": {"damage": {"value": 100, "min_value": null, "max_value": null, "raw_display": "100", "components": []}}
+    },
+    {
+      "name": "Frag Launcher",
+      "slot": "primary fire",
+      "type": "Weapon",
+      "shot_type": ["Arcing projectile", "Area of effect"],
+      "stats": {
+        "damage": {
+          "value": null,
+          "min_value": null,
+          "max_value": null,
+          "raw_display": "45 (direct hit); 80 - 10 (splash, enemy)",
+          "components": [
+            {"label": "direct hit", "value": 45, "min_value": null, "max_value": null},
+            {"label": "splash, enemy", "value": null, "min_value": 10, "max_value": 80}
+          ]
+        },
+        "radius": {"value": null, "min_value": 0.5, "max_value": 2, "raw_display": "0.5 - 2 meters (falloff start - max)"}
+      }
+    }
+  ]
+}

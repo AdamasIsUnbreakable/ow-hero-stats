@@ -178,10 +178,21 @@
 
   function vendettaStageModel(ability, components) {
     if (!['Palatine Fang', 'Sundering Blade'].includes(ability?.name)) return null;
-    const stages = components.map((component, index) => ({
-      label: `${ability.name === 'Sundering Blade' ? 'direct hit, ' : ''}${String(component?.label || `stage ${index + 1}`).replaceAll('[[', '').replaceAll(']]', '')}`,
-      damage: componentValues(component).maximum,
-    })).filter((stage) => stage.damage !== null && stage.damage > 0);
+    const stages = components.flatMap((component, index) => {
+      const label = String(component?.label || `stage ${index + 1}`).replaceAll('[[', '').replaceAll(']]', '');
+      if (ability.name === 'Sundering Blade') {
+        const raw = String(component?.raw_display ?? component?.raw ?? '');
+        const pair = raw.match(/([\d.]+)\s*\/\s*([\d.]+)/);
+        if (pair) {
+          const stage = label.match(/stage\s+(\d+)/i)?.[1] || String(index + 1);
+          return [
+            { label: `Stage ${stage} (direct)`, damage: Number(pair[1]) },
+            { label: `Stage ${stage} (indirect)`, damage: Number(pair[2]) },
+          ];
+        }
+      }
+      return [{ label, damage: componentValues(component).maximum }];
+    }).filter((stage) => stage.damage !== null && stage.damage > 0);
     if (!stages.length) return { supported: false, reason: "Needs combo-stage selection, but no positive stage damage was parsed." };
     return { supported: true, kind: "staged", stages, controls: ["stage"], unit: "shots" };
   }

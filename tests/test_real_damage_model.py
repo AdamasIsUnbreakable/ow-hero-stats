@@ -6,7 +6,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).parents[1]
 MODEL = ROOT / "site" / "src" / "damage-model.js"
-HEROES = ROOT / "site" / "public" / "data" / "v1" / "heroes"
+HEROES = ROOT / "tests" / "fixtures" / "heroes"
 
 
 class RealDamageModelTests(unittest.TestCase):
@@ -99,15 +99,25 @@ class RealDamageModelTests(unittest.TestCase):
         self.assertEqual([item["kind"] for item in result], ["staged", "staged", "direct"])
         self.assertTrue(all(item["supported"] for item in result))
         self.assertEqual([stage["damage"] for stage in result[0]["stages"]], [45, 120])
-        self.assertEqual([stage["damage"] for stage in result[1]["stages"]], [100, 200, 400])
+        self.assertEqual(
+            [(stage["label"], stage["damage"]) for stage in result[1]["stages"]],
+            [
+                ("Stage 1 (direct)", 100),
+                ("Stage 1 (indirect)", 50),
+                ("Stage 2 (direct)", 200),
+                ("Stage 2 (indirect)", 100),
+                ("Stage 3 (direct)", 400),
+                ("Stage 3 (indirect)", 200),
+            ],
+        )
         fang_damage = self.run_model(
             f"[0,1].map(stage=>OWDamageModel.evaluate({{ability:{json.dumps(fang)},stage}}).damage)"
         )
         blade_damage = self.run_model(
-            f"[0,1,2].map(stage=>OWDamageModel.evaluate({{ability:{json.dumps(blade)},stage}}).damage)"
+            f"[0,1,2,3,4,5].map(stage=>OWDamageModel.evaluate({{ability:{json.dumps(blade)},stage}}).damage)"
         )
         self.assertEqual(fang_damage, [45, 120])
-        self.assertEqual(blade_damage, [100, 200, 400])
+        self.assertEqual(blade_damage, [100, 50, 200, 100, 400, 200])
 
 
 if __name__ == "__main__":
