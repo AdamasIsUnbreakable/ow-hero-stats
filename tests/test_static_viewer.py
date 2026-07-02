@@ -143,7 +143,7 @@ class StaticViewerTests(unittest.TestCase):
         self.assertIn("function cleanGameplayNote", cleanup_source)
         self.assertIn("uniqueCleanGameplayNotes", cleanup_source)
 
-    def test_health_meter_hides_missing_types_and_shows_shots_calculator(self) -> None:
+    def test_health_meter_hides_missing_types_and_opens_shots_dialog(self) -> None:
         source = MAIN_JS.read_text(encoding="utf-8")
         styles = STYLES_CSS.read_text(encoding="utf-8")
         health_source = source[
@@ -152,13 +152,32 @@ class StaticViewerTests(unittest.TestCase):
 
         self.assertIn("amount > 0", health_source)
         self.assertIn("function renderHealthStats", health_source)
-        self.assertIn("Shots to kill calculator", health_source)
-        self.assertIn("data-attacker-grid", health_source)
-        self.assertIn("data-shots-weapon-list", health_source)
-        self.assertIn("data-shots-limited-list", health_source)
+        render_health = health_source[health_source.index("function renderHealthStats"):health_source.index("function renderShotsCalculatorDialog")]
+        self.assertIn("Open shots-to-kill calculator", render_health)
+        self.assertIn("data-shots-calculator-open", render_health)
+        self.assertNotIn("data-attacker-grid", render_health)
+        self.assertNotIn("<details class=\"shots-calculator\"", render_health)
         self.assertNotIn("Total functional health pool", health_source)
         self.assertNotIn("max(d − 7, d × 0.5)", health_source)
         self.assertIn("repeat(auto-fit", styles)
+
+    def test_shots_calculator_dialog_is_accessible_and_closable(self) -> None:
+        source = MAIN_JS.read_text(encoding="utf-8")
+        dialog_source = source[
+            source.index("function renderShotsCalculatorDialog"):source.index("function damagingAbilityEntries")
+        ]
+
+        self.assertIn('<dialog class="ability-dialog-backdrop shots-dialog-backdrop" aria-labelledby=', dialog_source)
+        self.assertIn('aria-label="Close shots-to-kill calculator"', dialog_source)
+        self.assertIn("data-attacker-grid", dialog_source)
+        self.assertIn("data-shots-weapon-list", dialog_source)
+        self.assertIn("data-shots-limited-list", dialog_source)
+        self.assertIn('dialog.addEventListener("cancel"', dialog_source)
+        self.assertIn('dialog.addEventListener("keydown"', dialog_source)
+        self.assertIn('event.key === "Escape"', dialog_source)
+        self.assertIn("if (event.target === dialog)", dialog_source)
+        self.assertIn("sourceButton.focus()", dialog_source)
+        self.assertIn("bindShotsToKillCalculator(dialog)", dialog_source)
 
     def test_single_ruleset_resolves_base_without_a_mode_control(self) -> None:
         source = MAIN_JS.read_text(encoding="utf-8")

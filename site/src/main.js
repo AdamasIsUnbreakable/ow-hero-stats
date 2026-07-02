@@ -24,6 +24,8 @@ const state = {
   abilityDialog: null,
   abilityDialogAbility: null,
   abilityDialogSource: null,
+  shotsDialog: null,
+  shotsDialogSource: null,
   bodyOverflowBeforeDialog: "",
 };
 
@@ -381,6 +383,7 @@ async function selectHero(indexHero, options = {}) {
 }
 
 function renderHeroDetail(hero) {
+  closeShotsDialog({ restoreFocus: false });
   const groups = groupHeroAbilities(hero.abilities || []);
   elements.heroDetail.innerHTML = `
     <article class="hero-info-page">
@@ -430,7 +433,7 @@ function renderHeroDetail(hero) {
   `;
 
   bindAbilityRows();
-  bindShotsToKillCalculator();
+  bindShotsCalculatorOpener();
 }
 
 function renderHeroBackdrop(hero) {
@@ -651,6 +654,7 @@ function openAbilityDialog(ability, sourceRow) {
   if (state.abilityDialog) {
     closeAbilityDialog({ restoreFocus: false });
   }
+  closeShotsDialog({ restoreFocus: false });
   clearAbilityPreviewState();
 
   const host = document.createElement("div");
@@ -1020,10 +1024,29 @@ function renderHealthStats(hero = {}) {
       ${renderHealthCell("Armor", armor)}
       ${renderHealthCell("Shield", shield)}
     </dl>
-    <details class="shots-calculator">
-      <summary>Shots to kill calculator</summary>
-      <div class="shots-calculator-body">
-        <p class="shots-calculator-context"><strong>Target: ${escapeHtml(hero.name)}</strong> (${formatNumber(total)} total health). Choose the attacking hero.</p>
+    <button class="shots-calculator-open" type="button" data-shots-calculator-open aria-haspopup="dialog">
+      Open shots-to-kill calculator
+    </button>
+  `;
+}
+
+function renderShotsCalculatorDialog(hero) {
+  const total = positiveHealthValue(hero.health?.health) + positiveHealthValue(hero.health?.armor) + positiveHealthValue(hero.health?.shield);
+  const titleId = `shots-calculator-title-${hero.slug}`;
+  return `
+    <dialog class="ability-dialog-backdrop shots-dialog-backdrop" aria-labelledby="${escapeHtml(titleId)}">
+      <article class="ability-dialog shots-dialog">
+        <header class="ability-dialog-header shots-dialog-header">
+          <div>
+            <h2 id="${escapeHtml(titleId)}">Shots-to-kill calculator</h2>
+            <p><strong>Target: ${escapeHtml(hero.name)}</strong> (${formatNumber(total)} total health)</p>
+          </div>
+          <button class="ability-dialog-close" type="button" aria-label="Close shots-to-kill calculator" data-shots-dialog-close>&times;</button>
+        </header>
+        <div class="ability-dialog-body shots-dialog-body">
+          <div class="shots-calculator" data-shots-calculator>
+            <div class="shots-calculator-body">
+              <p class="shots-calculator-context">Choose the attacking hero, then select a weapon or ability.</p>
         <ul class="calculator-assumptions">
           <li>Explosive shots assume direct hits.</li>
           <li>Shotguns assume all pellets hit.</li>
@@ -1054,9 +1077,66 @@ function renderHealthStats(hero = {}) {
           <div data-shots-weapon-controls></div>
         </section>
         <div class="calculator-result shots-result" data-shots-result aria-live="polite">Choose an attacking hero.</div>
-      </div>
-    </details>
+            </div>
+          </div>
+        </div>
+      </article>
+    </dialog>
   `;
+}
+
+function bindShotsCalculatorOpener() {
+  const opener = elements.heroDetail.querySelector("[data-shots-calculator-open]");
+  if (!opener) return;
+  opener.addEventListener("click", () => openShotsDialog(opener));
+}
+
+function openShotsDialog(sourceButton) {
+  if (!state.selectedHero) return;
+  closeAbilityDialog({ restoreFocus: false });
+  closeShotsDialog({ restoreFocus: false });
+
+  const host = document.createElement("div");
+  host.innerHTML = renderShotsCalculatorDialog(state.selectedHero);
+  const dialog = host.firstElementChild;
+  document.body.append(dialog);
+  state.shotsDialog = dialog;
+  state.shotsDialogSource = sourceButton;
+  state.bodyOverflowBeforeDialog = document.body.style.overflow;
+  document.body.style.overflow = "hidden";
+
+  dialog.querySelector("[data-shots-dialog-close]").addEventListener("click", () => closeShotsDialog());
+  dialog.addEventListener("click", (event) => {
+    if (event.target === dialog) closeShotsDialog();
+  });
+  dialog.addEventListener("cancel", (event) => {
+    event.preventDefault();
+    closeShotsDialog();
+  });
+  dialog.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      event.preventDefault();
+      closeShotsDialog();
+    }
+  });
+  dialog.showModal();
+  bindShotsToKillCalculator(dialog);
+  dialog.querySelector("[data-shots-dialog-close]").focus();
+}
+
+function closeShotsDialog(options = {}) {
+  const { restoreFocus = true } = options;
+  const dialog = state.shotsDialog;
+  const sourceButton = state.shotsDialogSource;
+  if (!dialog) return;
+
+  state.shotsDialog = null;
+  state.shotsDialogSource = null;
+  document.body.style.overflow = state.bodyOverflowBeforeDialog;
+  state.bodyOverflowBeforeDialog = "";
+  if (dialog.open) dialog.close();
+  dialog.remove();
+  if (restoreFocus && sourceButton?.isConnected) sourceButton.focus();
 }
 
 function damagingAbilityEntries(abilities) {
@@ -1150,8 +1230,8 @@ function renderGeneratedTag() {
   return `<time class="generated-tag" datetime="${escapeHtml(generatedAt)}">Updated ${escapeHtml(label)}</time>`;
 }
 
-function bindShotsToKillCalculator() {
-  const calculator = elements.heroDetail.querySelector(".shots-calculator");
+function bindShotsToKillCalculator(dialog) {
+  const calculator = dialog.querySelector("[data-shots-calculator]");
   if (!calculator) return;
   const result = calculator.querySelector("[data-shots-result]");
   let attacker = null;

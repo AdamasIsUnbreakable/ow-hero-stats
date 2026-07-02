@@ -944,25 +944,31 @@ dd {
   background: rgba(238, 246, 255, 0.1);
 }
 
-.shots-calculator {
+.shots-calculator-open {
+  width: 100%;
   margin-top: 12px;
   border: 1px solid rgba(53, 227, 230, 0.22);
   border-radius: var(--radius);
-  background: rgba(8, 20, 29, 0.38);
-}
-
-.shots-calculator > summary {
+  background: rgba(8, 20, 29, 0.68);
   padding: 10px;
   color: #fff;
   font-weight: 800;
   cursor: pointer;
 }
 
+.shots-calculator-open:hover,
+.shots-calculator-open:focus-visible {
+  border-color: #35e3e6;
+  outline: 2px solid rgba(53, 227, 230, 0.34);
+}
+
+.shots-calculator {
+  min-width: 0;
+}
+
 .shots-calculator-body {
   display: grid;
   gap: 12px;
-  padding: 10px;
-  border-top: 1px solid rgba(53, 227, 230, 0.18);
 }
 
 .shots-calculator-body p,
@@ -1132,7 +1138,7 @@ dd {
 .advanced-damage-control { padding: 6px 0; }
 .advanced-damage-control summary { color: #c7d5e4; font-size: 0.76rem; font-weight: 700; cursor: pointer; }
 .advanced-damage-control[open] { display: grid; gap: 7px; }
-.shots-result { display: grid; gap: 3px; margin-top: 0; }
+.shots-result { position: sticky; bottom: 0; z-index: 2; display: grid; gap: 3px; margin-top: 0; border: 1px solid rgba(53, 227, 230, 0.28); background: rgba(12, 21, 30, 0.98); box-shadow: 0 -10px 24px rgba(4, 9, 15, 0.48); }
 .shots-result strong { color: #fff; font-size: 1rem; }
 .shots-result span { color: #b9c2ce; font-size: 0.78rem; }
 .combo-result-details { display: grid; gap: 5px; margin: 6px 0 0; }
@@ -1418,6 +1424,24 @@ dd {
   backdrop-filter: blur(7px);
 }
 
+.shots-dialog-backdrop {
+  width: min(1100px, calc(100vw - 32px));
+  max-height: 90vh;
+}
+
+.shots-dialog {
+  max-height: 90vh;
+}
+
+.shots-dialog-header {
+  grid-template-columns: minmax(0, 1fr) 44px;
+}
+
+.shots-dialog-body {
+  max-height: calc(90vh - 101px);
+  overflow-x: hidden;
+}
+
 .ability-dialog {
   max-height: 85vh;
   background: linear-gradient(150deg, rgba(22, 36, 49, 0.99), rgba(8, 14, 22, 0.99));
@@ -1668,6 +1692,24 @@ dd {
   .ability-dialog,
   .ability-dialog-body {
     max-height: 92vh;
+  }
+
+  .shots-dialog-backdrop {
+    width: calc(100vw - 8px);
+    max-height: 94vh;
+  }
+
+  .shots-dialog,
+  .shots-dialog-body {
+    max-height: 94vh;
+  }
+
+  .shots-dialog-header {
+    grid-template-columns: minmax(0, 1fr) 40px;
+  }
+
+  .shots-dialog-body {
+    max-height: calc(94vh - 81px);
   }
 
   .ability-dialog-header {
