@@ -1125,6 +1125,8 @@ dd {
 [data-shots-weapon-controls] label { display: grid; gap: 4px; font-size: 0.78rem; }
 .event-controls input[type="range"],
 .shots-options input[type="range"] { width: 100%; }
+.event-controls select,
+[data-shots-weapon-controls] select { width: 100%; min-height: 36px; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 6px; background: #131923; color: #fff; padding: 6px 8px; }
 .unsupported-reason { color: #f1bd75; font-size: 0.76rem; }
 .damage-assumption { color: #b9c2ce; font-size: 0.74rem; }
 .advanced-damage-control { padding: 6px 0; }

@@ -272,6 +272,7 @@ class StaticViewerTests(unittest.TestCase):
         self.assertIn("Explosion distance from center", calculator_source)
         self.assertNotIn("data-damage-pellets", calculator_source)
         self.assertIn("data-damage-energy", calculator_source)
+        self.assertIn("data-damage-stage", calculator_source)
         self.assertIn("data-damage-headshot", calculator_source)
         self.assertIn("data-attacker-search", source)
         self.assertIn("tile.hidden = !tile.dataset.attackerName.includes(query)", source)

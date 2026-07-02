@@ -43,8 +43,16 @@
   }
 
   function parsedRange(stat) {
-    const maximum = finite(stat?.max_value) ?? finite(stat?.value);
-    const minimum = finite(stat?.min_value) ?? maximum;
+    let maximum = finite(stat?.max_value) ?? finite(stat?.value);
+    let minimum = finite(stat?.min_value) ?? maximum;
+    const raw = String(stat?.raw_display ?? stat?.raw ?? "").trim();
+    if (maximum === null && /[-–—]|â€“/.test(raw)) {
+      const numbers = raw.match(/\d+(?:\.\d+)?/g)?.map(Number) || [];
+      if (numbers.length === 2) {
+        maximum = Math.max(...numbers);
+        minimum = Math.min(...numbers);
+      }
+    }
     return { maximum, minimum };
   }
 
@@ -62,10 +70,14 @@
       const label = componentLabel(component);
       return /(explosion|splash|aoe)/.test(label) && !/self/.test(label);
     });
-    const simpleExplosion = !components.length && /(explosion|splash)/.test(text);
+    const radius = ability?.stats?.radius;
+    const radialAreaDamage = /area of effect/.test(text)
+      && finite(radius?.min_value) !== null
+      && finite(radius?.max_value) !== null
+      && finite(ability?.stats?.damage_falloff_range?.min_value) === null;
+    const simpleExplosion = !components.length && (/(explod|splash)/.test(text) || radialAreaDamage);
     if (!explosion && !simpleExplosion) return null;
     const values = explosion ? componentValues(explosion) : parsedRange(ability?.stats?.damage);
-    const radius = ability?.stats?.radius;
     const start = finite(radius?.min_value);
     const end = finite(radius?.max_value);
     if (values.maximum === null || values.minimum === null || start === null || end === null || end <= start) {
@@ -158,9 +170,20 @@
   }
 
   function complexDamageReason(ability) {
+    if (ability?.name === "Molten Core") return "Needs deployable uptime or a selected pool duration; impact, pool DPS, and armor bonus cannot be combined safely.";
     if (ability?.name === "Palatine Fang") return "Multiple swing and overhead-strike stages need an explicit combo-stage selection.";
     if (ability?.name === "Sundering Blade") return "Multiple charge stages and direct/indirect damage choices need an explicit stage selection.";
     return "Multi-component damage is not safely reducible to one modeled event.";
+  }
+
+  function vendettaStageModel(ability, components) {
+    if (!['Palatine Fang', 'Sundering Blade'].includes(ability?.name)) return null;
+    const stages = components.map((component, index) => ({
+      label: `${ability.name === 'Sundering Blade' ? 'direct hit, ' : ''}${String(component?.label || `stage ${index + 1}`).replaceAll('[[', '').replaceAll(']]', '')}`,
+      damage: componentValues(component).maximum,
+    })).filter((stage) => stage.damage !== null && stage.damage > 0);
+    if (!stages.length) return { supported: false, reason: "Needs combo-stage selection, but no positive stage damage was parsed." };
+    return { supported: true, kind: "staged", stages, controls: ["stage"], unit: "shots" };
   }
 
   function classify(ability) {
@@ -176,6 +199,9 @@
 
     const shotgun = shotgunModel(ability, components, text);
     if (shotgun) return { ...base, ...shotgun, kind: "shotgun", controls: [...(shotgun.hasFalloff || shotgun.partialFalloff ? ["distance"] : [])], unit: "shots" };
+
+    const vendettaStages = vendettaStageModel(ability, components);
+    if (vendettaStages) return { ...base, ...vendettaStages };
 
     const explosion = explosionModel(ability, components, text);
     const dot = dotModel(ability, components, text);
@@ -234,7 +260,7 @@
     return maximum + (minimum - maximum) * progress;
   }
 
-  function evaluate({ ruleset, ability, distance = 0, explosionDistance, pelletsHit, energy = 0, headshot = false } = {}) {
+  function evaluate({ ruleset, ability, distance = 0, explosionDistance, pelletsHit, energy = 0, stage = 0, headshot = false } = {}) {
     const model = classify(ability);
     if (!model.supported) return { ...model, ruleset };
     const meters = Math.max(0, finite(distance) ?? 0);
@@ -243,7 +269,11 @@
     const charge = Math.min(100, Math.max(0, finite(energy) ?? 0));
     const parts = [];
 
-    if (model.kind === "shotgun") {
+    if (model.kind === "staged") {
+      const selectedStage = Math.min(model.stages.length - 1, Math.max(0, Math.floor(finite(stage) ?? 0)));
+      const selected = model.stages[selectedStage];
+      parts.push({ label: selected.label, damage: selected.damage, damageType: model.damageType });
+    } else if (model.kind === "shotgun") {
       if (model.partialFalloff && meters > model.start) return { ...model, supported: false, reason: "Reduced full-shot damage after falloff start was not safely parsed." };
       const fullDamage = model.hasFalloff ? interpolate(model.fullMaximum, model.fullMinimum, meters, model.start, model.end) : model.fullMaximum;
       const landed = model.pelletCount && finite(pelletsHit) !== null ? Math.min(model.pelletCount, Math.max(1, Math.round(finite(pelletsHit)))) : model.pelletCount;

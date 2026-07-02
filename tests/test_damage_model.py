@@ -113,14 +113,15 @@ class DamageModelTests(unittest.TestCase):
         self.assertFalse(result["supported"])
         self.assertIn("Multi-component", result["reason"])
 
-    def test_vendetta_complex_entries_explain_the_missing_selection(self):
+    def test_vendetta_complex_entries_expose_stage_selection(self):
         fang = {"name": "Palatine Fang", "type": "Weapon", "stats": {"damage": {"components": [{"label": "swing", "value": 45}, {"label": "overhead strike", "value": 120}]}}}
         blade = {"name": "Sundering Blade", "type": "Ability", "stats": {"damage": {"components": [{"label": "direct/indirect stage 1", "value": 100}]}}}
         result = self.run_model(
-            f"[{json.dumps(fang)},{json.dumps(blade)}].map(ability=>OWDamageModel.classify(ability).reason)"
+            f"[{json.dumps(fang)},{json.dumps(blade)}].map(ability=>OWDamageModel.classify(ability))"
         )
-        self.assertIn("combo-stage selection", result[0])
-        self.assertIn("direct/indirect", result[1])
+        self.assertTrue(all(item["supported"] for item in result))
+        self.assertTrue(all(item["kind"] == "staged" for item in result))
+        self.assertEqual(result[0]["controls"], ["stage"])
 
     def test_repeatable_weapon_calculates_shots_without_per_shot_events(self):
         weapon = {"type": "Weapon", "slot": "primary fire", "stats": {"damage": {"value": 40, "components": []}}}

@@ -1086,12 +1086,13 @@ function renderDamageControls(model) {
     ${model.controls.includes("distance") ? `<label>Attack distance <input data-damage-distance type="range" min="0" max="${Math.ceil(model.end + 10)}" step="0.5" value="0"><output data-damage-distance-output>0 m</output></label>` : ""}
     ${model.controls.includes("explosionDistance") ? `<p class="damage-assumption">${model.category === "repeatable" ? "Direct-hit / max explosion damage assumed." : "Maximum explosion damage assumed."}</p><details class="advanced-damage-control"><summary>Advanced splash-distance mode</summary><label class="damage-checkbox"><input data-damage-splash-mode type="checkbox"> Model a splash-only hit</label><label data-damage-explosion-distance-label hidden>Explosion distance from center <input data-damage-explosion-distance type="range" min="0" max="${model.explosionEnd}" step="0.1" value="0"><output data-damage-explosion-output>0 m</output></label></details>` : ""}
     ${model.controls.includes("energy") ? '<label>Energy charge <input data-damage-energy type="range" min="0" max="100" step="1" value="0"><output data-damage-energy-output>0%</output><span class="damage-assumption">Scales between the exported 0% and 100% Energy values.</span></label>' : ""}
+    ${model.controls.includes("stage") ? `<label>Damage stage <select data-damage-stage>${model.stages.map((stage, index) => `<option value="${index}">${escapeHtml(stage.label)} — ${formatNumber(stage.damage)} damage</option>`).join("")}</select></label>` : ""}
     ${model.controls.includes("headshot") ? '<label class="damage-checkbox"><input data-damage-headshot type="checkbox"> Headshot</label>' : ""}
   `;
 }
 
 function damageKindLabel(model) {
-  const labels = { direct: "Direct damage", explosion: "Explosion", explosion_dot: "Explosion + DoT", dot: "Damage over time", deployable: "Deployable", shotgun: "Shotgun", beam: "Beam", melee: "Melee" };
+  const labels = { direct: "Direct damage", explosion: "Explosion", explosion_dot: "Explosion + DoT", dot: "Damage over time", deployable: "Deployable", shotgun: "Shotgun", beam: "Beam", melee: "Melee", staged: "Stage-select damage" };
   return labels[model.kind] || "Complex damage";
 }
 
@@ -1101,6 +1102,7 @@ function damageAssumptionLabel(model) {
   if (model.kind === "explosion") return model.category === "repeatable" ? "Direct hit / max explosion assumed" : "Maximum explosion damage assumed";
   if (model.kind === "dot") return model.dot?.dotMode === "ticks" ? "Tick-based DoT" : "Total DoT damage";
   if (model.kind === "deployable") return `Partial support: ${model.modeledPart || "safe damage event"}`;
+  if (model.kind === "staged") return "Selected stage only";
   if (model.controls?.includes("energy")) return "0–100 Energy scaling";
   return "";
 }
@@ -1193,7 +1195,7 @@ function bindShotsToKillCalculator() {
           update();
         });
       });
-      calculator.querySelectorAll("[data-limited-use], .event-controls input").forEach((control) => control.addEventListener("input", update));
+      calculator.querySelectorAll("[data-limited-use], .event-controls input, .event-controls select").forEach((control) => control.addEventListener("input", update));
     });
   });
   calculator.querySelector("[data-shots-weapon-controls]").addEventListener("input", update);
@@ -1219,6 +1221,7 @@ function readDamageOptions(container) {
     distance: Number(container.querySelector("[data-damage-distance]")?.value || 0),
     explosionDistance: splashMode ? Number(container.querySelector("[data-damage-explosion-distance]")?.value || 0) : undefined,
     energy: Number(container.querySelector("[data-damage-energy]")?.value || 0),
+    stage: Number(container.querySelector("[data-damage-stage]")?.value || 0),
     headshot: Boolean(container.querySelector("[data-damage-headshot]")?.checked),
   };
 }
