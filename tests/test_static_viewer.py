@@ -177,7 +177,23 @@ class StaticViewerTests(unittest.TestCase):
         self.assertIn('event.key === "Escape"', dialog_source)
         self.assertIn("if (event.target === dialog)", dialog_source)
         self.assertIn("sourceButton.focus()", dialog_source)
+        self.assertIn("dialog.showModal()", dialog_source)
+        self.assertIn("dialog.scrollTop = 0", dialog_source)
+        self.assertIn('dialog.querySelector(".shots-dialog-body").scrollTop = 0', dialog_source)
         self.assertIn("bindShotsToKillCalculator(dialog)", dialog_source)
+
+    def test_shots_calculator_dialog_is_viewport_fixed_and_scrolls_internally(self) -> None:
+        styles = STYLES_CSS.read_text(encoding="utf-8")
+        dialog_styles = styles[
+            styles.index(".shots-dialog-backdrop"):styles.index(".ability-dialog {")
+        ]
+
+        self.assertIn("position: fixed", dialog_styles)
+        self.assertIn("inset: 0", dialog_styles)
+        self.assertIn("height: min(90vh, 900px)", dialog_styles)
+        self.assertIn("grid-template-rows: auto minmax(0, 1fr)", dialog_styles)
+        self.assertIn("min-height: 0", dialog_styles)
+        self.assertIn("overflow-y: auto", dialog_styles)
 
     def test_single_ruleset_resolves_base_without_a_mode_control(self) -> None:
         source = MAIN_JS.read_text(encoding="utf-8")

@@ -1138,7 +1138,7 @@ dd {
 .advanced-damage-control { padding: 6px 0; }
 .advanced-damage-control summary { color: #c7d5e4; font-size: 0.76rem; font-weight: 700; cursor: pointer; }
 .advanced-damage-control[open] { display: grid; gap: 7px; }
-.shots-result { position: sticky; bottom: 0; z-index: 2; display: grid; gap: 3px; margin-top: 0; border: 1px solid rgba(53, 227, 230, 0.28); background: rgba(12, 21, 30, 0.98); box-shadow: 0 -10px 24px rgba(4, 9, 15, 0.48); }
+.shots-result { display: grid; gap: 3px; margin-top: 0; border: 1px solid rgba(53, 227, 230, 0.28); background: rgba(12, 21, 30, 0.98); }
 .shots-result strong { color: #fff; font-size: 1rem; }
 .shots-result span { color: #b9c2ce; font-size: 0.78rem; }
 .combo-result-details { display: grid; gap: 5px; margin: 6px 0 0; }
@@ -1425,21 +1425,33 @@ dd {
 }
 
 .shots-dialog-backdrop {
+  position: fixed;
+  inset: 0;
   width: min(1100px, calc(100vw - 32px));
-  max-height: 90vh;
+  height: min(90vh, 900px);
+  max-height: none;
+  margin: auto;
 }
 
 .shots-dialog {
-  max-height: 90vh;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  width: 100%;
+  height: 100%;
+  max-height: none;
 }
 
 .shots-dialog-header {
+  position: relative;
   grid-template-columns: minmax(0, 1fr) 44px;
 }
 
 .shots-dialog-body {
-  max-height: calc(90vh - 101px);
+  min-height: 0;
+  max-height: none;
+  overflow-y: auto;
   overflow-x: hidden;
+  overscroll-behavior: contain;
 }
 
 .ability-dialog {
@@ -1696,12 +1708,13 @@ dd {
 
   .shots-dialog-backdrop {
     width: calc(100vw - 8px);
-    max-height: 94vh;
+    height: min(94vh, 820px);
+    max-height: none;
   }
 
-  .shots-dialog,
-  .shots-dialog-body {
-    max-height: 94vh;
+  .shots-dialog {
+    height: 100%;
+    max-height: none;
   }
 
   .shots-dialog-header {
@@ -1709,7 +1722,8 @@ dd {
   }
 
   .shots-dialog-body {
-    max-height: calc(94vh - 81px);
+    min-height: 0;
+    max-height: none;
   }
 
   .ability-dialog-header {

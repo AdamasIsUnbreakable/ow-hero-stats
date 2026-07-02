@@ -1053,6 +1053,7 @@ function renderShotsCalculatorDialog(hero) {
           <li>Weapons are repeatable.</li>
           <li>Checked abilities are applied once before weapon shots.</li>
         </ul>
+        <div class="calculator-result shots-result" data-shots-result aria-live="polite">Choose an attacking hero.</div>
         <label class="attacker-search-label">Find an attacking hero
           <input type="search" data-attacker-search placeholder="Search attackers" autocomplete="off">
         </label>
@@ -1076,7 +1077,6 @@ function renderShotsCalculatorDialog(hero) {
           <h5 data-shots-options-heading>Weapon settings</h5>
           <div data-shots-weapon-controls></div>
         </section>
-        <div class="calculator-result shots-result" data-shots-result aria-live="polite">Choose an attacking hero.</div>
             </div>
           </div>
         </div>
@@ -1120,6 +1120,8 @@ function openShotsDialog(sourceButton) {
     }
   });
   dialog.showModal();
+  dialog.scrollTop = 0;
+  dialog.querySelector(".shots-dialog-body").scrollTop = 0;
   bindShotsToKillCalculator(dialog);
   dialog.querySelector("[data-shots-dialog-close]").focus();
 }
