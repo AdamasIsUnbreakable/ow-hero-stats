@@ -270,9 +270,13 @@ class StaticViewerTests(unittest.TestCase):
 
         self.assertIn('[["Tank", 0], ["Damage", 1], ["Support", 2], ["Unknown", 3]]', calculator_source)
         self.assertIn("Explosion distance from center", calculator_source)
-        self.assertIn("data-damage-pellets", calculator_source)
+        self.assertNotIn("data-damage-pellets", calculator_source)
         self.assertIn("data-damage-energy", calculator_source)
         self.assertIn("data-damage-headshot", calculator_source)
+        self.assertIn("data-attacker-search", source)
+        self.assertIn("tile.hidden = !tile.dataset.attackerName.includes(query)", source)
+        self.assertIn("Shotguns assume all pellets hit.", source)
+        self.assertIn("Explosive shots assume direct hits.", source)
 
     def test_compare_rebuilds_on_history_navigation(self) -> None:
         source = MAIN_JS.read_text(encoding="utf-8")

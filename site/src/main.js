@@ -1024,6 +1024,15 @@ function renderHealthStats(hero = {}) {
       <summary>Shots to kill calculator</summary>
       <div class="shots-calculator-body">
         <p class="shots-calculator-context"><strong>Target: ${escapeHtml(hero.name)}</strong> (${formatNumber(total)} total health). Choose the attacking hero.</p>
+        <ul class="calculator-assumptions">
+          <li>Explosive shots assume direct hits.</li>
+          <li>Shotguns assume all pellets hit.</li>
+          <li>Weapons are repeatable.</li>
+          <li>Checked abilities are applied once before weapon shots.</li>
+        </ul>
+        <label class="attacker-search-label">Find an attacking hero
+          <input type="search" data-attacker-search placeholder="Search attackers" autocomplete="off">
+        </label>
         <div class="attacker-hero-grid" data-attacker-grid>
           ${renderAttackerHeroChoices()}
         </div>
@@ -1065,9 +1074,9 @@ function renderAttackerHeroChoices() {
   let currentRole = "";
   return heroes.map((hero) => {
     const role = roleOrder.has(hero.role) ? hero.role : "Unknown";
-    const heading = role === currentRole ? "" : `<div class="attacker-role-heading">${escapeHtml(role)}</div>`;
+    const heading = role === currentRole ? "" : `<div class="attacker-role-heading" data-attacker-role-heading="${escapeHtml(role)}">${escapeHtml(role)}</div>`;
     currentRole = role;
-    return `${heading}<button class="attacker-hero-tile" type="button" data-attacker-slug="${escapeHtml(hero.slug)}" aria-pressed="false">${renderHeroTilePortrait(hero)}<span>${escapeHtml(hero.name)}</span></button>`;
+    return `${heading}<button class="attacker-hero-tile" type="button" data-attacker-slug="${escapeHtml(hero.slug)}" data-attacker-name="${escapeHtml(hero.name.toLowerCase())}" data-attacker-role="${escapeHtml(role)}" aria-pressed="false">${renderHeroTilePortrait(hero)}<span>${escapeHtml(hero.name)}</span></button>`;
   }).join("");
 }
 
@@ -1075,9 +1084,8 @@ function renderDamageControls(model) {
   if (!model.supported) return "";
   return `
     ${model.controls.includes("distance") ? `<label>Attack distance <input data-damage-distance type="range" min="0" max="${Math.ceil(model.end + 10)}" step="0.5" value="0"><output data-damage-distance-output>0 m</output></label>` : ""}
-    ${model.controls.includes("explosionDistance") ? `<label>Explosion distance from center <input data-damage-explosion-distance type="range" min="0" max="${model.explosionEnd}" step="0.1" value="0"><output data-damage-explosion-output>0 m</output></label>` : ""}
-    ${model.controls.includes("pelletsHit") ? `<label>Pellets hit <input data-damage-pellets type="range" min="1" max="${model.pelletCount}" step="1" value="${model.pelletCount}"><output data-damage-pellets-output>${model.pelletCount} of ${model.pelletCount}</output></label>` : ""}
-    ${model.controls.includes("energy") ? '<label>Energy charge <input data-damage-energy type="range" min="0" max="100" step="1" value="0"><output data-damage-energy-output>0%</output></label>' : ""}
+    ${model.controls.includes("explosionDistance") ? `<p class="damage-assumption">${model.category === "repeatable" ? "Direct-hit / max explosion damage assumed." : "Maximum explosion damage assumed."}</p><details class="advanced-damage-control"><summary>Advanced splash-distance mode</summary><label class="damage-checkbox"><input data-damage-splash-mode type="checkbox"> Model a splash-only hit</label><label data-damage-explosion-distance-label hidden>Explosion distance from center <input data-damage-explosion-distance type="range" min="0" max="${model.explosionEnd}" step="0.1" value="0"><output data-damage-explosion-output>0 m</output></label></details>` : ""}
+    ${model.controls.includes("energy") ? '<label>Energy charge <input data-damage-energy type="range" min="0" max="100" step="1" value="0"><output data-damage-energy-output>0%</output><span class="damage-assumption">Scales between the exported 0% and 100% Energy values.</span></label>' : ""}
     ${model.controls.includes("headshot") ? '<label class="damage-checkbox"><input data-damage-headshot type="checkbox"> Headshot</label>' : ""}
   `;
 }
@@ -1087,13 +1095,23 @@ function damageKindLabel(model) {
   return labels[model.kind] || "Complex damage";
 }
 
+function damageAssumptionLabel(model) {
+  if (model.kind === "shotgun") return "All pellets assumed to hit";
+  if (model.kind === "explosion_dot") return `Maximum explosion + ${model.dot?.dotMode === "ticks" ? "tick-based" : "total"} DoT assumed`;
+  if (model.kind === "explosion") return model.category === "repeatable" ? "Direct hit / max explosion assumed" : "Maximum explosion damage assumed";
+  if (model.kind === "dot") return model.dot?.dotMode === "ticks" ? "Tick-based DoT" : "Total DoT damage";
+  if (model.kind === "deployable") return `Partial support: ${model.modeledPart || "safe damage event"}`;
+  if (model.controls?.includes("energy")) return "0–100 Energy scaling";
+  return "";
+}
+
 function renderRepeatableChoices(entries, attackerSlug) {
   const weapons = entries.filter(({ model }) => model.category === "repeatable");
   if (!weapons.length) return '<p class="ow-muted">No repeatable damaging weapons found.</p>';
   return weapons.map(({ ability, model }) => `
     <button class="shots-ability-choice ${model.supported ? "" : "unsupported"}" type="button" data-shots-weapon="${ability.ability_index}" aria-pressed="false" ${model.supported ? "" : "disabled"}>
       ${renderAbilityVisual(ability, "shots-ability-icon", attackerSlug)}
-      <span><strong>${escapeHtml(ability.name)}</strong><small>${escapeHtml(damageKindLabel(model))}${model.supported ? ` · repeatable ${escapeHtml(model.unit)}` : ` · Unsupported: ${escapeHtml(model.reason)}`}</small></span>
+      <span><strong>${escapeHtml(ability.name)}</strong><small>${escapeHtml(damageKindLabel(model))}${model.supported ? ` · repeatable ${escapeHtml(model.unit)}${damageAssumptionLabel(model) ? ` · ${escapeHtml(damageAssumptionLabel(model))}` : ""}` : ` · Unsupported: ${escapeHtml(model.reason)}`}</small></span>
     </button>
   `).join("");
 }
@@ -1105,7 +1123,7 @@ function renderLimitedChoices(entries, attackerSlug) {
     <article class="limited-damage-event ${model.supported ? "" : "unsupported"}" data-limited-ability="${ability.ability_index}">
       <div class="limited-damage-heading">
         ${renderAbilityVisual(ability, "shots-ability-icon", attackerSlug)}
-        <span><strong>${escapeHtml(ability.name)}</strong><small>${escapeHtml(damageKindLabel(model))}${model.safePartOnly ? " · safe modeled part only" : ""}</small></span>
+        <span><strong>${escapeHtml(ability.name)}</strong><small>${escapeHtml(damageKindLabel(model))}${damageAssumptionLabel(model) ? ` · ${escapeHtml(damageAssumptionLabel(model))}` : ""}</small></span>
       </div>
       ${model.supported ? `<div class="limited-use-list">${Array.from({ length: model.useCount }, (_, index) => `<label><input type="checkbox" data-limited-use data-use-index="${index}"> ${escapeHtml(ability.name)}${model.useCount > 1 ? ` — use ${index + 1}` : ""}</label>`).join("")}</div><div class="event-controls">${renderDamageControls(model)}</div>` : `<p class="unsupported-reason">Unsupported: ${escapeHtml(model.reason)}</p>`}
     </article>
@@ -1138,6 +1156,15 @@ function bindShotsToKillCalculator() {
   let selectedWeapon = null;
 
   const update = () => updateShotsToKillResult(calculator, attacker, selectedWeapon);
+  calculator.querySelector("[data-attacker-search]").addEventListener("input", (event) => {
+    const query = event.target.value.trim().toLowerCase();
+    calculator.querySelectorAll("[data-attacker-slug]").forEach((tile) => {
+      tile.hidden = !tile.dataset.attackerName.includes(query);
+    });
+    calculator.querySelectorAll("[data-attacker-role-heading]").forEach((heading) => {
+      heading.hidden = ![...calculator.querySelectorAll(`[data-attacker-role="${heading.dataset.attackerRoleHeading}"]`)].some((tile) => !tile.hidden);
+    });
+  });
   calculator.querySelectorAll("[data-attacker-slug]").forEach((button) => {
     button.addEventListener("click", async () => {
       const indexHero = state.heroes.find((hero) => hero.slug === button.dataset.attackerSlug);
@@ -1170,6 +1197,12 @@ function bindShotsToKillCalculator() {
     });
   });
   calculator.querySelector("[data-shots-weapon-controls]").addEventListener("input", update);
+  calculator.addEventListener("change", (event) => {
+    if (!event.target.matches("[data-damage-splash-mode]")) return;
+    const controls = event.target.closest(".advanced-damage-control");
+    controls.querySelector("[data-damage-explosion-distance-label]").hidden = !event.target.checked;
+    update();
+  });
 }
 
 function configureWeaponOptions(calculator, ability) {
@@ -1181,10 +1214,10 @@ function configureWeaponOptions(calculator, ability) {
 }
 
 function readDamageOptions(container) {
+  const splashMode = container.querySelector("[data-damage-splash-mode]")?.checked;
   return {
     distance: Number(container.querySelector("[data-damage-distance]")?.value || 0),
-    explosionDistance: Number(container.querySelector("[data-damage-explosion-distance]")?.value || 0),
-    pelletsHit: Number(container.querySelector("[data-damage-pellets]")?.value || 0) || undefined,
+    explosionDistance: splashMode ? Number(container.querySelector("[data-damage-explosion-distance]")?.value || 0) : undefined,
     energy: Number(container.querySelector("[data-damage-energy]")?.value || 0),
     headshot: Boolean(container.querySelector("[data-damage-headshot]")?.checked),
   };
@@ -1201,10 +1234,6 @@ function updateDamageControlOutputs(container) {
       const output = input.closest("label")?.querySelector(outputSelector);
       if (output) output.textContent = format(Number(input.value));
     });
-  });
-  container.querySelectorAll("[data-damage-pellets]").forEach((pellets) => {
-    const pelletOutput = pellets.closest("label")?.querySelector("[data-damage-pellets-output]");
-    if (pelletOutput) pelletOutput.textContent = `${pellets.value} of ${pellets.max}`;
   });
 }
 

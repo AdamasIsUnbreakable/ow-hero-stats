@@ -113,6 +113,15 @@ class DamageModelTests(unittest.TestCase):
         self.assertFalse(result["supported"])
         self.assertIn("Multi-component", result["reason"])
 
+    def test_vendetta_complex_entries_explain_the_missing_selection(self):
+        fang = {"name": "Palatine Fang", "type": "Weapon", "stats": {"damage": {"components": [{"label": "swing", "value": 45}, {"label": "overhead strike", "value": 120}]}}}
+        blade = {"name": "Sundering Blade", "type": "Ability", "stats": {"damage": {"components": [{"label": "direct/indirect stage 1", "value": 100}]}}}
+        result = self.run_model(
+            f"[{json.dumps(fang)},{json.dumps(blade)}].map(ability=>OWDamageModel.classify(ability).reason)"
+        )
+        self.assertIn("combo-stage selection", result[0])
+        self.assertIn("direct/indirect", result[1])
+
     def test_repeatable_weapon_calculates_shots_without_per_shot_events(self):
         weapon = {"type": "Weapon", "slot": "primary fire", "stats": {"damage": {"value": 40, "components": []}}}
         result = self.run_model(
@@ -156,6 +165,29 @@ class DamageModelTests(unittest.TestCase):
         )
         self.assertEqual(self.run_model(expression), [50, 35, 20])
 
+    def test_repeatable_explosion_defaults_to_direct_hit_plus_max_explosion(self):
+        weapon = {
+            "type": "Weapon", "slot": "primary fire",
+            "stats": {
+                "damage": {"components": [
+                    {"label": "direct hit", "value": 45},
+                    {"label": "splash, enemy", "min_value": 10, "max_value": 80},
+                ]},
+                "radius": {"min_value": 0.5, "max_value": 2},
+            },
+        }
+        default = self.run_model(f"OWDamageModel.evaluate({{ability:{json.dumps(weapon)}}})")
+        splash = self.run_model(
+            f"OWDamageModel.evaluate({{ability:{json.dumps(weapon)},explosionDistance:2}})"
+        )
+        shots = self.run_model(
+            f"OWDamageModel.shotsToKill({{ability:{json.dumps(weapon)},target:{{health:250}}}})"
+        )
+        self.assertEqual(default["damage"], 125)
+        self.assertEqual(default["damageParts"][0]["label"], "direct hit / max explosion")
+        self.assertEqual(splash["damage"], 10)
+        self.assertEqual(shots["shots"], 2)
+
     def test_dot_uses_tick_damage_when_available(self):
         ability = {
             "type": "Ability",
@@ -170,6 +202,22 @@ class DamageModelTests(unittest.TestCase):
         self.assertEqual(len(result["damageParts"]), 4)
         self.assertTrue(all(part["label"] == "DoT tick" for part in result["damageParts"]))
 
+    def test_dot_uses_explicit_total_with_duration(self):
+        ability = {
+            "type": "Ability",
+            "stats": {
+                "damage": {"components": [
+                    {"label": "per second", "value": 90},
+                    {"label": "total", "value": 315, "raw": "315 total"},
+                ]},
+                "duration": {"value": 3.5},
+            },
+        }
+        result = self.run_model(f"OWDamageModel.evaluate({{ability:{json.dumps(ability)}}})")
+        self.assertTrue(result["supported"])
+        self.assertEqual(result["damage"], 315)
+        self.assertEqual(result["dot"]["dotMode"], "total")
+
     def test_deployable_exposes_only_safe_damage_event(self):
         ability = {"name": "Deploy Turret", "type": "Ability", "stats": {"damage": {"value": 12, "components": []}}}
         result = self.run_model(f"OWDamageModel.classify({json.dumps(ability)})")
@@ -177,17 +225,24 @@ class DamageModelTests(unittest.TestCase):
         self.assertEqual(result["kind"], "deployable")
         self.assertTrue(result["safePartOnly"])
 
-    def test_shotgun_pellet_accuracy_changes_shots_needed(self):
+    def test_deployable_without_safe_damage_has_specific_reason(self):
+        ability = {"name": "Deploy Turret", "type": "Ability", "stats": {"damage": {"components": [{"label": "conditional stage", "value": 12}]}}}
+        result = self.run_model(f"OWDamageModel.classify({json.dumps(ability)})")
+        self.assertFalse(result["supported"])
+        self.assertIn("per-hit, total, or damage-per-second", result["reason"])
+
+    def test_shotgun_defaults_to_full_pellet_damage(self):
         weapon = {
             "type": "Weapon", "shot_type": ["Shotgun"],
             "stats": {"damage": {"components": [
                 {"label": "per pellet", "value": 10}, {"label": "per shot", "value": 100},
             ]}},
         }
-        expression = (
-            f"[10,5].map(pelletsHit=>OWDamageModel.shotsToKill({{ability:{json.dumps(weapon)},target:{{health:200}},pelletsHit}}).shots)"
+        result = self.run_model(
+            f"OWDamageModel.shotsToKill({{ability:{json.dumps(weapon)},target:{{health:200}}}})"
         )
-        self.assertEqual(self.run_model(expression), [2, 4])
+        self.assertEqual(result["shots"], 2)
+        self.assertEqual(result["damageParts"][0]["label"], "full shotgun shot")
 
     def test_zarya_energy_scales_between_explicit_endpoints(self):
         weapon = {

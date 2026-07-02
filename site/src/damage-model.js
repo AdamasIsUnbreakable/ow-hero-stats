@@ -71,19 +71,28 @@
     if (values.maximum === null || values.minimum === null || start === null || end === null || end <= start) {
       return { supported: false, reason: "Explosion damage needs safe minimum, maximum, and radius falloff data." };
     }
-    return { supported: true, maximum: values.maximum, minimum: values.minimum, explosionStart: start, explosionEnd: end };
+    const impact = components.find((component) => /direct hit|impact/.test(componentLabel(component)) && !/self/.test(componentLabel(component)));
+    const impactDamage = impact ? componentValues(impact).maximum : 0;
+    return { supported: true, maximum: values.maximum, minimum: values.minimum, explosionStart: start, explosionEnd: end, impactDamage: impactDamage || 0, defaultDirectHit: true };
   }
 
   function dotModel(ability, components, text) {
-    const dot = components.find((component) => {
+    let dot = components.find((component) => {
       const label = componentLabel(component);
       return /(burn|over time|dot)/.test(label) && !/self/.test(label);
     });
+    const totalComponent = components.find((component) => /^total$|total damage/.test(componentLabel(component)));
+    const perSecondComponent = components.find((component) => /per second/.test(componentLabel(component)));
+    if (!dot && totalComponent && perSecondComponent) dot = totalComponent;
     const raw = String(dot?.raw_display ?? dot?.raw ?? ability?.stats?.damage?.raw_display ?? ability?.stats?.damage?.raw ?? "");
-    const simpleDot = !components.length && /(over\s+[\d.]+\s*seconds?|damage over time|burn)/i.test(raw + " " + text);
+    const simpleDot = !components.length
+      && !/(deployable|turret|trap)/.test(text)
+      && /(over\s+[\d.]+\s*seconds?|damage over time|burn|per second)/i.test(raw + " " + text);
     if (!dot && !simpleDot) return null;
     const total = dot ? componentValues(dot).maximum : parsedRange(ability?.stats?.damage).maximum;
-    if (total === null || total <= 0 || !/over\s+[\d.]+\s*seconds?/i.test(raw)) {
+    const duration = finite(ability?.stats?.duration?.value);
+    const hasSafeDuration = /over\s+[\d.]+\s*seconds?/i.test(raw) || (duration !== null && duration > 0);
+    if (total === null || total <= 0 || !hasSafeDuration) {
       return { supported: false, reason: "Damage over time needs a safely parsed total and duration." };
     }
     const tickMatch = raw.match(/deals\s+([\d.]+)\s+damage\s+every/i);
@@ -93,12 +102,17 @@
   }
 
   function shotgunModel(ability, components, text) {
-    const pellet = components.find((component) => /per pellet/.test(componentLabel(component)));
-    const shot = components.find((component) => /per (shot|volley|blast)/.test(componentLabel(component)));
+    const fullShot = components.find((component) => /per (volley|blast)/.test(componentLabel(component)))
+      || components.find((component) => /per shot/.test(componentLabel(component)) && !/per pellet/.test(componentLabel(component)));
+    let pellet = components.find((component) => /per pellet/.test(componentLabel(component)));
+    const volley = components.find((component) => /per (volley|blast)/.test(componentLabel(component)));
+    if (!pellet && volley) pellet = components.find((component) => /per shot/.test(componentLabel(component)));
     if (!pellet && !/(pellet|shotgun)/.test(text)) return null;
-    if (!pellet || !shot) return { supported: false, reason: "Shotgun damage needs both pellet and full-shot damage data." };
+    if (!fullShot) return { supported: false, reason: "Shotgun damage needs a safely parsed full-shot or full-volley damage value." };
+    const shotValues = componentValues(fullShot);
+    if (!shotValues.maximum) return { supported: false, reason: "Shotgun full-shot damage was not safely parsed." };
+    if (!pellet) return { supported: true, pelletCount: null, fullMaximum: shotValues.maximum, fullMinimum: shotValues.minimum, maximum: shotValues.maximum, minimum: shotValues.minimum, hasFalloff: false, partialFalloff: false, allPelletsAssumed: true };
     const pelletValues = componentValues(pellet);
-    const shotValues = componentValues(shot);
     if (!pelletValues.maximum || !shotValues.maximum) {
       return { supported: false, reason: "Shotgun pellet damage was not safely parsed." };
     }
@@ -106,11 +120,11 @@
     if (pelletCount <= 0 || Math.abs(pelletCount * pelletValues.maximum - shotValues.maximum) > 0.05) {
       return { supported: false, reason: "Shotgun pellet count could not be derived safely." };
     }
-    const falloff = falloffModel(ability, pelletValues.maximum, pelletValues.minimum);
-    if (pelletValues.maximum !== pelletValues.minimum && !falloff.hasFalloff) {
-      return { supported: false, reason: "Pellet damage has a range but no safe distance mapping." };
+    const falloff = falloffModel(ability, shotValues.maximum, shotValues.minimum);
+    if (shotValues.maximum !== shotValues.minimum && !falloff.hasFalloff) {
+      return { supported: false, reason: "Full-shot damage has a range but no safe distance mapping." };
     }
-    return { supported: true, pelletCount, maximum: pelletValues.maximum, minimum: pelletValues.minimum, ...falloff };
+    return { supported: true, pelletCount, pelletMaximum: pelletValues.maximum, pelletMinimum: pelletValues.minimum, fullMaximum: shotValues.maximum, fullMinimum: shotValues.minimum, maximum: shotValues.maximum, minimum: shotValues.minimum, allPelletsAssumed: true, ...falloff };
   }
 
   function zaryaModel(ability, components) {
@@ -134,13 +148,19 @@
     return {
       supported: true, zeroMaximum: zero.maximum, zeroMinimum: zero.minimum,
       hundredMaximum: hundred.maximum, hundredMinimum: hundred.minimum,
-      isExplosion, explosionStart, explosionEnd,
+      isExplosion, explosionStart, explosionEnd, defaultDirectHit: isExplosion,
     };
   }
 
   function useCount(ability) {
     const explicit = finite(ability?.stats?.charges?.value);
     return explicit && explicit > 1 ? Math.min(Math.floor(explicit), 2) : 1;
+  }
+
+  function complexDamageReason(ability) {
+    if (ability?.name === "Palatine Fang") return "Multiple swing and overhead-strike stages need an explicit combo-stage selection.";
+    if (ability?.name === "Sundering Blade") return "Multiple charge stages and direct/indirect damage choices need an explicit stage selection.";
+    return "Multi-component damage is not safely reducible to one modeled event.";
   }
 
   function classify(ability) {
@@ -155,7 +175,7 @@
     if (zarya) return { ...base, ...zarya, kind: zarya.isExplosion ? "explosion" : "beam", controls: ["energy", ...(zarya.isExplosion ? ["explosionDistance"] : [])], unit: zarya.isExplosion ? "shots" : "seconds" };
 
     const shotgun = shotgunModel(ability, components, text);
-    if (shotgun) return { ...base, ...shotgun, kind: "shotgun", controls: ["pelletsHit", ...(shotgun.hasFalloff || shotgun.partialFalloff ? ["distance"] : [])], unit: "shots" };
+    if (shotgun) return { ...base, ...shotgun, kind: "shotgun", controls: [...(shotgun.hasFalloff || shotgun.partialFalloff ? ["distance"] : [])], unit: "shots" };
 
     const explosion = explosionModel(ability, components, text);
     const dot = dotModel(ability, components, text);
@@ -165,18 +185,27 @@
       return {
         ...base, supported: true, kind: explosion && dot ? "explosion_dot" : (explosion ? "explosion" : "dot"),
         controls: explosion ? ["explosionDistance"] : [], ...explosion, dot,
-        safePartOnly: components.some((component) => !/(explosion|splash|aoe|burn|over time|dot|self)/.test(componentLabel(component))),
+        safePartOnly: components.some((component) => !/(direct hit|impact|explosion|splash|aoe|burn|over time|dot|self)/.test(componentLabel(component))),
         unit: category === "repeatable" ? "shots" : "uses",
       };
     }
 
     if (/deployable|turret|trap/.test(text)) {
-      const values = parsedRange(ability?.stats?.damage);
-      if (!values.maximum || values.maximum !== values.minimum) return { ...base, supported: false, kind: "deployable", reason: "Deployable damage needs one safe per-hit or per-second value." };
-      return { ...base, supported: true, kind: "deployable", maximum: values.maximum, minimum: values.minimum, controls: [], unit: /per second/.test(text) ? "seconds" : "hits", safePartOnly: true };
+      let values = parsedRange(ability?.stats?.damage);
+      let sourceLabel = "";
+      if ((!values.maximum || values.maximum !== values.minimum) && components.length) {
+        const safeComponent = components.find((component) => /arm cannon|turret|per hit|per shot/.test(componentLabel(component)) && componentValues(component).maximum > 0);
+        if (safeComponent) {
+          values = componentValues(safeComponent);
+          sourceLabel = componentLabel(safeComponent);
+        }
+      }
+      if (!values.maximum || values.maximum !== values.minimum) return { ...base, supported: false, kind: "deployable", reason: "Deployable damage needs a safe per-hit, total, or damage-per-second value with duration." };
+      const perSecond = /per second/.test(text) || /per second/.test(sourceLabel);
+      return { ...base, supported: true, kind: "deployable", maximum: values.maximum, minimum: values.minimum, controls: [], unit: perSecond ? "seconds" : "hits", safePartOnly: true, modeledPart: sourceLabel || (perSecond ? "one second of damage" : "one hit") };
     }
 
-    if (components.length) return { ...base, supported: false, kind: "complex", reason: "Multi-component damage is not safely reducible to one modeled event." };
+    if (components.length) return { ...base, supported: false, kind: "complex", reason: complexDamageReason(ability) };
     const values = parsedRange(ability?.stats?.damage);
     if (values.maximum === null || values.minimum === null || values.maximum <= 0 || values.minimum <= 0) {
       return { ...base, supported: false, kind: "unknown", reason: "A positive damage value was not safely parsed." };
@@ -205,26 +234,30 @@
     return maximum + (minimum - maximum) * progress;
   }
 
-  function evaluate({ ruleset, ability, distance = 0, explosionDistance = 0, pelletsHit, energy = 0, headshot = false } = {}) {
+  function evaluate({ ruleset, ability, distance = 0, explosionDistance, pelletsHit, energy = 0, headshot = false } = {}) {
     const model = classify(ability);
     if (!model.supported) return { ...model, ruleset };
     const meters = Math.max(0, finite(distance) ?? 0);
-    const blastMeters = Math.max(0, finite(explosionDistance) ?? 0);
+    const explicitBlastDistance = finite(explosionDistance);
+    const blastMeters = Math.max(0, explicitBlastDistance ?? 0);
     const charge = Math.min(100, Math.max(0, finite(energy) ?? 0));
     const parts = [];
 
     if (model.kind === "shotgun") {
-      if (model.partialFalloff && meters > model.start) return { ...model, supported: false, reason: "Reduced pellet damage after falloff start was not safely parsed." };
-      const perPellet = model.hasFalloff ? interpolate(model.maximum, model.minimum, meters, model.start, model.end) : model.maximum;
-      const landed = Math.min(model.pelletCount, Math.max(1, Math.round(finite(pelletsHit) ?? model.pelletCount)));
-      parts.push({ label: `${landed} pellets`, damage: perPellet * landed, damageType: model.damageType });
+      if (model.partialFalloff && meters > model.start) return { ...model, supported: false, reason: "Reduced full-shot damage after falloff start was not safely parsed." };
+      const fullDamage = model.hasFalloff ? interpolate(model.fullMaximum, model.fullMinimum, meters, model.start, model.end) : model.fullMaximum;
+      const landed = model.pelletCount && finite(pelletsHit) !== null ? Math.min(model.pelletCount, Math.max(1, Math.round(finite(pelletsHit)))) : model.pelletCount;
+      const damage = landed && landed !== model.pelletCount ? fullDamage * landed / model.pelletCount : fullDamage;
+      parts.push({ label: landed && landed !== model.pelletCount ? `${landed} pellets` : "full shotgun shot", damage, damageType: model.damageType });
     } else if (model.controls.includes("energy")) {
       let maximum = model.zeroMaximum + (model.hundredMaximum - model.zeroMaximum) * charge / 100;
       let minimum = model.zeroMinimum + (model.hundredMinimum - model.zeroMinimum) * charge / 100;
-      if (model.isExplosion) maximum = interpolate(maximum, minimum, blastMeters, model.explosionStart, model.explosionEnd);
+      if (model.isExplosion && explicitBlastDistance !== null) maximum = interpolate(maximum, minimum, blastMeters, model.explosionStart, model.explosionEnd);
       parts.push({ label: `${charge}% Energy`, damage: maximum, damageType: model.damageType });
     } else if (model.kind === "explosion" || model.kind === "explosion_dot") {
-      parts.push({ label: "explosion", damage: interpolate(model.maximum, model.minimum, blastMeters, model.explosionStart, model.explosionEnd), damageType: model.damageType });
+      const splashDamage = explicitBlastDistance === null ? model.maximum : interpolate(model.maximum, model.minimum, blastMeters, model.explosionStart, model.explosionEnd);
+      const impactDamage = explicitBlastDistance === null ? model.impactDamage : 0;
+      parts.push({ label: explicitBlastDistance === null ? "direct hit / max explosion" : "splash", damage: splashDamage + impactDamage, damageType: model.damageType });
     } else if (model.kind !== "dot") {
       if (model.partialFalloff && meters > model.start) return { ...model, supported: false, reason: "Reduced damage after falloff start was not safely parsed." };
       let damage = model.hasFalloff ? interpolate(model.maximum, model.minimum, meters, model.start, model.end) : model.maximum;
